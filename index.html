@@ -17,7 +17,11 @@
           >
         </div>
         <div class="header_main">
-          <h1><img src="./img/icon/logo.png" alt="LCM 로고" height="30" /></h1>
+          <h1>
+            <a href="/"
+              ><img src="./img/icon/logo.png" alt="LCM 로고" height="30"
+            /></a>
+          </h1>
           <nav>
             <ul id="gnb" class="gnb">
               <li>
@@ -144,7 +148,7 @@
           <div class="icon">
             <div class="search_icon">
               <div class="search"><i></i></div>
-              <input type="text" placeholder="검색어를입력하세요" />
+              <input type="text" placeholder="검색어를 입력하세요." />
             </div>
             <a href="#" class="heart"><i></i></a>
             <a href="#" class="mypage"><i></i></a>
@@ -178,27 +182,36 @@
             </div>
           </div>
         </section>
-        <section>
+        <section class="section02_wrap">
           <div class="content_wrap">
-            <h2>best view</h2>
-            <p>이번주 가장 인기있는 장소에 함께해보세요</p>
-            <div class="button_wrap">
-              <button type="button">#영지</button>
-              <button type="button">#대륙</button>
-              <button type="button">#던전</button>
-              <button type="button">#섬</button>
+            <div class="text">
+              <h2>best view</h2>
+              <p>이번주 가장 인기있는 장소에 함께해보세요</p>
             </div>
-          </div>
-          <div class="wide_photo">
-            <div class="photo_01"></div>
-            <div class="photo_02"></div>
-            <div class="photo_03"></div>
-            <div class="photo_04"></div>
-            <button type="button"></button>
-            <button type="button"></button>
+            <div class="photo_wrapper">
+              <div class="button_wrap">
+                <div class="slide_button"><span>#영지</span></div>
+                <div class="slide_button"><span>#대륙</span></div>
+                <div class="slide_button"><span>#던전</span></div>
+                <div class="slide_button"><span>#섬</span></div>
+              </div>
+              <div class="wide_photo">
+                <div class="photo_01"></div>
+                <div class="photo_02"></div>
+                <div class="photo_03"></div>
+                <div class="photo_04"></div>
+                <button type="button"></button>
+                <button type="button"></button>
+              </div>
+            </div>
           </div>
         </section>
       </main>
     </div>
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.slim.js"
+      integrity="sha256-UgvvN8vBkgO0luPSUl2s8TIlOSYRoGFAX4jlCIm9Adc="
+      crossorigin="anonymous"></script>
+    <script src="./js/layout.js"></script>
   </body>
 </html>

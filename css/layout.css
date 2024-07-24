@@ -14,6 +14,12 @@ body {
   height: auto;
   background-color: #fff;
 }
+main,
+section {
+  width: 100%;
+  height: auto;
+}
+
 /* 헤더 */
 header {
   width: 100%;
@@ -22,8 +28,8 @@ header {
 }
 .header_event {
   background-color: #111;
-  padding: 20px 0;
-  font-size: 14px;
+  padding: 1.8vh 0;
+  font-size: 0.875em;
 }
 .header_event > a {
   display: block;
@@ -33,26 +39,27 @@ header {
 }
 .header_main {
   width: 78%;
-  height: 100px;
+  height: 9.3vh;
   margin: 0 auto;
   box-sizing: border-box;
   position: relative;
 }
 h1 {
   float: left;
-  padding: 35px 0;
+  padding: 3.26vh 0;
 }
 /* 헤더-메뉴 */
 nav {
   width: 35%;
   float: left;
   margin-left: 8%;
-  line-height: 100px;
+  line-height: 6.25em;
 }
 .gnb {
   width: 100%;
   height: 100%;
-  font-size: 18px;
+  /* 폰트 18px */
+  font-size: 1.125em;
   display: flex;
   color: #111;
   font-weight: 400;
@@ -67,7 +74,7 @@ nav {
   display: inline-block;
   width: 100%;
   height: 100%;
-  font-size: 20px;
+  font-size: 1.2em;
   transform: translateY(2px);
 }
 .gnb > li:hover > a {
@@ -90,10 +97,11 @@ nav {
   transform-origin: left center;
 }
 .gnb > li > a::before {
-  content: "";
+  content: "line";
+  font-size: 0;
   display: block;
   position: absolute;
-  bottom: 18px;
+  bottom: 1.67vh;
   left: 0;
   width: 16px;
   height: 3px;
@@ -116,7 +124,7 @@ nav {
 }
 .gnb > li:hover > a::before {
   opacity: 1;
-  bottom: 12px;
+  bottom: 1.12vh;
   left: 90px;
   transition-duration: 0.5s;
 }
@@ -193,7 +201,7 @@ nav {
   position: absolute;
   top: 50%;
   right: -30px;
-  transform: translateY(-30%);
+  transform: translateY(-15%);
 }
 .lnb > li:last-child > a:after {
   display: none;
@@ -215,11 +223,11 @@ nav {
 .icon {
   display: flex;
   width: 25%;
-  height: 30px;
+  height: 2.79vh;
   justify-content: space-between;
   align-items: center;
   float: right;
-  padding: 35px 0;
+  padding: 3.26vh 0;
 }
 .icon > a {
   display: inline-block;
@@ -233,20 +241,20 @@ nav {
 .search_icon > input {
   background-color: #fbfbfb;
   color: #a1a1a1;
-  font-size: 12px;
+  font-size: 0.75em;
   outline: none;
-  border-radius: 15px;
+  border-radius: 0.7em;
   width: 100%;
   height: 100%;
-  padding: 10px 10%;
+  padding: 0.93vh 10%;
   box-sizing: border-box;
   display: none;
 }
 .search {
-  width: 40px;
-  height: 40px;
+  width: 2.08vw;
+  height: 3.72vh;
   background-color: transparent;
-  border-radius: 20px;
+  border-radius: 1.25em;
   position: absolute;
   top: 50%;
   right: 5%;
@@ -255,12 +263,12 @@ nav {
 .search > i {
   display: block;
   background-image: url(../img/icon/sprite_icon.png);
-  background-position: 0px -223px;
-  width: 24px;
-  height: 24px;
+  background-position: 0px -340px;
+  width: 1.25vw;
+  height: 2.23vh;
   position: absolute;
   top: 50%;
-  right: 8px;
+  right: 0.74vh;
   transform: translateY(-50%);
   cursor: pointer;
   z-index: 1;
@@ -278,39 +286,35 @@ nav {
 }
 .heart,
 .mypage {
-  width: 40px;
-  height: 40px;
+  width: 2.08vw;
+  height: 3.72vh;
   background-color: transparent;
-  border-radius: 20px;
-  padding: 9px 8px;
+  border-radius: 1.25em;
+  padding: 0.83vh 0.416vw;
   box-sizing: border-box;
 }
 .mypage {
-  padding: 7px 8px;
+  padding: 0.65vh 0.416vw;
 }
 .heart > i {
   display: block;
   background-image: url(../img/icon/sprite_icon.png);
-  background-position: 0px -247px;
-  width: 24px;
-  height: 22px;
+  background-position: 0px -388px;
+  width: 1.25vw;
+  height: 2.23vh;
 }
 .mypage > i {
   display: block;
   background-image: url(../img/icon/sprite_icon.png);
-  background-position: 0px -199px;
-  width: 24px;
-  height: 24px;
+  background-position: 0px -292px;
+  width: 1.25vw;
+  height: 2.23vh;
 }
 /* ---------------------------------------------------------------------------- */
 /* 메인비주얼 */
-main {
-  width: 100%;
-  height: auto;
-}
+
 .main_visual {
-  width: 100%;
-  height: 800px;
+  height: 74.55vh;
   background-color: #111;
 }
 .photo_01 {
@@ -349,31 +353,31 @@ main {
 .section01_wrap > ul {
   width: 35%;
   height: fit-content;
-  padding-top: 200px;
+  padding-top: 18.63vh;
   float: left;
 }
 .section01_wrap > ul > li:nth-of-type(1) {
   font-weight: 400;
-  margin-bottom: 30px;
+  margin-bottom: 2.765vh;
 }
 .section01_wrap > ul > li:nth-of-type(2) {
   font-weight: 500;
-  font-size: 43px;
-  margin-bottom: 40px;
+  font-size: 2.68em;
+  margin-bottom: 3.727vh;
 }
 .section01_wrap > ul > li:nth-of-type(3) {
   font-weight: 400;
-  margin-bottom: 30px;
-  line-height: 24px;
+  margin-bottom: 2.765vh;
+  line-height: 1.5em;
   position: relative;
-  padding-left: 20px;
+  padding-left: 1.04vw;
 }
 .section01_wrap > ul > li:nth-of-type(3)::before {
   content: "line";
   font-size: 0;
   display: inline-block;
-  width: 8px;
-  height: 36px;
+  width: 0.4vw;
+  height: 3.355vh;
   background-color: #fff;
   position: absolute;
   left: 0;
@@ -381,9 +385,9 @@ main {
   transform: translateY(-50%);
 }
 .section01_wrap > ul > li:nth-of-type(4) {
-  font-size: 14px;
+  font-size: 0.875em;
   font-weight: 200;
-  margin-bottom: 140px;
+  margin-bottom: 13.04vh;
 }
 .section01_wrap > ul > div {
   width: 100%;
@@ -397,7 +401,7 @@ main {
 }
 .section01_wrap > .photo {
   width: 40.8%;
-  height: 800px;
+  height: 74.55vh;
   background-color: blue;
   background: url(../img/photo/main_visual/main_people01.jpg) no-repeat 100%;
   float: right;
@@ -418,4 +422,56 @@ main {
   font-size: 20px;
   font-weight: 500;
   padding-bottom: 15px;
+}
+/* 섹션2 - best view */
+.content_wrap {
+  width: 78%;
+  height: fit-content;
+  margin: 150px auto 10px auto;
+}
+.section02_wrap .text {
+  width: 100%;
+  height: fit-content;
+}
+.section02_wrap .text > h2 {
+  font-size: 38px;
+  padding-bottom: 2.5vh;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+.section02_wrap .text > p {
+  font-size: 20px;
+  color: #a1a1a1;
+}
+
+/* 섹션2 - 사진 */
+.photo_wrapper {
+  width: 100%;
+  position: relative;
+}
+.button_wrap {
+  position: absolute;
+  right: 0;
+  top: -10vh;
+}
+.section02_wrap .slide_button {
+  font-size: 16px;
+  border: 1px solid #a1a1a1;
+  color: #a1a1a1;
+  padding: 8px 20px;
+  margin-left: 20px;
+  cursor: pointer;
+  float: left;
+}
+.slide_button:hover {
+  border: none;
+  background-color: #111;
+}
+.slide_button:hover span {
+  color: #fff;
+}
+.wide_photo {
+  width: 100%;
+  height: 46.6vh;
+  background-color: blue;
 }
