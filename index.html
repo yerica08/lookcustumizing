@@ -7,6 +7,15 @@
     <!-- css -->
     <link rel="stylesheet" href="./css/layout.css" />
     <link rel="stylesheet" href="./css/responsive.css" />
+    <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
+    <link
+      rel="stylesheet"
+      href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+    <link
+      rel="stylesheet"
+      href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
   </head>
   <body>
     <div class="wrapper">
@@ -173,7 +182,7 @@
                   <div class="step_bar"></div>
                 </div>
               </ul>
-              <div class="photo"></div>
+              <div class="main_photo"></div>
             </div>
             <div class="next_page">
               <p>LCM의 인기 커스텀을 만나보세요!</p>
@@ -182,7 +191,7 @@
             </div>
           </div>
         </section>
-        <section class="section02_wrap">
+        <section class="section02_wrap section_wrap">
           <div class="content_wrap">
             <div class="text">
               <h2>best view</h2>
@@ -190,28 +199,123 @@
             </div>
             <div class="photo_wrapper">
               <div class="button_wrap">
-                <div class="slide_button"><span>#영지</span></div>
-                <div class="slide_button"><span>#대륙</span></div>
-                <div class="slide_button"><span>#던전</span></div>
-                <div class="slide_button"><span>#섬</span></div>
+                <input type="radio" id="button01" name="view" checked />
+                <label for="button01">#영지</label>
+                <input type="radio" id="button02" name="view" />
+                <label for="button02">#대륙</label>
+                <input type="radio" id="button03" name="view" />
+                <label for="button03">#던전</label>
+                <input type="radio" id="button04" name="view" />
+                <label for="button03">#섬</label>
               </div>
-              <div class="wide_photo">
-                <div class="photo_01"></div>
-                <div class="photo_02"></div>
-                <div class="photo_03"></div>
-                <div class="photo_04"></div>
-                <button type="button"></button>
-                <button type="button"></button>
+              <div class="wide_photo_01 photo01 photo" id="wide_photo_01">
+                <div class="photo_01 photo_flex">
+                  <img src="./img/photo/view/photo_01_wide.jpg" alt="" />
+                </div>
+                <div class="photo_02">
+                  <img src="./img/photo/view/photo_02_wide.jpg" alt="" />
+                </div>
+                <div class="photo_03">
+                  <img src="./img/photo/view/photo_03_wide.jpg" alt="" />
+                </div>
+                <div class="photo_04">
+                  <img src="./img/photo/view/photo_04_wide.jpg" alt="" />
+                </div>
+                <div class="photo_04">
+                  <img src="./img/photo/view/photo_05_wide.jpg" alt="" />
+                </div>
+              </div>
+              <div
+                class="progress"
+                role="progressbar"
+                aria-valuemin="0"
+                aria-valuemax="100"></div>
+              <div class="wide_photo_02 photo01 photo" id="wide_photo_02">
+                <div class="photo_05">
+                  <img src="./img/photo/view/photo_06.jpg" alt="" />
+                </div>
+                <div class="photo_06">
+                  <img src="./img/photo/view/photo_07.jpg" alt="" />
+                </div>
+                <div class="photo_07">
+                  <img src="./img/photo/view/photo_08.jpg" alt="" />
+                </div>
+                <div class="photo_08">
+                  <img src="./img/photo/view/photo_09.jpg" alt="" />
+                </div>
+                <div class="photo_09">
+                  <img src="./img/photo/view/photo_10.jpg" alt="" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="section03_wrap section_wrap">
+          <div class="content_wrap">
+            <div class="text">
+              <h2>best appearance</h2>
+              <p>이번주 가장 인기있는 커마를 구경해보세요</p>
+            </div>
+            <div class="translateButton">
+              <div class="button_text">
+                <h4></h4>
+              </div>
+            </div>
+            <div class="photo_wrapper">
+              <div class="button_wrap">
+                <input type="radio" id="button01" name="appearance" checked />
+                <label for="button01">#큐티</label>
+                <input type="radio" id="button02" name="appearance" />
+                <label for="button02">#시크</label>
+                <input type="radio" id="button03" name="appearance" />
+                <label for="button03">#흑발</label>
+                <input type="radio" id="button04" name="appearance" />
+                <label for="button04">#유니크</label>
+              </div>
+              <div class="photo02_nav photo">
+                <div class="photo_01">
+                  <img
+                    src="./img/photo/main_visual/main_background01.jpg"
+                    alt="" />
+                </div>
+                <div class="photo_02">
+                  <img src="./img/photo/view/photo_02.jpg" alt="" />
+                </div>
+                <div class="photo_03">
+                  <img src="./img/photo/view/photo_03.jpg" alt="" />
+                </div>
+                <div class="photo_04">
+                  <img src="./img/photo/view/photo_04.jpg" alt="" />
+                </div>
+                <div class="photo_04">
+                  <img src="./img/photo/view/photo_05.jpg" alt="" />
+                </div>
+              </div>
+              <div class="photo02_nav_02 photo02 photo" id="wide_photo02_01">
+                <div class="photo_01">
+                  <img
+                    src="./img/photo/main_visual/main_background01.jpg"
+                    alt="" />
+                </div>
+                <div class="photo_02">
+                  <img src="./img/photo/view/photo_02.jpg" alt="" />
+                </div>
+                <div class="photo_03">
+                  <img src="./img/photo/view/photo_03.jpg" alt="" />
+                </div>
+                <div class="photo_04">
+                  <img src="./img/photo/view/photo_04.jpg" alt="" />
+                </div>
+                <div class="photo_04">
+                  <img src="./img/photo/view/photo_05.jpg" alt="" />
+                </div>
               </div>
             </div>
           </div>
         </section>
       </main>
     </div>
-    <script
-      src="https://code.jquery.com/jquery-3.7.1.slim.js"
-      integrity="sha256-UgvvN8vBkgO0luPSUl2s8TIlOSYRoGFAX4jlCIm9Adc="
-      crossorigin="anonymous"></script>
+    <!-- slick -->
     <script src="./js/layout.js"></script>
   </body>
 </html>
