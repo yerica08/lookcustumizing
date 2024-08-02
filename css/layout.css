@@ -541,6 +541,11 @@ nav {
   font-weight: 500;
   padding-bottom: 15px;
 }
+.section01_wrap > ul > .play,
+.section01_wrap > ul > .stop {
+  width: 48px;
+  height: 48px;
+}
 /* 섹션2 - best view */
 .section_wrap {
   width: 78%;
@@ -699,4 +704,8 @@ nav {
 
 .photo02_nav_02 .slick-slide {
   margin: 0 10px;
+}
+.photo02_nav_02 {
+  height: 46.6vh;
+  overflow: hidden;
 }
