@@ -16,7 +16,6 @@ $("#button02").click(function () {
     document.getElementById("wide_photo_01").style.display = "block";
   }
 });
-
 $(document).ready(function () {
   $(".photo01").slick({
     Infinity: true,
@@ -69,3 +68,9 @@ $(document).ready(function () {
       .attr("aria-valuenow", calc);
   });
 });
+
+let menuButton = document.getElementsByClassName("menu");
+let menuIcon = document.getElementsByClassName("menu_icon");
+function a() {
+  menuButton.menuIcon.style.display = "flex";
+}

@@ -229,20 +229,22 @@ nav {
   content: "";
   display: block;
   position: absolute;
-  bottom: 2px;
+  bottom: 3px;
   left: 0;
   width: 70px;
-  background-color: #111;
   height: 3px;
+  background-color: #111;
   opacity: 0;
-  transform: scaleX(0);
+  transform: scale(0, 0);
   transition: opacity 0.5s, transform 0.5s;
   transform-origin: left center;
+  z-index: 10;
 }
 
 .gnb > li:hover > a::after {
   opacity: 1;
-  transform: none;
+  /* height: 3px; */
+  transform: scale(1, 1);
 }
 
 /* 헤드-2차메뉴 */
@@ -340,7 +342,11 @@ nav {
   padding: 3.26vh 0;
 }
 .icon > a {
-  display: inline-block;
+  display: block;
+  width: 48px;
+  height: 48px;
+  border-radius: 100%;
+  position: relative;
 }
 .search_icon {
   width: 70%;
@@ -361,10 +367,10 @@ nav {
   display: none;
 }
 .search {
-  width: 2.08vw;
-  height: 3.72vh;
+  width: 48px;
+  height: 48px;
   background-color: transparent;
-  border-radius: 1.25em;
+  border-radius: 100%;
   position: absolute;
   top: 50%;
   right: 5%;
@@ -372,21 +378,21 @@ nav {
 }
 .search > i {
   display: block;
-  background-image: url(../img/icon/sprite_icon.png);
-  background-position: 0px -340px;
-  width: 1.25vw;
-  height: 2.23vh;
+  background-image: url(../img/icon/icon2/search.png);
+  background-position: 0px 0px;
+  width: 48px;
+  height: 48px;
   position: absolute;
   top: 50%;
-  right: 0.74vh;
   transform: translateY(-50%);
   cursor: pointer;
   z-index: 1;
 }
 .search_icon:hover .search,
 .heart:hover,
-.mypage:hover {
+.menu:hover {
   background-color: #eee;
+  transition: 0.3s;
 }
 .search:active + input {
   display: block;
@@ -394,31 +400,141 @@ nav {
 .search_icon:active .search {
   background-color: transparent;
 }
-.heart,
-.mypage {
-  width: 2.08vw;
-  height: 3.72vh;
-  background-color: transparent;
-  border-radius: 1.25em;
-  padding: 0.83vh 0.416vw;
-  box-sizing: border-box;
-}
-.mypage {
-  padding: 0.65vh 0.416vw;
-}
+
 .heart > i {
   display: block;
-  background-image: url(../img/icon/sprite_icon.png);
-  background-position: 0px -388px;
-  width: 1.25vw;
-  height: 2.23vh;
+  background-image: url(../img/icon/icon2/heart.png);
+  background-repeat: no-repeat;
+  background-position: 0px 0px;
+  width: 48px;
+  height: 48px;
 }
-.mypage > i {
+.menu {
   display: block;
-  background-image: url(../img/icon/sprite_icon.png);
-  background-position: 0px -292px;
-  width: 1.25vw;
-  height: 2.23vh;
+  background-image: url(../img/icon/icon2/menu.png);
+  background-repeat: no-repeat;
+  background-position: 0px 0px;
+  width: 48px;
+  height: 48px;
+}
+/* 메뉴 아이콘 */
+.menu {
+  position: relative;
+  outline: none;
+  background-color: transparent;
+  border: 0px;
+}
+.menu_icon {
+  width: 270px;
+  height: fit-content;
+  display: flex;
+  flex-flow: column wrap;
+  position: absolute;
+  white-space: nowrap;
+  background-color: #fff;
+  top: 60px;
+  left: -154px;
+  z-index: 500;
+  padding: 30px;
+  box-sizing: border-box;
+  gap: 20px;
+  border: 1px solid #d9d9d9;
+  display: none;
+}
+.menu > ul::after {
+  content: "";
+  display: block;
+  width: 22px;
+  height: 15px;
+  background: url(../img/icon/icon2/polygon.png);
+  position: absolute;
+  top: -15px;
+  right: 81px;
+}
+.menu > ul > li {
+  cursor: pointer;
+}
+.menu > ul > li:first-child {
+  margin: 10px 0;
+}
+.menu > ul > li .profile_photo {
+  display: block;
+  width: 48px;
+  height: 48px;
+  background-color: #707070;
+  float: left;
+  border-radius: 20px;
+}
+.menu > ul > li .profile_text {
+  width: fit-content;
+  height: 48px;
+  float: left;
+  padding-left: 15px;
+  display: flex;
+  flex-flow: column wrap;
+  gap: 5px;
+  justify-content: center;
+}
+.menu > ul > li .profile_text h3 {
+  font-size: 16px;
+  font-weight: 400;
+  width: fit-content;
+}
+.menu > ul > li .profile_text p {
+  font-size: 12px;
+  font-weight: 400;
+  color: #6a6a6a;
+  padding: 0;
+}
+.menu ul i {
+  width: 28px;
+  height: 20px;
+  margin: 0 10px;
+  padding: 10px 0;
+  float: left;
+}
+.menu li:not(:first-child) p {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 40px;
+  height: 40px;
+  width: fit-content;
+  padding-left: 15px;
+  float: left;
+}
+.menu_list ul {
+  display: flex;
+  flex-flow: column wrap;
+  gap: 10px;
+}
+.menu_list ul li {
+  border-radius: 3px;
+}
+.menu_list ul li:hover,
+.menu_icon > li:last-child:hover {
+  background-color: #f1f1f1;
+  transition: 0.3s;
+}
+.menu .mypage {
+  background: url(../img/icon/icon2/mypage.png) left center no-repeat;
+  background-size: 32px;
+}
+.menu .alert {
+  background: url(../img/icon/icon2/alert.png) left center no-repeat;
+  background-size: 32px;
+}
+.menu .setting {
+  background: url(../img/icon/icon2/setting.png) left center no-repeat;
+  background-size: 32px;
+}
+.menu .logout {
+  background: url(../img/icon/icon2/logout.png) left center no-repeat;
+  background-size: 32px;
+}
+.menu .line {
+  width: 100%;
+  height: 1px;
+  background-color: #d3d3d3;
 }
 /* ---------------------------------------------------------------------------- */
 /* 메인비주얼 */
