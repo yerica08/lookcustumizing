@@ -68,9 +68,3 @@ $(document).ready(function () {
       .attr("aria-valuenow", calc);
   });
 });
-
-let menuButton = document.getElementsByClassName("menu");
-let menuIcon = document.getElementsByClassName("menu_icon");
-function a() {
-  menuButton.menuIcon.style.display = "flex";
-}

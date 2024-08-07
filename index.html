@@ -160,39 +160,42 @@
               <input type="text" placeholder="검색어를 입력하세요." />
             </div>
             <a href="#" class="heart"><i></i></a>
-            <button type="button" class="menu">
-              <ul class="menu_icon">
-                <li>
-                  <div class="profile_photo"></div>
-                  <div class="profile_text">
-                    <h3>NICK</h3>
-                    <p>nick@lookcurma.com</p>
-                  </div>
-                </li>
-                <li><div class="line"></div></li>
-                <li class="menu_list">
-                  <ul>
-                    <li>
-                      <i class="mypage"></i>
-                      <p>마이페이지</p>
-                    </li>
-                    <li>
-                      <i class="alert"></i>
-                      <p>알림</p>
-                    </li>
-                    <li>
-                      <i class="setting"></i>
-                      <p>환경 설정</p>
-                    </li>
-                  </ul>
-                </li>
-                <li><div class="line"></div></li>
-                <li>
-                  <i class="logout"></i>
-                  <p>로그아웃</p>
-                </li>
-              </ul>
+            <button
+              onclick="this.querySelector('span').classList.toggle('is-closed'), document.querySelector('.menu_icon').classList.toggle('on-button')"
+              class="burger_button">
+              <span class="burger burger-1"></span>
             </button>
+            <ul class="menu_icon">
+              <li>
+                <div class="profile_photo"></div>
+                <div class="profile_text">
+                  <h3>NICK</h3>
+                  <p>nick@lookcurma.com</p>
+                </div>
+              </li>
+              <li><div class="line"></div></li>
+              <li class="menu_list">
+                <ul>
+                  <li>
+                    <i class="mypage"></i>
+                    <p>마이페이지</p>
+                  </li>
+                  <li>
+                    <i class="alert"></i>
+                    <p>알림</p>
+                  </li>
+                  <li>
+                    <i class="setting"></i>
+                    <p>환경 설정</p>
+                  </li>
+                </ul>
+              </li>
+              <li><div class="line"></div></li>
+              <li>
+                <i class="logout"></i>
+                <p>로그아웃</p>
+              </li>
+            </ul>
           </div>
         </div>
       </header>
