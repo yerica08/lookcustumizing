@@ -7,9 +7,10 @@
     <!-- css -->
     <link rel="stylesheet" href="./css/layout.css" />
     <link rel="stylesheet" href="./css/responsive.css" />
+    <!-- jquery -->
     <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-
+    <!-- slick -->
     <link
       rel="stylesheet"
       href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
@@ -19,22 +20,27 @@
   </head>
   <body>
     <div class="wrapper">
+      <!-- header -->
       <header>
+        <!-- 이벤트 -->
         <div class="header_event">
           <a href="#"
             >LCM과 함께하는 커스텀 마이징 대회! 지금 참여하고 싶다면?</a
           >
         </div>
         <div class="header_main">
+          <!-- 로고 -->
           <h1>
             <a href="/"
               ><img src="./img/icon/logo.png" alt="LCM 로고" height="30"
             /></a>
           </h1>
+          <!-- 1차 메뉴 -->
           <nav>
             <ul id="gnb" class="gnb">
               <li>
                 <a href="#">BEST</a>
+                <!-- 2차메뉴 : BEST -->
                 <ul class="lnb">
                   <li>
                     <a href="#"
@@ -67,6 +73,7 @@
               </li>
               <li>
                 <a href="#">배경</a>
+                <!-- 2차메뉴 : 배경 -->
                 <ul class="lnb">
                   <li>
                     <a href="#"
@@ -108,6 +115,7 @@
               </li>
               <li>
                 <a href="#">패션</a>
+                <!-- 2차메뉴 : 패션 -->
                 <ul class="lnb">
                   <li>
                     <a href="#"
@@ -131,6 +139,7 @@
               </li>
               <li>
                 <a href="#">외형</a>
+                <!-- 2차메뉴 : 외형 -->
                 <ul class="lnb">
                   <li>
                     <a href="#"
@@ -154,12 +163,14 @@
               </li>
             </ul>
           </nav>
+          <!-- 아이콘 -->
           <div class="icon">
             <div class="search_icon">
               <div class="search"><i></i></div>
               <input type="text" placeholder="검색어를 입력하세요." />
             </div>
             <a href="#" class="heart"><i></i></a>
+            <!-- 메뉴 아이콘 -->
             <button
               onclick="this.querySelector('span').classList.toggle('is-closed'), document.querySelector('.menu_icon').classList.toggle('on-button')"
               class="burger_button">
@@ -200,27 +211,32 @@
         </div>
       </header>
       <main>
+        <!-- 메인 비주얼 -->
         <section class="main_visual">
-          <div class="photo_01">
+          <div class="main_photo_01">
             <div class="background_img_01">
               <div class="blur"></div>
             </div>
+            <!-- 메인 비주얼 텍스트 -->
             <div class="section01_wrap">
               <ul>
                 <li>플레체 : PLETZE</li>
                 <li>플레체 예배당 포토스팟</li>
                 <li>플레체 / 플레체<br />예배당 분수대 앞</li>
                 <li>&copy; 프로틴초코볼</li>
+                <!-- 진행 바 -->
                 <div class="play"></div>
                 <div class="stop"></div>
                 <div>
                   <div class="step_bar"></div>
                 </div>
               </ul>
+              <!-- 메인 비주얼 사진 -->
               <div class="main_photo_contain">
                 <div class="main_photo"></div>
               </div>
             </div>
+            <!-- 이벤트 -->
             <div class="next_page">
               <p>LCM의 인기 커스텀을 만나보세요!</p>
               <span>당신을 위해 준비된 다양한 스타일</span>
@@ -228,76 +244,77 @@
             </div>
           </div>
         </section>
+        <!-- 두번째 섹션 : 배경 -->
         <section class="section02_wrap section_wrap">
           <div class="content_wrap">
+            <!-- 타이틀 -->
             <div class="text">
               <h2>best view</h2>
               <p>이번주 가장 인기있는 장소에 함께해보세요</p>
             </div>
             <div class="photo_wrapper">
+              <!-- 사진 선택 버튼 -->
               <div class="button_wrap">
-                <input type="radio" id="button01" name="view" checked />
-                <label for="button01">#영지</label>
-                <input type="radio" id="button02" name="view" />
-                <label for="button02">#대륙</label>
-                <input type="radio" id="button03" name="view" />
-                <label for="button03">#던전</label>
-                <input type="radio" id="button04" name="view" />
-                <label for="button03">#섬</label>
+                <input type="radio" id="view_button01" name="view" checked />
+                <label for="view_button01">#영지</label>
+                <input type="radio" id="view_button02" name="view" />
+                <label for="view_button02">#대륙</label>
+                <input type="radio" id="view_button03" name="view" />
+                <label for="view_button03">#던전</label>
+                <input type="radio" id="view_button04" name="view" />
+                <label for="view_button04">#섬</label>
               </div>
-              <div class="wide_photo_01 photo01 photo" id="wide_photo_01">
-                <div class="photo_01 photo_flex">
-                  <img src="./img/photo/view/photo_01_wide.jpg" alt="" />
+              <!-- 배경 사진 묶음 -->
+              <div class="wide_photo_01 photo" id="wide_photo_01">
+                <div>
+                  <img
+                    src="./img/photo/view/photo_01_wide.jpg"
+                    alt=""
+                    class="photo01" />
                 </div>
-                <div class="photo_02">
-                  <img src="./img/photo/view/photo_02_wide.jpg" alt="" />
+                <div>
+                  <img
+                    src="./img/photo/view/photo_02_wide.jpg"
+                    alt=""
+                    class="photo01" />
                 </div>
-                <div class="photo_03">
-                  <img src="./img/photo/view/photo_03_wide.jpg" alt="" />
+                <div>
+                  <img
+                    src="./img/photo/view/photo_03_wide.jpg"
+                    alt=""
+                    class="photo01" />
                 </div>
-                <div class="photo_04">
-                  <img src="./img/photo/view/photo_04_wide.jpg" alt="" />
+                <div>
+                  <img
+                    src="./img/photo/view/photo_04_wide.jpg"
+                    alt=""
+                    class="photo01" />
                 </div>
-                <div class="photo_04">
-                  <img src="./img/photo/view/photo_05_wide.jpg" alt="" />
+                <div>
+                  <img
+                    src="./img/photo/view/photo_05_wide.jpg"
+                    alt=""
+                    class="photo01" />
                 </div>
               </div>
+              <!-- 진행 바 -->
               <div
-                class="progress"
+                class="progress01 progress"
                 role="progressbar"
                 aria-valuemin="0"
                 aria-valuemax="100"></div>
-              <div class="wide_photo_02 photo01 photo" id="wide_photo_02">
-                <div class="photo_05">
-                  <img src="./img/photo/view/photo_06.jpg" alt="" />
-                </div>
-                <div class="photo_06">
-                  <img src="./img/photo/view/photo_07.jpg" alt="" />
-                </div>
-                <div class="photo_07">
-                  <img src="./img/photo/view/photo_08.jpg" alt="" />
-                </div>
-                <div class="photo_08">
-                  <img src="./img/photo/view/photo_09.jpg" alt="" />
-                </div>
-                <div class="photo_09">
-                  <img src="./img/photo/view/photo_10.jpg" alt="" />
-                </div>
-              </div>
             </div>
           </div>
         </section>
+        <!-- 세번째 섹션 : 외형 -->
         <section class="section03_wrap section_wrap">
           <div class="content_wrap">
+            <!-- 타이틀 -->
             <div class="text">
               <h2>best appearance</h2>
               <p>이번주 가장 인기있는 커마를 구경해보세요</p>
             </div>
-            <div class="translateButton">
-              <div class="button_text">
-                <h4></h4>
-              </div>
-            </div>
+            <!-- 사진 선택 버튼 -->
             <div class="photo_wrapper">
               <div class="button_wrap">
                 <input type="radio" id="button01" name="appearance" checked />
@@ -309,49 +326,47 @@
                 <input type="radio" id="button04" name="appearance" />
                 <label for="button04">#유니크</label>
               </div>
+              <!-- 사이즈업 사진 -->
               <div class="photo02_nav photo">
                 <div class="photo_01">
-                  <img
-                    src="./img/photo/main_visual/main_background01.jpg"
-                    alt="" />
+                  <img src="./img/photo/appearance/charater_1.png" alt="" />
                 </div>
                 <div class="photo_02">
-                  <img src="./img/photo/view/photo_02.jpg" alt="" />
+                  <img src="./img/photo/appearance/charater_2.png" alt="" />
                 </div>
                 <div class="photo_03">
-                  <img src="./img/photo/view/photo_03.jpg" alt="" />
+                  <img src="./img/photo/appearance/charater_3.jpg" alt="" />
                 </div>
                 <div class="photo_04">
-                  <img src="./img/photo/view/photo_04.jpg" alt="" />
-                </div>
-                <div class="photo_04">
-                  <img src="./img/photo/view/photo_05.jpg" alt="" />
+                  <img src="./img/photo/appearance/charater_4.jpg" alt="" />
                 </div>
               </div>
-              <div class="photo02_nav_02 photo02 photo" id="wide_photo02_01">
+              <!-- 썸네일 사진 -->
+              <div class="wide_photo_02 photo" id="wide_photo02_01">
                 <div class="photo_01">
-                  <img
-                    src="./img/photo/main_visual/main_background01.jpg"
-                    alt="" />
+                  <img src="./img/photo/appearance/charater_1.png" alt="" />
                 </div>
                 <div class="photo_02">
-                  <img src="./img/photo/view/photo_02.jpg" alt="" />
+                  <img src="./img/photo/appearance/charater_2.png" alt="" />
                 </div>
                 <div class="photo_03">
-                  <img src="./img/photo/view/photo_03.jpg" alt="" />
+                  <img src="./img/photo/appearance/charater_3.jpg" alt="" />
                 </div>
                 <div class="photo_04">
-                  <img src="./img/photo/view/photo_04.jpg" alt="" />
-                </div>
-                <div class="photo_04">
-                  <img src="./img/photo/view/photo_05.jpg" alt="" />
+                  <img src="./img/photo/appearance/charater_4.jpg" alt="" />
                 </div>
               </div>
             </div>
           </div>
+          <div
+            class="progress02 progress"
+            role="progressbar"
+            aria-valuemin="0"
+            aria-valuemax="100"></div>
         </section>
       </main>
     </div>
+    <div class="cursor"></div>
     <!-- slick -->
     <script src="./js/layout.js"></script>
   </body>
