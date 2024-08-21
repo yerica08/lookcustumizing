@@ -3,12 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>lookcustomizing</title>
     <!-- css -->
     <link rel="stylesheet" href="./css/layout.css" />
-    <link rel="stylesheet" href="./css/responsive.css" />
     <!-- jquery -->
-    <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="./js/jquery.min.js"></script>
     <script src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
     <!-- slick -->
     <link
@@ -20,354 +19,236 @@
   </head>
   <body>
     <div class="wrapper">
-      <!-- header -->
       <header>
-        <!-- 이벤트 -->
-        <div class="header_event">
-          <a href="#"
-            >LCM과 함께하는 커스텀 마이징 대회! 지금 참여하고 싶다면?</a
-          >
-        </div>
-        <div class="header_main">
+        <div class="header_wrap">
           <!-- 로고 -->
           <h1>
             <a href="/"
-              ><img src="./img/icon/logo.png" alt="LCM 로고" height="30"
+              ><img src="./img/icon/logo.png" alt="LCM 로고" height="24"
             /></a>
           </h1>
-          <!-- 1차 메뉴 -->
-          <nav>
-            <ul id="gnb" class="gnb">
-              <li>
-                <a href="#">BEST</a>
-                <!-- 2차메뉴 : BEST -->
-                <ul class="lnb">
-                  <li>
-                    <a href="#"
-                      ><p>BEST LCM</p>
-                      <span>
-                        이번 시즌 최고의 LCM 커마를<br />
-                        구경할 수 있어요.
-                      </span></a
-                    >
-                  </li>
-                  <li>
-                    <a href="#"
-                      ><p>지난 BEST</p>
-                      <span>
-                        지난 시즌 최고의 LCM 커마를<br />
-                        구경할 수 있어요.
-                      </span></a
-                    >
-                  </li>
-                  <li>
-                    <a href="#"
-                      ><p>리포터 PICK</p>
-                      <span>
-                        LCM 리포터의 추천 커마와,<br />
-                        다양한 소식을 한눈에 볼 수 있어요.
-                      </span></a
-                    >
-                  </li>
-                </ul>
-              </li>
-              <li>
-                <a href="#">배경</a>
-                <!-- 2차메뉴 : 배경 -->
-                <ul class="lnb">
-                  <li>
-                    <a href="#"
-                      ><p>영지</p>
-                      <span>
-                        로스트아크 유저들의 영지를<br />
-                        구경할 수 있어요.
-                      </span></a
-                    >
-                  </li>
-                  <li>
-                    <a href="#"
-                      ><p>대륙</p>
-                      <span>
-                        게임 속 대륙에서 찍은 사진을<br />
-                        구경할 수 있어요.
-                      </span></a
-                    >
-                  </li>
-                  <li>
-                    <a href="#"
-                      ><p>던전</p>
-                      <span>
-                        게임 던전 내부의 포토존을<br />
-                        구경할 수 있어요.
-                      </span></a
-                    >
-                  </li>
-                  <li>
-                    <a href="#"
-                      ><p>섬</p>
-                      <span>
-                        로스트아크 다양한 섬들을 구경하고<br />
-                        최고의 포토존을 찾아보아요.
-                      </span></a
-                    >
-                  </li>
-                </ul>
-              </li>
-              <li>
-                <a href="#">패션</a>
-                <!-- 2차메뉴 : 패션 -->
-                <ul class="lnb">
-                  <li>
-                    <a href="#"
-                      ><p>장비</p>
-                      <span>
-                        다양하게 커스텀 된 장비들을<br />
-                        구경할 수 있어요.
-                      </span></a
-                    >
-                  </li>
-                  <li>
-                    <a href="#"
-                      ><p>무기</p>
-                      <span>
-                        다양하게 커스텀 된 무기들을<br />
-                        구경할 수 있어요.
-                      </span></a
-                    >
-                  </li>
-                </ul>
-              </li>
-              <li>
-                <a href="#">외형</a>
-                <!-- 2차메뉴 : 외형 -->
-                <ul class="lnb">
-                  <li>
-                    <a href="#"
-                      ><p>외형</p>
-                      <span>
-                        유저들이 커스텀한 캐릭터를<br />
-                        구경할 수 있어요.
-                      </span></a
-                    >
-                  </li>
-                  <li>
-                    <a href="#"
-                      ><p>헤어</p>
-                      <span>
-                        유저들이 커스텀한 헤어를<br />
-                        구경할 수 있어요.
-                      </span></a
-                    >
-                  </li>
-                </ul>
-              </li>
-            </ul>
-          </nav>
-          <!-- 아이콘 -->
-          <div class="icon">
-            <div class="search_icon">
-              <div class="search"><i></i></div>
-              <input type="text" placeholder="검색어를 입력하세요." />
-            </div>
-            <a href="#" class="heart"><i></i></a>
-            <!-- 메뉴 아이콘 -->
-            <button
-              onclick="this.querySelector('span').classList.toggle('is-closed'), document.querySelector('.menu_icon').classList.toggle('on-button')"
-              class="burger_button">
-              <span class="burger burger-1"></span>
-            </button>
-            <ul class="menu_icon">
-              <li>
-                <div class="profile_photo"></div>
-                <div class="profile_text">
-                  <h3>NICK</h3>
-                  <p>nick@lookcurma.com</p>
+          <!-- 헤더 우측 컨텐츠 -->
+          <div class="nav_wrap">
+            <nav>
+              <!-- 1차 메뉴 -->
+              <ul class="gnb">
+                <li>
+                  <a href="#">BEST</a>
+                  <!-- 2차메뉴 -->
+                  <ul class="lnb">
+                    <li><a href="#">Best LCM</a></li>
+                    <li><a href="#">리포터 Pick</a></li>
+                  </ul>
+                </li>
+                <li>
+                  <a href="#">배경</a>
+                  <!-- 2차메뉴 -->
+                  <ul class="lnb">
+                    <li><a href="#">월드</a></li>
+                    <li><a href="#">던전</a></li>
+                  </ul>
+                </li>
+                <li>
+                  <a href="#">커스텀마이징</a>
+                  <!-- 2차메뉴 -->
+                  <ul class="lnb">
+                    <li><a href="#">커스텀마이징</a></li>
+                    <li><a href="#">정보</a></li>
+                  </ul>
+                </li>
+                <li><a href="#">커뮤니티</a></li>
+              </ul>
+            </nav>
+            <!-- 알림, 메뉴 -->
+            <div class="header_icon">
+              <!-- 알림 -->
+              <div class="heart_content">
+                <div class="heart_button">
+                  <button type="button" class="heart"></button>
                 </div>
-              </li>
-              <li><div class="line"></div></li>
-              <li class="menu_list">
                 <ul>
                   <li>
-                    <i class="mypage"></i>
-                    <p>마이페이지</p>
+                    <button type="button" class="sub_alert">알림</button>
+                    <button type="button" class="sub_subscribe">구독</button>
+                    <div class="line_box"></div>
+                    <div class="icon">
+                      <a href="#" class="plus_circle"></a>
+                      <a href="#" class="setting"></a>
+                    </div>
                   </li>
-                  <li>
-                    <i class="alert"></i>
-                    <p>알림</p>
-                  </li>
-                  <li>
-                    <i class="setting"></i>
-                    <p>환경 설정</p>
+                  <li class="contents">
+                    <div>
+                      <div class="profile"></div>
+                      <div class="sub_chat">
+                        <h3><span>LCM</span> 님의 메세지</h3>
+                        <textarea name="chat" id="chat" readonly>
+지금 로그인하고 더 많은 컨텐츠를 즐겨보세요!</textarea
+                        >
+                      </div>
+                    </div>
                   </li>
                 </ul>
-              </li>
-              <li><div class="line"></div></li>
-              <li>
-                <i class="logout"></i>
-                <p>로그아웃</p>
-              </li>
-            </ul>
+              </div>
+              <!-- 메뉴 아이콘 -->
+              <div class="menu_button">
+                <button type="button" class="menu"></button>
+              </div>
+            </div>
           </div>
         </div>
       </header>
-      <main>
-        <!-- 메인 비주얼 -->
-        <section class="main_visual">
-          <div class="main_photo_01">
-            <div class="background_img_01">
-              <div class="blur"></div>
+      <!-- 메뉴 -->
+      <div class="menu_content">
+        <!-- 우측 메뉴 창 -->
+        <ul class="menu_wrap">
+          <li class="close_button">
+            <div><button type="button" class="close"></button></div>
+          </li>
+          <!-- 검색창 -->
+          <li>
+            <input
+              type="text"
+              class="search"
+              placeholder="검색 내용을 입력하세요." />
+            <label for="search"></label>
+          </li>
+          <!-- 로그인 -->
+          <li class="user_login">
+            <a href="#">로그인</a>
+          </li>
+          <li>
+            <a href="#">아이디 찾기</a>
+            <a href="#">비밀번호 찾기</a>
+            <a href="#">회원가입</a>
+            <a href="#">고객센터</a>
+          </li>
+          <li>
+            <!-- 사용자 서비스 창 -->
+            <ul class="user_service">
+              <li>
+                <a href="#"><i class="human"></i><span>마이페이지</span></a>
+              </li>
+              <li>
+                <a href="#"><i class="heart"></i><span>찜 목록</span></a>
+              </li>
+              <li>
+                <a href="#"><i class="alert"></i><span>알림</span></a>
+              </li>
+              <li>
+                <a href="#"><i class="setting"></i> <span>환경설정</span></a>
+              </li>
+            </ul>
+          </li>
+          <li class="event">
+            <img
+              src="./img/photo/event/lostark_event.png"
+              alt="로스트아크"
+              class="lostark_event" />
+          </li>
+          <li>
+            <a href="/"
+              ><img src="./img/icon/logo.png" alt="LCM로고" height="18"
+            /></a>
+            <div>
+              <a href="#" class="facebook"></a>
+              <a href="#" class="instagram"></a>
+              <a href="#" class="tiktok"></a>
             </div>
-            <!-- 메인 비주얼 텍스트 -->
-            <div class="section01_wrap">
-              <ul>
-                <li>플레체 : PLETZE</li>
-                <li>플레체 예배당 포토스팟</li>
-                <li>플레체 / 플레체<br />예배당 분수대 앞</li>
-                <li>&copy; 프로틴초코볼</li>
-                <!-- 진행 바 -->
-                <div class="play"></div>
-                <div class="stop"></div>
-                <div>
-                  <div class="step_bar"></div>
-                </div>
-              </ul>
-              <!-- 메인 비주얼 사진 -->
-              <div class="main_photo_contain">
-                <div class="main_photo"></div>
-              </div>
-            </div>
-            <!-- 이벤트 -->
-            <div class="next_page">
-              <p>LCM의 인기 커스텀을 만나보세요!</p>
-              <span>당신을 위해 준비된 다양한 스타일</span>
-              <i></i>
-            </div>
+          </li>
+        </ul>
+      </div>
+      <section class="main_visual">
+        <div class="full_photo">
+          <img
+            src="./img/photo/main_visual/main_people01.jpg"
+            alt="메인비주얼 사진" />
+          <div></div>
+        </div>
+        <div class="text">
+          <h3>플레체 : PLETZE</h3>
+          <h2>플레체 예배당 포토스팟</h2>
+          <p class="main_p">카제로스 레이드<br />붉여진 백야의 나선 2관문</p>
+          <p class="main_copy">&copy; 프로틴초코볼</p>
+        </div>
+        <div class="arrow_button">
+          <button type="button" class="white_arrow"></button>
+        </div>
+        <div class="scroll">
+          <div class="circle page1"></div>
+          <div class="circle page2"></div>
+          <div class="circle page3"></div>
+          <div class="state"><div></div></div>
+        </div>
+      </section>
+      <section class="view">
+        <div class="view_box">
+          <div>
+            <img src="./img/photo/view/view01.jpg" alt="" />
+            <button type="button" class="diamond"></button>
+            <div></div>
           </div>
-        </section>
-        <!-- 두번째 섹션 : 배경 -->
-        <section class="section02_wrap section_wrap">
-          <div class="content_wrap">
-            <!-- 타이틀 -->
+          <div>
+            <img src="./img/photo/view/view02.jpg" alt="" />
+            <button type="button" class="diamond"></button>
+            <div></div>
+          </div>
+          <div>
+            <img src="./img/photo/view/view03.jpg" alt="" />
+            <button type="button" class="diamond"></button>
+            <div></div>
+          </div>
+          <div>
+            <img src="./img/photo/view/view04.jpg" alt="" />
+            <button type="button" class="diamond"></button>
+            <div></div>
+          </div>
+        </div>
+        <div class="open"></div>
+        <div class="text" id="viewText">
+          <h2>BEST - VIEW</h2>
+          <div class="scroll_motion">
+            <h3>스크롤하여 구경해보세요</h3>
+            <div></div>
+          </div>
+        </div>
+        <div class="open_box">
+          <div class="box box1"></div>
+          <div class="box box2"></div>
+        </div>
+      </section>
+      <section class="fashion">
+        <h2>FASHION</h2>
+        <div class="fashion_img">
+          <div class="img">
+            <a href="#">
+              <img src="./img/photo/fashion/fashion_img (1).png" alt=""
+            /></a>
+          </div>
+          <div class="img">
+            <a href="#">
+              <img src="./img/photo/fashion/fashion_img (2).png" alt=""
+            /></a>
+          </div>
+          <div class="img">
+            <a href="#"
+              ><img src="./img/photo/fashion/fashion_img (3).png" alt=""
+            /></a>
+          </div>
+          <div class="more_button">
+            <div class="more"></div>
             <div class="text">
-              <h2>best view</h2>
-              <p>이번주 가장 인기있는 장소에 함께해보세요</p>
-            </div>
-            <div class="photo_wrapper">
-              <!-- 사진 선택 버튼 -->
-              <div class="button_wrap">
-                <input type="radio" id="view_button01" name="view" checked />
-                <label for="view_button01">#영지</label>
-                <input type="radio" id="view_button02" name="view" />
-                <label for="view_button02">#대륙</label>
-                <input type="radio" id="view_button03" name="view" />
-                <label for="view_button03">#던전</label>
-                <input type="radio" id="view_button04" name="view" />
-                <label for="view_button04">#섬</label>
-              </div>
-              <!-- 배경 사진 묶음 -->
-              <div class="wide_photo_01 photo" id="wide_photo_01">
-                <div>
-                  <img
-                    src="./img/photo/view/photo_01_wide.jpg"
-                    alt=""
-                    class="photo01" />
-                </div>
-                <div>
-                  <img
-                    src="./img/photo/view/photo_02_wide.jpg"
-                    alt=""
-                    class="photo01" />
-                </div>
-                <div>
-                  <img
-                    src="./img/photo/view/photo_03_wide.jpg"
-                    alt=""
-                    class="photo01" />
-                </div>
-                <div>
-                  <img
-                    src="./img/photo/view/photo_04_wide.jpg"
-                    alt=""
-                    class="photo01" />
-                </div>
-                <div>
-                  <img
-                    src="./img/photo/view/photo_05_wide.jpg"
-                    alt=""
-                    class="photo01" />
-                </div>
-              </div>
-              <!-- 진행 바 -->
-              <div
-                class="progress01 progress"
-                role="progressbar"
-                aria-valuemin="0"
-                aria-valuemax="100"></div>
+              <div class="more_arrow"></div>
+              <p>
+                더 많은 커마를<br />
+                만나보세요
+              </p>
             </div>
           </div>
-        </section>
-        <!-- 세번째 섹션 : 외형 -->
-        <section class="section03_wrap section_wrap">
-          <div class="content_wrap">
-            <!-- 타이틀 -->
-            <div class="text">
-              <h2>best appearance</h2>
-              <p>이번주 가장 인기있는 커마를 구경해보세요</p>
-            </div>
-            <!-- 사진 선택 버튼 -->
-            <div class="photo_wrapper">
-              <div class="button_wrap">
-                <input type="radio" id="button01" name="appearance" checked />
-                <label for="button01">#큐티</label>
-                <input type="radio" id="button02" name="appearance" />
-                <label for="button02">#시크</label>
-                <input type="radio" id="button03" name="appearance" />
-                <label for="button03">#흑발</label>
-                <input type="radio" id="button04" name="appearance" />
-                <label for="button04">#유니크</label>
-              </div>
-              <!-- 사이즈업 사진 -->
-              <div class="photo02_nav photo">
-                <div class="photo_01">
-                  <img src="./img/photo/appearance/charater_1.png" alt="" />
-                </div>
-                <div class="photo_02">
-                  <img src="./img/photo/appearance/charater_2.png" alt="" />
-                </div>
-                <div class="photo_03">
-                  <img src="./img/photo/appearance/charater_3.jpg" alt="" />
-                </div>
-                <div class="photo_04">
-                  <img src="./img/photo/appearance/charater_4.jpg" alt="" />
-                </div>
-              </div>
-              <!-- 썸네일 사진 -->
-              <div class="wide_photo_02 photo" id="wide_photo02_01">
-                <div class="photo_01">
-                  <img src="./img/photo/appearance/charater_1.png" alt="" />
-                </div>
-                <div class="photo_02">
-                  <img src="./img/photo/appearance/charater_2.png" alt="" />
-                </div>
-                <div class="photo_03">
-                  <img src="./img/photo/appearance/charater_3.jpg" alt="" />
-                </div>
-                <div class="photo_04">
-                  <img src="./img/photo/appearance/charater_4.jpg" alt="" />
-                </div>
-              </div>
-            </div>
-          </div>
-          <div
-            class="progress02 progress"
-            role="progressbar"
-            aria-valuemin="0"
-            aria-valuemax="100"></div>
-        </section>
-      </main>
+          <!--<div class="img"></div>
+          <div class="img"></div> -->
+        </div>
+      </section>
     </div>
-    <div class="cursor"></div>
-    <!-- slick -->
     <script src="./js/layout.js"></script>
   </body>
 </html>

@@ -1,0 +1,200 @@
+.more {
+  background-image: url("../img/icon/Result.png");
+  background-position: 0px -0px;
+  width: 355px;
+  height: 355px;
+}
+.diamond {
+  background-image: url("../img/icon/Result.png");
+  background-position: 0px -355px;
+  width: 244px;
+  height: 244px;
+}
+.square {
+  background-image: url("../img/icon/Result.png");
+  background-position: 0px -599px;
+  width: 179px;
+  height: 180px;
+}
+.fief {
+  background-image: url("../img/icon/Result.png");
+  background-position: 0px -779px;
+  width: 70px;
+  height: 105px;
+}
+.continent {
+  background-image: url("../img/icon/Result.png");
+  background-position: 0px -884px;
+  width: 70px;
+  height: 105px;
+}
+.dongeon {
+  background-image: url("../img/icon/Result.png");
+  background-position: 0px -989px;
+  width: 70px;
+  height: 105px;
+}
+.island {
+  background-image: url("../img/icon/Result.png");
+  background-position: 0px -1094px;
+  width: 70px;
+  height: 105px;
+}
+.black_arrow {
+  background-image: url("../img/icon/Result.png");
+  background-position: 0px -1199px;
+  width: 80px;
+  height: 80px;
+}
+.white_arrow {
+  background-image: url("../img/icon/Result.png");
+  background-position: 0px -1279px;
+  width: 80px;
+  height: 80px;
+}
+.logo {
+  background-image: url("../img/icon/Result.png");
+  background-position: 0px -1359px;
+  width: 262px;
+  height: 24px;
+}
+.more_arrow {
+  background-image: url("../img/icon/Result.png");
+  background-position: 0px -1383px;
+  width: 73px;
+  height: 26px;
+}
+.big_puls {
+  background-image: url("../img/icon/Result.png");
+  background-position: 0px -1409px;
+  width: 37px;
+  height: 37px;
+}
+.tiktok {
+  background-image: url("../img/icon/Result.png");
+  background-position: 0px -1446px;
+  width: 35px;
+  height: 34px;
+}
+.facebook {
+  background-image: url("../img/icon/Result.png");
+  background-position: 0px -1480px;
+  width: 35px;
+  height: 34px;
+}
+.instagram {
+  background-image: url("../img/icon/Result.png");
+  background-position: 0px -1514px;
+  width: 34px;
+  height: 34px;
+}
+.plus_circle {
+  background-image: url("../img/icon/Result.png");
+  background-position: 0px -1548px;
+  width: 20px;
+  height: 20px;
+}
+.pen {
+  background-image: url("../img/icon/Result.png");
+  background-position: 0px -1568px;
+  width: 20px;
+  height: 20px;
+}
+.search {
+  background-image: url("../img/icon/Result.png");
+  background-position: 0px -1588px;
+  width: 20px;
+  height: 20px;
+  padding: 2px;
+}
+.setting {
+  background-image: url("../img/icon/Result.png");
+  background-position: 0px -1608px;
+  width: 20px;
+  height: 20px;
+  margin: 2px;
+}
+.human {
+  background-image: url("../img/icon/Result.png");
+  background-position: 0px -1628px;
+  width: 20px;
+  height: 20px;
+  margin: 2px;
+}
+.fill_setting {
+  background-image: url("../img/icon/Result.png");
+  background-position: 0px -1648px;
+  width: 20px;
+  height: 20px;
+}
+.logout {
+  background-image: url("../img/icon/Result.png");
+  background-position: 0px -1668px;
+  width: 19px;
+  height: 19px;
+}
+.heart {
+  background-image: url("../img/icon/Result.png");
+  background-position: 0px -1687px;
+  width: 20px;
+  height: 18px;
+  margin: 3px 2px;
+}
+.fill_heart {
+  background-image: url("../img/icon/Result.png");
+  background-position: 0px -1705px;
+  width: 20px;
+  height: 18px;
+  margin: 3px 2px;
+}
+.fill_chat {
+  background-image: url("../img/icon/Result.png");
+  background-position: 0px -1723px;
+  width: 19px;
+  height: 18px;
+}
+.chat {
+  background-image: url("../img/icon/Result.png");
+  background-position: 0px -1741px;
+  width: 19px;
+  height: 18px;
+}
+.menu {
+  background-image: url("../img/icon/Result.png");
+  background-position: 0px -1759px;
+  width: 20px;
+  height: 16px;
+  margin: 4px 2px;
+}
+.alert {
+  background-image: url("../img/icon/Result.png");
+  background-position: 0px -1775px;
+  width: 16px;
+  height: 20px;
+  margin: 2px 4px;
+}
+.plus {
+  background-image: url("../img/icon/Result.png");
+  background-position: 0px -1795px;
+  width: 16px;
+  height: 16px;
+}
+.close {
+  background-image: url("../img/icon/Result.png");
+  background-position: 0px -1811px;
+  width: 16px;
+  height: 15px;
+  margin: 4px 5px;
+}
+.line_arrow {
+  background-image: url("../img/icon/Result.png");
+  background-position: 0px -1826px;
+  width: 12px;
+  height: 20px;
+}
+.back {
+  background-image: url("../img/icon/Result.png");
+  background-position: 0px -1846px;
+  width: 10px;
+  height: 20px;
+}

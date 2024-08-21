@@ -142,3 +142,18 @@ input {
   border: none;
   outline: none;
 }
+button {
+  border: none;
+  background-color: transparent;
+  border: 0px;
+}
+i {
+  display: block;
+}
+textarea {
+  background-color: transparent;
+  resize: none;
+  border: none;
+  outline: none;
+  padding: 0;
+}
