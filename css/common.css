@@ -32,7 +32,7 @@ header {
   transition: 0.5s;
   z-index: 10;
   transform: translateY(-100%);
-  animation: moveHeader 1s ease-in 3s forwards;
+  animation: moveHeader 1s ease-in 1.8s forwards;
 }
 .header_wrap {
   display: flex;
@@ -152,10 +152,6 @@ header:hover .lnb {
   float: left;
   transform: translateY(-10px);
   margin-left: 15px;
-}
-.heart_content > div:first-child:hover {
-  background-color: rgb(17, 17, 17, 0.4);
-  transition: 0.5s;
 }
 /* 헤더 - 알림 - 2차메뉴 */
 .heart_content > ul {
@@ -286,10 +282,6 @@ header:hover .lnb {
   float: left;
   transform: translateY(-10px);
   margin-left: 15px;
-}
-.menu_button:hover {
-  background-color: rgb(17, 17, 17, 0.4);
-  transition: 0.5s;
 }
 .menu_content {
   width: 100vw;

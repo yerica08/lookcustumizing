@@ -3,7 +3,7 @@ $(function () {
   $(".wrapper").fadeIn(3000);
   /* 헤더 - 알림 */
   let result = 1;
-  $(".heart_button").click(function () {
+  $(".heart_button").focus(function () {
     if (result) {
       $(".heart_content").children("ul").css({ height: "500px", opacity: 1 });
       $(".heart_button > button").css({
@@ -227,106 +227,75 @@ $(function () {
     vertical: true,
   });
 
-  /* 마우스 커서 */
-  let page = 1;
-
+  /* 마우스 커서 스타일 */
   const $mouse = $(".mouse");
+  const windowWidth = $(window).width();
+  let mouseX = 0;
+  let mouseY = 0;
 
-  function updateCursorStyle(
-    mouseX,
-    mouseY,
-    rotation = 0,
-    background = "",
-    scale = 1
-  ) {
+  // 커서 스타일 업데이트 함수
+  function updateCursorStyle() {
     $mouse.css({
       left: mouseX - $mouse.width() / 2 + "px", // 중앙 정렬
       top: mouseY - $mouse.height() / 2 + "px", // 중앙 정렬
-      background: background,
-      transform: `rotate(${rotation}deg) scale(${scale})`, // 회전 및 스케일 설정
-      width: "80px", // 고정된 크기
-      height: "80px", // 고정된 크기
-      opacity: 1, // 보이게 설정
-    });
-  }
-  $("header, section")
-    .on("mousemove", function (event) {
-      const mouseX = event.clientX;
-      const mouseY = event.clientY;
-
-      // event.target을 사용하여 현재 마우스가 위치한 요소를 확인
-      if ($(event.target).is("a") || $(event.target).is("button")) {
-        updateCursorStyle(
-          mouseX,
-          mouseY,
-          0,
-          "rgba(255, 0, 0, 0.3)", // 빨간색 배경
-          0.8
-        );
-      } else {
-        updateCursorStyle(
-          mouseX,
-          mouseY,
-          0,
-          "rgba(255, 255, 255, 0.3)", // 어두운 배경
-          0.4
-        );
-      }
-    })
-    .on("mouseleave", function () {
-      // 마우스가 나갈 때 기본 커서 스타일로 복원
-      resetCursorStyle();
+      opacity: 1, // 항상 보이게 설정
     });
 
-  // 기본 커서 스타일로 복원하는 함수
-  function resetCursorStyle() {
-    $mouse.css({
-      opacity: 0, // 커서를 숨김
-    });
+    requestAnimationFrame(updateCursorStyle); // 다음 애니메이션 프레임 요청
   }
+
+  // 전역 mousemove 이벤트
+  $("html, body").on("mousemove", function (event) {
+    mouseX = event.clientX;
+    mouseY = event.clientY;
+
+    // 마우스 위치에 따라 커서 스타일 변경
+    if (
+      $(event.target).is("a") ||
+      $(event.target).is("button") ||
+      $(event.target).is(".touch")
+    ) {
+      $mouse.css({ transform: "scale(1.5)" });
+    } else {
+      $mouse.css({ transform: "scale(1)" });
+    }
+  });
   // 메인비주얼 마우스 커서
   $(".main_visual")
     .on("mousemove", function (event) {
-      const windowWidth = $(window).width();
-      const mouseX = event.clientX;
-      const mouseY = event.clientY;
-      if (mouseX < windowWidth / 4) {
-        // 왼쪽
-        updateCursorStyle(
-          mouseX,
-          mouseY,
-          -90,
-          "url(../img/icon/arrow.png) no-repeat, linear-gradient(-90deg, rgba(18, 18, 18, 0) 0%, rgba(18, 18, 18, 0.5) 100%)",
-          1
-        );
-      } else if (mouseX <= windowWidth / 2) {
-        // 중앙 왼쪽
-        updateCursorStyle(mouseX, mouseY, -90, "rgba(18, 18, 18, 0.3)", 0.4);
-      } else if (mouseX <= windowWidth / 1.5) {
-        // 중앙 오른쪽
-        updateCursorStyle(mouseX, mouseY, 90, "rgba(18, 18, 18, 0.3)", 0.4);
+      mouseX = event.clientX;
+      // 커서 크기 조정
+      if (mouseX > windowWidth / 4 && mouseX < windowWidth / 1.5) {
+        $mouse.css({
+          "mix-blend-mode": "normal",
+          transform: "scale(1)",
+        });
       } else {
-        // 오른쪽
-        updateCursorStyle(
-          mouseX,
-          mouseY,
-          90,
-          "url(../img/icon/arrow.png) no-repeat, linear-gradient(-90deg, rgba(18, 18, 18, 0) 0%, rgba(18, 18, 18, 0.5) 100%)",
-          1
-        );
+        $mouse.css({
+          "mix-blend-mode": "difference",
+          transform: "scale(1.5)",
+        });
       }
     })
-    .trigger("mousemove");
-  // .main_visual 클릭 시 페이지 전환
-  $(".main_visual").click(function (e) {
-    e.preventDefault();
+    .on("mouseleave", function () {
+      $mouse.css({ "mix-blend-mode": "difference" });
+    });
 
-    // 현재 마우스 위치
-    const mouseX = e.clientX;
-    const windowWidth = $(window).width();
+  // 초기화
+  $(document).ready(function () {
+    $mouse.css({ opacity: 1 }); // 페이지 로드 시 커서 보이게 설정
+    updateCursorStyle(); // 커서 스타일 업데이트 시작
+  });
+
+  // .main_visual 클릭 시 페이지 전환
+  let page = 1;
+
+  $(".main_visual").click(function (event) {
+    event.preventDefault();
+    mouseX = event.clientX;
 
     // 페이지 전환 로직
-    if (mouseX < windowWidth / 4) {
+    if (mouseX < windowWidth / 3) {
       // 왼쪽 클릭 - 이전 페이지
       page--;
       if (page < 1) page = 3; // 페이지 3으로 돌아가기
@@ -340,25 +309,21 @@ $(function () {
     let mainH3 = $(".main_visual h3");
     let $fullPhoto = $(".full_photo > img");
     let newImageSrc;
+    let mainText = $(".text_wrap");
 
     // 페이지 내용 업데이트
     switch (page) {
       case 1:
         newImageSrc = "./img/photo/main_visual/main_people01.jpg";
         mainH3.text("플레체 : PLETZE");
-        $(".page2").css("background-color", "#fff");
         $(".state > div").css({ width: "0%" });
         break;
       case 2:
         newImageSrc = "./img/photo/main_visual/main_people02.jpg";
         mainH3.text("dffsd");
-        $(".page3").css("background-color", "#fff");
-        $(".state > div").css({ width: "50%" });
         break;
       case 3:
         newImageSrc = "./img/photo/main_visual/main_people03.jpg";
-        $(".page3").css("background-color", "#fff");
-        $(".state > div").css({ width: "100%" });
         break;
     }
 
@@ -369,8 +334,11 @@ $(function () {
 
     $newImage.on("load", function () {
       // 새로운 이미지가 로드되면 이전 이미지를 유지하고 새로운 이미지를 보여줌
-      $fullPhoto.stop(true, true).fadeOut(500, function () {
-        $(this).attr("src", newImageSrc).fadeIn(500);
+      $fullPhoto.stop(true, true).fadeOut(300, function () {
+        $(this).attr("src", newImageSrc).fadeIn();
+      });
+      mainText.fadeOut(0, function () {
+        mainText.fadeIn();
       });
     });
 
