@@ -2,7 +2,25 @@
 @import url(./reset.css);
 @import url(./icons.css);
 @import url("https://fonts.googleapis.com/css2?family=Gilda+Display&family=Noto+Sans+KR:wght@100..900&display=swap");
-
+.wrapper {
+  width: 100%;
+  height: auto;
+  position: relative;
+  opacity: 0;
+  animation: fadeFirst 2s ease-in forwards;
+  overflow: hidden;
+}
+@keyframes fadeFirst {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 body {
   font-family: "Noto Sans KR", sans-serif;
   /* font-family: "Gilda Display", serif; */
@@ -10,17 +28,23 @@ body {
   font-weight: 400;
   color: #fff;
   background-color: #111;
-  cursor: none; /* 기본 커서 숨김 */
+  /* 기본 커서 숨김 */
+  /* cursor: none;  */
 }
-a {
-  cursor: none;
-}
+input,
 button {
+  font-size: 16px;
+  font-weight: 400;
+  font-family: "Noto Sans KR", sans-serif;
+}
+/* a,
+button,
+input {
   cursor: none;
 }
 button[type="button"] {
   cursor: none;
-}
+} */
 /* 헤더 */
 header {
   width: 100%;
@@ -532,4 +556,18 @@ footer .policy li::after {
   top: 50%;
   transform: translateY(-50%);
   right: -10px;
+}
+/* 마우스 */
+.mouse {
+  width: 20px;
+  height: 20px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 100%;
+  position: fixed;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  transform: scale(1);
+  opacity: 1;
+  z-index: 999;
+  mix-blend-mode: difference;
+  pointer-events: none;
 }

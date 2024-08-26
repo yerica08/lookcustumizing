@@ -1,0 +1,137 @@
+@import url(../common.css);
+body {
+  background-color: #fff;
+  color: #111;
+}
+/* 헤더 */
+header {
+  animation: moveHeader 1s ease-in 0s forwards;
+}
+header::before {
+  background: #fff;
+  border-bottom: 1px solid #6a6a6a;
+  box-shadow: 0 4px 6px #eee;
+}
+header:hover::before {
+  opacity: 1;
+  transform: scale(1, 1);
+}
+h1 > a > img {
+  filter: brightness(0.2);
+}
+.gnb a {
+  color: #6a6a6a;
+}
+
+/* 메뉴 아이콘 */
+.menu_button > button,
+.heart_button > button {
+  filter: brightness(0.2);
+}
+/* 로그인 페이지 */
+.login_container {
+  width: 100vw;
+  height: 100vh;
+  /* margin: 0 auto; */
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  background-color: pink;
+}
+.login_container .content {
+  display: flex;
+  flex-flow: column wrap;
+  gap: 30px;
+  width: 25vw;
+  height: 50vh;
+  background-color: skyblue;
+}
+/* 로그인 방법 선택 */
+.login_select {
+  display: flex;
+  width: 100%;
+  height: 60px;
+}
+.login_select li {
+  flex: 1;
+  height: 60px;
+}
+/* 로그인 - 폼태그 */
+.login_form {
+  display: flex;
+  flex-flow: column wrap;
+  gap: 30px;
+  width: 100%;
+  height: fit-content;
+  padding: 0 30px;
+  box-sizing: border-box;
+}
+#uesr_id,
+#uesr_pw {
+  width: 100%;
+  height: 60px;
+  background-color: #fbfbfb;
+  border: 1px solid #d7d7d7;
+  color: #787878;
+  font-size: 16px;
+  padding: 10px 30px;
+  box-sizing: border-box;
+}
+#uesr_id {
+  margin-top: 30px;
+  border-radius: 3px 3px 0 0;
+}
+#user_pw {
+  border-top: 0px;
+  border-radius: 0 0 3px 3px;
+}
+input[type="checkbox"] {
+  width: 14px;
+  height: 14px;
+  background-color: #eee;
+  border: 1px solid #d7d7d7;
+}
+#login_stable + label,
+#id_save + label {
+  font-size: 14px;
+  color: #787878;
+}
+.login_container button {
+  width: 100%;
+  height: 60px;
+  line-height: 60px;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 400;
+  border: 1px solid #111;
+  border-radius: 3px;
+  background-color: #fff;
+}
+/* 로그인 - 아이디, 비밀번호 찾기 / 회원가입 / 고객센터 */
+.user_find {
+  display: flex;
+  gap: 15px;
+  margin: 0 auto;
+}
+.user_find a {
+  font-size: 14px;
+  color: #9e9e9e;
+}
+/* 로그인 - SNS 로그인 */
+.sns_login {
+  display: flex;
+}
+/* 마우스 */
+.mouse {
+  width: 20px;
+  height: 20px;
+  background-color: #111;
+  border-radius: 100%;
+  position: fixed;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  transform: scale(1);
+  opacity: 1;
+  z-index: 999;
+  mix-blend-mode: difference;
+  pointer-events: none;
+}

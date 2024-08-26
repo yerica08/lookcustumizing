@@ -1,23 +1,4 @@
 @import url(./common.css);
-.wrapper {
-  width: 100%;
-  height: auto;
-  position: relative;
-  opacity: 0;
-  animation: fadeFirst 2s ease-in forwards;
-  overflow: hidden;
-}
-@keyframes fadeFirst {
-  0% {
-    opacity: 0;
-  }
-  50% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
 section {
   width: 100vw;
   height: 100vh;
@@ -137,20 +118,6 @@ body::-webkit-scrollbar {
   bottom: 120px;
   opacity: 0;
   animation: moveLeft 0.7s ease-in 0.5s forwards;
-}
-/* 마우스 */
-.mouse {
-  width: 30px;
-  height: 30px;
-  background-color: rgb(255, 255, 255);
-  border-radius: 100%;
-  position: fixed;
-  transition: background-color 0.3s ease, transform 0.3s ease;
-  transform: scale(1);
-  opacity: 1;
-  z-index: 999;
-  mix-blend-mode: difference;
-  pointer-events: none;
 }
 /* 두번째 섹션 - 배경(VIEW) */
 /* 배경 - 이미지 박스 */
@@ -472,7 +439,7 @@ body::-webkit-scrollbar {
   height: 100% !important;
 }
 /* 다섯번째 섹션 - 이벤트(event) */
-.event {
+.review_event {
   background: url(../img/photo/event/bg_event2.jpg) no-repeat center / cover;
   width: 100%;
   height: fit-content;
@@ -480,14 +447,14 @@ body::-webkit-scrollbar {
   box-sizing: border-box;
   text-align: center;
 }
-.event h4 {
+.review_event h4 {
   font-size: 34px;
   font-weight: 600;
   padding-bottom: 30px;
 }
-.event p {
+.review_event p {
   font-size: 18px;
 }
-.event span {
+.review_event span {
   font-weight: 600;
 }

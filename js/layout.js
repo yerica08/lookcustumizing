@@ -1,50 +1,7 @@
 "use strict";
+
 $(function () {
   $(".wrapper").fadeIn(3000);
-  /* 헤더 - 알림 */
-  let result = 1;
-  $(".heart_button").focus(function () {
-    if (result) {
-      $(".heart_content").children("ul").css({ height: "500px", opacity: 1 });
-      $(".heart_button > button").css({
-        "background-image": "url('../img/icon/Result.png')",
-        "background-position": "0px -1705px",
-        filter: "brightness(0)",
-        position: "absolute",
-        "z-index": "500",
-      });
-      result = 0;
-    } else {
-      $(".heart_content > ul").css({ height: "0px", opacity: 0 });
-      $(".heart_button > button").css({
-        "background-image": "url('../img/icon/Result.png')",
-        "background-position": "0px -1687px",
-        filter: "brightness(1)",
-      });
-      result = 1;
-    }
-  });
-
-  /* 헤더 - 우측 메뉴 */
-  $(".menu_button").click(function () {
-    $(".menu_content").css({
-      opacity: 1,
-      "z-index": 400,
-    });
-    $(".menu_wrap").css({
-      transform: "translateX(0)",
-    });
-  });
-  $(".close_button").click(function () {
-    $(".menu_wrap").css({
-      transform: "translateX(26vw)",
-    });
-    $(".menu_content").css({
-      opacity: 0,
-      "z-index": -1,
-    });
-  });
-
   /* 섹션 이동 스크롤 박스 이동 */
   const $openBox = $(".open_box");
   const $boxes = $openBox.children();
@@ -225,66 +182,6 @@ $(function () {
     pauseOnFocus: true,
     pauseOnHover: true,
     vertical: true,
-  });
-
-  /* 마우스 커서 스타일 */
-  const $mouse = $(".mouse");
-  const windowWidth = $(window).width();
-  let mouseX = 0;
-  let mouseY = 0;
-
-  // 커서 스타일 업데이트 함수
-  function updateCursorStyle() {
-    $mouse.css({
-      left: mouseX - $mouse.width() / 2 + "px", // 중앙 정렬
-      top: mouseY - $mouse.height() / 2 + "px", // 중앙 정렬
-      opacity: 1, // 항상 보이게 설정
-    });
-
-    requestAnimationFrame(updateCursorStyle); // 다음 애니메이션 프레임 요청
-  }
-
-  // 전역 mousemove 이벤트
-  $("html, body").on("mousemove", function (event) {
-    mouseX = event.clientX;
-    mouseY = event.clientY;
-
-    // 마우스 위치에 따라 커서 스타일 변경
-    if (
-      $(event.target).is("a") ||
-      $(event.target).is("button") ||
-      $(event.target).is(".touch")
-    ) {
-      $mouse.css({ transform: "scale(1.5)" });
-    } else {
-      $mouse.css({ transform: "scale(1)" });
-    }
-  });
-  // 메인비주얼 마우스 커서
-  $(".main_visual")
-    .on("mousemove", function (event) {
-      mouseX = event.clientX;
-      // 커서 크기 조정
-      if (mouseX > windowWidth / 4 && mouseX < windowWidth / 1.5) {
-        $mouse.css({
-          "mix-blend-mode": "normal",
-          transform: "scale(1)",
-        });
-      } else {
-        $mouse.css({
-          "mix-blend-mode": "difference",
-          transform: "scale(1.5)",
-        });
-      }
-    })
-    .on("mouseleave", function () {
-      $mouse.css({ "mix-blend-mode": "difference" });
-    });
-
-  // 초기화
-  $(document).ready(function () {
-    $mouse.css({ opacity: 1 }); // 페이지 로드 시 커서 보이게 설정
-    updateCursorStyle(); // 커서 스타일 업데이트 시작
   });
 
   // .main_visual 클릭 시 페이지 전환
