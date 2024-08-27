@@ -32,19 +32,21 @@ h1 > a > img {
 .login_container {
   width: 100vw;
   height: 100vh;
-  /* margin: 0 auto; */
-  display: grid;
-  justify-items: center;
-  align-items: center;
-  background-color: pink;
+  padding: 200px 0 100px 0;
+  margin: 0 auto;
+  display: flex;
+  flex-flow: column wrap;
+  box-sizing: border-box;
+  justify-content: space-between;
 }
 .login_container .content {
   display: flex;
   flex-flow: column wrap;
   gap: 30px;
-  width: 25vw;
-  height: 50vh;
-  background-color: skyblue;
+  width: 477px;
+  height: fit-content;
+  margin: 0 auto;
+  border: 1px solid #d7d7d7;
 }
 /* 로그인 방법 선택 */
 .login_select {
@@ -55,6 +57,24 @@ h1 > a > img {
 .login_select li {
   flex: 1;
   height: 60px;
+  line-height: 60px;
+  text-align: center;
+  font-size: 14px;
+  border: 0px solid #d7d7d7;
+}
+.login_select li:nth-child(1) {
+  border-right-width: 1px;
+}
+.login_select li:nth-child(2) {
+  border-right-width: 1px;
+  border-bottom-width: 1px;
+  background-color: #fbfbfb;
+  color: #787878;
+}
+.login_select li:nth-child(3) {
+  border-bottom-width: 1px;
+  background-color: #fbfbfb;
+  color: #787878;
 }
 /* 로그인 - 폼태그 */
 .login_form {
@@ -95,8 +115,9 @@ input[type="checkbox"] {
 #id_save + label {
   font-size: 14px;
   color: #787878;
+  padding-right: 20px;
 }
-.login_container button {
+.loginBtn {
   width: 100%;
   height: 60px;
   line-height: 60px;
@@ -106,6 +127,10 @@ input[type="checkbox"] {
   border: 1px solid #111;
   border-radius: 3px;
   background-color: #fff;
+}
+.loginBtn:hover {
+  background-color: #111;
+  color: #fff;
 }
 /* 로그인 - 아이디, 비밀번호 찾기 / 회원가입 / 고객센터 */
 .user_find {
@@ -120,6 +145,50 @@ input[type="checkbox"] {
 /* 로그인 - SNS 로그인 */
 .sns_login {
   display: flex;
+  gap: 30px;
+  margin: 0 auto;
+  margin-bottom: 30px;
+}
+/* 이용약관 */
+footer {
+  width: fit-content;
+  height: fit-content;
+  margin: 0 auto;
+  font-weight: 400;
+}
+.footer_link {
+  display: flex;
+  gap: 30px;
+  font-size: 14px;
+  color: #787878;
+  text-align: center;
+  margin-bottom: 15px;
+}
+.footer_link > li {
+  position: relative;
+  line-height: 30px;
+}
+.footer_link a {
+  color: #787878;
+}
+.footer_link > li::after {
+  content: "";
+  width: 1px;
+  height: 50%;
+  position: absolute;
+  top: 50%;
+  right: -15px;
+  transform: translateY(-50%);
+  background-color: #d7d7d7;
+}
+.footer_link > li:last-child::after {
+  width: 0;
+}
+footer > p {
+  font-size: 12px;
+  font-weight: 200;
+  color: #787878;
+  text-align: center;
 }
 /* 마우스 */
 .mouse {

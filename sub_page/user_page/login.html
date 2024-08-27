@@ -4,6 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>LookCustoMizing</title>
+    <!-- favicon -->
+    <link rel="icon" href="../../img/favicon/favicon-16x16.png" />
     <!-- css -->
     <link rel="stylesheet" href="../../css/subpage/user_page.css" />
     <!-- jquery -->
@@ -164,12 +166,12 @@
           </li>
         </ul>
       </div>
+      <!-- 로그인 섹션 -->
       <div class="login_container">
         <div class="content">
           <ul class="login_select">
-            <li>이메일 / 아이디</li>
-            <li>일회용 번호</li>
-            <li>QR 코드</li>
+            <li class="emailId">이메일 / 아이디</li>
+            <li class="qrCode">QR 코드</li>
           </ul>
           <form action="#" method="post" name="login_form" class="login_form">
             <div>
@@ -179,7 +181,7 @@
                 name="uesr_id"
                 placeholder="이메일 / 아이디" />
               <input
-                type="text"
+                type="password"
                 id="uesr_pw"
                 name="uesr_pw"
                 placeholder="비밀번호" />
@@ -190,7 +192,7 @@
               <input type="checkbox" id="id_save" name="id_save" />
               <label for="id_save">아이디 저장</label>
             </div>
-            <button>로그인</button>
+            <button class="loginBtn">로그인</button>
           </form>
           <ul class="user_find">
             <li><a href="#">아이디 찾기</a></li>
@@ -200,27 +202,38 @@
           </ul>
           <ul class="sns_login">
             <li>
-              <img src="../../img/icon/naver_logo.png" alt="naver_logo" />
+              <a href="#"
+                ><img src="../../img/icon/naver_logo.png" alt="naver_logo"
+              /></a>
             </li>
             <li>
-              <img
-                src="../../img/icon/kakaotalk_logo.png"
-                alt="kakaotalk_logo" />
+              <a href="#"
+                ><img
+                  src="../../img/icon/kakaotalk_logo.png"
+                  alt="kakaotalk_logo"
+              /></a>
             </li>
             <li>
-              <img src="../../img/icon/google_logo.png" alt="google_logo" />
+              <a href="#"
+                ><img src="../../img/icon/google_logo.png" alt="google_logo"
+              /></a>
             </li>
             <li>
-              <img src="../../img/icon/facebook_logo.png" alt="facebook_logo" />
+              <a href="#"
+                ><img
+                  src="../../img/icon/facebook_logo.png"
+                  alt="facebook_logo"
+              /></a>
             </li>
           </ul>
         </div>
+        <!-- 푸터 / 저작권 -->
         <footer>
           <ul class="footer_link">
-            <li>이용약관</li>
-            <li>개인정보처리방침</li>
-            <li>책임의 함계와 법적고지</li>
-            <li>회원정보 고객센터</li>
+            <li><a href="#">이용약관</a></li>
+            <li><a href="#">개인정보처리방침</a></li>
+            <li><a href="#">책임의 함계와 법적고지</a></li>
+            <li><a href="#">회원정보 고객센터</a></li>
           </ul>
           <p>Copyright&copy; LookCustoMizing. All rights reserved.</p>
         </footer>
