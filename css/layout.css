@@ -68,7 +68,7 @@ body::-webkit-scrollbar {
 }
 .main_visual h2 {
   font-size: 43px;
-  font-weight: bold;
+  font-weight: 500;
   padding-bottom: 30px;
 }
 .main_visual p:last-of-type {
