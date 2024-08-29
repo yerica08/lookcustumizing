@@ -1,0 +1,151 @@
+@import url(../common.css);
+/* 기본 */
+body {
+  background-color: #fff;
+  color: #111;
+}
+section {
+  width: 1600px;
+  margin: 0 auto;
+}
+/* 헤더 */
+header {
+  animation: moveHeader 1s ease-in 0s forwards;
+}
+header::before {
+  background: #fff;
+  border-bottom: 1px solid #6a6a6a;
+  box-shadow: 0 4px 6px #eee;
+}
+header:hover::before {
+  opacity: 1;
+  transform: scale(1, 1);
+}
+h1 > a > img {
+  filter: brightness(0.2);
+}
+.gnb a {
+  color: #6a6a6a;
+}
+/* 메뉴 아이콘 */
+.menu_button > button,
+.heart_button > button {
+  filter: brightness(0.2);
+}
+/* best lcm */
+.bestLCM {
+  margin: 150px auto;
+}
+/* best lcm - text */
+.bestLCM .title {
+  width: 100%;
+  height: fit-content;
+  text-align: center;
+}
+.bestLCM h2 {
+  font-family: "Kaisei HarunoUmi", serif;
+  font-size: 68px;
+  line-height: 80px;
+  margin-bottom: 20px;
+}
+.bestLCM h3 {
+  font-size: 24px;
+  color: #9e9e9e;
+}
+/* best lcm - ul */
+.bestLCM ul {
+  display: flex;
+  width: 100%;
+  margin-top: 100px;
+}
+.bestLCM li {
+  width: fit-content;
+  height: 60px;
+  padding: 0 80px;
+  line-height: 60px;
+  font-size: 24px;
+  text-align: center;
+  border: 1px solid #d7d7d7;
+  box-sizing: border-box;
+}
+.bestLCM li:last-child {
+  width: 100%;
+  border-width: 0px;
+  border-bottom-width: 1px;
+}
+strong {
+  margin-left: 10px;
+  font-weight: 600;
+}
+/* best lcm - 이미지 */
+.bestLCM .best_img {
+  display: flex;
+  width: 100%;
+  height: 482px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 60px 0;
+}
+.bestLCM .small_img {
+  overflow-y: scroll;
+  overflow-x: hidden;
+  width: 410px;
+  height: 100%;
+}
+.bestLCM .small_img::-webkit-scrollbar {
+  display: none;
+}
+.bestLCM .small_img div {
+  width: 410px;
+  height: 230px;
+  margin-bottom: 20px;
+}
+.bestLCM .small_img div:last-child {
+  margin-bottom: 0px;
+}
+.bestLCM .small_img img {
+  width: 100%;
+}
+.bestLCM .large_img {
+  width: 1060px;
+  height: 100%;
+  background-color: #111;
+  overflow: hidden;
+}
+.bestLCM .large_img img {
+  width: 100%;
+  transition: 0.5s;
+}
+/* best lcm - scrollbar */
+.scroll {
+  width: fit-content;
+  height: 100%;
+  flex-direction: column;
+  position: relative;
+  margin-left: 56px;
+}
+.circle {
+  background-color: #111;
+  border: 1px solid #111;
+}
+.scroll div:nth-child(2),
+.scroll div:nth-child(3) {
+  background-color: #fff;
+}
+.state {
+  background-color: #d7d7d7;
+  width: 3px;
+  height: 100%;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.state > div {
+  width: 100%;
+  height: 0;
+  background-color: #111;
+}
+/* 이벤트 버튼 */
+.event {
+  margin-top: 60px;
+}

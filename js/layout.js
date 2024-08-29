@@ -72,7 +72,7 @@ $(function () {
           // 첫 스크롤 선행 됨
           isElseExecuted = true;
           // 버튼 나타남
-          $(".view_box .diamond").css({ opacity: "1", transition: "1s" });
+          $(".view_box .diamond").css({ opacity: "1", transition: "0.5s" });
         }, 1000);
       }
     } else {
