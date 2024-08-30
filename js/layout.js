@@ -1,5 +1,4 @@
 "use strict";
-
 $(function () {
   $(".wrapper").fadeIn(3000);
   /* 섹션 이동 스크롤 박스 이동 */
@@ -132,7 +131,7 @@ $(function () {
     }
   });
   /* 이벤트 & 푸터 스크롤 */
-  $(".event").on("wheel", function (event) {
+  $(".banner").on("wheel", function (event) {
     event.preventDefault();
     const scrollAmount = event.originalEvent.deltaY;
     if (scrollAmount > 0) {
@@ -213,14 +212,21 @@ $(function () {
       case 1:
         newImageSrc = "./img/photo/main_visual/main_people01.jpg";
         mainH3.text("플레체 : PLETZE");
-        $(".state > div").css({ width: "0%" });
+        $(".circle").css({ "background-color": "#d7d7d7" });
+        $(".page1").css({ "background-color": "#fff" });
+        $(".state > div").css({ height: "0%" });
         break;
       case 2:
         newImageSrc = "./img/photo/main_visual/main_people02.jpg";
         mainH3.text("dffsd");
+        $(".circle").css({ "background-color": "#fff" });
+        $(".page3").css({ "background-color": "#d7d7d7" });
+        $(".state > div").css({ height: "50%" });
         break;
       case 3:
         newImageSrc = "./img/photo/main_visual/main_people03.jpg";
+        $(".circle").css({ "background-color": "#fff" });
+        $(".state > div").css({ height: "100%" });
         break;
     }
 
@@ -235,7 +241,7 @@ $(function () {
         $(this).attr("src", newImageSrc).fadeIn();
       });
       mainText.fadeOut(0, function () {
-        mainText.fadeIn();
+        mainText.fadeIn(1000);
       });
     });
 

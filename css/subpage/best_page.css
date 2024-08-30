@@ -6,7 +6,7 @@ body {
 }
 section {
   width: 1600px;
-  margin: 0 auto;
+  margin: 150px auto;
 }
 /* 헤더 */
 header {
@@ -34,47 +34,58 @@ h1 > a > img {
 }
 /* best lcm */
 .bestLCM {
-  margin: 150px auto;
+  margin-top: 180px;
+  margin-bottom: 0;
 }
-/* best lcm - text */
-.bestLCM .title {
+/* 제목 */
+.title {
   width: 100%;
   height: fit-content;
   text-align: center;
 }
-.bestLCM h2 {
+h2 {
   font-family: "Kaisei HarunoUmi", serif;
   font-size: 68px;
   line-height: 80px;
   margin-bottom: 20px;
 }
-.bestLCM h3 {
+h3 {
   font-size: 24px;
   color: #9e9e9e;
 }
-/* best lcm - ul */
-.bestLCM ul {
+/* 컨텐츠 - ul */
+.select {
   display: flex;
   width: 100%;
   margin-top: 100px;
 }
-.bestLCM li {
+.select li {
   width: fit-content;
   height: 60px;
   padding: 0 80px;
   line-height: 60px;
   font-size: 24px;
   text-align: center;
+  color: #787878;
   border: 1px solid #d7d7d7;
   box-sizing: border-box;
+  white-space: nowrap;
 }
-.bestLCM li:last-child {
+.select li:nth-child(1) {
+  border-bottom-width: 0;
+}
+.select li:nth-child(2) {
+  color: #9e9e9e;
+  background-color: #fbfbfb;
+  border-left-width: 0;
+}
+.select li:last-child {
   width: 100%;
+  background-color: #fff;
   border-width: 0px;
   border-bottom-width: 1px;
 }
 strong {
-  margin-left: 10px;
   font-weight: 600;
 }
 /* best lcm - 이미지 */
@@ -84,7 +95,7 @@ strong {
   height: 482px;
   flex-wrap: wrap;
   justify-content: space-between;
-  margin: 60px 0;
+  margin: 30px 0;
 }
 .bestLCM .small_img {
   overflow-y: scroll;
@@ -99,6 +110,8 @@ strong {
   width: 410px;
   height: 230px;
   margin-bottom: 20px;
+  border-radius: 3px;
+  overflow: hidden;
 }
 .bestLCM .small_img div:last-child {
   margin-bottom: 0px;
@@ -110,6 +123,7 @@ strong {
   width: 1060px;
   height: 100%;
   background-color: #111;
+  border-radius: 3px;
   overflow: hidden;
 }
 .bestLCM .large_img img {
@@ -127,6 +141,7 @@ strong {
 .circle {
   background-color: #111;
   border: 1px solid #111;
+  transition: background-color 3s;
 }
 .scroll div:nth-child(2),
 .scroll div:nth-child(3) {
@@ -147,5 +162,131 @@ strong {
 }
 /* 이벤트 버튼 */
 .event {
+  margin-top: 30px;
+  padding: 30px 50px;
+  background-color: #fbfbfb;
+  border-radius: 3px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.event h4 {
+  margin-bottom: 15px;
+  font-size: 20px;
+  font-weight: 500;
+  color: #111;
+}
+.event p {
+  color: #787878;
+  line-height: 12px;
+}
+.line_arrow {
+  background-image: url("../../img/icon/Result.png");
+
+  filter: brightness(0);
+}
+.line_arrow.right {
+  transform: rotate(180deg);
+}
+/* 리포터 픽 */
+.reporter_pick {
+  margin-top: 0;
+  padding-top: 150px;
+}
+.reporter_pick .first_page {
+  display: flex;
+  width: 100%;
+  gap: 30px;
+  margin-top: 30px;
+  flex-wrap: wrap;
+}
+.reporter_pick .contents_wrap .post {
+  width: 785px;
+  height: 500px;
+  background-color: #6a6a6a;
+  position: relative;
+}
+.page_number {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 30px;
   margin-top: 60px;
+}
+.page_number li {
+  width: 30px;
+  height: 30px;
+  border-radius: 3px;
+  text-align: center;
+  line-height: 27px;
+}
+.page_number .line_arrow {
+  margin: 0 15px;
+}
+/* 리포터 픽 - title */
+.reporter_pick .post .title {
+  width: 100%;
+  height: 100%;
+  background-color: rgb(17, 17, 17, 0.7);
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  opacity: 0;
+}
+.reporter_pick .post .title h3 {
+  margin-top: 20px;
+  font-weight: 500;
+  color: #fff;
+  position: relative;
+}
+.reporter_pick .nick_name {
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 400;
+  position: relative;
+  width: fit-content;
+}
+.reation {
+  display: flex;
+  justify-content: center;
+  height: 20px;
+  margin-top: 30px;
+}
+.reaction_number {
+  font-size: 14px;
+  font-weight: 400;
+}
+.reation p {
+  display: flex;
+  align-items: center;
+  margin: 0 5px;
+}
+.reation i {
+  display: inline-block;
+  transform: scale(0.8);
+}
+.reation .chat {
+  background-image: url("../../img/icon/Result.png");
+}
+.reation .heart {
+  background-image: url("../../img/icon/Result.png");
+}
+/* 페이지 번호 */
+.active {
+  background-color: #111;
+  color: #fff;
+}
+/* 푸터 */
+footer {
+  background-color: #111;
+}
+.legal {
+  color: #fff;
 }
