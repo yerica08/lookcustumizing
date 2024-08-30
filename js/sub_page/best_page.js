@@ -8,35 +8,9 @@ $(function () {
     $("html, body").animate({ scrollTop: targetOffset }, 600);
   }
 
-  // small 이미지를 클릭하면 large 이미지 변경
   let bestImg = $(".best_img");
-  bestImg.scroll({
-    top: 0,
-    left: 100,
-    behavior: "smooth",
-  });
   let smallImg = $(".small_img img");
   let largeImg = $(".large_img img");
-
-  smallImg.on("click", function () {
-    largeImg.attr({ src: $(this).attr("data-img") });
-    largeImg.attr({ value: $(this).attr("value") });
-    if (largeImg.attr("value") == "page1") {
-      $(".circle").css({ "background-color": "#fff" });
-      $(".page1").css({ "background-color": "#111" });
-      $(".state div").css({ height: "0px" });
-    } else if (largeImg.attr("value") == "page2") {
-      $(".circle").css({ "background-color": "#111" });
-      $(".page3").css({ "background-color": "#fff" });
-      $(".state div").css({ height: "50%" });
-    } else if (largeImg.attr("value") == "page3") {
-      $(".circle").css({ "background-color": "#111" });
-      $(".state div").css({ height: "100%" });
-    }
-  });
-
-  // small img 에 애니메이션 적용
-
   let smallImgContainer = $(".small_img");
   let totalHeight = 0; // 총 높이
   let isAnimating = false; // 애니메이션 상태 추적
@@ -58,6 +32,32 @@ $(function () {
       {
         duration: 30000, // 30초 동안 애니메이션
         easing: "linear", // 애니메이션 효과
+        step: function (now) {
+          // 현재 스크롤 위치에 따라 상태 업데이트
+          let scrollPercent = now / totalHeight;
+
+          if (scrollPercent > 0.2) {
+            // 세 번째 이미지 상태
+            $(".circle").css({ "background-color": "#111" });
+            $(".state div").css({ height: "100%" });
+            largeImg.attr({ src: $(".page3").attr("data-img") });
+            largeImg.attr({ value: $(".page3").attr("value") });
+          } else if (scrollPercent > 0.5) {
+            // 두 번째 이미지 상태
+            $(".circle").css({ "background-color": "#111" });
+            $(".page3").css({ "background-color": "#fff" });
+            $(".state div").css({ height: "50%" });
+            largeImg.attr({ src: $(".page2").attr("data-img") });
+            largeImg.attr({ value: $(".page2").attr("value") });
+          } else {
+            // 첫 번째 이미지 상태
+            $(".circle").css({ "background-color": "#fff" });
+            $(".page1").css({ "background-color": "#111" });
+            $(".state div").css({ height: "0px" });
+            largeImg.attr({ src: $(".page1").attr("data-img") });
+            largeImg.attr({ value: $(".page1").attr("value") });
+          }
+        },
         complete: function () {
           isAnimating = false; // 애니메이션 상태 해제
           startScrolling(); // 반복 실행
@@ -65,6 +65,22 @@ $(function () {
       }
     );
   }
+
+  // 클릭 이벤트
+  smallImg.on("click", function () {
+    largeImg.attr({ src: $(this).attr("data-img") });
+    largeImg.attr({ value: $(this).attr("value") });
+
+    // 클릭 시 스크롤을 해당 위치로 이동
+    let targetValue = largeImg.attr("value");
+    if (targetValue == "page1") {
+      smallImgContainer.animate({ scrollTop: 0 }, 600); // 첫 번째 이미지 위치로 스크롤
+    } else if (targetValue == "page2") {
+      smallImgContainer.animate({ scrollTop: totalHeight / 2 }, 600); // 두 번째 이미지 위치로 스크롤
+    } else if (targetValue == "page3") {
+      smallImgContainer.animate({ scrollTop: totalHeight }, 600); // 세 번째 이미지 위치로 스크롤
+    }
+  });
 
   // 부모 요소에 이벤트 리스너 추가
   smallImgContainer.parent().on("mouseenter", function () {
