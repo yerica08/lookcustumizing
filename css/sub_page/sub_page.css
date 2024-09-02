@@ -32,6 +32,7 @@ h1 > a > img {
 .heart_button > button {
   filter: brightness(0.2);
 }
+/* 서브페이지(1) 베스트 페이지(best_page) */
 /* best lcm */
 .bestLCM {
   margin-top: 180px;

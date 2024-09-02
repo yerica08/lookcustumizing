@@ -109,15 +109,6 @@ body::-webkit-scrollbar {
   height: 0%;
   background-color: #fff;
 }
-/* .text_wrap {
-  width: 500px;
-  height: 500px;
-  position: absolute;
-  left: 150px;
-  bottom: 120px;
-  opacity: 0;
-  animation: moveLeft 0.7s ease-in 0.5s forwards;
-} */
 /* 두번째 섹션 - 배경(VIEW) */
 /* 배경 - 이미지 박스 */
 .view_box {
@@ -142,9 +133,13 @@ body::-webkit-scrollbar {
 .view_box > div img {
   height: 100%;
 }
-
+.view_box > div:hover img {
+  transform: scale(1.2);
+  transition: 10s;
+}
 /* 배경 - 이미지박스 - 블랙박스 */
 .view_box > div > div {
+  display: block;
   width: 100%;
   height: 100%;
   background-color: #111111a8;
@@ -154,62 +149,47 @@ body::-webkit-scrollbar {
 .view_box > div:hover div {
   background-color: transparent;
 }
-
+.view_box > div:not(:hover) div {
+  background-color: rgba(17, 17, 17, 0.829);
+}
 /* 배경 - 이미지박스 - 버튼 */
 .view_box .diamond {
+  display: block;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-40%, -50%) scale(0.8);
   padding: 0;
   transform-origin: left top;
-  transition: 0.3s;
+  transition: 0.5s;
   z-index: 10;
   opacity: 0;
 }
-.view_box div:nth-child(1) .diamond::after {
+.view_box div .diamond::after {
   content: "";
   display: block;
+  width: 70px;
+  height: 105px;
+  position: relative;
+  left: 50%;
+  transform: translate(-50%, -60%);
+  top: 50%;
+}
+.view_box div:nth-child(1) .diamond::after {
   background-image: url("../img/icon/Result.png");
   background-position: 0px -779px;
-  width: 70px;
-  height: 105px;
-  position: relative;
-  left: 50%;
-  transform: translate(-50%, -10%);
 }
 .view_box div:nth-child(2) .diamond::after {
-  content: "";
-  display: block;
   background-image: url("../img/icon/Result.png");
   background-position: 0px -884px;
-  width: 70px;
-  height: 105px;
-  position: relative;
-  left: 50%;
-  transform: translate(-50%, -10%);
 }
 .view_box div:nth-child(3) .diamond::after {
-  content: "";
-  display: block;
   background-image: url("../img/icon/Result.png");
   background-position: 0px -989px;
-  width: 70px;
-  height: 105px;
-  position: relative;
-  left: 50%;
-  transform: translate(-50%, -10%);
 }
 .view_box div:nth-child(4) .diamond::after {
-  content: "";
-  display: block;
   background-image: url("../img/icon/Result.png");
   background-position: 0px -1094px;
-  width: 70px;
-  height: 105px;
-  position: relative;
-  left: 50%;
-  transform: translate(-50%, -10%);
 }
 .view_box > div:hover .diamond {
   transform: rotate(45deg) translate(-35%, -35%) scale(0.6);
@@ -219,7 +199,7 @@ body::-webkit-scrollbar {
   background-position: 0px -1409px;
   width: 37px;
   height: 37px;
-  transform: rotate(45deg) translate(-40%, 30%);
+  transform: rotate(45deg) translate(-68%, -6%);
   animation: blink 0.5s;
 }
 @keyframes blink {

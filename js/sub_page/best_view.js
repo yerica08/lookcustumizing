@@ -1,25 +1,55 @@
-$(function () {
-  $(".diamond").on({
-    click: function () {
-      $("header").css({ display: "none" });
-      $(".view").css({ display: "none" });
-      $(".show_view").css({ display: "block" });
-      gsap.fromTo(
-        ".show_view",
-        { autoAlpha: 0 },
-        { duration: 1, autoAlpha: 1 }
-      );
-    },
+// 이미지 세트 정의
+const imageSets = {
+  1: [
+    "../../img/photo/view/sub_view/fief/fief_1.jpg",
+    "../../img/photo/view/sub_view/fief/fief_2.jpg",
+    "../../img/photo/view/sub_view/fief/fief_3.jpg",
+    "../../img/photo/view/sub_view/fief/fief_4.jpg",
+    "../../img/photo/view/sub_view/fief/fief_5.jpg",
+  ],
+  2: [
+    "../../img/photo/view/sub_view/continent/continent_1.jpg",
+    "../../img/photo/view/sub_view/continent/continent_2.jpg",
+    "../../img/photo/view/sub_view/continent/continent_3.jpg",
+    "../../img/photo/view/sub_view/continent/continent_4.jpg",
+    "../../img/photo/view/sub_view/continent/continent_5.jpg",
+  ],
+  3: [
+    "../../img/photo/view/sub_view/dongeon/dongeon_1.jpeg",
+    "../../img/photo/view/sub_view/dongeon/dongeon_2.jpg",
+    "../../img/photo/view/sub_view/dongeon/dongeon_3.jpeg",
+    "../../img/photo/view/sub_view/dongeon/dongeon_4.jpg",
+    "../../img/photo/view/sub_view/dongeon/dongeon_5.jpg",
+  ],
+  4: [
+    "../../img/photo/view/sub_view/island/island_1.jpg",
+    "../../img/photo/view/sub_view/island/island_2.jpg",
+    "../../img/photo/view/sub_view/island/island_3.jpg",
+    "../../img/photo/view/sub_view/island/island_4.jpg",
+    "../../img/photo/view/sub_view/island/island_5.jpg",
+  ],
+};
+// URL에서 쿼리 파라미터 가져오기
+const urlParams = new URLSearchParams(window.location.search);
+const setNumber = urlParams.get("set");
+
+// 이미지 세트에 따라 이미지 표시
+const imageContainer = document.querySelector(".show_view");
+const imageBoxes = imageContainer.querySelectorAll(".bg");
+console.log(setNumber);
+if (setNumber in imageSets) {
+  imageSets[setNumber].forEach((imageSrc, index) => {
+    if (index < imageBoxes.length) {
+      imageBoxes[index].style.backgroundImage = `linear-gradient(
+              180deg,
+              rgba(0, 0, 0, 0.6) 0%,
+              rgba(0, 0, 0, 0.3) 100%
+          ), url(${imageSrc})`;
+    }
   });
-  $(".back_button").on({
-    click: function () {
-      $(".view").css({ display: "block" });
-      $(".show_view").css({ display: "none" });
-      $("header").css({ display: "block" });
-      gsap.fromTo(".view", { autoAlpha: 0 }, { duration: 1, autoAlpha: 1 });
-    },
-  });
-});
+} /*else {
+  imageContainer.innerHTML = "<p>유효하지 않은 세트입니다.</p>";
+}*/
 //웹페이지에 있는 모든 섹션(부분)을 찾아서 저장
 const sections = document.querySelectorAll(".view_content");
 // 배경 이미지들을 찾아서 저장
@@ -61,31 +91,6 @@ const tlDefaults = {
   duration: 1.25,
 };
 
-// 각 제목을 글자, 단어, 줄로 나누어 애니메이션을 적용할 준비
-const splitHeadings = headings.map((heading) => {
-  return new SplitText(heading, {
-    type: "chars, words, lines",
-    linesClass: "clip-text",
-  });
-});
-
-// 다음 섹션의 제목을 부드럽게 나타냄
-function revealSectionHeading() {
-  // gsap 라이브러리를 사용해 애니메이션 설정. 현재 다음 섹션의 제목을 글자 단위로 선택
-  return gsap.to(splitHeadings[next].chars, {
-    autoAlpha: 1, // 글자의 투명도를 1로 보이게
-    yPercent: 0, // 글자의 Y축 위치를 원래 위치로
-    duration: 1, // 애니메이션이 1초 동안 지속
-    ease: "power2", // 애니메이션 속도를 부드럽게 조절
-
-    // 각 글자가 나타나는 순서
-    stagger: {
-      each: 0.02, // 글자가 0.02초 간격으로 나타남
-      from: "random", // 글자가 무작위로 나타남
-    },
-  });
-}
-
 gsap.set(outerWrappers, { yPercent: 100 });
 gsap.set(innerWrappers, { yPercent: -100 });
 
@@ -97,7 +102,6 @@ function slideIn() {
   // gsap.set = 초기 상태 설정
   gsap.set(sections[next], { autoAlpha: 1, zIndex: 1 }); // autoAlpah 1 = 다음섹션 보이게, zIndex:1 다음 섹션을 가장 위에 보이게
   gsap.set(images[next], { yPercent: 0 }); //y축 위치
-  gsap.set(splitHeadings[next].chars, { autoAlpha: 0, yPercent: 100 });
 
   // 다음 섹션의 배경 이미지와 제목 글자의 초기 상태 설정
   const tl = gsap
@@ -124,9 +128,7 @@ function slideIn() {
       images[next],
       { yPercent: 15 },
       0
-    )
-    // 제목 애니메이션을 타임라인의 시작 부분에 추가
-    .add(revealSectionHeading(), 0);
+    );
 
   // 현재 섹션이 있을 경우, 현재 섹션을 위로 슬라이드 아웃 시키는 애니메이션 추가
   if (current !== undefined) {
@@ -174,8 +176,6 @@ function slideOut() {
     .to(innerWrappers[current], { yPercent: -100 }, 0)
     .to(images[current], { yPercent: 15 }, 0)
     .from(images[next], { yPercent: -15 }, 0)
-    // 다음 섹션의 제목 애니메이션을 현재 애니메이션이 끝나기 바로 전에 추가
-    .add(revealSectionHeading(), ">-1")
     // 현재 섹션의 배경 이미지를 원래 위치로 설정
     .set(images[current], { yPercent: 0 });
 }

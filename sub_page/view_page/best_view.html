@@ -7,7 +7,7 @@
     <!-- favicon -->
     <link rel="icon" href="../../img/favicon/favicon-16x16.png" />
     <!-- css -->
-    <link rel="stylesheet" href="../../css/subpage/user_page.css" />
+    <link rel="stylesheet" href="../../css/subpage/best_view.css" />
     <!-- jquery -->
     <script src="../../js/jquery.min.js"></script>
   </head>
@@ -31,18 +31,27 @@
               <!-- 1차 메뉴 -->
               <ul class="gnb">
                 <li>
-                  <a href="#">BEST</a>
+                  <a href="../../sub_page/best_page/best_page.html">BEST</a>
                   <!-- 2차메뉴 -->
                   <ul class="lnb">
-                    <li><a href="#">Best LCM</a></li>
-                    <li><a href="#">리포터 Pick</a></li>
+                    <li>
+                      <a href="../../sub_page/best_page/best_page.html"
+                        >Best LCM</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        href="../../sub_page/best_page/best_page.html#reporter_pick"
+                        >리포터 Pick</a
+                      >
+                    </li>
                   </ul>
                 </li>
                 <li>
-                  <a href="#">배경</a>
+                  <a href="../view_page/view.html">배경</a>
                   <!-- 2차메뉴 -->
                   <ul class="lnb">
-                    <li><a href="#">월드</a></li>
+                    <li><a href="../view_page/view.html">월드</a></li>
                     <li><a href="#">던전</a></li>
                   </ul>
                 </li>
@@ -80,7 +89,7 @@
                       <div class="sub_chat">
                         <h3><span>LCM</span> 님의 메세지</h3>
                         <textarea name="chat" id="chat" readonly>
-      지금 로그인하고 더 많은 컨텐츠를 즐겨보세요!</textarea
+            지금 로그인하고 더 많은 컨텐츠를 즐겨보세요!</textarea
                         >
                       </div>
                     </div>
@@ -150,13 +159,13 @@
           </li>
           <li class="event">
             <img
-              src="./img/photo/event/lostark_event.png"
+              src="../../img/photo/event/lostark_event.png"
               alt="로스트아크"
               class="lostark_event" />
           </li>
           <li>
             <a href="/"
-              ><img src="./img/icon/logo.png" alt="LCM로고" height="18"
+              ><img src="../../img/icon/logo.png" alt="LCM로고" height="18"
             /></a>
             <div>
               <a href="#" class="facebook"></a>
@@ -166,81 +175,62 @@
           </li>
         </ul>
       </div>
-      <!-- 로그인 섹션 -->
-      <div class="login_container">
-        <div class="content">
-          <ul class="login_select">
-            <li class="emailId">이메일 / 아이디</li>
-            <li class="qrCode">QR 코드</li>
-          </ul>
-          <form action="#" method="post" name="login_form" class="login_form">
-            <div>
-              <input
-                type="text"
-                id="uesr_id"
-                name="uesr_id"
-                placeholder="이메일 / 아이디" />
-              <input
-                type="password"
-                id="uesr_pw"
-                name="uesr_pw"
-                placeholder="비밀번호" />
+      <section class="show_view">
+        <div class="first view_content">
+          <div class="outer">
+            <div class="inner">
+              <div class="bg one"></div>
             </div>
-            <div>
-              <input type="checkbox" id="login_stable" name="login_stable" />
-              <label for="login_stable">로그인 상태 유지</label>
-              <input type="checkbox" id="id_save" name="id_save" />
-              <label for="id_save">아이디 저장</label>
-            </div>
-            <button class="loginBtn">로그인</button>
-          </form>
-          <ul class="user_find">
-            <li><a href="#">아이디 찾기</a></li>
-            <li><a href="#">비밀번호 찾기</a></li>
-            <li><a href="#">회원가입</a></li>
-            <li><a href="#">고객센터</a></li>
-          </ul>
-          <ul class="sns_login">
-            <li>
-              <a href="#"
-                ><img src="../../img/icon/naver_logo.png" alt="naver_logo"
-              /></a>
-            </li>
-            <li>
-              <a href="#"
-                ><img
-                  src="../../img/icon/kakaotalk_logo.png"
-                  alt="kakaotalk_logo"
-              /></a>
-            </li>
-            <li>
-              <a href="#"
-                ><img src="../../img/icon/google_logo.png" alt="google_logo"
-              /></a>
-            </li>
-            <li>
-              <a href="#"
-                ><img
-                  src="../../img/icon/facebook_logo.png"
-                  alt="facebook_logo"
-              /></a>
-            </li>
-          </ul>
+          </div>
         </div>
-        <!-- 푸터 / 저작권 -->
-        <footer>
-          <ul class="footer_link">
-            <li><a href="#">이용약관</a></li>
-            <li><a href="#">개인정보처리방침</a></li>
-            <li><a href="#">책임의 함계와 법적고지</a></li>
-            <li><a href="#">회원정보 고객센터</a></li>
-          </ul>
-          <p>Copyright&copy; LookCustoMizing. All rights reserved.</p>
-        </footer>
-      </div>
+        <div class="second view_content">
+          <div class="outer">
+            <div class="inner">
+              <div class="bg"></div>
+            </div>
+          </div>
+        </div>
+        <div class="third view_content">
+          <div class="outer">
+            <div class="inner">
+              <div class="bg"></div>
+            </div>
+          </div>
+        </div>
+        <div class="fourth view_content">
+          <div class="outer">
+            <div class="inner">
+              <div class="bg"></div>
+            </div>
+          </div>
+        </div>
+        <div class="scroll">
+          <div class="circle page1"></div>
+          <div class="circle page2"></div>
+          <div class="circle page3"></div>
+          <div class="circle page4"></div>
+          <div class="circle page5"></div>
+          <div class="state"><div></div></div>
+        </div>
+        <div class="title_wrap">
+          <div class="title_btn">
+            &copy;
+            <p class="copy">LOSTARK</p>
+          </div>
+          <div class="content_title">
+            <h3>플레체 : PLETZE</h3>
+            <h2>플레체 예배당 포토스팟</h2>
+            <div class="contents">
+              <p>카제로스 레이드</p>
+              <p>붉어진 백야의 나선 2관문</p>
+            </div>
+          </div>
+          <a href="../../index.html#view" class="back_button">BACK</a>
+        </div>
+      </section>
     </div>
-    <div class="mouse"></div>
-    <script src="../../js/common.js"></script>
-    <script src="../../js/sub_page/user_page.js"></script>
+    <!-- gsap -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/gsap.min.js"></script>
+    <script src="../../js/sub_page/best_view.js"></script>
   </body>
 </html>

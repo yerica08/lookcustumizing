@@ -8,7 +8,6 @@ $(function () {
     $("html, body").animate({ scrollTop: targetOffset }, 600);
   }
 
-  let bestImg = $(".best_img");
   let smallImg = $(".small_img img");
   let largeImg = $(".large_img img");
   let smallImgContainer = $(".small_img");
@@ -42,7 +41,7 @@ $(function () {
             $(".state div").css({ height: "100%" });
             largeImg.attr({ src: $(".page3").attr("data-img") });
             largeImg.attr({ value: $(".page3").attr("value") });
-          } else if (scrollPercent > 0.5) {
+          } else if (scrollPercent > 0.1 && scrollPercent <= 0.2) {
             // 두 번째 이미지 상태
             $(".circle").css({ "background-color": "#111" });
             $(".page3").css({ "background-color": "#fff" });
@@ -65,6 +64,19 @@ $(function () {
       }
     );
   }
+
+  // 마우스 오버 또는 포커스 시 스크롤 멈추기
+  smallImgContainer.on("mouseover focus", function () {
+    smallImgContainer.stop(); // 애니메이션 멈춤
+    isAnimating = false; // 애니메이션 상태 해제
+  });
+
+  // 마우스 아웃 또는 포커스 아웃 시 다시 시작
+  smallImgContainer.on("mouseout blur", function () {
+    if (!isAnimating) {
+      startScrolling(); // 애니메이션 재시작
+    }
+  });
 
   // 클릭 이벤트
   smallImg.on("click", function () {
