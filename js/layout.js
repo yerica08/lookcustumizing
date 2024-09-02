@@ -154,35 +154,6 @@ $(function () {
       $("html, body").animate({ scrollTop: lcm_sns.offset().top }, 600);
     }
   });
-
-  /* slick slider */
-
-  /* 패션(Fashion) 슬라이더 */
-  $(".fashion_img").slick({
-    dots: false,
-    infinite: false,
-    speed: 800,
-    slidesToShow: 1,
-    centerMode: false,
-    variableWidth: true,
-    cssEase: "linear",
-    touchThreshold: 100,
-  });
-  /* lcm_sns 슬라이더 */
-  $("#lcm_instagram").slick({
-    dots: false,
-    autoplay: true,
-    autoplaySpeed: 0.2,
-    infinite: true,
-    speed: 12000,
-    slidesToShow: 1,
-    centerMode: false,
-    cssEase: "linear",
-    pauseOnFocus: true,
-    pauseOnHover: true,
-    vertical: true,
-  });
-
   // .main_visual 클릭 시 페이지 전환
   let page = 1;
 
