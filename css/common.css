@@ -158,6 +158,9 @@ textarea {
   outline: none;
   padding: 0;
 }
+strong {
+  font-weight: 600;
+}
 /* 아이콘 */
 .more {
   background-image: url("../img/icon/Result.png");
