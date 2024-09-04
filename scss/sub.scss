@@ -20,8 +20,7 @@
 
 // 1-1. 변수 목록
 $gray-color: (#ffffff, #fbfbfb, #eeeeee, #d7d7d7, #9e9e9e, #787878, #111111);
-$font-size: (14px, 16px, 18px, 20px, 24px, 43px, 68px);
-$font-weight: (200, 400, 600);
+$font-size: (14px, 16px, 20px, 24px, 36px, 68px);
 
 // 1-2. mixin 목록
 // 넓이
@@ -39,27 +38,29 @@ $font-weight: (200, 400, 600);
 @mixin darken-icon {
   filter: brightness(0.2);
 }
+@mixin lighten-icon {
+  filter: brightness(1);
+}
 
 // 폰트
-@mixin h2-font {
+h2 {
   font-family: "Kaisei HarunoUmi", serif;
   font-size: 68px;
   line-height: 80px;
   margin-bottom: 20px;
 }
-@mixin title-style {
-  width: 100%;
-  height: fit-content;
-  text-align: center;
-
-  h2 {
-    @include h2-font;
-  }
-
-  h3 {
-    font-size: 24px;
-    color: nth($gray-color, 5);
-  }
+h3 {
+  font-size: 24px;
+  color: nth($gray-color, 5);
+}
+h4 {
+  font-size: nth($font-size, 5);
+  font-weight: 600;
+}
+h5 {
+  font-size: nth($font-size, 4);
+  color: nth($gray-color, 5);
+  font-weight: 600;
 }
 
 @mixin position(
@@ -102,13 +103,13 @@ header {
       color: nth($gray-color, 6);
     }
   }
+  .menu {
+    @include darken-icon;
+  }
+  .heart {
+    @include darken-icon;
+  }
 }
-
-.menu-button > button,
-.heart-button > button {
-  @include darken-icon;
-}
-
 // 2-2. section
 .wrapper.white {
   @include wrapper-white;
@@ -118,7 +119,9 @@ section {
   @include basic-section;
 }
 .title {
-  @include title-style;
+  width: 100%;
+  height: fit-content;
+  text-align: center;
 }
 
 // 2-3. 목록
@@ -390,7 +393,7 @@ footer {
 
 // 3-2. 배경 페이지(view_page)
 section.show_view {
-  @mixin width: 100vw;
+  width: 100vw;
   height: 100vh;
   @include position(relative);
   overflow: hidden;
@@ -439,7 +442,7 @@ section.show_view {
 
       .copy {
         @include position(absolute, $b: 0, $l: 30px);
-        font-size: 18px;
+        font-size: 20px;
         line-height: 24px;
         overflow: hidden;
         letter-spacing: 1.2px;
@@ -503,6 +506,156 @@ section.show_view {
         div {
           background-color: nth($gray-color, 1);
         }
+      }
+    }
+  }
+}
+// 3-3. 배경 페이지(view_forum)
+.contents_wrap {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 60px;
+
+  .left_nav {
+    width: fit-content;
+
+    .list_wrap {
+      width: 240px;
+
+      > li {
+        width: 100%;
+        font-size: nth($font-size, 3);
+        background-color: nth($gray-color, 2);
+        border: 1px solid nth($gray-color, 3);
+        transition: 1s;
+
+        .list_name {
+          display: flex;
+          justify-content: space-between;
+          width: 100%;
+          height: 56px;
+          padding: 20px 50px;
+          box-sizing: border-box;
+          line-height: 15px;
+          transition: 0.2s;
+
+          .line_arrow {
+            @include darken-icon;
+            transform: rotate(-90deg);
+            transition: 0.3s;
+          }
+        }
+        &.active {
+          .list_name {
+            width: 100%;
+            font-size: nth($font-size, 3);
+            background-color: nth($gray-color, 7);
+            color: nth($gray-color, 1);
+            line-height: 15px;
+
+            .line_arrow {
+              @include lighten-icon;
+              transform: rotate(90deg);
+            }
+          }
+          .list {
+            height: 260px;
+            padding: 30px 50px;
+          }
+        }
+        .list {
+          width: 100%;
+          overflow: hidden;
+          height: 0;
+          transition: 0.5s;
+          box-sizing: border-box;
+          background-color: #fff;
+          padding-left: 50px;
+          border: 0px solid nth($gray-color, 3);
+          border-right-width: 1px;
+          border-left-width: 1px;
+          line-height: 50px;
+          overflow: hidden;
+
+          li {
+            font-size: nth($font-size, 3);
+            color: nth($gray-color, 6);
+            &:hover {
+              color: nth($gray-color, 7);
+              font-weight: 600;
+            }
+          }
+        }
+      }
+    }
+    .filter_list_wrap {
+      width: 240px;
+      margin-top: 60px;
+      > li {
+        width: 100%;
+        font-size: nth($font-size, 3);
+        background-color: nth($gray-color, 2);
+        border: 1px solid nth($gray-color, 3);
+
+        .list_name {
+          display: flex;
+          justify-content: space-between;
+          width: 100%;
+          height: 56px;
+          padding: 20px 50px;
+          box-sizing: border-box;
+          line-height: 15px;
+          transition: 0.3s;
+        }
+        .filter_list {
+          width: 100%;
+          overflow: hidden;
+          height: fit-content;
+          transition: 0.5s;
+          box-sizing: border-box;
+          background-color: #fff;
+          padding: 30px 50px;
+          border: 0px solid nth($gray-color, 3);
+          border-right-width: 1px;
+          border-left-width: 1px;
+          line-height: 50px;
+
+          li {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            font-size: nth($font-size, 3);
+            color: nth($gray-color, 6);
+            &:hover {
+              color: nth($gray-color, 7);
+              font-weight: 600;
+            }
+            div {
+              width: 15px;
+              height: 15px;
+              position: relative;
+              border: 1px solid nth($gray-color, 4);
+
+              &::after {
+                @include position(absolute, $t: 50%, $l: 0);
+                content: "";
+                width: 100%;
+                height: 1px;
+                background-color: nth($gray-color, 4);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .main_board {
+    width: 80%;
+    .board_title {
+      h4 {
+        margin-bottom: 30px;
       }
     }
   }

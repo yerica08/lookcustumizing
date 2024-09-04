@@ -9,10 +9,38 @@
     2. 공통 부분
         2-1. header
         2-2. section
+        2-3. 목록
+        2-4. scrollbar
+        2-5. 페이지 유도 버튼(event)
+        2-6. footer
     3. 개별 부분
         3-1. 베스트 페이지(best_page)
+        3-2. 배경 페이지(view_page)
 
 */
+h2 {
+  font-family: "Kaisei HarunoUmi", serif;
+  font-size: 68px;
+  line-height: 80px;
+  margin-bottom: 20px;
+}
+
+h3 {
+  font-size: 24px;
+  color: #9e9e9e;
+}
+
+h4 {
+  font-size: 36px;
+  font-weight: 600;
+}
+
+h5 {
+  font-size: 24px;
+  color: #9e9e9e;
+  font-weight: 600;
+}
+
 header {
   animation: moveHeader 1s ease-in 0s forwards;
 }
@@ -31,9 +59,10 @@ header h1 img {
 header .gnb a {
   color: #787878;
 }
-
-.menu-button > button,
-.heart-button > button {
+header .menu {
+  filter: brightness(0.2);
+}
+header .heart {
   filter: brightness(0.2);
 }
 
@@ -52,16 +81,6 @@ section {
   height: -moz-fit-content;
   height: fit-content;
   text-align: center;
-}
-.title h2 {
-  font-family: "Kaisei HarunoUmi", serif;
-  font-size: 68px;
-  line-height: 80px;
-  margin-bottom: 20px;
-}
-.title h3 {
-  font-size: 24px;
-  color: #9e9e9e;
 }
 
 ul.select {
@@ -96,33 +115,56 @@ ul.select li:last-child {
   border-bottom-width: 1px;
 }
 
+.scroll {
+  display: flex;
+  justify-content: space-between;
+}
 .scroll.column {
   width: -moz-fit-content;
   width: fit-content;
   height: 100%;
   flex-direction: column;
-  position: relative;
-  margin-left: 56px;
 }
-.scroll.column .circle {
-  background-color: #ffffff;
+.scroll.row {
+  width: 100%;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+.scroll .circle {
+  width: 15px;
+  height: 15px;
+  border-radius: 100%;
+  transition: 3s;
   border: 1px solid #111111;
-  transition: background-color 3s;
+  background-color: #ffffff;
 }
-.scroll.column .circle.fill {
-  background-color: #111111;
-}
-.scroll.column .state {
-  background-color: #d7d7d7;
+.scroll .state.column {
   width: 3px;
   height: 100%;
+  position: relative;
   top: 0;
   left: 50%;
   transform: translateX(-50%);
 }
-.scroll.column .state div {
+.scroll .state.column div {
   width: 100%;
   height: 0;
+}
+.scroll .state.row {
+  width: 100%;
+  height: 3px;
+  position: relative;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+}
+.scroll .state.row div {
+  width: 0;
+  height: 100%;
+}
+.scroll .state div {
+  border-radius: 2px;
+  transition: 3s;
   background-color: #111111;
 }
 
@@ -201,6 +243,10 @@ footer {
   width: 100%;
   transition: 0.5s;
 }
+.bestLCM .best_img .scroll {
+  margin-left: 56px;
+  position: relative;
+}
 
 .reporter_pick {
   margin-top: 0;
@@ -229,7 +275,7 @@ footer {
   position: absolute;
   top: 0;
   left: 0;
-  background-color: rgba(17, 17, 17, 0.7);
+  background-color: rgba(255, 255, 255, 0.7);
   color: #fff;
   text-align: center;
   opacity: 0;
@@ -317,6 +363,18 @@ section.show_view .view_content .outer .inner {
   height: 100%;
   overflow-y: hidden;
 }
+section.show_view .view_content .outer .inner .bg {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  will-change: background-image;
+}
 section.show_view .title_wrap {
   position: absolute;
   bottom: 120px;
@@ -337,7 +395,7 @@ section.show_view .title_wrap .title_btn .copy {
   position: absolute;
   bottom: 0;
   left: 30px;
-  font-size: 18px;
+  font-size: 20px;
   line-height: 24px;
   overflow: hidden;
   letter-spacing: 1.2px;
@@ -386,4 +444,169 @@ section.show_view .title_wrap .content_title .contents::before {
   left: 0;
   z-index: 2;
   transform: translateY(-50%);
+}
+section.show_view .scroll.row {
+  width: 1600px;
+  position: absolute;
+  bottom: 60px;
+  left: 160px;
+  z-index: 2;
+  opacity: 1;
+}
+section.show_view .scroll.row .circle {
+  background-color: #111111;
+  border-color: #ffffff;
+}
+section.show_view .scroll.row .circle:first-child {
+  background-color: #ffffff;
+}
+section.show_view .scroll.row .circle .state.row {
+  background-color: #787878;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+}
+section.show_view .scroll.row .circle .state.row div {
+  background-color: #ffffff;
+}
+
+.contents_wrap {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 60px;
+}
+.contents_wrap .left_nav {
+  width: -moz-fit-content;
+  width: fit-content;
+}
+.contents_wrap .left_nav .list_wrap {
+  width: 240px;
+}
+.contents_wrap .left_nav .list_wrap > li {
+  width: 100%;
+  font-size: 20px;
+  background-color: #fbfbfb;
+  border: 1px solid #eeeeee;
+  transition: 1s;
+}
+.contents_wrap .left_nav .list_wrap > li .list_name {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  height: 56px;
+  padding: 20px 50px;
+  box-sizing: border-box;
+  line-height: 15px;
+  transition: 0.2s;
+}
+.contents_wrap .left_nav .list_wrap > li .list_name .line_arrow {
+  filter: brightness(0.2);
+  transform: rotate(-90deg);
+  transition: 0.3s;
+}
+.contents_wrap .left_nav .list_wrap > li.active .list_name {
+  width: 100%;
+  font-size: 20px;
+  background-color: #111111;
+  color: #ffffff;
+  line-height: 15px;
+}
+.contents_wrap .left_nav .list_wrap > li.active .list_name .line_arrow {
+  filter: brightness(1);
+  transform: rotate(90deg);
+}
+.contents_wrap .left_nav .list_wrap > li.active .list {
+  height: 260px;
+  padding: 30px 50px;
+}
+.contents_wrap .left_nav .list_wrap > li .list {
+  width: 100%;
+  overflow: hidden;
+  height: 0;
+  transition: 0.5s;
+  box-sizing: border-box;
+  background-color: #fff;
+  padding-left: 50px;
+  border: 0px solid #eeeeee;
+  border-right-width: 1px;
+  border-left-width: 1px;
+  line-height: 50px;
+  overflow: hidden;
+}
+.contents_wrap .left_nav .list_wrap > li .list li {
+  font-size: 20px;
+  color: #787878;
+}
+.contents_wrap .left_nav .list_wrap > li .list li:hover {
+  color: #111111;
+  font-weight: 600;
+}
+.contents_wrap .left_nav .filter_list_wrap {
+  width: 240px;
+  margin-top: 60px;
+}
+.contents_wrap .left_nav .filter_list_wrap > li {
+  width: 100%;
+  font-size: 20px;
+  background-color: #fbfbfb;
+  border: 1px solid #eeeeee;
+}
+.contents_wrap .left_nav .filter_list_wrap > li .list_name {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  height: 56px;
+  padding: 20px 50px;
+  box-sizing: border-box;
+  line-height: 15px;
+  transition: 0.3s;
+}
+.contents_wrap .left_nav .filter_list_wrap > li .filter_list {
+  width: 100%;
+  overflow: hidden;
+  height: -moz-fit-content;
+  height: fit-content;
+  transition: 0.5s;
+  box-sizing: border-box;
+  background-color: #fff;
+  padding: 30px 50px;
+  border: 0px solid #eeeeee;
+  border-right-width: 1px;
+  border-left-width: 1px;
+  line-height: 50px;
+}
+.contents_wrap .left_nav .filter_list_wrap > li .filter_list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  font-size: 20px;
+  color: #787878;
+}
+.contents_wrap .left_nav .filter_list_wrap > li .filter_list li:hover {
+  color: #111111;
+  font-weight: 600;
+}
+.contents_wrap .left_nav .filter_list_wrap > li .filter_list li div {
+  width: 15px;
+  height: 15px;
+  position: relative;
+  border: 1px solid #d7d7d7;
+}
+.contents_wrap .left_nav .filter_list_wrap > li .filter_list li div::after {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  content: "";
+  width: 100%;
+  height: 1px;
+  background-color: #d7d7d7;
+}
+.contents_wrap .main_board {
+  width: 80%;
+}
+.contents_wrap .main_board .board_title h4 {
+  margin-bottom: 30px;
 }/*# sourceMappingURL=sub.css.map */

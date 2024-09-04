@@ -103,7 +103,7 @@ document.addEventListener("DOMContentLoaded", function () {
   updateCursorStyle(); // 커서 스타일 업데이트 시작
 });*/
 
-// 1-2. header - 알림
+// 1-2. header
 const heartButtons = document.querySelectorAll(
   ".heart_button, .heart_button button"
 );
@@ -120,19 +120,13 @@ heartButtons.forEach((button) => {
 function handleMouseOver() {
   heartContent.querySelector("ul").style.height = "500px";
   heartContent.querySelector("ul").style.opacity = "1";
-  heartButton.style.backgroundImage = "url('../img/icon/Result.png')";
   heartButton.style.backgroundPosition = "0px -1705px";
-  heartButton.style.filter = "brightness(0)";
-  heartButton.style.position = "absolute";
-  heartButton.style.zIndex = "500";
 }
 
 function handleMouseLeave() {
   heartContent.querySelector("ul").style.height = "0px";
   heartContent.querySelector("ul").style.opacity = "0";
-  heartButton.style.backgroundImage = "url('../img/icon/Result.png')";
   heartButton.style.backgroundPosition = "0px -1687px";
-  heartButton.style.filter = "brightness(1)";
 }
 
 // 1-3. header - 메뉴
@@ -162,7 +156,7 @@ function initCommon() {
 }
 
 // 메인 페이지 초기화
-function initMainPage() {
+function mainPage() {
   const wrapper = document.querySelector(".wrapper");
   wrapper.style.opacity = "1"; // fadeIn 효과를 위해 opacity 설정
   const openBox = document.querySelector(".open_box");
@@ -376,7 +370,7 @@ function initMainPage() {
       document.body.appendChild(newImage); // 이미지 로드
     });
 }
-function initBestViewPage() {
+function bestViewPage() {
   /* 2-1-3. 메인페이지 베스트 뷰(best_view) */
   // 이미지 세트 정의
   const imageSets = {
@@ -623,10 +617,9 @@ function initBestViewPage() {
   slideIn();
 }
 
-// 2. 서브 페이지
-function initSubPage() {
-  /* 2-2-1. 서브페이지 - 베스트 페이지(best_page) */
-
+// 2-2. 서브 페이지
+/* 2-2-1. 서브페이지 - 베스트 페이지(best_page) */
+function subPage() {
   // 페이지 로드 시 해시가 있는 경우 해당 섹션으로 스크롤
   if (window.location.hash) {
     const target = window.location.hash; // 해시 값 가져오기
@@ -791,8 +784,57 @@ function initSubPage() {
   });
 }
 
+/* 2-2-2. 서브페이지 - 뷰 포럼(view_forum) */
+function viewForum() {
+  let filterList = document.querySelector(".filter_list");
+  let listInLi = document.querySelectorAll(".list li");
+  let listName = document.querySelectorAll(".list_name");
+
+  // list 를 클릭하면 filter_list에 새로운 li 생성
+  for (let i = 0; i < listInLi.length; i++) {
+    listInLi[i].addEventListener("click", appendList);
+  }
+  function appendList() {
+    if (this.classList.contains("addfilter")) return false; // 필터에 중복으로 들어가는 것 방지
+    this.classList.add("addfilter");
+    let newList = document.createElement("li"); // 새로운 li 태그 생성
+    let newbtn = document.createElement("div"); // 새로운 li 태그 생성
+    let text = this.innerText; // 추가할 내용 선택
+
+    // newText에 사용자가 클릭한 li의 text를 createTextNode로 생성
+    let newText = document.createTextNode(text);
+    // newList에 newText 추가
+    newList.appendChild(newText);
+    newList.appendChild(newbtn);
+    newList.classList.add("new_list");
+    filterList.appendChild(newList); // ul 안에 동적으로 생성한 li 넣기
+
+    // delete 버튼을 클릭하면 필터에서 삭제
+    newList.addEventListener("click", deleteFnc);
+    function deleteFnc() {
+      // 중복을 막기위해 넣은 클레스 addfilter 삭제
+      for (let i = 0; i < listInLi.length; i++) {
+        if (this.innerText == listInLi[i].innerText) {
+          listInLi[i].classList.remove("addfilter");
+        }
+      }
+      this.parentElement.removeChild(this);
+    }
+  }
+
+  // list_name 클릭하면 list_wrap의 li에 클레스 active 넣기
+  for (let i = 0; i < listName.length; i++) {
+    listName[i].addEventListener("click", active);
+  }
+  function active() {
+    for (let i = 0; i < listName.length; i++) {
+      listName[i].parentElement.classList.remove("active");
+    }
+    this.parentElement.classList.toggle("active");
+  }
+}
 // 유저 페이지 초기화
-function initUserPage() {
+function userPage() {
   // 유저 페이지 관련 코드
   /* 2-3-1. 유저페이지 - 로그인(login) */
   document.addEventListener("DOMContentLoaded", function () {
@@ -836,12 +878,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // 현재 페이지에 따라 적절한 초기화 함수 호출
   if (pathName.includes("index.html")) {
-    initMainPage();
+    mainPage();
   } else if (pathName.includes("best_view.html")) {
-    initBestViewPage();
+    bestViewPage();
   } else if (pathName.includes("best_page.html")) {
-    initSubPage();
-  } else if (pathName.includes("user_page")) {
-    initUserPage();
+    subPage();
+  } else if (pathName.includes("user_page.html")) {
+    userPage();
+  } else if (pathName.includes("view_forum.html")) {
+    viewForum();
   }
 });
