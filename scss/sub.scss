@@ -82,7 +82,7 @@ h5 {
 // 2. 공통 부분
 // 2-1. header
 header {
-  animation: moveHeader 1s ease-in 0s forwards;
+  animation: moveHeader 1s ease-in 4.5s forwards;
 
   &::before {
     background: nth($gray-color, 1);
@@ -118,18 +118,32 @@ header {
 section {
   @include basic-section;
 }
-.title {
+
+.main_title {
   width: 100%;
   height: fit-content;
   text-align: center;
-}
+  opacity: 0;
+  transform: translateY(-50%);
+  transition: 1s;
 
+  &.moving {
+    opacity: 0;
+    transition: 1s;
+    transform: translateY(-50%);
+    // animation: none;
+  }
+}
 // 2-3. 목록
 ul.select {
   display: flex;
   width: 100%;
   margin-top: 100px;
   border-left: 1px solid nth($gray-color, 4);
+  transform: translateY(-50%);
+  opacity: 0;
+  transition: 1s;
+
   li {
     width: fit-content;
     height: 60px;
@@ -143,10 +157,20 @@ ul.select {
     border-left-width: 0;
     box-sizing: border-box;
     white-space: nowrap;
+    transition: 0.3s;
 
-    &.click_menu {
+    &:hover {
+      color: nth($gray-color, 7);
+    }
+    &.click_first {
       background-color: nth($gray-color, 1);
       border-bottom-width: 0;
+      color: nth($gray-color, 7);
+    }
+    &.click_second {
+      background-color: nth($gray-color, 1);
+      border-bottom-width: 0;
+      color: nth($gray-color, 7);
     }
     &:last-child {
       width: 100%;
@@ -209,13 +233,18 @@ ul.select {
 }
 // 2-5. 페이지 유도 버튼(event)
 .event {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 1600px;
+  margin: 0 auto;
   margin-top: 30px;
   padding: 30px 50px;
   background-color: nth($gray-color, 2);
   border-radius: 3px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  transform: translateY(-10%);
+  opacity: 0;
+  transition: 1s;
 
   h4 {
     margin-bottom: 15px;
@@ -240,6 +269,104 @@ footer {
 .legal {
   color: nth($gray-color, 1);
 }
+// 2-7. page
+.pages {
+  display: flex;
+  justify-content: right;
+  flex-wrap: wrap;
+  gap: 30px;
+  width: 100%;
+  margin-top: 30px;
+
+  .post {
+    @include position(relative);
+    width: 785px;
+    height: 500px;
+    background-color: nth($gray-color, 6);
+    position: relative;
+
+    .title {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
+      @include position(absolute, $t: 0, $l: 0);
+      background-color: transparentize(nth($gray-color, 7), 0.2);
+      color: #fff;
+      text-align: center;
+      opacity: 0;
+
+      .nick_name {
+        display: inline-block;
+        width: fit-content;
+        @include position(relative);
+        font-size: 14px;
+        font-weight: 400;
+      }
+      h3 {
+        margin-top: 20px;
+        font-weight: 500;
+        color: #fff;
+        @include position(relative);
+      }
+      .reation {
+        display: flex;
+        justify-content: center;
+        height: 20px;
+        margin-top: 30px;
+
+        p {
+          display: flex;
+          align-items: center;
+          margin: 0 5px;
+
+          i {
+            display: inline-block;
+            transform: scale(0.8);
+            &.chat,
+            &.heart {
+              background-image: url("../../img/icon/Result.png");
+            }
+          }
+          .reaction_number {
+            font-size: 14px;
+            font-weight: 400;
+          }
+        }
+      }
+    }
+  }
+}
+// 2-8. page number
+ul.page_number {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 30px;
+  margin-top: 60px;
+
+  li {
+    width: 30px;
+    height: 30px;
+    border-radius: 3px;
+    text-align: center;
+    line-height: 27px;
+
+    &.active {
+      background-color: #111;
+      color: #fff;
+    }
+  }
+  .line_arrow {
+    margin: 0 15px;
+  }
+}
+main {
+  margin-bottom: 150px;
+}
 /* 3. 개별 부분 */
 // 3-1. 베스트 페이지(best_page)
 .bestLCM {
@@ -250,41 +377,42 @@ footer {
     flex-wrap: wrap;
     justify-content: space-between;
     margin: 30px 0;
+    transform: translateY(-5%);
+    opacity: 0;
+    transition: 1s;
 
     .small_img {
-      overflow-y: scroll;
-      overflow-x: hidden;
-      width: 410px;
+      // overflow-y: scroll;
+      // overflow-x: hidden;
+      width: 27%; // width: 410px;
       height: 100%;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
 
-      &::-webkit-scrollbar {
-        display: none;
-      }
-      div {
-        width: 410px;
+      .img_box {
+        width: 100%;
         height: 230px;
-        margin-bottom: 20px;
         border-radius: 3px;
         overflow: hidden;
+        margin-bottom: 20px;
 
-        &:last-child {
-          margin-bottom: 0px;
-        }
         img {
+          display: block;
           width: 100%;
         }
       }
     }
     .large_img {
-      width: 1060px;
+      width: 71%;
       height: 100%;
-      background-color: nth($gray-color, 7);
+      // background-color: nth($gray-color, 7);
       border-radius: 3px;
       overflow: hidden;
 
       img {
         width: 100%;
-        transition: 0.5s;
+        transition: 0.2s;
       }
     }
     .scroll {
@@ -297,97 +425,15 @@ footer {
   margin-top: 0;
   padding-top: 150px;
 
-  .pages {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 30px;
-    width: 100%;
-    margin-top: 30px;
-
-    .post {
-      @include position(relative);
-      width: 785px;
-      height: 500px;
-      background-color: nth($gray-color, 6);
-      position: relative;
-
-      .title {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        width: 100%;
-        height: 100%;
-        @include position(absolute, $t: 0, $l: 0);
-        background-color: transparentize(nth($gray-color, 1), 0.3);
-        color: #fff;
-        text-align: center;
-        opacity: 0;
-
-        .nick_name {
-          display: inline-block;
-          width: fit-content;
-          @include position(relative);
-          font-size: 14px;
-          font-weight: 400;
-        }
-        h3 {
-          margin-top: 20px;
-          font-weight: 500;
-          color: #fff;
-          @include position(relative);
-        }
-        .reation {
-          display: flex;
-          justify-content: center;
-          height: 20px;
-          margin-top: 30px;
-
-          p {
-            display: flex;
-            align-items: center;
-            margin: 0 5px;
-
-            i {
-              display: inline-block;
-              transform: scale(0.8);
-              &.chat,
-              &.heart {
-                background-image: url("../../img/icon/Result.png");
-              }
-            }
-            .reaction_number {
-              font-size: 14px;
-              font-weight: 400;
-            }
-          }
-        }
-      }
-    }
+  .select {
+    opacity: 0;
+    transition: 1s;
+    transform: translateY(-50%);
   }
-  ul.page_number {
-    display: flex;
-    gap: 15px;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 30px;
-    margin-top: 60px;
-
-    li {
-      width: 30px;
-      height: 30px;
-      border-radius: 3px;
-      text-align: center;
-      line-height: 27px;
-
-      &.active {
-        background-color: #111;
-        color: #fff;
-      }
-    }
-    .line_arrow {
-      margin: 0 15px;
-    }
+  article {
+    opacity: 0;
+    transition: 1s;
+    transform: translateY(-3%);
   }
 }
 
@@ -516,6 +562,9 @@ section.show_view {
   justify-content: space-between;
   width: 100%;
   margin-top: 60px;
+  transform: translateY(-5%);
+  opacity: 0;
+  transition: 1s;
 
   .left_nav {
     width: fit-content;
@@ -653,9 +702,55 @@ section.show_view {
   }
   .main_board {
     width: 80%;
-    .board_title {
-      h4 {
-        margin-bottom: 30px;
+
+    ul.sort_by {
+      width: 100%;
+      display: flex;
+      justify-content: right;
+      align-items: center;
+      gap: 15px;
+
+      li {
+        font-size: nth($font-size, 2);
+        color: nth($gray-color, 6);
+
+        &:hover,
+        &.checked {
+          color: nth($gray-color, 7);
+          font-weight: 600;
+        }
+        &:last-child {
+          display: block;
+          // width: 32px;
+          // height: 32px;
+          padding: 8px;
+          border: 1px solid nth($gray-color, 3);
+          background-color: nth($gray-color, 2);
+          border-radius: 100%;
+
+          &:hover {
+            background-color: nth($gray-color, 6);
+            div {
+              filter: brightness(1);
+            }
+          }
+          div {
+            filter: brightness(0.5);
+          }
+        }
+      }
+    }
+    article {
+      .pages {
+        .post {
+          width: 610px;
+          height: 400px;
+          overflow: hidden;
+
+          img {
+            width: 110%;
+          }
+        }
       }
     }
   }

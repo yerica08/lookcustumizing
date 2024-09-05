@@ -157,6 +157,7 @@ function initCommon() {
 
 // 메인 페이지 초기화
 function mainPage() {
+  console.log("hi");
   const wrapper = document.querySelector(".wrapper");
   wrapper.style.opacity = "1"; // fadeIn 효과를 위해 opacity 설정
   const openBox = document.querySelector(".open_box");
@@ -375,32 +376,32 @@ function bestViewPage() {
   // 이미지 세트 정의
   const imageSets = {
     1: [
-      "../../img/photo/view/sub_view/fief/fief_1.jpg",
-      "../../img/photo/view/sub_view/fief/fief_2.jpg",
-      "../../img/photo/view/sub_view/fief/fief_3.jpg",
-      "../../img/photo/view/sub_view/fief/fief_4.jpg",
-      "../../img/photo/view/sub_view/fief/fief_5.jpg",
+      "../../img/photo/view/fief/fief_1.jpg",
+      "../../img/photo/view/fief/fief_2.jpg",
+      "../../img/photo/view/fief/fief_3.jpg",
+      "../../img/photo/view/fief/fief_4.jpg",
+      "../../img/photo/view/fief/fief_5.jpg",
     ],
     2: [
-      "../../img/photo/view/sub_view/continent/continent_1.jpg",
-      "../../img/photo/view/sub_view/continent/continent_2.jpg",
-      "../../img/photo/view/sub_view/continent/continent_3.jpg",
-      "../../img/photo/view/sub_view/continent/continent_4.jpg",
-      "../../img/photo/view/sub_view/continent/continent_5.jpg",
+      "../../img/photo/view/continent/continent_1.jpg",
+      "../../img/photo/view/continent/continent_2.jpg",
+      "../../img/photo/view/continent/continent_3.jpg",
+      "../../img/photo/view/continent/continent_4.jpg",
+      "../../img/photo/view/continent/continent_5.jpg",
     ],
     3: [
-      "../../img/photo/view/sub_view/dongeon/dongeon_1.jpeg",
-      "../../img/photo/view/sub_view/dongeon/dongeon_2.jpg",
-      "../../img/photo/view/sub_view/dongeon/dongeon_3.jpeg",
-      "../../img/photo/view/sub_view/dongeon/dongeon_4.jpg",
-      "../../img/photo/view/sub_view/dongeon/dongeon_5.jpg",
+      "../../img/photo/view/dongeon/dongeon_1.jpeg",
+      "../../img/photo/view/dongeon/dongeon_2.jpg",
+      "../../img/photo/view/dongeon/dongeon_3.jpeg",
+      "../../img/photo/view/dongeon/dongeon_4.jpg",
+      "../../img/photo/view/dongeon/dongeon_5.jpg",
     ],
     4: [
-      "../../img/photo/view/sub_view/island/island_1.jpg",
-      "../../img/photo/view/sub_view/island/island_2.jpg",
-      "../../img/photo/view/sub_view/island/island_3.jpg",
-      "../../img/photo/view/sub_view/island/island_4.jpg",
-      "../../img/photo/view/sub_view/island/island_5.jpg",
+      "../../img/photo/view/island/island_1.jpg",
+      "../../img/photo/view/island/island_2.jpg",
+      "../../img/photo/view/island/island_3.jpg",
+      "../../img/photo/view/island/island_4.jpg",
+      "../../img/photo/view/island/island_5.jpg",
     ],
   };
   // URL에서 쿼리 파라미터 가져오기
@@ -421,15 +422,11 @@ function bestViewPage() {
             ), url(${imageSrc})`;
       }
     });
-  } /*else {
-    imageContainer.innerHTML = "<p>유효하지 않은 세트입니다.</p>";
-  }*/
+  }
   //웹페이지에 있는 모든 섹션(부분)을 찾아서 저장
   const sections = document.querySelectorAll(".view_content");
   // 배경 이미지들을 찾아서 저장
   const images = document.querySelectorAll(".bg");
-  // 각 섹션의 제목들을 찾아서 저장
-  const headings = gsap.utils.toArray(".content_title");
   // outerWrappers와 innerWrappers: 섹션을 감싸고 있는 요소들을 찾아서 저장
   const outerWrappers = gsap.utils.toArray(".outer");
   const innerWrappers = gsap.utils.toArray(".inner");
@@ -615,11 +612,78 @@ function bestViewPage() {
 
   // 페이지가 처음 로드될 때 첫 번째 섹션을 보여주는 함수
   slideIn();
+  scroll();
+  function scroll() {
+    const state = document.querySelector(".state div");
+    console.log(next);
+    if (next == 0) {
+      state.style.width = "0%";
+    } else if (next == 1) {
+      document.querySelector(".page2").style.backgroundColor = "#fff";
+      state.style.width = "25%";
+    }
+  }
 }
 
 // 2-2. 서브 페이지
+/* 스크롤따라 보여주기 */
+function subScroll() {
+  const scrollTexts = document.querySelectorAll(".main_title");
+  const select = document.querySelectorAll(".select");
+  const bestImg = document.querySelectorAll(".best_img");
+  const event = document.querySelectorAll(".event");
+  const article = document.querySelectorAll("article");
+  const contentsWrap = document.querySelector(".contents_wrap");
+
+  // 초기 스타일 설정을 위한 배열
+  const bestPaeElements = [
+    { el: scrollTexts[0], delay: "2s" },
+    { el: select[0], delay: "3s" },
+    { el: bestImg[0], delay: "4s" },
+  ];
+  const normalPageElements = [
+    { el: scrollTexts[0], delay: "2s" },
+    { el: select[0], delay: "3s" },
+    { el: contentsWrap, delay: "4s" },
+    { el: event[1], delay: "5s" },
+  ];
+  let pathName = window.location.pathname;
+
+  if (pathName.includes("best_page.html")) {
+    // 초기 스타일 적용
+    bestPaeElements.forEach(({ el, delay }) => {
+      el.style.transitionDelay = delay;
+      el.style.transform = "translateY(0)";
+      el.style.opacity = "1";
+    });
+    // 스크롤 이벤트 리스너
+    window.addEventListener("scroll", () => {
+      const scrollY = window.scrollY;
+
+      // 스타일 설정 함수
+      const setStyles = (el, threshold, up, down) => {
+        el.style.transform = scrollY >= threshold ? up : down;
+        el.style.opacity = scrollY >= threshold ? "1" : "0";
+      };
+
+      // 각 요소의 스타일 설정
+      setStyles(event[1], 100, "translateY(0)", "translateY(-10%)");
+      setStyles(scrollTexts[1], 500, "translateY(0)", "translateY(-50%)");
+      setStyles(select[1], 650, "translateY(0)", "translateY(-50%)");
+      setStyles(article[0], 1050, "translateY(0)", "translateY(-3%)");
+    });
+  } else {
+    // 초기 스타일 적용
+    normalPageElements.forEach(({ el, delay }) => {
+      el.style.transitionDelay = delay;
+      el.style.transform = "translateY(0)";
+      el.style.opacity = "1";
+    });
+  }
+}
+
 /* 2-2-1. 서브페이지 - 베스트 페이지(best_page) */
-function subPage() {
+function bestPage() {
   // 페이지 로드 시 해시가 있는 경우 해당 섹션으로 스크롤
   if (window.location.hash) {
     const target = window.location.hash; // 해시 값 가져오기
@@ -632,145 +696,50 @@ function subPage() {
       window.scrollTo({ top: targetOffset, behavior: "smooth" });
     }
   }
-
-  const smallImg = document.querySelectorAll(".small_img img");
-  const largeImg = document.querySelector(".large_img img");
-  const smallImgContainer = document.querySelector(".small_img");
-  let totalHeight = 0; // 총 높이
-  let isAnimating = false; // 애니메이션 상태 추적
-
-  // 모든 div의 높이를 더하여 총 높이를 계산
-  smallImgContainer.querySelectorAll("div").forEach(function (div) {
-    totalHeight += div.offsetHeight; // margin 포함하지 않음
-  });
-
-  // 애니메이션을 1초 후에 실행
-  setTimeout(startScrolling, 1000); // 1초 후에 애니메이션 시작
-
-  function startScrolling() {
-    if (isAnimating) return; // 이미 애니메이션 중이면 리턴
-
-    isAnimating = true; // 애니메이션 상태 설정
-    let start = null;
-
-    function animateScroll(timestamp) {
-      if (!start) start = timestamp;
-      const progress = timestamp - start;
-      const now = Math.min((progress / 30000) * totalHeight, totalHeight); // 30초 동안 애니메이션
-
-      smallImgContainer.scrollTop = now;
-
-      let scrollPercent = now / totalHeight;
-
-      const circle = document.querySelector(".circle");
-      const stateDiv = document.querySelector(".state div");
-
-      if (scrollPercent > 0.2) {
-        // 세 번째 이미지 상태
-        circle.style.backgroundColor = "#111";
-        stateDiv.style.height = "100%";
-        largeImg.src = document
-          .querySelector(".page3")
-          .getAttribute("data-img");
-        largeImg.setAttribute(
-          "value",
-          document.querySelector(".page3").getAttribute("value")
-        );
-      } else if (scrollPercent > 0.1 && scrollPercent <= 0.2) {
-        // 두 번째 이미지 상태
-        circle.style.backgroundColor = "#111";
-        document.querySelector(".page3").style.backgroundColor = "#fff";
-        stateDiv.style.height = "50%";
-        largeImg.src = document
-          .querySelector(".page2")
-          .getAttribute("data-img");
-        largeImg.setAttribute(
-          "value",
-          document.querySelector(".page2").getAttribute("value")
-        );
-      } else {
-        // 첫 번째 이미지 상태
-        circle.style.backgroundColor = "#fff";
-        document.querySelector(".page1").style.backgroundColor = "#111";
-        stateDiv.style.height = "0px";
-        largeImg.src = document
-          .querySelector(".page1")
-          .getAttribute("data-img");
-        largeImg.setAttribute(
-          "value",
-          document.querySelector(".page1").getAttribute("value")
-        );
-      }
-
-      if (now < totalHeight) {
-        requestAnimationFrame(animateScroll);
-      } else {
-        isAnimating = false; // 애니메이션 상태 해제
-        startScrolling(); // 반복 실행
-      }
-    }
-
-    requestAnimationFrame(animateScroll);
-  }
-
-  // 마우스 오버 또는 포커스 시 스크롤 멈추기
-  smallImgContainer.addEventListener("mouseover", function () {
-    isAnimating = false; // 애니메이션 상태 해제
-  });
-
-  // 마우스 아웃 또는 포커스 아웃 시 다시 시작
-  smallImgContainer.addEventListener("mouseout", function () {
-    if (!isAnimating) {
-      startScrolling(); // 애니메이션 재시작
-    }
-  });
-
-  // 클릭 이벤트
-  smallImg.forEach(function (img) {
-    img.addEventListener("click", function () {
-      largeImg.src = this.getAttribute("data-img");
-      largeImg.setAttribute("value", this.getAttribute("value"));
-
-      // 클릭 시 스크롤을 해당 위치로 이동
-      let targetValue = largeImg.getAttribute("value");
-      if (targetValue === "page1") {
-        smallImgContainer.scrollTo({ top: 0, behavior: "smooth" }); // 첫 번째 이미지 위치로 스크롤
-      } else if (targetValue === "page2") {
-        smallImgContainer.scrollTo({
-          top: totalHeight / 2,
-          behavior: "smooth",
-        }); // 두 번째 이미지 위치로 스크롤
-      } else if (targetValue === "page3") {
-        smallImgContainer.scrollTo({ top: totalHeight, behavior: "smooth" }); // 세 번째 이미지 위치로 스크롤
-      }
+  document.querySelector(".best_customizing").addEventListener("click", () => {
+    const images = document.querySelectorAll(".best_img img");
+    document.querySelector(".best_view").classList.remove("click_first");
+    document.querySelector(".best_customizing").classList.add("click_second");
+    images.forEach((img) => {
+      img.src = img.getAttribute("data-customizing-img"); // customizing 이미지로 변경
     });
   });
 
-  // 부모 요소에 이벤트 리스너 추가
-  const parentContainer = smallImgContainer.parentElement;
-  parentContainer.addEventListener("mouseenter", function () {
-    isAnimating = false; // 애니메이션 상태 해제
+  document.querySelector(".best_view").addEventListener("click", () => {
+    const images = document.querySelectorAll(".best_img img");
+    document.querySelector(".best_view").classList.add("click_first");
+    document
+      .querySelector(".best_customizing")
+      .classList.remove("click_second");
+    images.forEach((img) => {
+      img.src = img.getAttribute("data-view-img"); // view 이미지로 변경
+    });
   });
+}
 
-  parentContainer.addEventListener("mouseleave", function () {
-    startScrolling(); // 애니메이션 재개
-  });
-
-  // 리포터 픽 - 포스터 제목
-  const titleH3 = document.querySelectorAll(".contents_wrap .title h3");
+// post 내용 보여주고 숨기기
+function showPost() {
+  const titleH3 = document.querySelectorAll(".post .title h3");
   const nickName = document.querySelectorAll(".nick_name");
 
   nickName.forEach(function (name) {
-    console.log(name.closest(".post"));
     name.textContent =
-      "[ " + name.closest("img").getAttribute("data-nick-name") + " ]";
+      "[ " +
+      name
+        .closest(".post")
+        .querySelector("img")
+        .getAttribute("data-nick-name") +
+      " ]";
   });
 
   titleH3.forEach(function (h3) {
-    h3.textContent = h3.closest(".post img").getAttribute("alt");
+    h3.textContent = h3
+      .closest(".post")
+      .querySelector("img")
+      .getAttribute("alt");
   });
 
-  const posts = document.querySelectorAll(".contents_wrap .post");
+  const posts = document.querySelectorAll(".post");
   posts.forEach(function (post) {
     post.addEventListener("mouseenter", function () {
       this.querySelector("div").style.opacity = "1";
@@ -877,15 +846,19 @@ document.addEventListener("DOMContentLoaded", function () {
   let pathName = window.location.pathname;
 
   // 현재 페이지에 따라 적절한 초기화 함수 호출
-  if (pathName.includes("index.html")) {
-    mainPage();
-  } else if (pathName.includes("best_view.html")) {
+  if (pathName.includes("best_view.html")) {
     bestViewPage();
   } else if (pathName.includes("best_page.html")) {
-    subPage();
+    bestPage();
+    showPost();
+    subScroll();
   } else if (pathName.includes("user_page.html")) {
     userPage();
   } else if (pathName.includes("view_forum.html")) {
     viewForum();
+    showPost();
+    subScroll();
+  } else {
+    mainPage();
   }
 });

@@ -576,7 +576,7 @@ header {
   will-change: background-image;
 }
 /* show view - 스크롤바 */
-.scroll.horizontal {
+.scroll.row {
   display: flex;
   width: 1600px;
   height: fit-content;
@@ -598,7 +598,7 @@ header {
 .page1 {
   background-color: #fff;
 }
-.state.horizontal {
+.state.row {
   width: 100%;
   height: 1px;
   background-color: #6a6a6a;
@@ -607,7 +607,7 @@ header {
   left: 0;
   z-index: -1;
 }
-.state.horizontal > div {
+.state.row > div {
   width: 100%;
   height: 0;
   border-radius: 2px;
