@@ -614,3 +614,43 @@ header {
   background-color: #fff;
   transition: 3s;
 }
+.first .bg {
+  background: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.6) 0%,
+      rgba(0, 0, 0, 0.3) 100%
+    ),
+    url("../../img/photo/view/fief/fief_1.jpg");
+}
+.second .bg {
+  background: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.6) 0%,
+      rgba(0, 0, 0, 0.3) 100%
+    ),
+    url("../../img/photo/view/fief/fief_2.jpg");
+}
+.third .bg {
+  background: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.6) 0%,
+      rgba(0, 0, 0, 0.3) 100%
+    ),
+    url("../../img/photo/view/fief/fief_3.jpg");
+}
+.fourth .bg {
+  background: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.6) 0%,
+      rgba(0, 0, 0, 0.3) 100%
+    ),
+    url("../../img/photo/view/fief/fief_4.jpg");
+}
+.fifth .bg {
+  background: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.6) 0%,
+      rgba(0, 0, 0, 0.3) 100%
+    ),
+    url("../../img/photo/view/fief/fief_5.jpg");
+}

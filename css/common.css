@@ -491,6 +491,7 @@ nav {
 }
 .gnb a:hover {
   font-weight: 600;
+  color: #111;
 }
 .gnb > li {
   position: relative;

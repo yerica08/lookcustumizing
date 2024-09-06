@@ -849,15 +849,15 @@ document.addEventListener("DOMContentLoaded", function () {
   if (pathName.includes("best_view.html")) {
     bestViewPage();
   } else if (pathName.includes("best_page.html")) {
+    subScroll();
     bestPage();
     showPost();
-    subScroll();
   } else if (pathName.includes("user_page.html")) {
     userPage();
   } else if (pathName.includes("view_forum.html")) {
+    subScroll();
     viewForum();
     showPost();
-    subScroll();
   } else {
     mainPage();
   }

@@ -31,7 +31,7 @@ $font-size: (14px, 16px, 20px, 24px, 36px, 68px);
 
 @mixin basic-section {
   width: 1600px;
-  margin: 150px auto;
+  margin: 180px auto 150px;
 }
 
 // 아이콘
@@ -284,6 +284,7 @@ footer {
     height: 500px;
     background-color: nth($gray-color, 6);
     position: relative;
+    border-radius: 3px;
 
     .title {
       display: flex;
@@ -557,198 +558,207 @@ section.show_view {
   }
 }
 // 3-3. 배경 페이지(view_forum)
-.contents_wrap {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  margin-top: 60px;
-  transform: translateY(-5%);
-  opacity: 0;
-  transition: 1s;
+main.view_forum {
+  .select {
+    a {
+      color: nth($gray-color, 6);
+    }
+  }
+  .contents_wrap {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 30px;
+    transform: translateY(-5%);
+    opacity: 0;
+    transition: 1s;
 
-  .left_nav {
-    width: fit-content;
+    .left_nav {
+      margin-top: 60px;
+      width: fit-content;
 
-    .list_wrap {
-      width: 240px;
+      .list_wrap {
+        width: 240px;
 
-      > li {
-        width: 100%;
-        font-size: nth($font-size, 3);
-        background-color: nth($gray-color, 2);
-        border: 1px solid nth($gray-color, 3);
-        transition: 1s;
-
-        .list_name {
-          display: flex;
-          justify-content: space-between;
+        > li {
           width: 100%;
-          height: 56px;
-          padding: 20px 50px;
-          box-sizing: border-box;
-          line-height: 15px;
-          transition: 0.2s;
+          font-size: nth($font-size, 3);
+          background-color: nth($gray-color, 2);
+          border: 1px solid nth($gray-color, 3);
+          transition: 1s;
 
-          .line_arrow {
-            @include darken-icon;
-            transform: rotate(-90deg);
-            transition: 0.3s;
-          }
-        }
-        &.active {
           .list_name {
+            display: flex;
+            justify-content: space-between;
             width: 100%;
-            font-size: nth($font-size, 3);
-            background-color: nth($gray-color, 7);
-            color: nth($gray-color, 1);
+            height: 56px;
+            padding: 20px 50px;
+            box-sizing: border-box;
             line-height: 15px;
+            transition: 0.2s;
 
             .line_arrow {
-              @include lighten-icon;
-              transform: rotate(90deg);
+              @include darken-icon;
+              transform: rotate(-90deg);
+              transition: 0.3s;
+            }
+          }
+          &.active {
+            .list_name {
+              width: 100%;
+              font-size: nth($font-size, 3);
+              background-color: nth($gray-color, 7);
+              color: nth($gray-color, 1);
+              line-height: 15px;
+
+              .line_arrow {
+                @include lighten-icon;
+                transform: rotate(90deg);
+              }
+            }
+            .list {
+              height: 260px;
+              padding: 30px 50px;
             }
           }
           .list {
-            height: 260px;
-            padding: 30px 50px;
-          }
-        }
-        .list {
-          width: 100%;
-          overflow: hidden;
-          height: 0;
-          transition: 0.5s;
-          box-sizing: border-box;
-          background-color: #fff;
-          padding-left: 50px;
-          border: 0px solid nth($gray-color, 3);
-          border-right-width: 1px;
-          border-left-width: 1px;
-          line-height: 50px;
-          overflow: hidden;
+            width: 100%;
+            overflow: hidden;
+            height: 0;
+            transition: 0.5s;
+            box-sizing: border-box;
+            background-color: #fff;
+            padding-left: 50px;
+            border: 0px solid nth($gray-color, 3);
+            border-right-width: 1px;
+            border-left-width: 1px;
+            line-height: 50px;
+            overflow: hidden;
 
-          li {
-            font-size: nth($font-size, 3);
-            color: nth($gray-color, 6);
-            &:hover {
-              color: nth($gray-color, 7);
-              font-weight: 600;
+            li {
+              font-size: nth($font-size, 3);
+              color: nth($gray-color, 6);
+              &:hover {
+                color: nth($gray-color, 7);
+                font-weight: 600;
+              }
             }
           }
         }
       }
-    }
-    .filter_list_wrap {
-      width: 240px;
-      margin-top: 60px;
-      > li {
-        width: 100%;
-        font-size: nth($font-size, 3);
-        background-color: nth($gray-color, 2);
-        border: 1px solid nth($gray-color, 3);
-
-        .list_name {
-          display: flex;
-          justify-content: space-between;
+      .filter_list_wrap {
+        width: 240px;
+        margin-top: 60px;
+        > li {
           width: 100%;
-          height: 56px;
-          padding: 20px 50px;
-          box-sizing: border-box;
-          line-height: 15px;
-          transition: 0.3s;
-        }
-        .filter_list {
-          width: 100%;
-          overflow: hidden;
-          height: fit-content;
-          transition: 0.5s;
-          box-sizing: border-box;
-          background-color: #fff;
-          padding: 30px 50px;
-          border: 0px solid nth($gray-color, 3);
-          border-right-width: 1px;
-          border-left-width: 1px;
-          line-height: 50px;
+          font-size: nth($font-size, 3);
+          background-color: nth($gray-color, 2);
+          border: 1px solid nth($gray-color, 3);
 
-          li {
+          .list_name {
             display: flex;
             justify-content: space-between;
-            align-items: center;
             width: 100%;
-            font-size: nth($font-size, 3);
-            color: nth($gray-color, 6);
-            &:hover {
-              color: nth($gray-color, 7);
-              font-weight: 600;
-            }
-            div {
-              width: 15px;
-              height: 15px;
-              position: relative;
-              border: 1px solid nth($gray-color, 4);
+            height: 56px;
+            padding: 20px 50px;
+            box-sizing: border-box;
+            line-height: 15px;
+            transition: 0.3s;
+          }
+          .filter_list {
+            width: 100%;
+            overflow: hidden;
+            height: fit-content;
+            transition: 0.5s;
+            box-sizing: border-box;
+            background-color: #fff;
+            padding: 30px 50px;
+            border: 0px solid nth($gray-color, 3);
+            border-right-width: 1px;
+            border-left-width: 1px;
+            line-height: 50px;
 
-              &::after {
-                @include position(absolute, $t: 50%, $l: 0);
-                content: "";
-                width: 100%;
-                height: 1px;
-                background-color: nth($gray-color, 4);
+            li {
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              width: 100%;
+              font-size: nth($font-size, 3);
+              color: nth($gray-color, 6);
+              &:hover {
+                color: nth($gray-color, 7);
+                font-weight: 600;
+              }
+              div {
+                width: 15px;
+                height: 15px;
+                position: relative;
+                border: 1px solid nth($gray-color, 4);
+
+                &::after {
+                  @include position(absolute, $t: 50%, $l: 0);
+                  content: "";
+                  width: 100%;
+                  height: 1px;
+                  background-color: nth($gray-color, 4);
+                }
               }
             }
           }
         }
       }
     }
-  }
-  .main_board {
-    width: 80%;
+    .main_board {
+      width: 80%;
 
-    ul.sort_by {
-      width: 100%;
-      display: flex;
-      justify-content: right;
-      align-items: center;
-      gap: 15px;
+      ul.sort_by {
+        width: 100%;
+        display: flex;
+        justify-content: right;
+        align-items: center;
+        gap: 15px;
 
-      li {
-        font-size: nth($font-size, 2);
-        color: nth($gray-color, 6);
+        li {
+          font-size: nth($font-size, 2);
+          color: nth($gray-color, 6);
+          line-height: 30px;
 
-        &:hover,
-        &.checked {
-          color: nth($gray-color, 7);
-          font-weight: 600;
-        }
-        &:last-child {
-          display: block;
-          // width: 32px;
-          // height: 32px;
-          padding: 8px;
-          border: 1px solid nth($gray-color, 3);
-          background-color: nth($gray-color, 2);
-          border-radius: 100%;
-
-          &:hover {
-            background-color: nth($gray-color, 6);
-            div {
-              filter: brightness(1);
-            }
+          &:hover,
+          &.checked {
+            color: nth($gray-color, 7);
+            font-weight: 600;
           }
-          div {
-            filter: brightness(0.5);
+          &:last-child {
+            display: block;
+            // width: 32px;
+            // height: 32px;
+            padding: 7px;
+            border: 1px solid nth($gray-color, 3);
+            background-color: nth($gray-color, 2);
+            border-radius: 100%;
+
+            &:hover {
+              background-color: nth($gray-color, 6);
+              div {
+                filter: brightness(1);
+              }
+            }
+            div {
+              filter: brightness(0.5);
+            }
           }
         }
       }
-    }
-    article {
-      .pages {
-        .post {
-          width: 610px;
-          height: 400px;
-          overflow: hidden;
+      article {
+        .pages {
+          .post {
+            width: 610px;
+            height: 400px;
+            overflow: hidden;
 
-          img {
-            width: 110%;
+            img {
+              width: 110%;
+            }
           }
         }
       }
