@@ -13,6 +13,7 @@
         2-4. scrollbar
         2-5. 페이지 유도 버튼(event)
         2-6. footer
+        2-8. 검색
     3. 개별 부분
         3-1. 베스트 페이지(best_page)
         3-2. 배경 페이지(view_page)
@@ -70,28 +71,7 @@ header .heart {
   background-color: #fff;
   color: #111;
 }
-
-section {
-  width: 1600px;
-  margin: 180px auto 150px;
-}
-
-.main_title {
-  width: 100%;
-  height: -moz-fit-content;
-  height: fit-content;
-  text-align: center;
-  opacity: 0;
-  transform: translateY(-50%);
-  transition: 1s;
-}
-.main_title.moving {
-  opacity: 0;
-  transition: 1s;
-  transform: translateY(-50%);
-}
-
-ul.select {
+.wrapper.white ul.select {
   display: flex;
   width: 100%;
   margin-top: 100px;
@@ -100,7 +80,7 @@ ul.select {
   opacity: 0;
   transition: 1s;
 }
-ul.select li {
+.wrapper.white ul.select li {
   width: -moz-fit-content;
   width: fit-content;
   height: 60px;
@@ -116,42 +96,79 @@ ul.select li {
   white-space: nowrap;
   transition: 0.3s;
 }
-ul.select li:hover {
+.wrapper.white ul.select li:hover {
   color: #111111;
 }
-ul.select li.click_first {
+.wrapper.white ul.select li.click_first {
   background-color: #ffffff;
   border-bottom-width: 0;
   color: #111111;
 }
-ul.select li.click_second {
+.wrapper.white ul.select li.click_second {
   background-color: #ffffff;
   border-bottom-width: 0;
   color: #111111;
 }
-ul.select li:last-child {
+.wrapper.white ul.select li:last-child {
   width: 100%;
   background-color: #ffffff;
   border-width: 0px;
   border-bottom-width: 1px;
+  position: relative;
 }
-
-.scroll {
+.wrapper.white ul.select li:last-child .search {
+  width: 72px;
+  position: absolute;
+  top: 50%;
+  right: 0;
+  background-color: #fff;
+  border-color: transparent;
+  transform: translate(-33px, -50%);
+}
+.wrapper.white ul.select li:last-child .search:focus {
+  width: 380px;
+  background-color: #fbfbfb;
+  border-color: #e4e4e4;
+  transition: 0.5s;
+  transform: translateY(-50%);
+}
+.wrapper.white ul.select li:last-child .search + label {
+  top: 30%;
+}
+.wrapper.white section {
+  width: 1600px;
+  margin: 180px auto 150px;
+}
+.wrapper.white .main_title {
+  width: 100%;
+  height: -moz-fit-content;
+  height: fit-content;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(-50%);
+  transition: 1s;
+}
+.wrapper.white .main_title.moving {
+  opacity: 0;
+  transition: 1s;
+  transform: translateY(-50%);
+}
+.wrapper.white .scroll {
   display: flex;
   justify-content: space-between;
 }
-.scroll.column {
+.wrapper.white .scroll.column {
   width: -moz-fit-content;
   width: fit-content;
   height: 100%;
   flex-direction: column;
 }
-.scroll.row {
+.wrapper.white .scroll.row {
   width: 100%;
   height: -moz-fit-content;
   height: fit-content;
 }
-.scroll .circle {
+.wrapper.white .scroll .circle {
   width: 15px;
   height: 15px;
   border-radius: 100%;
@@ -159,7 +176,7 @@ ul.select li:last-child {
   border: 1px solid #111111;
   background-color: #ffffff;
 }
-.scroll .state.column {
+.wrapper.white .scroll .state.column {
   width: 3px;
   height: 100%;
   position: relative;
@@ -167,11 +184,11 @@ ul.select li:last-child {
   left: 50%;
   transform: translateX(-50%);
 }
-.scroll .state.column div {
+.wrapper.white .scroll .state.column div {
   width: 100%;
   height: 0;
 }
-.scroll .state.row {
+.wrapper.white .scroll .state.row {
   width: 100%;
   height: 3px;
   position: relative;
@@ -179,17 +196,128 @@ ul.select li:last-child {
   left: 0;
   transform: translateY(-50%);
 }
-.scroll .state.row div {
+.wrapper.white .scroll .state.row div {
   width: 0;
   height: 100%;
 }
-.scroll .state div {
+.wrapper.white .scroll .state div {
   border-radius: 2px;
   transition: 3s;
   background-color: #111111;
 }
-
-.event {
+.wrapper.white footer {
+  background-color: #111111;
+}
+.wrapper.white .legal {
+  color: #ffffff;
+}
+.wrapper.white .pages {
+  display: flex;
+  justify-content: right;
+  flex-wrap: wrap;
+  gap: 30px;
+  width: 100%;
+  margin-top: 30px;
+}
+.wrapper.white .pages .post {
+  position: relative;
+  width: 785px;
+  height: 500px;
+  background-color: #787878;
+  position: relative;
+  border-radius: 3px;
+}
+.wrapper.white .pages .post .title {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  width: 100%;
+  height: 50%;
+  padding: 40px 50px;
+  box-sizing: border-box;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background: linear-gradient(rgba(17, 17, 17, 0) 0%, rgba(17, 17, 17, 0.8) 100%);
+  color: #fff;
+  opacity: 0;
+}
+.wrapper.white .pages .post .title .nick_name {
+  display: inline-block;
+  width: -moz-fit-content;
+  width: fit-content;
+  position: relative;
+  font-size: 14px;
+  font-weight: 400;
+}
+.wrapper.white .pages .post .title h3 {
+  margin-top: 15px;
+  font-weight: 500;
+  color: #fff;
+  position: relative;
+}
+.wrapper.white .pages .post .title .reation {
+  display: flex;
+  justify-content: center;
+  height: 20px;
+  margin-top: 30px;
+}
+.wrapper.white .pages .post .title .reation p {
+  display: flex;
+  align-items: center;
+  margin: 0 5px;
+}
+.wrapper.white .pages .post .title .reation p i {
+  display: inline-block;
+  transform: scale(0.8);
+}
+.wrapper.white .pages .post .title .reation p i.chat, .wrapper.white .pages .post .title .reation p i.heart {
+  background-image: url("../../img/icon/Result.png");
+}
+.wrapper.white .pages .post .title .reation p .reaction_number {
+  font-size: 14px;
+  font-weight: 400;
+}
+.wrapper.white .pages .post .heart_svg {
+  position: absolute;
+  top: 40px;
+  right: 50px;
+  background: url(../img/icon/heart.svg) no-repeat center/cover;
+  width: 36px;
+  height: 32px;
+  opacity: 0;
+}
+.wrapper.white .pages .post:hover .heart_svg {
+  opacity: 1;
+  transition: 0.5s;
+}
+.wrapper.white ul.page_number {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 30px;
+  margin-top: 60px;
+}
+.wrapper.white ul.page_number li {
+  width: 30px;
+  height: 30px;
+  border-radius: 3px;
+  text-align: center;
+  line-height: 27px;
+}
+.wrapper.white ul.page_number li.active {
+  background-color: #111;
+  color: #fff;
+}
+.wrapper.white ul.page_number .line_arrow {
+  margin: 0 15px;
+}
+.wrapper.white main {
+  margin-bottom: 150px;
+}
+.wrapper.white main .event {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -203,123 +331,20 @@ ul.select li:last-child {
   opacity: 0;
   transition: 1s;
 }
-.event h4 {
+.wrapper.white main .event h4 {
   margin-bottom: 15px;
   font-size: 20px;
   font-weight: 500;
   color: #111111;
 }
-.event p {
+.wrapper.white main .event p {
   color: #787878;
   line-height: 12px;
 }
-.event .line_arrow {
+.wrapper.white main .event .line_arrow {
   background-image: url("../../img/icon/Result.png");
   filter: brightness(0.2);
   transform: rotate(180deg);
-}
-
-footer {
-  background-color: #111111;
-}
-
-.legal {
-  color: #ffffff;
-}
-
-.pages {
-  display: flex;
-  justify-content: right;
-  flex-wrap: wrap;
-  gap: 30px;
-  width: 100%;
-  margin-top: 30px;
-}
-.pages .post {
-  position: relative;
-  width: 785px;
-  height: 500px;
-  background-color: #787878;
-  position: relative;
-  border-radius: 3px;
-}
-.pages .post .title {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  background-color: rgba(17, 17, 17, 0.8);
-  color: #fff;
-  text-align: center;
-  opacity: 0;
-}
-.pages .post .title .nick_name {
-  display: inline-block;
-  width: -moz-fit-content;
-  width: fit-content;
-  position: relative;
-  font-size: 14px;
-  font-weight: 400;
-}
-.pages .post .title h3 {
-  margin-top: 20px;
-  font-weight: 500;
-  color: #fff;
-  position: relative;
-}
-.pages .post .title .reation {
-  display: flex;
-  justify-content: center;
-  height: 20px;
-  margin-top: 30px;
-}
-.pages .post .title .reation p {
-  display: flex;
-  align-items: center;
-  margin: 0 5px;
-}
-.pages .post .title .reation p i {
-  display: inline-block;
-  transform: scale(0.8);
-}
-.pages .post .title .reation p i.chat, .pages .post .title .reation p i.heart {
-  background-image: url("../../img/icon/Result.png");
-}
-.pages .post .title .reation p .reaction_number {
-  font-size: 14px;
-  font-weight: 400;
-}
-
-ul.page_number {
-  display: flex;
-  gap: 15px;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 30px;
-  margin-top: 60px;
-}
-ul.page_number li {
-  width: 30px;
-  height: 30px;
-  border-radius: 3px;
-  text-align: center;
-  line-height: 27px;
-}
-ul.page_number li.active {
-  background-color: #111;
-  color: #fff;
-}
-ul.page_number .line_arrow {
-  margin: 0 15px;
-}
-
-main {
-  margin-bottom: 150px;
 }
 
 /* 3. 개별 부분 */
@@ -513,10 +538,10 @@ section.show_view .scroll.row .circle .state.row div {
   background-color: #ffffff;
 }
 
-main.view_forum .select a {
+main.forum .select a {
   color: #787878;
 }
-main.view_forum .contents_wrap {
+main.forum .contents_wrap {
   display: flex;
   justify-content: space-between;
   width: 100%;
@@ -525,22 +550,22 @@ main.view_forum .contents_wrap {
   opacity: 0;
   transition: 1s;
 }
-main.view_forum .contents_wrap .left_nav {
+main.forum .contents_wrap .left_nav {
   margin-top: 60px;
   width: -moz-fit-content;
   width: fit-content;
 }
-main.view_forum .contents_wrap .left_nav .list_wrap {
+main.forum .contents_wrap .left_nav .list_wrap {
   width: 240px;
 }
-main.view_forum .contents_wrap .left_nav .list_wrap > li {
+main.forum .contents_wrap .left_nav .list_wrap > li {
   width: 100%;
   font-size: 20px;
   background-color: #fbfbfb;
   border: 1px solid #eeeeee;
   transition: 1s;
 }
-main.view_forum .contents_wrap .left_nav .list_wrap > li .list_name {
+main.forum .contents_wrap .left_nav .list_wrap > li .list_name {
   display: flex;
   justify-content: space-between;
   width: 100%;
@@ -550,27 +575,33 @@ main.view_forum .contents_wrap .left_nav .list_wrap > li .list_name {
   line-height: 15px;
   transition: 0.2s;
 }
-main.view_forum .contents_wrap .left_nav .list_wrap > li .list_name .line_arrow {
+main.forum .contents_wrap .left_nav .list_wrap > li .list_name .line_arrow {
   filter: brightness(0.2);
   transform: rotate(-90deg);
   transition: 0.3s;
 }
-main.view_forum .contents_wrap .left_nav .list_wrap > li.active .list_name {
+main.forum .contents_wrap .left_nav .list_wrap > li.active .list_name {
   width: 100%;
   font-size: 20px;
   background-color: #111111;
   color: #ffffff;
   line-height: 15px;
 }
-main.view_forum .contents_wrap .left_nav .list_wrap > li.active .list_name .line_arrow {
+main.forum .contents_wrap .left_nav .list_wrap > li.active .list_name .line_arrow {
   filter: brightness(1);
   transform: rotate(90deg);
 }
-main.view_forum .contents_wrap .left_nav .list_wrap > li.active .list {
+main.forum .contents_wrap .left_nav .list_wrap > li.active .list {
   height: 260px;
   padding: 30px 50px;
 }
-main.view_forum .contents_wrap .left_nav .list_wrap > li .list {
+main.forum .contents_wrap .left_nav .list_wrap > li:nth-child(2).active .list {
+  height: 356px;
+}
+main.forum .contents_wrap .left_nav .list_wrap > li:nth-child(4).active .list {
+  height: 206px;
+}
+main.forum .contents_wrap .left_nav .list_wrap > li .list {
   width: 100%;
   overflow: hidden;
   height: 0;
@@ -584,25 +615,25 @@ main.view_forum .contents_wrap .left_nav .list_wrap > li .list {
   line-height: 50px;
   overflow: hidden;
 }
-main.view_forum .contents_wrap .left_nav .list_wrap > li .list li {
+main.forum .contents_wrap .left_nav .list_wrap > li .list li {
   font-size: 20px;
   color: #787878;
 }
-main.view_forum .contents_wrap .left_nav .list_wrap > li .list li:hover {
+main.forum .contents_wrap .left_nav .list_wrap > li .list li:hover {
   color: #111111;
   font-weight: 600;
 }
-main.view_forum .contents_wrap .left_nav .filter_list_wrap {
+main.forum .contents_wrap .left_nav .filter_list_wrap {
   width: 240px;
   margin-top: 60px;
 }
-main.view_forum .contents_wrap .left_nav .filter_list_wrap > li {
+main.forum .contents_wrap .left_nav .filter_list_wrap > li {
   width: 100%;
   font-size: 20px;
   background-color: #fbfbfb;
   border: 1px solid #eeeeee;
 }
-main.view_forum .contents_wrap .left_nav .filter_list_wrap > li .list_name {
+main.forum .contents_wrap .left_nav .filter_list_wrap > li .list_name {
   display: flex;
   justify-content: space-between;
   width: 100%;
@@ -612,7 +643,7 @@ main.view_forum .contents_wrap .left_nav .filter_list_wrap > li .list_name {
   line-height: 15px;
   transition: 0.3s;
 }
-main.view_forum .contents_wrap .left_nav .filter_list_wrap > li .filter_list {
+main.forum .contents_wrap .left_nav .filter_list_wrap > li .filter_list {
   width: 100%;
   overflow: hidden;
   height: -moz-fit-content;
@@ -626,7 +657,7 @@ main.view_forum .contents_wrap .left_nav .filter_list_wrap > li .filter_list {
   border-left-width: 1px;
   line-height: 50px;
 }
-main.view_forum .contents_wrap .left_nav .filter_list_wrap > li .filter_list li {
+main.forum .contents_wrap .left_nav .filter_list_wrap > li .filter_list li {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -634,17 +665,17 @@ main.view_forum .contents_wrap .left_nav .filter_list_wrap > li .filter_list li 
   font-size: 20px;
   color: #787878;
 }
-main.view_forum .contents_wrap .left_nav .filter_list_wrap > li .filter_list li:hover {
+main.forum .contents_wrap .left_nav .filter_list_wrap > li .filter_list li:hover {
   color: #111111;
   font-weight: 600;
 }
-main.view_forum .contents_wrap .left_nav .filter_list_wrap > li .filter_list li div {
+main.forum .contents_wrap .left_nav .filter_list_wrap > li .filter_list li div {
   width: 15px;
   height: 15px;
   position: relative;
   border: 1px solid #d7d7d7;
 }
-main.view_forum .contents_wrap .left_nav .filter_list_wrap > li .filter_list li div::after {
+main.forum .contents_wrap .left_nav .filter_list_wrap > li .filter_list li div::after {
   position: absolute;
   top: 50%;
   left: 0;
@@ -653,46 +684,46 @@ main.view_forum .contents_wrap .left_nav .filter_list_wrap > li .filter_list li 
   height: 1px;
   background-color: #d7d7d7;
 }
-main.view_forum .contents_wrap .main_board {
+main.forum .contents_wrap .main_board {
   width: 80%;
 }
-main.view_forum .contents_wrap .main_board ul.sort_by {
+main.forum .contents_wrap .main_board ul.sort_by {
   width: 100%;
   display: flex;
   justify-content: right;
   align-items: center;
   gap: 15px;
 }
-main.view_forum .contents_wrap .main_board ul.sort_by li {
+main.forum .contents_wrap .main_board ul.sort_by li {
   font-size: 16px;
   color: #787878;
   line-height: 30px;
 }
-main.view_forum .contents_wrap .main_board ul.sort_by li:hover, main.view_forum .contents_wrap .main_board ul.sort_by li.checked {
+main.forum .contents_wrap .main_board ul.sort_by li:hover, main.forum .contents_wrap .main_board ul.sort_by li.checked {
   color: #111111;
   font-weight: 600;
 }
-main.view_forum .contents_wrap .main_board ul.sort_by li:last-child {
+main.forum .contents_wrap .main_board ul.sort_by li:last-child {
   display: block;
   padding: 7px;
   border: 1px solid #eeeeee;
   background-color: #fbfbfb;
   border-radius: 100%;
 }
-main.view_forum .contents_wrap .main_board ul.sort_by li:last-child:hover {
+main.forum .contents_wrap .main_board ul.sort_by li:last-child:hover {
   background-color: #787878;
 }
-main.view_forum .contents_wrap .main_board ul.sort_by li:last-child:hover div {
+main.forum .contents_wrap .main_board ul.sort_by li:last-child:hover div {
   filter: brightness(1);
 }
-main.view_forum .contents_wrap .main_board ul.sort_by li:last-child div {
+main.forum .contents_wrap .main_board ul.sort_by li:last-child div {
   filter: brightness(0.5);
 }
-main.view_forum .contents_wrap .main_board article .pages .post {
+main.forum .contents_wrap .main_board article .pages .post {
   width: 610px;
   height: 400px;
   overflow: hidden;
 }
-main.view_forum .contents_wrap .main_board article .pages .post img {
+main.forum .contents_wrap .main_board article .pages .post img {
   width: 110%;
 }/*# sourceMappingURL=sub.css.map */

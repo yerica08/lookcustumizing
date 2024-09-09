@@ -53,10 +53,10 @@ document.addEventListener("mousemove", function (event) {
     mouse.style.mixBlendMode = "normal";
   }
 });
-
+*/
 // 메뉴 마우스 커서
 const menuContent = document.querySelector(".menu_content");
-menuContent.addEventListener("mousemove", function (event) {
+/*menuContent.addEventListener("mousemove", function (event) {
   mouseX = event.clientX;
   const target = event.target;
 
@@ -133,6 +133,7 @@ function handleMouseLeave() {
 const menuButton = document.querySelector(".menu_button");
 const closeButton = document.querySelector(".close_button");
 const menuWrap = document.querySelector(".menu_wrap");
+console.log(menuContent);
 
 menuButton.addEventListener("click", function () {
   menuContent.style.opacity = "1";
@@ -854,7 +855,10 @@ document.addEventListener("DOMContentLoaded", function () {
     showPost();
   } else if (pathName.includes("user_page.html")) {
     userPage();
-  } else if (pathName.includes("view_forum.html")) {
+  } else if (
+    pathName.includes("view_forum.html") ||
+    pathName.includes("customizing_forum.html")
+  ) {
     subScroll();
     viewForum();
     showPost();

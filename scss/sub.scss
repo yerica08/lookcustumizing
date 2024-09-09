@@ -12,6 +12,7 @@
         2-4. scrollbar
         2-5. 페이지 유도 버튼(event)
         2-6. footer
+        2-8. 검색
     3. 개별 부분
         3-1. 베스트 페이지(best_page)
         3-2. 배경 페이지(view_page)
@@ -113,260 +114,298 @@ header {
 // 2-2. section
 .wrapper.white {
   @include wrapper-white;
-}
 
-section {
-  @include basic-section;
-}
-
-.main_title {
-  width: 100%;
-  height: fit-content;
-  text-align: center;
-  opacity: 0;
-  transform: translateY(-50%);
-  transition: 1s;
-
-  &.moving {
+  // 2-3. 목록
+  ul.select {
+    display: flex;
+    width: 100%;
+    margin-top: 100px;
+    border-left: 1px solid nth($gray-color, 4);
+    transform: translateY(-50%);
     opacity: 0;
     transition: 1s;
-    transform: translateY(-50%);
-    // animation: none;
-  }
-}
-// 2-3. 목록
-ul.select {
-  display: flex;
-  width: 100%;
-  margin-top: 100px;
-  border-left: 1px solid nth($gray-color, 4);
-  transform: translateY(-50%);
-  opacity: 0;
-  transition: 1s;
 
-  li {
-    width: fit-content;
-    height: 60px;
-    padding: 0 80px;
-    line-height: 60px;
-    font-size: 24px;
-    text-align: center;
-    color: nth($gray-color, 6);
-    background-color: nth($gray-color, 2);
-    border: 1px solid nth($gray-color, 4);
-    border-left-width: 0;
-    box-sizing: border-box;
-    white-space: nowrap;
-    transition: 0.3s;
-
-    &:hover {
-      color: nth($gray-color, 7);
-    }
-    &.click_first {
-      background-color: nth($gray-color, 1);
-      border-bottom-width: 0;
-      color: nth($gray-color, 7);
-    }
-    &.click_second {
-      background-color: nth($gray-color, 1);
-      border-bottom-width: 0;
-      color: nth($gray-color, 7);
-    }
-    &:last-child {
-      width: 100%;
-      background-color: nth($gray-color, 1);
-      border-width: 0px;
-      border-bottom-width: 1px;
-    }
-  }
-}
-
-// 2-4. scrollbar
-.scroll {
-  display: flex;
-  justify-content: space-between;
-
-  &.column {
-    width: fit-content;
-    height: 100%;
-    flex-direction: column;
-  }
-  &.row {
-    width: 100%;
-    height: fit-content;
-  }
-  .circle {
-    width: 15px;
-    height: 15px;
-    border-radius: 100%;
-    transition: 3s;
-    border: 1px solid nth($gray-color, 7);
-    background-color: nth($gray-color, 1);
-  }
-  .state {
-    &.column {
-      width: 3px;
-      height: 100%;
-      @include position(relative, $t: 0, $l: 50%);
-      transform: translateX(-50%);
-      div {
-        width: 100%;
-        height: 0;
-      }
-    }
-    &.row {
-      width: 100%;
-      height: 3px;
-      @include position(relative, $t: 50%, $l: 0);
-      transform: translateY(-50%);
-      div {
-        width: 0;
-        height: 100%;
-      }
-    }
-    div {
-      border-radius: 2px;
-      transition: 3s;
-      background-color: nth($gray-color, 7);
-    }
-  }
-}
-// 2-5. 페이지 유도 버튼(event)
-.event {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 1600px;
-  margin: 0 auto;
-  margin-top: 30px;
-  padding: 30px 50px;
-  background-color: nth($gray-color, 2);
-  border-radius: 3px;
-  transform: translateY(-10%);
-  opacity: 0;
-  transition: 1s;
-
-  h4 {
-    margin-bottom: 15px;
-    font-size: 20px;
-    font-weight: 500;
-    color: nth($gray-color, 7);
-  }
-  p {
-    color: nth($gray-color, 6);
-    line-height: 12px;
-  }
-  .line_arrow {
-    background-image: url("../../img/icon/Result.png");
-    @include darken-icon;
-    transform: rotate(180deg);
-  }
-}
-// 2-6. footer
-footer {
-  background-color: nth($gray-color, 7);
-}
-.legal {
-  color: nth($gray-color, 1);
-}
-// 2-7. page
-.pages {
-  display: flex;
-  justify-content: right;
-  flex-wrap: wrap;
-  gap: 30px;
-  width: 100%;
-  margin-top: 30px;
-
-  .post {
-    @include position(relative);
-    width: 785px;
-    height: 500px;
-    background-color: nth($gray-color, 6);
-    position: relative;
-    border-radius: 3px;
-
-    .title {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      width: 100%;
-      height: 100%;
-      @include position(absolute, $t: 0, $l: 0);
-      background-color: transparentize(nth($gray-color, 7), 0.2);
-      color: #fff;
+    li {
+      width: fit-content;
+      height: 60px;
+      padding: 0 80px;
+      line-height: 60px;
+      font-size: 24px;
       text-align: center;
-      opacity: 0;
+      color: nth($gray-color, 6);
+      background-color: nth($gray-color, 2);
+      border: 1px solid nth($gray-color, 4);
+      border-left-width: 0;
+      box-sizing: border-box;
+      white-space: nowrap;
+      transition: 0.3s;
 
-      .nick_name {
-        display: inline-block;
-        width: fit-content;
-        @include position(relative);
-        font-size: 14px;
-        font-weight: 400;
+      &:hover {
+        color: nth($gray-color, 7);
       }
-      h3 {
-        margin-top: 20px;
-        font-weight: 500;
-        color: #fff;
-        @include position(relative);
+      &.click_first {
+        background-color: nth($gray-color, 1);
+        border-bottom-width: 0;
+        color: nth($gray-color, 7);
       }
-      .reation {
-        display: flex;
-        justify-content: center;
-        height: 20px;
-        margin-top: 30px;
+      &.click_second {
+        background-color: nth($gray-color, 1);
+        border-bottom-width: 0;
+        color: nth($gray-color, 7);
+      }
+      &:last-child {
+        width: 100%;
+        background-color: nth($gray-color, 1);
+        border-width: 0px;
+        border-bottom-width: 1px;
+        @include position(relative);
 
-        p {
-          display: flex;
-          align-items: center;
-          margin: 0 5px;
+        // 2-8. 검색
+        .search {
+          width: 72px;
+          @include position(absolute, $t: 50%, $r: 0);
+          background-color: #fff;
+          border-color: transparent;
+          transform: translate(-33px, -50%);
 
-          i {
-            display: inline-block;
-            transform: scale(0.8);
-            &.chat,
-            &.heart {
-              background-image: url("../../img/icon/Result.png");
-            }
+          &:focus {
+            width: 380px;
+            background-color: #fbfbfb;
+            border-color: #e4e4e4;
+            transition: 0.5s;
+            transform: translateY(-50%);
           }
-          .reaction_number {
-            font-size: 14px;
-            font-weight: 400;
+
+          & + label {
+            top: 30%;
           }
         }
       }
     }
   }
-}
-// 2-8. page number
-ul.page_number {
-  display: flex;
-  gap: 15px;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 30px;
-  margin-top: 60px;
+  section {
+    @include basic-section;
+  }
 
-  li {
-    width: 30px;
-    height: 30px;
-    border-radius: 3px;
+  .main_title {
+    width: 100%;
+    height: fit-content;
     text-align: center;
-    line-height: 27px;
+    opacity: 0;
+    transform: translateY(-50%);
+    transition: 1s;
 
-    &.active {
-      background-color: #111;
-      color: #fff;
+    &.moving {
+      opacity: 0;
+      transition: 1s;
+      transform: translateY(-50%);
+      // animation: none;
     }
   }
-  .line_arrow {
-    margin: 0 15px;
+
+  // 2-4. scrollbar
+  .scroll {
+    display: flex;
+    justify-content: space-between;
+
+    &.column {
+      width: fit-content;
+      height: 100%;
+      flex-direction: column;
+    }
+    &.row {
+      width: 100%;
+      height: fit-content;
+    }
+    .circle {
+      width: 15px;
+      height: 15px;
+      border-radius: 100%;
+      transition: 3s;
+      border: 1px solid nth($gray-color, 7);
+      background-color: nth($gray-color, 1);
+    }
+    .state {
+      &.column {
+        width: 3px;
+        height: 100%;
+        @include position(relative, $t: 0, $l: 50%);
+        transform: translateX(-50%);
+        div {
+          width: 100%;
+          height: 0;
+        }
+      }
+      &.row {
+        width: 100%;
+        height: 3px;
+        @include position(relative, $t: 50%, $l: 0);
+        transform: translateY(-50%);
+        div {
+          width: 0;
+          height: 100%;
+        }
+      }
+      div {
+        border-radius: 2px;
+        transition: 3s;
+        background-color: nth($gray-color, 7);
+      }
+    }
   }
-}
-main {
-  margin-bottom: 150px;
+  // 2-6. footer
+  footer {
+    background-color: nth($gray-color, 7);
+  }
+  .legal {
+    color: nth($gray-color, 1);
+  }
+  // 2-7. page
+  .pages {
+    display: flex;
+    justify-content: right;
+    flex-wrap: wrap;
+    gap: 30px;
+    width: 100%;
+    margin-top: 30px;
+
+    .post {
+      @include position(relative);
+      width: 785px;
+      height: 500px;
+      background-color: nth($gray-color, 6);
+      position: relative;
+      border-radius: 3px;
+
+      .title {
+        display: flex;
+        justify-content: space-between;
+        align-items: end;
+        width: 100%;
+        height: 50%;
+        padding: 40px 50px;
+        box-sizing: border-box;
+        @include position(absolute, $b: 0, $l: 0);
+        background: linear-gradient(
+          rgba(17, 17, 17, 0) 0%,
+          rgba(17, 17, 17, 0.8) 100%
+        );
+        color: #fff;
+        opacity: 0;
+
+        .nick_name {
+          display: inline-block;
+          width: fit-content;
+          @include position(relative);
+          font-size: 14px;
+          font-weight: 400;
+        }
+        h3 {
+          margin-top: 15px;
+          font-weight: 500;
+          color: #fff;
+          @include position(relative);
+        }
+        .reation {
+          display: flex;
+          justify-content: center;
+          height: 20px;
+          margin-top: 30px;
+
+          p {
+            display: flex;
+            align-items: center;
+            margin: 0 5px;
+
+            i {
+              display: inline-block;
+              transform: scale(0.8);
+              &.chat,
+              &.heart {
+                background-image: url("../../img/icon/Result.png");
+              }
+            }
+            .reaction_number {
+              font-size: 14px;
+              font-weight: 400;
+            }
+          }
+        }
+      }
+      .heart_svg {
+        @include position(absolute, $t: 40px, $r: 50px);
+        background: url(../img/icon/heart.svg) no-repeat center / cover;
+        width: 36px;
+        height: 32px;
+        opacity: 0;
+      }
+      &:hover .heart_svg {
+        opacity: 1;
+        transition: 0.5s;
+      }
+    }
+  }
+  // 2-8. page number
+  ul.page_number {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 30px;
+    margin-top: 60px;
+
+    li {
+      width: 30px;
+      height: 30px;
+      border-radius: 3px;
+      text-align: center;
+      line-height: 27px;
+
+      &.active {
+        background-color: #111;
+        color: #fff;
+      }
+    }
+    .line_arrow {
+      margin: 0 15px;
+    }
+  }
+  main {
+    margin-bottom: 150px;
+
+    // 2-5. 페이지 유도 버튼(event)
+    .event {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 1600px;
+      margin: 0 auto;
+      margin-top: 30px;
+      padding: 30px 50px;
+      background-color: nth($gray-color, 2);
+      border-radius: 3px;
+      transform: translateY(-10%);
+      opacity: 0;
+      transition: 1s;
+
+      h4 {
+        margin-bottom: 15px;
+        font-size: 20px;
+        font-weight: 500;
+        color: nth($gray-color, 7);
+      }
+      p {
+        color: nth($gray-color, 6);
+        line-height: 12px;
+      }
+      .line_arrow {
+        background-image: url("../../img/icon/Result.png");
+        @include darken-icon;
+        transform: rotate(180deg);
+      }
+    }
+  }
 }
 /* 3. 개별 부분 */
 // 3-1. 베스트 페이지(best_page)
@@ -558,7 +597,7 @@ section.show_view {
   }
 }
 // 3-3. 배경 페이지(view_forum)
-main.view_forum {
+main.forum {
   .select {
     a {
       color: nth($gray-color, 6);
@@ -619,6 +658,16 @@ main.view_forum {
             .list {
               height: 260px;
               padding: 30px 50px;
+            }
+          }
+          &:nth-child(2).active {
+            .list {
+              height: 356px;
+            }
+          }
+          &:nth-child(4).active {
+            .list {
+              height: 206px;
             }
           }
           .list {
