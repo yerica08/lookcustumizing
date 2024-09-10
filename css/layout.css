@@ -1,3 +1,4 @@
+@charset "utf-8";
 @import url(./common.css);
 section {
   width: 100vw;
@@ -66,16 +67,32 @@ body::-webkit-scrollbar {
 .main_visual h3 {
   font-weight: 500;
   padding-bottom: 20px;
+  margin-left: 5px;
 }
 .main_visual h2 {
   font-size: 43px;
   font-weight: 500;
   padding-bottom: 30px;
 }
+.main_p {
+  position: relative;
+  margin-left: 20px;
+  line-height: 24px;
+}
+.main_p::before {
+  content: "";
+  width: 5px;
+  height: 90%;
+  position: absolute;
+  top: 5px;
+  left: -15px;
+  background-color: #fff;
+}
 .main_visual p:last-of-type {
-  padding-top: 30px;
+  padding-top: 20px;
   font-size: 14px;
   font-weight: 200;
+  margin-left: 5px;
 }
 /* 메인비주얼 - 스크롤바 */
 .scroll.Vertical {
@@ -221,49 +238,20 @@ body::-webkit-scrollbar {
   z-index: 100;
   opacity: 1;
 }
-.view h2:first-child {
+.text_h2 {
+  display: flex;
   position: absolute;
-  top: 280px;
-  left: 160px;
-}
-/* 배경 - 텍스트 - 스크롤 모션 */
-.scroll_motion h3 {
-  position: absolute;
-  bottom: 280px;
-  right: 160px;
-  font-size: 28px;
-  font-family: "Noto Sans KR", sans-serif;
-}
-.scroll_motion div {
-  width: 15px;
-  height: 15px;
-  position: absolute;
-  bottom: 200px;
-  right: 160px;
-  border-radius: 100%;
-  background-color: #fff;
-}
-.scroll_motion div::after {
-  position: absolute;
-  display: block;
-  content: "";
-  width: 0;
-  height: 0;
-  border: 10px solid transparent;
-  border-bottom-width: 0;
-  border-top-color: #fff;
-  bottom: -200%;
+  top: 50%;
   left: 50%;
-  transform: translateX(-50%);
-  animation: topBottom 1s ease-in-out alternate infinite;
+  transform: translate(-50%, -50%);
 }
-@keyframes topBottom {
-  0% {
-    bottom: -200%;
-  }
-  100% {
-    bottom: -400%;
-  }
+.text_h2 h2 {
+  width: fit-content;
+  padding-left: 10px;
+  transform: translateY(-50%);
+  transition: 0.5s;
+  opacity: 0;
+  transition-delay: 0.5s;
 }
 /* 배경 - 좌우로 열리는 검정 박스 */
 .open_box {

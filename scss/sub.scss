@@ -1,4 +1,5 @@
 @import url(../css/common.css);
+@import url(../css/link.css);
 /*
     [ 목차 ]
 
@@ -809,6 +810,281 @@ main.forum {
               width: 110%;
             }
           }
+        }
+      }
+    }
+  }
+}
+// 3-4. 배경 정보(view_info)
+.maps {
+  width: 100%;
+  height: 854px;
+
+  .continent_map {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+
+    .bg {
+      width: 100%;
+      height: 100%;
+      background: url(../img/photo/view/maps/continent/main_map.jpg) no-repeat
+        center / cover;
+      @include position(relative, $t: 0, $l: 0);
+      z-index: -1;
+    }
+    .continent_btn_wrap {
+      width: 100%;
+      height: 100%;
+      @include position(absolute, $t: 0, $l: 0);
+
+      input {
+        display: none;
+      }
+
+      label {
+        font-size: nth($font-size, 2);
+        color: nth($gray-color, 1);
+        text-align: center;
+
+        &::before {
+          content: "";
+          width: 28px;
+          height: 41px;
+          background: url(../img/icon/dot.svg) no-repeat center / cover;
+          @include position(absolute, $t: -41px, $l: 50%);
+          transform: translateX(-50%);
+        }
+        &.faten {
+          @include position(absolute, $t: 200px, $l: 308px);
+        }
+        &.rohendel {
+          @include position(absolute, $t: 437px, $l: 344px);
+        }
+        &.papunika {
+          @include position(absolute, $t: 656px, $l: 439px);
+        }
+        &.yorn {
+          @include position(absolute, $t: 737px, $l: 251px);
+        }
+        &.voldaik {
+          @include position(absolute, $t: 810px, $l: 344px);
+        }
+        &.lowen {
+          @include position(absolute, $t: 80px, $l: 678px);
+        }
+        &.shushire {
+          @include position(absolute, $t: 94px, $l: 848px);
+        }
+        &.bern {
+          @include position(absolute, $t: 400px, $l: 765px);
+        }
+        &.start {
+          @include position(absolute, $t: 662px, $l: 724px);
+        }
+        &.arthetine {
+          @include position(absolute, $t: 258px, $l: 1096px);
+        }
+        &.kurzan {
+          @include position(absolute, $t: 258px, $l: 1300px);
+        }
+        &.pletze {
+          @include position(absolute, $t: 400px, $l: 1000px);
+        }
+        &.anihc {
+          @include position(absolute, $t: 440px, $l: 1155px);
+        }
+        &.tortoyk {
+          @include position(absolute, $t: 540px, $l: 1037px);
+        }
+      }
+    }
+    .detail_btns {
+      width: 100%;
+      height: 100%;
+      @include position(absolute, $t: 0, $l: 0);
+      display: none;
+
+      input {
+        display: none;
+
+        &:checked + label::before {
+          width: 20px;
+          height: 30px;
+          background: url(../img/icon/dot2.svg) no-repeat center / cover;
+          border-radius: 0;
+          transform: translate(-50%, -20%);
+        }
+      }
+      label {
+        font-size: nth($font-size, 2);
+        color: nth($gray-color, 1);
+        text-align: center;
+        @include position(relative);
+
+        &::before {
+          display: block;
+          content: "";
+          width: 15px;
+          height: 15px;
+          background-color: #fbff55;
+          @include position(absolute, $t: -30px, $l: 50%);
+          transform: translateX(-50%);
+          border-radius: 100%;
+          transition: 0.3s;
+        }
+      }
+      &.yorn {
+        .btn1 {
+          @include position(absolute, $t: 540px, $l: 305px);
+        }
+        .btn2 {
+          @include position(absolute, $t: 496px, $l: 461px);
+        }
+        .btn3 {
+          @include position(absolute, $t: 615px, $l: 359px);
+        }
+        .btn4 {
+          @include position(absolute, $t: 592px, $l: 551px);
+        }
+        .btn5 {
+          @include position(absolute, $t: 715px, $l: 479px);
+        }
+        .btn6 {
+          @include position(absolute, $t: 686px, $l: 674px);
+        }
+      }
+    }
+    .explan {
+      display: none;
+      width: 642px;
+      height: 100%;
+      @include position(absolute, $t: 0, $r: 0);
+      background-color: #212529;
+      padding: 50px;
+      box-sizing: border-box;
+
+      .close {
+        @include position(absolute, $t: 50px, $r: 50px);
+        filter: brightness(1);
+      }
+      .which {
+        display: flex;
+        gap: 15px;
+        height: fit-content;
+        margin-bottom: 15px;
+
+        p {
+          font-size: nth($font-size, 1);
+          color: nth($gray-color, 6);
+          margin: 0;
+          @include position(relative);
+
+          &::before {
+            content: "";
+            width: 5px;
+            height: 1px;
+            background-color: nth($gray-color, 6);
+            @include position(absolute, $t: 58%, $r: -10px);
+            transform: rotate(-45deg);
+          }
+          &::after {
+            content: "";
+            width: 5px;
+            height: 1px;
+            background-color: nth($gray-color, 6);
+            @include position(absolute, $t: 32%, $r: -10px);
+            transform: rotate(45deg);
+          }
+          &:last-child::after,
+          &:last-child::before {
+            display: none;
+          }
+        }
+      }
+      .title {
+        margin-bottom: 15px;
+        display: flex;
+
+        h4 {
+          width: fit-content;
+          font-size: nth($font-size, 4);
+          color: #fbff55;
+          font-weight: 500;
+        }
+        input {
+          display: none;
+
+          &:checked + label::before {
+            background-color: nth($gray-color, 1);
+          }
+        }
+        label {
+          font-size: nth($font-size, 1);
+          color: nth($gray-color, 1);
+          font-weight: 300;
+          @include position(relative);
+          margin-left: 40px;
+          line-height: 24px;
+
+          &::before {
+            content: "";
+            width: 10px;
+            height: 10px;
+            background-color: transparent;
+            border: 1px solid nth($gray-color, 1);
+            border-radius: 100%;
+            @include position(absolute, $t: 50%, $l: -20px);
+            transform: translateY(-50%);
+          }
+        }
+      }
+      .explan_map {
+        width: 100%;
+        height: 426px;
+        margin-bottom: 40px;
+        @include position(relative);
+
+        .map_img {
+          @include position(absolute, $t: 0, $l: 50%);
+          transform: translateX(-50%);
+        }
+      }
+      p {
+        font-size: nth($font-size, 1);
+        color: nth($gray-color, 6);
+        margin-bottom: 30px;
+
+        span {
+          margin-left: 30px;
+
+          &::before {
+            content: "";
+            width: 11px;
+            height: 14px;
+            background: url(../img/icon/memo.svg) no-repeat center / cover;
+            filter: brightness(0.5);
+          }
+        }
+      }
+      .post_wrap {
+        width: 100%;
+        height: 146px;
+        overflow-x: scroll;
+
+        &::-webkit-scrollbar {
+          display: none;
+        }
+        .map_posts {
+          display: flex;
+          gap: 15px;
+          width: fit-content;
+          height: 100%;
+        }
+        .map_post {
+          width: 264px;
+          height: 100%;
+          background-color: pink;
         }
       }
     }

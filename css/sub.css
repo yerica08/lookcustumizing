@@ -1,5 +1,6 @@
 @charset "UTF-8";
 @import url(../css/common.css);
+@import url(../css/link.css);
 /*
     [ 목차 ]
 
@@ -726,4 +727,322 @@ main.forum .contents_wrap .main_board article .pages .post {
 }
 main.forum .contents_wrap .main_board article .pages .post img {
   width: 110%;
+}
+
+.maps {
+  width: 100%;
+  height: 854px;
+}
+.maps .continent_map {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+.maps .continent_map .bg {
+  width: 100%;
+  height: 100%;
+  background: url(../img/photo/view/maps/continent/main_map.jpg) no-repeat center/cover;
+  position: relative;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+.maps .continent_map .continent_btn_wrap {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.maps .continent_map .continent_btn_wrap input {
+  display: none;
+}
+.maps .continent_map .continent_btn_wrap label {
+  font-size: 16px;
+  color: #ffffff;
+  text-align: center;
+}
+.maps .continent_map .continent_btn_wrap label::before {
+  content: "";
+  width: 28px;
+  height: 41px;
+  background: url(../img/icon/dot.svg) no-repeat center/cover;
+  position: absolute;
+  top: -41px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.maps .continent_map .continent_btn_wrap label.faten {
+  position: absolute;
+  top: 200px;
+  left: 308px;
+}
+.maps .continent_map .continent_btn_wrap label.rohendel {
+  position: absolute;
+  top: 437px;
+  left: 344px;
+}
+.maps .continent_map .continent_btn_wrap label.papunika {
+  position: absolute;
+  top: 656px;
+  left: 439px;
+}
+.maps .continent_map .continent_btn_wrap label.yorn {
+  position: absolute;
+  top: 737px;
+  left: 251px;
+}
+.maps .continent_map .continent_btn_wrap label.voldaik {
+  position: absolute;
+  top: 810px;
+  left: 344px;
+}
+.maps .continent_map .continent_btn_wrap label.lowen {
+  position: absolute;
+  top: 80px;
+  left: 678px;
+}
+.maps .continent_map .continent_btn_wrap label.shushire {
+  position: absolute;
+  top: 94px;
+  left: 848px;
+}
+.maps .continent_map .continent_btn_wrap label.bern {
+  position: absolute;
+  top: 400px;
+  left: 765px;
+}
+.maps .continent_map .continent_btn_wrap label.start {
+  position: absolute;
+  top: 662px;
+  left: 724px;
+}
+.maps .continent_map .continent_btn_wrap label.arthetine {
+  position: absolute;
+  top: 258px;
+  left: 1096px;
+}
+.maps .continent_map .continent_btn_wrap label.kurzan {
+  position: absolute;
+  top: 258px;
+  left: 1300px;
+}
+.maps .continent_map .continent_btn_wrap label.pletze {
+  position: absolute;
+  top: 400px;
+  left: 1000px;
+}
+.maps .continent_map .continent_btn_wrap label.anihc {
+  position: absolute;
+  top: 440px;
+  left: 1155px;
+}
+.maps .continent_map .continent_btn_wrap label.tortoyk {
+  position: absolute;
+  top: 540px;
+  left: 1037px;
+}
+.maps .continent_map .detail_btns {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: none;
+}
+.maps .continent_map .detail_btns input {
+  display: none;
+}
+.maps .continent_map .detail_btns input:checked + label::before {
+  width: 20px;
+  height: 30px;
+  background: url(../img/icon/dot2.svg) no-repeat center/cover;
+  border-radius: 0;
+  transform: translate(-50%, -20%);
+}
+.maps .continent_map .detail_btns label {
+  font-size: 16px;
+  color: #ffffff;
+  text-align: center;
+  position: relative;
+}
+.maps .continent_map .detail_btns label::before {
+  display: block;
+  content: "";
+  width: 15px;
+  height: 15px;
+  background-color: #fbff55;
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 100%;
+  transition: 0.3s;
+}
+.maps .continent_map .detail_btns.yorn .btn1 {
+  position: absolute;
+  top: 540px;
+  left: 305px;
+}
+.maps .continent_map .detail_btns.yorn .btn2 {
+  position: absolute;
+  top: 496px;
+  left: 461px;
+}
+.maps .continent_map .detail_btns.yorn .btn3 {
+  position: absolute;
+  top: 615px;
+  left: 359px;
+}
+.maps .continent_map .detail_btns.yorn .btn4 {
+  position: absolute;
+  top: 592px;
+  left: 551px;
+}
+.maps .continent_map .detail_btns.yorn .btn5 {
+  position: absolute;
+  top: 715px;
+  left: 479px;
+}
+.maps .continent_map .detail_btns.yorn .btn6 {
+  position: absolute;
+  top: 686px;
+  left: 674px;
+}
+.maps .continent_map .explan {
+  display: none;
+  width: 642px;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: #212529;
+  padding: 50px;
+  box-sizing: border-box;
+}
+.maps .continent_map .explan .close {
+  position: absolute;
+  top: 50px;
+  right: 50px;
+  filter: brightness(1);
+}
+.maps .continent_map .explan .which {
+  display: flex;
+  gap: 15px;
+  height: -moz-fit-content;
+  height: fit-content;
+  margin-bottom: 15px;
+}
+.maps .continent_map .explan .which p {
+  font-size: 14px;
+  color: #787878;
+  margin: 0;
+  position: relative;
+}
+.maps .continent_map .explan .which p::before {
+  content: "";
+  width: 5px;
+  height: 1px;
+  background-color: #787878;
+  position: absolute;
+  top: 58%;
+  right: -10px;
+  transform: rotate(-45deg);
+}
+.maps .continent_map .explan .which p::after {
+  content: "";
+  width: 5px;
+  height: 1px;
+  background-color: #787878;
+  position: absolute;
+  top: 32%;
+  right: -10px;
+  transform: rotate(45deg);
+}
+.maps .continent_map .explan .which p:last-child::after, .maps .continent_map .explan .which p:last-child::before {
+  display: none;
+}
+.maps .continent_map .explan .title {
+  margin-bottom: 15px;
+  display: flex;
+}
+.maps .continent_map .explan .title h4 {
+  width: -moz-fit-content;
+  width: fit-content;
+  font-size: 24px;
+  color: #fbff55;
+  font-weight: 500;
+}
+.maps .continent_map .explan .title input {
+  display: none;
+}
+.maps .continent_map .explan .title input:checked + label::before {
+  background-color: #ffffff;
+}
+.maps .continent_map .explan .title label {
+  font-size: 14px;
+  color: #ffffff;
+  font-weight: 300;
+  position: relative;
+  margin-left: 40px;
+  line-height: 24px;
+}
+.maps .continent_map .explan .title label::before {
+  content: "";
+  width: 10px;
+  height: 10px;
+  background-color: transparent;
+  border: 1px solid #ffffff;
+  border-radius: 100%;
+  position: absolute;
+  top: 50%;
+  left: -20px;
+  transform: translateY(-50%);
+}
+.maps .continent_map .explan .explan_map {
+  width: 100%;
+  height: 426px;
+  margin-bottom: 40px;
+  position: relative;
+}
+.maps .continent_map .explan .explan_map .map_img {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.maps .continent_map .explan p {
+  font-size: 14px;
+  color: #787878;
+  margin-bottom: 30px;
+}
+.maps .continent_map .explan p span {
+  margin-left: 30px;
+}
+.maps .continent_map .explan p span::before {
+  content: "";
+  width: 11px;
+  height: 14px;
+  background: url(../img/icon/memo.svg) no-repeat center/cover;
+  filter: brightness(0.5);
+}
+.maps .continent_map .explan .post_wrap {
+  width: 100%;
+  height: 146px;
+  overflow-x: scroll;
+}
+.maps .continent_map .explan .post_wrap::-webkit-scrollbar {
+  display: none;
+}
+.maps .continent_map .explan .post_wrap .map_posts {
+  display: flex;
+  gap: 15px;
+  width: -moz-fit-content;
+  width: fit-content;
+  height: 100%;
+}
+.maps .continent_map .explan .post_wrap .map_post {
+  width: 264px;
+  height: 100%;
+  background-color: pink;
 }/*# sourceMappingURL=sub.css.map */

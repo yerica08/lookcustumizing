@@ -1,0 +1,37 @@
+@charset "utf-8";
+.map_img {
+  width: 426px;
+  height: 426px;
+  background-color: pink;
+}
+/* 4. yorn */
+.map_img.btn1 {
+  /* 위대한 성 */
+  background: url(../img/photo/view/maps/continent/yorn/btn1.png) no-repeat
+    center / cover;
+}
+.map_img.btn2 {
+  /* 시작의 땅 */
+  background: url(../img/photo/view/maps/continent/yorn/btn2.png) no-repeat
+    center / cover;
+}
+.map_img.btn3 {
+  /* 미완의 정원 */
+  background: url(../img/photo/view/maps/continent/yorn/btn3.png) no-repeat
+    center / cover;
+}
+.map_img.btn4 {
+  /* 무쇠망치 작업장 */
+  background: url(../img/photo/view/maps/continent/yorn/btn4.png) no-repeat
+    center / cover;
+}
+.map_img.btn5 {
+  /* 검은모루 작업장 */
+  background: url(../img/photo/view/maps/continent/yorn/btn5.png) no-repeat
+    center / cover;
+}
+.map_img.btn6 {
+  /* 기약의 땅 */
+  background: url(../img/photo/view/maps/continent/yorn/btn6.png) no-repeat
+    center / cover;
+}

@@ -133,7 +133,6 @@ function handleMouseLeave() {
 const menuButton = document.querySelector(".menu_button");
 const closeButton = document.querySelector(".close_button");
 const menuWrap = document.querySelector(".menu_wrap");
-console.log(menuContent);
 
 menuButton.addEventListener("click", function () {
   menuContent.style.opacity = "1";
@@ -158,18 +157,15 @@ function initCommon() {
 
 // 메인 페이지 초기화
 function mainPage() {
-  console.log("hi");
   const wrapper = document.querySelector(".wrapper");
   wrapper.style.opacity = "1"; // fadeIn 효과를 위해 opacity 설정
   const openBox = document.querySelector(".open_box");
   const boxes = openBox.children;
-  let isElseExecuted = false; // else 문이 실행되었는지 확인하는 변수
   const view = document.querySelector(".view");
   const fashion = document.querySelector(".fashion");
   const lcm_sns = document.querySelector(".lcm_sns");
   const banner = document.querySelector(".banner");
   const footer = document.querySelector("footer");
-
   // 메인페이지 스크롤
   document
     .querySelector(".main_visual")
@@ -180,6 +176,45 @@ function mainPage() {
       if (scrollAmount > 0) {
         // 스크롤을 내릴 때
         window.scrollTo({ top: view.offsetTop, behavior: "smooth" });
+
+        const viewTextH2 = document.querySelector(".view .text_h2");
+        const h2Elements = Array.from(viewTextH2.children);
+        // 각 h2 요소에 대해 스타일 적용
+        h2Elements.forEach((h2, index) => {
+          // 각 h2 요소에 대해 지연 시간을 두고 스타일 적용
+          setTimeout(() => {
+            h2.style.opacity = 1;
+            h2.style.transform = "translateY(0)";
+          }, index * 300); // 각 요소에 대해 300ms의 지연 시간
+        });
+        setTimeout(function () {
+          // 첫 번째 박스 왼쪽으로 이동
+          boxes[0].style.transform = "translateX(-100%)";
+          boxes[0].style.transition = "1s linear";
+
+          // 두 번째 박스 오른쪽으로 이동
+          boxes[1].style.transform = "translateX(100%)";
+          boxes[1].style.transition = "1s linear";
+
+          // 텍스트 사라짐
+          const viewText = document.getElementById("viewText");
+          viewText.style.opacity = "0";
+          viewText.style.zIndex = "-1";
+          viewText.style.transition = "0.8s";
+
+          // 1초 후 애니메이션 종료
+          setTimeout(function () {
+            openBox.style.opacity = "0";
+            openBox.style.zIndex = "-1";
+
+            // 모든 diamond 요소의 opacity를 1로 설정
+            const diamonds = document.querySelectorAll(".view_box .diamond");
+            diamonds.forEach((diamond) => {
+              diamond.style.opacity = "1"; // 모든 diamond의 opacity를 1로 설정
+              diamond.style.transition = "0.5s";
+            });
+          }, 1000);
+        }, 2000);
       } else {
         // 스크롤 올릴 때
         window.scrollTo({ top: 0, behavior: "smooth" });
@@ -192,61 +227,38 @@ function mainPage() {
     const scrollAmount = event.deltaY;
 
     if (scrollAmount > 0) {
-      if (isElseExecuted) {
-        window.scrollTo({ top: fashion.offsetTop, behavior: "smooth" });
-        isElseExecuted = false; // 다음 스크롤을 위해 초기화
-      } else {
-        // 첫 번째 박스 왼쪽으로 이동
-        boxes[0].style.transform = "translateX(-100%)";
-        boxes[0].style.transition = "1s linear";
-
-        // 두 번째 박스 오른쪽으로 이동
-        boxes[1].style.transform = "translateX(100%)";
-        boxes[1].style.transition = "1s linear";
-
-        // 텍스트 사라짐
-        const viewText = document.getElementById("viewText");
-        viewText.style.opacity = "0";
-        viewText.style.zIndex = "-1";
-        viewText.style.transition = "0.8s";
-
-        // 1초 후 애니메이션 종료
-        setTimeout(function () {
-          openBox.style.opacity = "0";
-          openBox.style.zIndex = "-1";
-          isElseExecuted = true;
-
-          // 모든 diamond 요소의 opacity를 1로 설정
-          const diamonds = document.querySelectorAll(".view_box .diamond");
-          diamonds.forEach((diamond) => {
-            diamond.style.opacity = "1"; // 모든 diamond의 opacity를 1로 설정
-            diamond.style.transition = "0.5s";
-          });
-        }, 1000);
-      }
+      // 스크롤을 내릴 때
+      window.scrollTo({ top: fashion.offsetTop, behavior: "smooth" });
     } else {
+      // 스크롤을 올릴 때
       window.scrollTo({ top: 0, behavior: "smooth" });
-      isElseExecuted = false; // 다음 스크롤을 위해 초기화
 
-      // 상태 초기화
-      openBox.style.opacity = "1";
-      openBox.style.zIndex = "50";
+      setTimeout(function () {
+        // 상태 초기화
+        openBox.style.opacity = "1";
+        openBox.style.zIndex = "50";
 
-      // 첫 번째 박스 원래 위치로
-      boxes[0].style.transform = "translateX(0)";
-      boxes[0].style.transition = "transform 0s";
+        // 첫 번째 박스 원래 위치로
+        boxes[0].style.transform = "translateX(0)";
+        boxes[0].style.transition = "transform 0s";
 
-      // 두 번째 박스 원래 위치로
-      boxes[1].style.transform = "translateX(0)";
-      boxes[1].style.transition = "transform 0s";
-      viewText.style.opacity = "1";
-      viewText.style.zIndex = "100";
-      // 모든 diamond 요소의 opacity를 초기화
-      const diamonds = document.querySelectorAll(".view_box .diamond");
-      diamonds.forEach((diamond) => {
-        diamond.style.opacity = "0"; // 모든 diamond의 opacity를 0으로 설정
-        diamond.style.transition = "0s";
-      });
+        // 두 번째 박스 원래 위치로
+        boxes[1].style.transform = "translateX(0)";
+        boxes[1].style.transition = "transform 0s";
+        viewText.style.opacity = 1;
+        viewText.style.zIndex = "100";
+        // 모든 diamond 요소의 opacity를 초기화
+        const diamonds = document.querySelectorAll(".view_box .diamond");
+        const viewTextH2 = document.querySelector(".text_h2");
+        Array.from(viewTextH2.children).forEach((h2) => {
+          h2.style.opacity = 0;
+          h2.style.transform = "translateY(-50%)";
+        });
+        diamonds.forEach((diamond) => {
+          diamond.style.opacity = "0"; // 모든 diamond의 opacity를 0으로 설정
+          diamond.style.transition = "0s";
+        });
+      }, 500);
     }
   });
 
@@ -332,21 +344,13 @@ function mainPage() {
         case 1:
           newImageSrc = "./img/photo/main_visual/main_people01.jpg";
           mainH3.textContent = "플레체 : PLETZE";
-          document.querySelector(".circle").style.backgroundColor = "#d7d7d7";
-          document.querySelector(".page1").style.backgroundColor = "#fff";
-          document.querySelector(".state > div").style.height = "0%";
           break;
         case 2:
           newImageSrc = "./img/photo/main_visual/main_people02.jpg";
           mainH3.textContent = "dffsd";
-          document.querySelector(".circle").style.backgroundColor = "#fff";
-          document.querySelector(".page3").style.backgroundColor = "#d7d7d7";
-          document.querySelector(".state > div").style.height = "50%";
           break;
         case 3:
           newImageSrc = "./img/photo/main_visual/main_people03.jpg";
-          document.querySelector(".circle").style.backgroundColor = "#fff";
-          document.querySelector(".state > div").style.height = "100%";
           break;
       }
 
@@ -803,6 +807,143 @@ function viewForum() {
     this.parentElement.classList.toggle("active");
   }
 }
+
+/* 2-2-3. 서브페이지 - 뷰 인포(view_info) */
+function viewInfo() {
+  const continentButtons = document.querySelectorAll(
+    'input[name="continent_btn"]'
+  ); // continet 버튼
+  const closeButton = document.getElementById("close-btn"); // close 버튼
+  const bg = document.querySelector(".bg"); // background
+  const mainWhich = document.querySelector(".main_which");
+  const subWhich = document.querySelector(".sub_which");
+
+  const explan = document.querySelector(".explan");
+  const closeBtn = document.querySelector(".explan .close");
+
+  closeBtn.addEventListener("click", function () {
+    explan.style.display = "none";
+  });
+  // continent 버튼을 클릭하면
+  continentButtons.forEach((button) => {
+    button.addEventListener("change", () => {
+      const thisLabel = button.nextElementSibling; // 클릭한 버튼의 label
+      const labels = button.parentElement.querySelectorAll("label"); // 모든 label
+
+      // 모든 라벨이 사라짐
+      labels.forEach((label) => {
+        label.style.display = "none";
+      });
+
+      explan.style.display = "block";
+
+      // 클릭한 라벨의 위치에 따라 background의 위치가 바뀜
+      const top = thisLabel.offsetTop;
+      const left = thisLabel.offsetLeft;
+      bg.style.transformOrigin = `${left}px ${top}px`;
+
+      // 클릭한 라벨에 맞춰 백그라운드 이미지 변경
+      bg.style.transition = "0.5s";
+      const labelClass = thisLabel.className;
+      bg.style.background =
+        "url(../../img/photo/view/maps/continent/background/" +
+        labelClass +
+        ".png) no-repeat center / cover";
+      // 클릭한 라벨만 남음
+      const detailBtn = document.querySelector(".detail_btns");
+      detailBtn.classList.add(labelClass);
+      detailBtn.style.display = "block";
+
+      mainWhich.textContent = thisLabel.textContent;
+    });
+  });
+
+  /*closeButton.addEventListener("click", () => {
+    continentButtons.forEach((button) => {
+      button.parentElement.style.display = "inline-block"; // 모든 버튼 보이기
+      button.checked = false; // 선택 해제
+    });
+    closeButton.classList.add("hidden"); // X 버튼 숨기기
+  });*/
+
+  const postWrap = document.querySelector(".post_wrap");
+
+  const handleWheel = (event) => {
+    event.preventDefault();
+    postWrap.scrollLeft += event.deltaY; // Y축 이동량을 X축으로 이동
+  };
+
+  // 마우스가 요소 위에 있을 때만 스크롤 작동
+  postWrap.addEventListener("mouseenter", () => {
+    postWrap.addEventListener("wheel", handleWheel);
+  });
+
+  // 마우스가 요소를 떠날 때 스크롤 작동 중지
+  postWrap.addEventListener("mouseleave", () => {
+    postWrap.removeEventListener("wheel", handleWheel);
+  });
+
+  const radioButtons = document.querySelectorAll(
+    '.detail_btns input[type="radio"]'
+  );
+  const subTitle = document.querySelector(".sub_title");
+  const mapImg = document.querySelector(".map_img");
+  // 초기값 설정 함수
+  function setInitialValue() {
+    // 체크된 라디오 버튼 찾기
+    const checkedRadio = document.querySelector(
+      '.detail_btns input[type="radio"]:checked'
+    );
+
+    if (checkedRadio) {
+      const label = checkedRadio.nextElementSibling; // 해당 radio의 nextElementSibling인 label
+      subTitle.textContent = label.textContent; // label의 텍스트로 sub_which의 텍스트 변경
+      subWhich.textContent = label.textContent;
+      // 기존 클래스 제거
+      mapImg.classList.forEach((className) => {
+        if (className !== "map_img") {
+          // map_img 클래스는 유지
+          mapImg.classList.remove(className);
+        }
+      });
+      label.classList.forEach((className) => {
+        if (className !== "yorn") {
+          // map_img 클래스는 유지
+          mapImg.classList.add(className);
+        }
+      });
+    }
+  }
+
+  // 라디오 버튼 상태 변경 이벤트 리스너
+  radioButtons.forEach((radio) => {
+    radio.addEventListener("change", () => {
+      if (radio.checked) {
+        const label = radio.nextElementSibling; // 해당 radio의 nextElementSibling인 label
+        subTitle.textContent = label.textContent; // label의 텍스트로 sub_which의 텍스트 변경
+        subWhich.textContent = label.textContent;
+        // 기존 클래스 제거
+        mapImg.classList.forEach((className) => {
+          if (className !== "map_img") {
+            // map_img 클래스는 유지
+            mapImg.classList.remove(className);
+            mapImg.classList.remove(className);
+          }
+        });
+        label.classList.forEach((className) => {
+          if (className !== "yorn") {
+            // map_img 클래스는 유지
+            mapImg.classList.add(className);
+          }
+        });
+      }
+    });
+  });
+
+  // 페이지 로드 시 초기값 설정
+  setInitialValue();
+}
+
 // 유저 페이지 초기화
 function userPage() {
   // 유저 페이지 관련 코드
@@ -857,11 +998,15 @@ document.addEventListener("DOMContentLoaded", function () {
     userPage();
   } else if (
     pathName.includes("view_forum.html") ||
-    pathName.includes("customizing_forum.html")
+    pathName.includes("customizing_forum.html") ||
+    pathName.includes("view_info.html")
   ) {
     subScroll();
     viewForum();
     showPost();
+    if (pathName.includes("view_info.html")) {
+      viewInfo();
+    }
   } else {
     mainPage();
   }
