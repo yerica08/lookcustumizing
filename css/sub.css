@@ -44,7 +44,7 @@ h5 {
 }
 
 header {
-  animation: moveHeader 1s ease-in 4.5s forwards;
+  animation: moveHeader 1s ease-in 3s forwards;
 }
 header::before {
   background: #ffffff;
@@ -87,7 +87,7 @@ header .heart {
   height: 60px;
   padding: 0 80px;
   line-height: 60px;
-  font-size: 24px;
+  font-size: 20px;
   text-align: center;
   color: #787878;
   background-color: #fbfbfb;
@@ -99,6 +99,11 @@ header .heart {
 }
 .wrapper.white ul.select li:hover {
   color: #111111;
+  font-weight: 600;
+}
+.wrapper.white ul.select li a:hover {
+  color: #111111;
+  font-weight: 600;
 }
 .wrapper.white ul.select li.click_first {
   background-color: #ffffff;
@@ -596,6 +601,9 @@ main.forum .contents_wrap .left_nav .list_wrap > li.active .list {
   height: 260px;
   padding: 30px 50px;
 }
+main.forum .contents_wrap .left_nav .list_wrap > li.job.active .list {
+  height: 506px;
+}
 main.forum .contents_wrap .left_nav .list_wrap > li:nth-child(2).active .list {
   height: 356px;
 }
@@ -746,6 +754,8 @@ main.forum .contents_wrap .main_board article .pages .post img {
   top: 0;
   left: 0;
   z-index: -1;
+  transition: 0.5s;
+  transform-origin: top center;
 }
 .maps .continent_map .continent_btn_wrap {
   width: 100%;
@@ -1011,6 +1021,9 @@ main.forum .contents_wrap .main_board article .pages .post img {
   left: 50%;
   transform: translateX(-50%);
 }
+.maps .continent_map .explan .explan_map .point {
+  display: none;
+}
 .maps .continent_map .explan p {
   font-size: 14px;
   color: #787878;
@@ -1018,13 +1031,18 @@ main.forum .contents_wrap .main_board article .pages .post img {
 }
 .maps .continent_map .explan p span {
   margin-left: 30px;
+  position: relative;
 }
 .maps .continent_map .explan p span::before {
+  display: block;
   content: "";
   width: 11px;
   height: 14px;
   background: url(../img/icon/memo.svg) no-repeat center/cover;
   filter: brightness(0.5);
+  position: absolute;
+  top: 3px;
+  left: -15px;
 }
 .maps .continent_map .explan .post_wrap {
   width: 100%;
@@ -1044,5 +1062,16 @@ main.forum .contents_wrap .main_board article .pages .post img {
 .maps .continent_map .explan .post_wrap .map_post {
   width: 264px;
   height: 100%;
-  background-color: pink;
+}
+.maps .continent_map .explan .post_wrap .map_post:nth-child(1) {
+  background: url(../img/photo/view/continent/continent_1.jpg) no-repeat center/cover;
+}
+.maps .continent_map .explan .post_wrap .map_post:nth-child(2) {
+  background: url(../img/photo/view/continent/continent_2.jpg) no-repeat center/cover;
+}
+.maps .continent_map .explan .post_wrap .map_post:nth-child(3) {
+  background: url(../img/photo/view/continent/continent_3.jpg) no-repeat center/cover;
+}
+.maps .continent_map .explan .post_wrap .map_post:nth-child(4) {
+  background: url(../img/photo/view/continent/continent_4.jpg) no-repeat center/cover;
 }/*# sourceMappingURL=sub.css.map */

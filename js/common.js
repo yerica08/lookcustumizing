@@ -5,19 +5,30 @@
     1-1. 마우스 커서 스타일
     1-2. header - 알림
     1-3. header - 메뉴
+    1-4. 새로고침시 스크롤 초기화
 
-  2. 페이지 스타일
+  2. 페이지별 스타일
     2-1. 메인 페이지(index)
       2-1-1. 메인페이지 스크롤
       2-1-2. 페이지 전환
       2-1-3. 메인페이지 베스트 뷰(best_view)
+
     2-2. 서브 페이지(sub_page)
-      2-2-1. 베스트 페이지(best_page)
+      2-2-1. 스크롤 이벤트
+      2-2-2. post 내용 보여주고 숨기기
+      2-2-3. 베스트 페이지(best_page)
+      2-2-4. 서브페이지 - 뷰 포럼(view_forum)
+      2-2-5. 서브페이지 - 뷰 인포(view_info)
+
     2-3. 유저 페이지(user_page)
+      2-3-1. 유저 페이지 초기화
       2-3-1. 로그인 페이지(login)
+
+  3. 페이지 로드 시 초기화
+  
 */
 
-// 1. 기본스타일
+// 1. 기본스타일 --------------------------------------------------------
 
 /* 1-1. 마우스 커서 스타일 
 const mouse = document.querySelector(".mouse");
@@ -146,27 +157,36 @@ closeButton.addEventListener("click", function () {
   menuContent.style.zIndex = "-1";
 });
 
-// 2. 페이지 스타일
+// 1-4. 새로고침시 스크롤 초기화
+window.onload = function () {
+  setTimeout(() => {
+    scrollTo(0, 0);
+  }, 100);
+};
 
-// main.js
+// 2. 페이지 스타일 --------------------------------------------------------
 
-// 공통 초기화 함수
-function initCommon() {
-  // 모든 페이지에서 공통으로 사용할 기능
-}
-
-// 메인 페이지 초기화
+// 2-1. 메인 페이지(index)
 function mainPage() {
   const wrapper = document.querySelector(".wrapper");
   wrapper.style.opacity = "1"; // fadeIn 효과를 위해 opacity 설정
-  const openBox = document.querySelector(".open_box");
+
+  const openBox = document.querySelector(".view .open_box");
   const boxes = openBox.children;
   const view = document.querySelector(".view");
-  const fashion = document.querySelector(".fashion");
+  const customizing = document.querySelector(".customizing");
   const lcm_sns = document.querySelector(".lcm_sns");
   const banner = document.querySelector(".banner");
   const footer = document.querySelector("footer");
-  // 메인페이지 스크롤
+  const box1 = document.querySelector(".customizing_img.box1");
+  const box2 = document.querySelector(".customizing_img.box2");
+  const moreBtn = document.querySelector(".customizing .more_button");
+  const snsH3 = document.querySelector(".lcm_sns h3");
+  const snsH2 = document.querySelector(".lcm_sns h2");
+  let verticalScroll = 20; // customizing 페이지 좌우 스크롤
+
+  // 2-1-1. 메인페이지 스크롤
+  // 메인비주얼 스크롤
   document
     .querySelector(".main_visual")
     .addEventListener("wheel", function (event) {
@@ -178,6 +198,9 @@ function mainPage() {
         window.scrollTo({ top: view.offsetTop, behavior: "smooth" });
 
         const viewTextH2 = document.querySelector(".view .text_h2");
+        const customizingTextH2 = document.querySelector(
+          ".customizing .text_h2"
+        );
         const h2Elements = Array.from(viewTextH2.children);
         // 각 h2 요소에 대해 스타일 적용
         h2Elements.forEach((h2, index) => {
@@ -221,14 +244,40 @@ function mainPage() {
       }
     });
 
-  // 배경 스크롤
+  // 배경섹션 스크롤
   view.addEventListener("wheel", function (event) {
     event.preventDefault();
     const scrollAmount = event.deltaY;
 
     if (scrollAmount > 0) {
       // 스크롤을 내릴 때
-      window.scrollTo({ top: fashion.offsetTop, behavior: "smooth" });
+      window.scrollTo({ top: customizing.offsetTop, behavior: "smooth" });
+      const textH2 = document.querySelector(".customizing .text_h2");
+      const h2Elements = Array.from(textH2.children);
+      const box1 = document.querySelector(".customizing_img.box1");
+      const box2 = document.querySelector(".customizing_img.box2");
+
+      // 각 h2 요소에 대해 스타일 적용
+      function textMoving() {
+        h2Elements.forEach((h2, index) => {
+          // 각 h2 요소에 대해 지연 시간을 두고 스타일 적용
+          setTimeout(() => {
+            h2.style.opacity = 1;
+            h2.style.transform = "translateY(0)";
+          }, index * 100); // 각 요소에 대해 200ms의 지연 시간
+
+          // 모든 글자가 나타난 후 openBox를 사라지게 함
+          setTimeout(() => {
+            textH2.style.transform = "translate(-50%, -340%)";
+          }, h2Elements.length * 100 + 600);
+
+          setTimeout(() => {
+            box1.style.transform = "translateX(50%)";
+            box2.style.transform = "translateX(-50%)";
+          }, h2Elements.length * 100 + 700);
+        });
+      }
+      textMoving();
     } else {
       // 스크롤을 올릴 때
       window.scrollTo({ top: 0, behavior: "smooth" });
@@ -249,7 +298,7 @@ function mainPage() {
         viewText.style.zIndex = "100";
         // 모든 diamond 요소의 opacity를 초기화
         const diamonds = document.querySelectorAll(".view_box .diamond");
-        const viewTextH2 = document.querySelector(".text_h2");
+        const viewTextH2 = document.querySelector(".view .text_h2");
         Array.from(viewTextH2.children).forEach((h2) => {
           h2.style.opacity = 0;
           h2.style.transform = "translateY(-50%)";
@@ -261,38 +310,86 @@ function mainPage() {
       }, 500);
     }
   });
-
-  // 패션 스크롤
-  fashion.addEventListener("wheel", function (event) {
+  // 커스텀마이징섹션 스크롤
+  customizing.addEventListener("wheel", function (event) {
     event.preventDefault();
     const scrollAmount = event.deltaY;
 
     if (scrollAmount > 0) {
-      window.scrollTo({ top: lcm_sns.offsetTop, behavior: "smooth" });
+      //스크롤 내릴 때
+      if (verticalScroll >= 120) {
+        window.scrollTo({ top: lcm_sns.offsetTop, behavior: "smooth" });
+        setTimeout(() => {
+          snsH3.style.transform = "translate(0)";
+          snsH3.style.opacity = 1;
+        }, 500);
+        setTimeout(() => {
+          snsH2.style.transform = "translate(0)";
+          snsH2.style.opacity = 1;
+        }, 1000);
+      } else {
+        verticalScroll += 20;
+        if (verticalScroll <= 80) {
+          box1.style.transform = "translateX(" + (50 + verticalScroll) + "%)";
+          box2.style.transform = "translateX(-" + (50 + verticalScroll) + "%)";
+          if (verticalScroll == 80) {
+            setTimeout(() => {
+              moreBtn.style.transform = "translateY(0)";
+            }, 200);
+          }
+        }
+      }
     } else {
-      window.scrollTo({ top: view.offsetTop, behavior: "smooth" });
+      // 스크롤 올릴 때
+      if (verticalScroll < 0) {
+        window.scrollTo({ top: view.offsetTop, behavior: "smooth" });
+        const textH2 = document.querySelector(".customizing .text_h2");
+        Array.from(textH2.children).forEach((h2) => {
+          h2.style.opacity = 0;
+          h2.style.transform = "translateY(-50%)";
+        });
+        textH2.style.transform = "translate(-50%, -50%)";
+        box1.style.transform = "translateX(0%)";
+        box2.style.transform = "translateX(0%)";
+        moreBtn.style.transform = "translateY(50%)";
+      } else {
+        verticalScroll -= 20;
+        if (verticalScroll >= 20) {
+          box1.style.transform = "translateX(" + (50 + verticalScroll) + "%)";
+          box2.style.transform = "translateX(-" + (50 + verticalScroll) + "%)";
+          if (verticalScroll == 0) {
+            moreBtn.style.transform = "translateY(50%)";
+          }
+        }
+      }
     }
   });
 
-  // sns 스크롤
+  // sns섹션 스크롤
   let sns; // 푸터 구경하러 갔을 때 lcm_sns에서 마우스 휠을 올렸을 경우를 위한 변수
   lcm_sns.addEventListener("wheel", function (event) {
     event.preventDefault();
     const scrollAmount = event.deltaY;
     if (scrollAmount > 0) {
+      // 스크롤 내릴 때
       window.scrollTo({ top: banner.offsetTop, behavior: "smooth" });
       sns = true;
     } else {
+      // 스크롤 올릴 때
       if (sns) {
         window.scrollTo({ top: lcm_sns.offsetTop, behavior: "smooth" });
         sns = false;
       } else {
-        window.scrollTo({ top: fashion.offsetTop, behavior: "smooth" });
+        window.scrollTo({ top: customizing.offsetTop, behavior: "smooth" });
+        snsH3.style.transform = "translateY(-50%)";
+        snsH3.style.opacity = 0;
+        snsH2.style.transform = "translateY(-50%)";
+        snsH2.style.opacity = 0;
       }
     }
   });
 
-  // 이벤트 & 푸터 스크롤
+  // 이벤트 & 푸터섹션 스크롤
   banner.addEventListener("wheel", function (event) {
     event.preventDefault();
     const scrollAmount = event.deltaY;
@@ -314,7 +411,7 @@ function mainPage() {
     }
   });
 
-  // 페이지 전환
+  // 2-1-2. 페이지 전환
   let page = 1;
   const windowWidth = window.innerWidth;
 
@@ -376,8 +473,9 @@ function mainPage() {
       document.body.appendChild(newImage); // 이미지 로드
     });
 }
+
+// 2-1-3. 메인페이지 베스트 뷰(best_view)
 function bestViewPage() {
-  /* 2-1-3. 메인페이지 베스트 뷰(best_view) */
   // 이미지 세트 정의
   const imageSets = {
     1: [
@@ -631,7 +729,8 @@ function bestViewPage() {
 }
 
 // 2-2. 서브 페이지
-/* 스크롤따라 보여주기 */
+
+/* 2-2-1. 스크롤 이벤트 */
 function subScroll() {
   const scrollTexts = document.querySelectorAll(".main_title");
   const select = document.querySelectorAll(".select");
@@ -643,14 +742,14 @@ function subScroll() {
   // 초기 스타일 설정을 위한 배열
   const bestPaeElements = [
     { el: scrollTexts[0], delay: "2s" },
-    { el: select[0], delay: "3s" },
-    { el: bestImg[0], delay: "4s" },
+    { el: select[0], delay: "2.5s" },
+    { el: bestImg[0], delay: "3s" },
   ];
   const normalPageElements = [
     { el: scrollTexts[0], delay: "2s" },
-    { el: select[0], delay: "3s" },
-    { el: contentsWrap, delay: "4s" },
-    { el: event[1], delay: "5s" },
+    { el: select[0], delay: "2.5s" },
+    { el: contentsWrap, delay: "3s" },
+    { el: event[1], delay: "3.5s" },
   ];
   let pathName = window.location.pathname;
 
@@ -686,43 +785,7 @@ function subScroll() {
     });
   }
 }
-
-/* 2-2-1. 서브페이지 - 베스트 페이지(best_page) */
-function bestPage() {
-  // 페이지 로드 시 해시가 있는 경우 해당 섹션으로 스크롤
-  if (window.location.hash) {
-    const target = window.location.hash; // 해시 값 가져오기
-    const targetElement = document.querySelector(target); // 타겟 섹션 선택
-    if (targetElement) {
-      // 타겟 섹션이 존재하는지 확인
-      const targetOffset = targetElement.offsetTop; // 타겟 섹션의 위치 계산
-
-      // 부드러운 스크롤 애니메이션 실행
-      window.scrollTo({ top: targetOffset, behavior: "smooth" });
-    }
-  }
-  document.querySelector(".best_customizing").addEventListener("click", () => {
-    const images = document.querySelectorAll(".best_img img");
-    document.querySelector(".best_view").classList.remove("click_first");
-    document.querySelector(".best_customizing").classList.add("click_second");
-    images.forEach((img) => {
-      img.src = img.getAttribute("data-customizing-img"); // customizing 이미지로 변경
-    });
-  });
-
-  document.querySelector(".best_view").addEventListener("click", () => {
-    const images = document.querySelectorAll(".best_img img");
-    document.querySelector(".best_view").classList.add("click_first");
-    document
-      .querySelector(".best_customizing")
-      .classList.remove("click_second");
-    images.forEach((img) => {
-      img.src = img.getAttribute("data-view-img"); // view 이미지로 변경
-    });
-  });
-}
-
-// post 내용 보여주고 숨기기
+// 2-2-2. post 내용 보여주고 숨기기
 function showPost() {
   const titleH3 = document.querySelectorAll(".post .title h3");
   const nickName = document.querySelectorAll(".nick_name");
@@ -758,7 +821,42 @@ function showPost() {
   });
 }
 
-/* 2-2-2. 서브페이지 - 뷰 포럼(view_forum) */
+/* 2-2-3. 서브페이지 - 베스트 페이지(best_page) */
+function bestPage() {
+  // 페이지 로드 시 해시가 있는 경우 해당 섹션으로 스크롤
+  if (window.location.hash) {
+    const target = window.location.hash; // 해시 값 가져오기
+    const targetElement = document.querySelector(target); // 타겟 섹션 선택
+    if (targetElement) {
+      // 타겟 섹션이 존재하는지 확인
+      const targetOffset = targetElement.offsetTop; // 타겟 섹션의 위치 계산
+
+      // 부드러운 스크롤 애니메이션 실행
+      window.scrollTo({ top: targetOffset, behavior: "smooth" });
+    }
+  }
+  document.querySelector(".best_customizing").addEventListener("click", () => {
+    const images = document.querySelectorAll(".best_img img");
+    document.querySelector(".best_view").classList.remove("click_first");
+    document.querySelector(".best_customizing").classList.add("click_second");
+    images.forEach((img) => {
+      img.src = img.getAttribute("data-customizing-img"); // customizing 이미지로 변경
+    });
+  });
+
+  document.querySelector(".best_view").addEventListener("click", () => {
+    const images = document.querySelectorAll(".best_img img");
+    document.querySelector(".best_view").classList.add("click_first");
+    document
+      .querySelector(".best_customizing")
+      .classList.remove("click_second");
+    images.forEach((img) => {
+      img.src = img.getAttribute("data-view-img"); // view 이미지로 변경
+    });
+  });
+}
+
+/* 2-2-4. 서브페이지 - 뷰 포럼(view_forum) */
 function viewForum() {
   let filterList = document.querySelector(".filter_list");
   let listInLi = document.querySelectorAll(".list li");
@@ -808,64 +906,60 @@ function viewForum() {
   }
 }
 
-/* 2-2-3. 서브페이지 - 뷰 인포(view_info) */
+/* 2-2-5. 서브페이지 - 뷰 인포(view_info) */
 function viewInfo() {
   const continentButtons = document.querySelectorAll(
     'input[name="continent_btn"]'
   ); // continet 버튼
-  const closeButton = document.getElementById("close-btn"); // close 버튼
   const bg = document.querySelector(".bg"); // background
   const mainWhich = document.querySelector(".main_which");
   const subWhich = document.querySelector(".sub_which");
-
   const explan = document.querySelector(".explan");
-  const closeBtn = document.querySelector(".explan .close");
+  const closeBtn = document.querySelector(".explan .close"); // close 버튼
+  const detailBtn = document.querySelector(".detail_btns");
 
   closeBtn.addEventListener("click", function () {
+    // 설명란 숨김
     explan.style.display = "none";
+    // 모든 라벨이 생김
+    const labels = document.querySelectorAll(".continent_btn_wrap label");
+    labels.forEach((label) => {
+      label.style.display = "block";
+    });
+    // 지도 원상복귀
+    bg.style.background =
+      "url(../../img/photo/view/maps/continent/main_map.jpg) no-repeat center / cover";
+
+    detailBtn.style.display = "none";
   });
+
   // continent 버튼을 클릭하면
   continentButtons.forEach((button) => {
     button.addEventListener("change", () => {
       const thisLabel = button.nextElementSibling; // 클릭한 버튼의 label
       const labels = button.parentElement.querySelectorAll("label"); // 모든 label
-
       // 모든 라벨이 사라짐
       labels.forEach((label) => {
         label.style.display = "none";
       });
 
+      // 설명란 나타남
       explan.style.display = "block";
 
-      // 클릭한 라벨의 위치에 따라 background의 위치가 바뀜
-      const top = thisLabel.offsetTop;
-      const left = thisLabel.offsetLeft;
-      bg.style.transformOrigin = `${left}px ${top}px`;
-
       // 클릭한 라벨에 맞춰 백그라운드 이미지 변경
-      bg.style.transition = "0.5s";
       const labelClass = thisLabel.className;
       bg.style.background =
         "url(../../img/photo/view/maps/continent/background/" +
         labelClass +
         ".png) no-repeat center / cover";
+
       // 클릭한 라벨만 남음
-      const detailBtn = document.querySelector(".detail_btns");
       detailBtn.classList.add(labelClass);
       detailBtn.style.display = "block";
 
       mainWhich.textContent = thisLabel.textContent;
     });
   });
-
-  /*closeButton.addEventListener("click", () => {
-    continentButtons.forEach((button) => {
-      button.parentElement.style.display = "inline-block"; // 모든 버튼 보이기
-      button.checked = false; // 선택 해제
-    });
-    closeButton.classList.add("hidden"); // X 버튼 숨기기
-  });*/
-
   const postWrap = document.querySelector(".post_wrap");
 
   const handleWheel = (event) => {
@@ -888,7 +982,8 @@ function viewInfo() {
   );
   const subTitle = document.querySelector(".sub_title");
   const mapImg = document.querySelector(".map_img");
-  // 초기값 설정 함수
+
+  // 대륙 클릭 후 라벨 이름 및 설명 텍스트 변경
   function setInitialValue() {
     // 체크된 라디오 버튼 찾기
     const checkedRadio = document.querySelector(
@@ -915,7 +1010,7 @@ function viewInfo() {
     }
   }
 
-  // 라디오 버튼 상태 변경 이벤트 리스너
+  // 세부지도(map_img) 이미지 변경
   radioButtons.forEach((radio) => {
     radio.addEventListener("change", () => {
       if (radio.checked) {
@@ -944,7 +1039,9 @@ function viewInfo() {
   setInitialValue();
 }
 
-// 유저 페이지 초기화
+// 2-3. 유저 페이지(user_page)
+
+// 2-3-1. 유저 페이지 초기화
 function userPage() {
   // 유저 페이지 관련 코드
   /* 2-3-1. 유저페이지 - 로그인(login) */
@@ -982,9 +1079,8 @@ function userPage() {
   });
 }
 
-// 페이지 로드 시 초기화
+// 3. 페이지 로드 시 초기화 --------------------------------------------------------
 document.addEventListener("DOMContentLoaded", function () {
-  initCommon(); // 공통 기능 초기화
   let pathName = window.location.pathname;
 
   // 현재 페이지에 따라 적절한 초기화 함수 호출

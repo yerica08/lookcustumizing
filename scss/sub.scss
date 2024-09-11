@@ -84,7 +84,7 @@ h5 {
 // 2. 공통 부분
 // 2-1. header
 header {
-  animation: moveHeader 1s ease-in 4.5s forwards;
+  animation: moveHeader 1s ease-in 3s forwards;
 
   &::before {
     background: nth($gray-color, 1);
@@ -131,7 +131,7 @@ header {
       height: 60px;
       padding: 0 80px;
       line-height: 60px;
-      font-size: 24px;
+      font-size: 20px;
       text-align: center;
       color: nth($gray-color, 6);
       background-color: nth($gray-color, 2);
@@ -143,6 +143,11 @@ header {
 
       &:hover {
         color: nth($gray-color, 7);
+        font-weight: 600;
+      }
+      a:hover {
+        color: nth($gray-color, 7);
+        font-weight: 600;
       }
       &.click_first {
         background-color: nth($gray-color, 1);
@@ -661,6 +666,11 @@ main.forum {
               padding: 30px 50px;
             }
           }
+          &.job.active {
+            .list {
+              height: 506px;
+            }
+          }
           &:nth-child(2).active {
             .list {
               height: 356px;
@@ -832,6 +842,8 @@ main.forum {
         center / cover;
       @include position(relative, $t: 0, $l: 0);
       z-index: -1;
+      transition: 0.5s;
+      transform-origin: top center;
     }
     .continent_btn_wrap {
       width: 100%;
@@ -1049,6 +1061,9 @@ main.forum {
           @include position(absolute, $t: 0, $l: 50%);
           transform: translateX(-50%);
         }
+        .point {
+          display: none;
+        }
       }
       p {
         font-size: nth($font-size, 1);
@@ -1057,13 +1072,18 @@ main.forum {
 
         span {
           margin-left: 30px;
+          position: relative;
 
           &::before {
+            display: block;
             content: "";
             width: 11px;
             height: 14px;
             background: url(../img/icon/memo.svg) no-repeat center / cover;
             filter: brightness(0.5);
+            position: absolute;
+            top: 3px;
+            left: -15px;
           }
         }
       }
@@ -1084,9 +1104,26 @@ main.forum {
         .map_post {
           width: 264px;
           height: 100%;
-          background-color: pink;
+
+          &:nth-child(1) {
+            background: url(../img/photo/view/continent/continent_1.jpg)
+              no-repeat center / cover;
+          }
+          &:nth-child(2) {
+            background: url(../img/photo/view/continent/continent_2.jpg)
+              no-repeat center / cover;
+          }
+          &:nth-child(3) {
+            background: url(../img/photo/view/continent/continent_3.jpg)
+              no-repeat center / cover;
+          }
+          &:nth-child(4) {
+            background: url(../img/photo/view/continent/continent_4.jpg)
+              no-repeat center / cover;
+          }
         }
       }
     }
   }
 }
+// 3-4. 커스텀마이징 포럼(customizing_forum)
