@@ -18,7 +18,9 @@
     3. 개별 부분
         3-1. 베스트 페이지(best_page)
         3-2. 배경 페이지(view_page)
-
+        3-4. 커스텀마이징 포럼(customizing_forum)
+        3-5. 커스텀마이징 정보(customizing_info)
+        3-6. 커뮤니티(community)
 */
 h2 {
   font-family: "Kaisei HarunoUmi", serif;
@@ -601,6 +603,9 @@ main.forum .contents_wrap .left_nav .list_wrap > li.active .list {
   height: 260px;
   padding: 30px 50px;
 }
+main.forum .contents_wrap .left_nav .list_wrap > li.active .list.community, main.forum .contents_wrap .left_nav .list_wrap > li.active .list.notice {
+  height: 210px;
+}
 main.forum .contents_wrap .left_nav .list_wrap > li.job.active .list {
   height: 506px;
 }
@@ -1074,4 +1079,97 @@ main.forum .contents_wrap .main_board article .pages .post img {
 }
 .maps .continent_map .explan .post_wrap .map_post:nth-child(4) {
   background: url(../img/photo/view/continent/continent_4.jpg) no-repeat center/cover;
+}
+
+main.community .left_nav .list_wrap li.active {
+  margin-bottom: 15px;
+}
+main.community .left_nav .list_wrap li.active ul.notice {
+  display: none;
+}
+main.community .main_board table {
+  width: 100%;
+  border-collapse: collapse;
+  border-top: 1px solid #111;
+  margin-top: 30px;
+}
+main.community .main_board table tr {
+  width: 100%;
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  border-bottom: 1px solid #eee;
+}
+main.community .main_board table tr:hover {
+  background-color: #fbfbfb;
+}
+main.community .main_board table th,
+main.community .main_board table td {
+  font-size: 16px;
+  text-align: center;
+  line-height: 60px;
+}
+main.community .main_board table td {
+  color: #787878;
+}
+main.community .main_board table .number {
+  width: 50px;
+}
+main.community .main_board table .title {
+  width: 800px;
+  text-align: left;
+}
+main.community .main_board table th.title {
+  text-align: center;
+}
+main.community .main_board table .user,
+main.community .main_board table .type {
+  width: 100px;
+}
+main.community .main_board table .view,
+main.community .main_board table .recode {
+  width: 50px;
+}
+main.community .main_board .pagination {
+  margin-top: 20px;
+}
+main.community .main_board .page_number {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 30px;
+  margin-top: 60px;
+}
+main.community .main_board .page_number li {
+  width: 30px;
+  height: 30px;
+  border-radius: 3px;
+  text-align: center;
+  line-height: 27px;
+  cursor: pointer;
+  list-style: none;
+}
+main.community .main_board .page_number li.active {
+  background-color: #111;
+  color: #fff;
+}
+main.community .main_board .line_arrow {
+  cursor: pointer;
+  filter: brightness(0.2);
+}
+main.community .main_board .line_arrow:first-of-type {
+  background: url(../img/icon/Result.png);
+  background-position: 0px -1826px;
+  width: 12px;
+  height: 20px;
+}
+main.community .main_board .line_arrow:last-of-type {
+  background: url(../img/icon/Result.png);
+  background-position: 0px -1826px;
+  width: 12px;
+  height: 20px;
+  transform: rotate(180deg);
 }/*# sourceMappingURL=sub.css.map */

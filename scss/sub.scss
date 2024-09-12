@@ -17,7 +17,9 @@
     3. 개별 부분
         3-1. 베스트 페이지(best_page)
         3-2. 배경 페이지(view_page)
-
+        3-4. 커스텀마이징 포럼(customizing_forum)
+        3-5. 커스텀마이징 정보(customizing_info)
+        3-6. 커뮤니티(community)
 */
 
 // 1-1. 변수 목록
@@ -664,6 +666,12 @@ main.forum {
             .list {
               height: 260px;
               padding: 30px 50px;
+
+              // 커뮤니티섹션
+              &.community,
+              &.notice {
+                height: 210px;
+              }
             }
           }
           &.job.active {
@@ -1127,3 +1135,110 @@ main.forum {
   }
 }
 // 3-4. 커스텀마이징 포럼(customizing_forum)
+// 3-5. 커스텀마이징 정보(customizing_info)
+// 3-6. 커뮤니티(community)
+main.community {
+  .left_nav {
+    .list_wrap {
+      li.active {
+        margin-bottom: 15px;
+        // list의 높이 no.670
+        ul.notice {
+          display: none;
+        }
+      }
+    }
+  }
+  .main_board {
+    // 게시판
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      border-top: 1px solid #111;
+      margin-top: 30px;
+
+      tr {
+        width: 100%;
+        height: 60px;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        border-bottom: 1px solid #eee;
+
+        &:hover {
+          background-color: #fbfbfb;
+        }
+      }
+      th,
+      td {
+        font-size: 16px;
+        text-align: center;
+        line-height: 60px;
+      }
+      td {
+        color: #787878;
+      }
+      .number {
+        width: 50px;
+      }
+      .title {
+        width: 800px;
+        text-align: left;
+      }
+      th.title {
+        text-align: center;
+      }
+      .user,
+      .type {
+        width: 100px;
+      }
+      .view,
+      .recode {
+        width: 50px;
+      }
+    }
+    .pagination {
+      margin-top: 20px;
+    }
+    .page_number {
+      display: flex;
+      gap: 15px;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 30px;
+      margin-top: 60px;
+    }
+    .page_number li {
+      width: 30px;
+      height: 30px;
+      border-radius: 3px;
+      text-align: center;
+      line-height: 27px;
+      cursor: pointer;
+      list-style: none;
+    }
+    .page_number li.active {
+      background-color: #111;
+      color: #fff;
+    }
+    .line_arrow {
+      cursor: pointer;
+
+      @include darken-icon();
+      &:first-of-type {
+        background: url(../img/icon/Result.png);
+        background-position: 0px -1826px;
+        width: 12px;
+        height: 20px;
+      }
+      &:last-of-type {
+        background: url(../img/icon/Result.png);
+        background-position: 0px -1826px;
+        width: 12px;
+        height: 20px;
+        transform: rotate(180deg);
+      }
+    }
+  }
+}
