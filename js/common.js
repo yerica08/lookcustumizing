@@ -515,7 +515,6 @@ function bestViewPage() {
   // 이미지 세트에 따라 이미지 표시
   const imageContainer = document.querySelector(".show_view");
   const imageBoxes = imageContainer.querySelectorAll(".bg");
-  console.log(setNumber);
   if (setNumber in imageSets) {
     imageSets[setNumber].forEach((imageSrc, index) => {
       if (index < imageBoxes.length) {
@@ -719,7 +718,6 @@ function bestViewPage() {
   scroll();
   function scroll() {
     const state = document.querySelector(".state div");
-    console.log(next);
     if (next == 0) {
       state.style.width = "0%";
     } else if (next == 1) {
@@ -1050,255 +1048,256 @@ function community() {
   const selectNotice = document.querySelector(".select #notice");
   const sortBy = document.querySelector(".sort_by");
   const mainBoard = document.querySelector(".main_board");
+  const postTable = document.getElementById("postTable");
+  const pagination = document.getElementById("pagination");
+  const typeHeader = document.getElementById("typeHeader");
+  const likesHeader = document.getElementById("likesHeader");
+
+  let currentMode = "forum"; // 초기 모드 설정
+  let currentPage = 1;
+  let posts = [];
+  const postsPerPage = 10;
+
+  const forumTitles = [
+    "패치전까지 그림 그려드립니다~",
+    "웃기고 귀여운거 있길래 가져와봤습니다",
+    "로스트아크 더현대 팝업 만화",
+    "로아 화보 촬영 찰칵 ㅇ.<",
+    "이거하려고 필보간다...",
+    "하멘 4관에서 일어난 일.jpg",
+    "직장인으로서 지금 플탐이 제일 좋은데..",
+    "모코코 도와주셔서 감사합니다!!",
+    "로아가 다시 재밌어졌어ㅋㅋ",
+    "오늘 점심메뉴 추천",
+    "아니 근데 진짜 어려워요",
+    "서포터 보석 세팅 봐주세요",
+    "랏딜 너무 좋다~",
+    "새벽에 엘릭서 잘못깎았다는 사람인데",
+    "북미 베히모스 보는거 재밌다! 같이 볼사람?",
+    "1590 창술 vs 1620 리퍼",
+    "9/4 ~ 9/12 아브렐슈드 딜폿 비율",
+    "6주년 아바타 언제 나오나ㅠㅠ",
+    "닉네임1348",
+    "이 아바타 이름이 뭔가요?",
+  ];
+
+  const forumNicknames = [
+    "난치기먹물",
+    "켈시온",
+    "유자차",
+    "문산",
+    "TAk77",
+    "무쎄요",
+    "Ann",
+    "Shin세리",
+    "트렌드",
+    "포즈머스",
+    "anicka",
+    "닉네임이모야",
+    "도스터",
+    "라쿠라쿠",
+    "포로롱",
+    "착한말이쁜말",
+    "감자깎이",
+    "오늘점심토마토",
+    "닉네임1348",
+    "초승별",
+  ];
+
+  const noticeTitles = [
+    "LCM 운영정책 개정을 안내 드립니다.",
+    "커스텀마이징 게시판에 새로운 카테고리가 추가됐습니다!",
+    "추석 연휴 이벤트 공지",
+    "게시판 첨부파일 이용 기간 변경 안내",
+    "정보 시스템 업데이트 (8/1(목) 10:00 ~ 13:00)",
+    "오늘의 LCM - 베스트 커마를 선택해주세요!",
+    "정보 시스템 업데이트 (7/29(월) 10:00 ~ 13:00)",
+    "알려진 이슈를 안내해드립니다. (7/17(수) 개정)",
+    "정보 시스템 업데이트 (7/1(월) 10:00 ~ 13:00)",
+    "썸머타임 수영복 커스텀마이징 대회를 개최합니다!",
+    "LCM 유저 여러분들의 계정보호를 위해 안내드립니다.",
+    "악성코드 감염 예방을 위한 보안 수칙 안내",
+    "6/28(금) LCM 임시점검 완료 및 수정 사항 안내",
+    "정보 시스템 업데이트 (6/10(월) 10:00 ~ 13:00)",
+    "현충일 이벤트 안내",
+    "정보 시스템 업데이트 (5/20(월) 10:00 ~ 13:00)",
+    "가정의 달 기념 이벤트 안내",
+    "정보 시스템 업데이트 (5/6(월) 10:00 ~ 13:00)",
+    "불량 이용자 조치내역 안내",
+    "개인정보처리방침 변경 안내",
+  ];
+
+  const noticeNicknames = Array(20).fill("LCM");
+
+  function updatePosts(mode) {
+    if (mode === "forum") {
+      posts = Array.from({ length: 20 }, (_, i) => ({
+        number: 20 - i,
+        title: forumTitles[i],
+        user: forumNicknames[i],
+        date: new Date(),
+        views: Math.floor(Math.random() * 1000) + 1,
+        likes: Math.floor(Math.random() * 1000) + 1,
+        type: "",
+      }));
+    } else if (mode === "notice") {
+      posts = Array.from({ length: 20 }, (_, i) => ({
+        number: 20 - i,
+        title: noticeTitles[i],
+        user: noticeNicknames[i],
+        date: new Date(),
+        views: Math.floor(Math.random() * 1000) + 1,
+        likes: Math.floor(Math.random() * 1000) + 1,
+        type: ["공지", "이벤트", "서비스/기능"][Math.floor(Math.random() * 3)],
+      }));
+    }
+  }
+
+  function formatDate(date) {
+    return date.toDateString() === new Date().toDateString()
+      ? date.toLocaleTimeString([], {
+          hour: "2-digit",
+          minute: "2-digit",
+          hour12: false,
+        })
+      : `${date.getMonth() + 1}월 ${date.getDate()}일`;
+  }
+
+  function renderPosts() {
+    const start = (currentPage - 1) * postsPerPage;
+    const end = start + postsPerPage;
+
+    while (postTable.rows.length > 1) postTable.deleteRow(1);
+    posts.slice(start, end).forEach((post) => {
+      const row = postTable.insertRow();
+      row.innerHTML =
+        currentMode === "forum"
+          ? `<td class="number">${
+              post.number
+            }</td><td class="type" style="display: none;"></td><td class="title">${
+              post.title
+            }</td><td class="user">${
+              post.user
+            }</td><td class="view">${formatDate(
+              post.date
+            )}</td><td class="view">${post.views}</td><td class="recode">${
+              post.likes
+            }</td>`
+          : `<td class="number">${post.number}</td><td class="type">${
+              post.type
+            }</td><td class="title">${post.title}</td><td class="user">${
+              post.user
+            }</td><td class="view">${formatDate(
+              post.date
+            )}</td><td class="view">${
+              post.views
+            }</td><td class="recode" style="display: none;">${post.likes}</td>`;
+    });
+  }
+
+  function renderPagination() {
+    const totalPages = Math.ceil(posts.length / postsPerPage);
+    pagination.innerHTML = "";
+
+    const createArrow = (direction) => {
+      const arrow = document.createElement("div");
+      arrow.className = "line_arrow";
+      arrow.onclick = () => {
+        if (
+          (direction === "left" && currentPage > 1) ||
+          (direction === "right" && currentPage < totalPages)
+        ) {
+          currentPage += direction === "left" ? -1 : 1;
+          renderPosts();
+          updateActivePage();
+        }
+      };
+      return arrow;
+    };
+
+    pagination.appendChild(createArrow("left"));
+    for (let i = 1; i <= totalPages; i++) {
+      const li = document.createElement("li");
+      li.innerText = i;
+      li.onclick = () => {
+        currentPage = i;
+        renderPosts();
+        updateActivePage();
+        noticeColor();
+      };
+      pagination.appendChild(li);
+    }
+    pagination.appendChild(createArrow("right"));
+  }
+
+  function updateActivePage() {
+    document.querySelectorAll(".page_number li").forEach((item) => {
+      item.classList.toggle("active", parseInt(item.innerText) === currentPage);
+    });
+  }
+
+  function toggleColumnVisibility() {
+    typeHeader.style.display = currentMode === "forum" ? "none" : "table-cell";
+    likesHeader.style.display = currentMode === "forum" ? "table-cell" : "none";
+  }
+
+  function updateUI() {
+    updatePosts(currentMode); // 현재 모드에 맞는 포스트 업데이트
+    renderPosts();
+    renderPagination();
+    toggleColumnVisibility();
+    updateActivePage(); // 페이지 활성화 업데이트
+  }
 
   selectForum.addEventListener("click", function () {
+    currentMode = "forum"; // 클릭 시 currentMode 업데이트
     selectForum.classList.add("click_first");
     selectNotice.classList.remove("click_second");
     communityList.style.display = "block";
     sortBy.style.display = "flex";
     noticeList.style.display = "none";
     mainBoard.style.marginTop = "0px";
+    updateUI();
   });
+
   selectNotice.addEventListener("click", function () {
+    currentMode = "notice"; // 클릭 시 currentMode 업데이트
     selectForum.classList.remove("click_first");
     selectNotice.classList.add("click_second");
     noticeList.style.display = "block";
     communityList.style.display = "none";
     sortBy.style.display = "none";
     mainBoard.style.marginTop = "33px";
+    updateUI();
+    noticeColor();
   });
 
-  // 게시글 내용 입력
-  function postTable() {
-    const forumTitles = [
-      "패치전까지 그림 그려드립니다~",
-      "웃기고 귀여운거 있길래 가져와봤습니다",
-      "로스트아크 더현대 팝업 만화",
-      "로아 화보 촬영 찰칵 ㅇ.<",
-      "이거하려고 필보간다...",
-      "하멘 4관에서 일어난 일.jpg",
-      "직장인으로서 지금 플탐이 제일 좋은데..",
-      "모코코 도와주셔서 감사합니다!!",
-      "로아가 다시 재밌어졌어ㅋㅋ",
-      "오늘 점심메뉴 추천",
-      "아니 근데 진짜 어려워요",
-      "서포터 보석 세팅 봐주세요",
-      "랏딜 너무 좋다~",
-      "새벽에 엘릭서 잘못깎았다는 사람인데",
-      "북미 베히모스 보는거 재밌다! 같이 볼사람?",
-      "1590 창술 vs 1620 리퍼",
-      "9/4 ~ 9/12 아브렐슈드 딜폿 비율",
-      "6주년 아바타 언제 나오나ㅠㅠ",
-      "닉네임1348",
-      "이 아바타 이름이 뭔가요?",
-    ];
-
-    const forumNicknames = [
-      "난치기먹물",
-      "켈시온",
-      "유자차",
-      "문산",
-      "TAk77",
-      "무쎄요",
-      "Ann",
-      "Shin세리",
-      "트렌드",
-      "포즈머스",
-      "anicka",
-      "닉네임이모야",
-      "도스터",
-      "라쿠라쿠",
-      "포로롱",
-      "착한말이쁜말",
-      "감자깎이",
-      "오늘점심토마토",
-      "닉네임1348",
-      "초승별",
-    ];
-
-    const noticeTitles = [
-      "LCM 운영정책 개정을 안내 드립니다.",
-      "커스텀마이징 게시판에 새로운 카테고리가 추가됐습니다!",
-      "추석 연휴 이벤트 공지",
-      "게시판 첨부파일 이용 기간 변경 안내",
-      "정보 시스템 업데이트 (8/1(목) 10:00 ~ 13:00)",
-      "오늘의 LCM - 베스트 커마를 선택해주세요!",
-      "정보 시스템 업데이트 (7/29(월) 10:00 ~ 13:00)",
-      "알려진 이슈를 안내해드립니다. (7/17(수) 개정)",
-      "정보 시스템 업데이트 (7/1(월) 10:00 ~ 13:00)",
-      "썸머타임 수영복 커스텀마이징 대회를 개최합니다!",
-      "LCM 유저 여러분들의 계정보호를 위해 안내드립니다.",
-      "악성코드 감염 예방을 위한 보안 수칙 안내",
-      "6/28(금) LCM 임시점검 완료 및 수정 사항 안내",
-      "정보 시스템 업데이트 (6/10(월) 10:00 ~ 13:00)",
-      "현충일 이벤트 안내",
-      "정보 시스템 업데이트 (5/20(월) 10:00 ~ 13:00)",
-      "가정의 달 기념 이벤트 안내",
-      "정보 시스템 업데이트 (5/6(월) 10:00 ~ 13:00)",
-      "불량 이용자 조치내역 안내",
-      "개인정보처리방침 변경 안내",
-    ];
-
-    const noticeNicknames = Array(20).fill("LCM");
-
-    let posts = []; // 초기화
-
-    function updatePosts(mode) {
-      if (mode === "forum") {
-        posts = Array.from({ length: 20 }, (_, i) => ({
-          number: 20 - i,
-          title: forumTitles[i],
-          user: forumNicknames[i],
-          date: new Date(),
-          views: Math.floor(Math.random() * 1000) + 1,
-          likes: Math.floor(Math.random() * 1000) + 1,
-          type: "",
-        }));
-      } else if (mode === "notice") {
-        posts = Array.from({ length: 20 }, (_, i) => ({
-          number: 20 - i,
-          title: noticeTitles[i],
-          user: noticeNicknames[i],
-          date: new Date(),
-          views: Math.floor(Math.random() * 1000) + 1,
-          likes: Math.floor(Math.random() * 1000) + 1,
-          type: ["공지", "이벤트", "서비스/기능"][
-            Math.floor(Math.random() * 3)
-          ],
-        }));
-      }
-    }
-
-    let currentPage = 1,
-      currentMode = "forum",
-      postsPerPage = 10;
-
-    function formatDate(date) {
-      return date.toDateString() === new Date().toDateString()
-        ? date.toLocaleTimeString([], {
-            hour: "2-digit",
-            minute: "2-digit",
-            hour12: false,
-          })
-        : `${date.getMonth() + 1}월 ${date.getDate()}일`;
-    }
-
-    function renderPosts() {
-      const postTable = document.getElementById("postTable");
-      const start = (currentPage - 1) * postsPerPage;
-      const end = start + postsPerPage;
-
-      while (postTable.rows.length > 1) postTable.deleteRow(1);
-      posts.slice(start, end).forEach((post) => {
-        const row = postTable.insertRow();
-        row.innerHTML =
-          currentMode === "forum"
-            ? `<td class="number">${
-                post.number
-              }</td><td class="type" style="display: none;"></td><td class="title">${
-                post.title
-              }</td><td class="user">${
-                post.user
-              }</td><td class="view">${formatDate(
-                post.date
-              )}</td><td class="view">${post.views}</td><td class="recode">${
-                post.likes
-              }</td>`
-            : `<td class="number">${post.number}</td><td class="type">${
-                post.type
-              }</td><td class="title">${post.title}</td><td class="user">${
-                post.user
-              }</td><td class="view">${formatDate(
-                post.date
-              )}</td><td class="view">${
-                post.views
-              }</td><td class="recode" style="display: none;">${
-                post.likes
-              }</td>`;
+  function noticeColor() {
+    setTimeout(() => {
+      let textTypes = document.querySelectorAll(".type");
+      textTypes.forEach((element) => {
+        if (element.innerText === "공지") {
+          element.style.color = "#F13030";
+        } else if (element.innerText === "종류") {
+          element.style.color = "#111";
+        } else {
+          element.style.color = "#5CA3E4";
+        }
       });
-    }
-
-    // 페이지 번호
-    function renderPagination() {
-      const pagination = document.getElementById("pagination");
-      const totalPages = Math.ceil(posts.length / postsPerPage);
-      pagination.innerHTML = "";
-
-      // 페이지에 화살표 추가
-      const createArrow = (direction) => {
-        const arrow = document.createElement("div");
-        arrow.className = "line_arrow";
-        arrow.onclick = () => {
-          if (
-            (direction === "left" && currentPage > 1) ||
-            (direction === "right" && currentPage < totalPages)
-          ) {
-            currentPage += direction === "left" ? -1 : 1;
-            renderPosts();
-            updateActivePage();
-          }
-        };
-        return arrow;
-      };
-
-      pagination.appendChild(createArrow("left"));
-      for (let i = 1; i <= totalPages; i++) {
-        const li = document.createElement("li");
-        li.innerText = i;
-        li.onclick = () => {
-          currentPage = i;
-          renderPosts();
-          updateActivePage();
-        };
-        pagination.appendChild(li);
-      }
-      pagination.appendChild(createArrow("right"));
-    }
-
-    function updateActivePage() {
-      document.querySelectorAll(".page_number li").forEach((item) => {
-        item.classList.toggle(
-          "active",
-          parseInt(item.innerText) === currentPage
-        );
-      });
-    }
-
-    // 커뮤니티와 공지사항을 클릭했을 때, 종류와 추천수 바꾸기
-    function toggleColumnVisibility() {
-      const typeHeader = document.getElementById("typeHeader");
-      const likesHeader = document.getElementById("likesHeader");
-      typeHeader.style.display =
-        currentMode === "forum" ? "none" : "table-cell";
-      likesHeader.style.display =
-        currentMode === "forum" ? "table-cell" : "none";
-    }
-
-    document.querySelectorAll(".select li").forEach((tab) => {
-      tab.onclick = () => {
-        currentMode = tab.id;
-        console.log(currentMode);
-        currentPage = 1; // 페이지 번호를 1로 초기화
-        updatePosts(currentMode); // 현재 모드에 맞는 포스트 업데이트
-        renderPosts();
-        renderPagination();
-        toggleColumnVisibility();
-        updateActivePage(); // 페이지 활성화 업데이트
-        document.querySelector(".select .active")?.classList.remove("active");
-        tab.classList.add("active");
-      };
-    });
-
-    // 초기 데이터 렌더링
-    updatePosts(currentMode); // 초기 모드에 맞는 포스트 업데이트
-    renderPosts();
-    renderPagination();
-    toggleColumnVisibility();
-    updateActivePage(); // 초기 페이지 활성화 업데이트
-    textColor();
+    }, 100);
   }
-  postTable();
+  document.querySelectorAll(".select li").forEach((tab) => {
+    tab.onclick = () => {
+      currentMode = tab.id;
+      updateUI();
+      document.querySelector(".select .active")?.classList.remove("active");
+      tab.classList.add("active");
+    };
+  });
+  // 초기 데이터 렌더링
+  updateUI();
 }
+
 // 2-3. 유저 페이지(user_page)
 
 // 2-3-1. 유저 페이지 초기화
