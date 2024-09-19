@@ -338,6 +338,7 @@ header .heart {
   transform: translateY(-10%);
   opacity: 0;
   transition: 1s;
+  box-sizing: border-box;
 }
 .wrapper.white main .event h4 {
   margin-bottom: 15px;
@@ -1079,6 +1080,311 @@ main.forum .contents_wrap .main_board article .pages .post img {
 }
 .maps .continent_map .explan .post_wrap .map_post:nth-child(4) {
   background: url(../img/photo/view/continent/continent_4.jpg) no-repeat center/cover;
+}
+
+main.coustomizing_info .parts {
+  display: flex;
+  width: 1200px;
+  height: 600px;
+  justify-content: space-between;
+  margin: 60px auto;
+}
+main.coustomizing_info .parts input[type=checkbox] {
+  display: none;
+}
+main.coustomizing_info .parts input[type=checkbox] + label {
+  display: block;
+  width: 100px;
+  height: 100px;
+  position: relative;
+  background: url(../img/icon/avartar_btn.svg) no-repeat center/cover;
+}
+main.coustomizing_info .parts input[type=checkbox]:checked + label {
+  background: url(../img/icon/avartar_btn_c.svg) no-repeat center/cover;
+}
+main.coustomizing_info .parts input[type=checkbox] + label.nothing1, main.coustomizing_info .parts input[type=checkbox] + label.nothing2 {
+  background: url(../img/icon/avartar_lock.svg) no-repeat center/cover;
+}
+main.coustomizing_info .parts label::after, main.coustomizing_info .parts label::before {
+  display: none;
+}
+main.coustomizing_info .parts label:hover::after, main.coustomizing_info .parts label:hover::before {
+  display: block;
+}
+main.coustomizing_info .parts .left_part {
+  display: flex;
+  gap: 15px;
+  flex-flow: column wrap;
+  width: 100px;
+  height: 100%;
+}
+main.coustomizing_info .parts .left_part .cell {
+  width: 100%;
+  height: calc(100% - 460px);
+}
+main.coustomizing_info .parts .left_part .weapon::before {
+  content: "무기";
+  padding: 15px 20px;
+  background-color: #111111;
+  color: #ffffff;
+  font-size: 20px;
+  line-height: 15px;
+  position: absolute;
+  top: 50%;
+  left: -32px;
+  transform: translate(-100%, -50%);
+  border-radius: 3px;
+}
+main.coustomizing_info .parts .left_part .weapon::after {
+  content: "";
+  width: 0;
+  height: 0;
+  border: 7px solid transparent;
+  border-left-color: #111111;
+  position: absolute;
+  top: 50%;
+  left: -33px;
+  transform: translateY(-50%);
+}
+main.coustomizing_info .parts .left_part .moving_efttect::before {
+  content: "이동이펙트";
+  padding: 15px 20px;
+  background-color: #111111;
+  color: #ffffff;
+  font-size: 20px;
+  line-height: 15px;
+  position: absolute;
+  top: 50%;
+  left: -32px;
+  transform: translate(-100%, -50%);
+  border-radius: 3px;
+}
+main.coustomizing_info .parts .left_part .moving_efttect::after {
+  content: "";
+  width: 0;
+  height: 0;
+  border: 7px solid transparent;
+  border-left-color: #111111;
+  position: absolute;
+  top: 50%;
+  left: -33px;
+  transform: translateY(-50%);
+}
+main.coustomizing_info .parts .left_part .nothing1::before {
+  content: "비활성화";
+  padding: 15px 20px;
+  background-color: #111111;
+  color: #ffffff;
+  font-size: 20px;
+  line-height: 15px;
+  position: absolute;
+  top: 50%;
+  left: -32px;
+  transform: translate(-100%, -50%);
+  border-radius: 3px;
+}
+main.coustomizing_info .parts .left_part .nothing1::after {
+  content: "";
+  width: 0;
+  height: 0;
+  border: 7px solid transparent;
+  border-left-color: #111111;
+  position: absolute;
+  top: 50%;
+  left: -33px;
+  transform: translateY(-50%);
+}
+main.coustomizing_info .parts .left_part .nothing2::before {
+  content: "비활성화";
+  padding: 15px 20px;
+  background-color: #111111;
+  color: #ffffff;
+  font-size: 20px;
+  line-height: 15px;
+  position: absolute;
+  top: 50%;
+  left: -32px;
+  transform: translate(-100%, -50%);
+  border-radius: 3px;
+}
+main.coustomizing_info .parts .left_part .nothing2::after {
+  content: "";
+  width: 0;
+  height: 0;
+  border: 7px solid transparent;
+  border-left-color: #111111;
+  position: absolute;
+  top: 50%;
+  left: -33px;
+  transform: translateY(-50%);
+}
+main.coustomizing_info .parts .right_part {
+  display: flex;
+  gap: 15px;
+  flex-flow: column wrap;
+  width: 100px;
+  height: 100%;
+}
+main.coustomizing_info .parts .right_part .cell {
+  width: 100%;
+  height: calc(100% - 580px);
+}
+main.coustomizing_info .parts .right_part .head::before {
+  content: "머리";
+  padding: 15px 20px;
+  background-color: #111111;
+  color: #ffffff;
+  font-size: 20px;
+  line-height: 15px;
+  position: absolute;
+  top: 50%;
+  right: -32px;
+  transform: translate(100%, -50%);
+  border-radius: 3px;
+}
+main.coustomizing_info .parts .right_part .head::after {
+  content: "";
+  width: 0;
+  height: 0;
+  border: 7px solid transparent;
+  border-right-color: #111111;
+  position: absolute;
+  top: 50%;
+  right: -32px;
+  transform: translateY(-50%);
+}
+main.coustomizing_info .parts .right_part .face::before {
+  content: "얼굴";
+  padding: 15px 20px;
+  background-color: #111111;
+  color: #ffffff;
+  font-size: 20px;
+  line-height: 15px;
+  position: absolute;
+  top: 50%;
+  right: -32px;
+  transform: translate(100%, -50%);
+  border-radius: 3px;
+}
+main.coustomizing_info .parts .right_part .face::after {
+  content: "";
+  width: 0;
+  height: 0;
+  border: 7px solid transparent;
+  border-right-color: #111111;
+  position: absolute;
+  top: 50%;
+  right: -32px;
+  transform: translateY(-50%);
+}
+main.coustomizing_info .parts .right_part .deco::before {
+  content: "장식";
+  padding: 15px 20px;
+  background-color: #111111;
+  color: #ffffff;
+  font-size: 20px;
+  line-height: 15px;
+  position: absolute;
+  top: 50%;
+  right: -32px;
+  transform: translate(100%, -50%);
+  border-radius: 3px;
+}
+main.coustomizing_info .parts .right_part .deco::after {
+  content: "";
+  width: 0;
+  height: 0;
+  border: 7px solid transparent;
+  border-right-color: #111111;
+  position: absolute;
+  top: 50%;
+  right: -32px;
+  transform: translateY(-50%);
+}
+main.coustomizing_info .parts .right_part .top::before {
+  content: "상의";
+  padding: 15px 20px;
+  background-color: #111111;
+  color: #ffffff;
+  font-size: 20px;
+  line-height: 15px;
+  position: absolute;
+  top: 50%;
+  right: -32px;
+  transform: translate(100%, -50%);
+  border-radius: 3px;
+}
+main.coustomizing_info .parts .right_part .top::after {
+  content: "";
+  width: 0;
+  height: 0;
+  border: 7px solid transparent;
+  border-right-color: #111111;
+  position: absolute;
+  top: 50%;
+  right: -32px;
+  transform: translateY(-50%);
+}
+main.coustomizing_info .parts .right_part .bottom::before {
+  content: "하의";
+  padding: 15px 20px;
+  background-color: #111111;
+  color: #ffffff;
+  font-size: 20px;
+  line-height: 15px;
+  position: absolute;
+  top: 50%;
+  right: -32px;
+  transform: translate(100%, -50%);
+  border-radius: 3px;
+}
+main.coustomizing_info .parts .right_part .bottom::after {
+  content: "";
+  width: 0;
+  height: 0;
+  border: 7px solid transparent;
+  border-right-color: #111111;
+  position: absolute;
+  top: 50%;
+  right: -32px;
+  transform: translateY(-50%);
+}
+main.coustomizing_info .parts .middel_part {
+  position: relative;
+  padding-right: 168px;
+}
+main.coustomizing_info .parts .middel_part img {
+  opacity: 0.5;
+}
+main.coustomizing_info .parts .middel_part .character {
+  display: flex;
+  flex-flow: column wrap;
+  gap: 5px;
+  width: 168px;
+  height: -moz-fit-content;
+  height: fit-content;
+  position: absolute;
+  top: 0;
+  right: 0;
+  line-height: 48px;
+  text-align: center;
+  font-size: 20px;
+  color: #787878;
+}
+main.coustomizing_info .parts .middel_part .character input[type=radio] {
+  display: none;
+}
+main.coustomizing_info .parts .middel_part .character input[type=radio] + label {
+  width: 100%;
+  height: 48px;
+  background-color: #ffffff;
+  border-radius: 3px;
+  border: 1px solid #eeeeee;
+}
+main.coustomizing_info .parts .middel_part .character input[type=radio]:checked + label {
+  background-color: #111111;
+  border: 1px solid #111111;
+  color: #ffffff;
 }
 
 main.community .left_nav .list_wrap li.active {

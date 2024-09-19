@@ -396,10 +396,11 @@ header {
       transform: translateY(-10%);
       opacity: 0;
       transition: 1s;
+      box-sizing: border-box;
 
       h4 {
         margin-bottom: 15px;
-        font-size: 20px;
+        font-size: nth($font-size, 3);
         font-weight: 500;
         color: nth($gray-color, 7);
       }
@@ -1136,6 +1137,202 @@ main.forum {
 }
 // 3-4. 커스텀마이징 포럼(customizing_forum)
 // 3-5. 커스텀마이징 정보(customizing_info)
+@mixin btn($con: null, $left: null, $right: null, $row: null) {
+  content: $con;
+  padding: 15px 20px;
+  background-color: nth($gray-color, 7);
+  color: nth($gray-color, 1);
+  font-size: nth($font-size, 3);
+  line-height: 15px;
+  position: absolute;
+  top: 50%;
+  left: $left;
+  right: $right;
+  transform: translate($row, -50%);
+  border-radius: 3px;
+}
+@mixin triangle($left: null, $right: null, $l_c: null, $r_c: null) {
+  content: "";
+  width: 0;
+  height: 0;
+  border: 7px solid transparent;
+  border-left-color: $l_c;
+  border-right-color: $r_c;
+  position: absolute;
+  top: 50%;
+  left: $left;
+  right: $right;
+  transform: translateY(-50%);
+}
+main.coustomizing_info {
+  .parts {
+    display: flex;
+    width: 1200px;
+    height: 600px;
+    justify-content: space-between;
+    margin: 60px auto;
+
+    input[type="checkbox"] {
+      display: none;
+      & + label {
+        display: block;
+        width: 100px;
+        height: 100px;
+        position: relative;
+        background: url(../img/icon/avartar_btn.svg) no-repeat center / cover;
+      }
+      &:checked + label {
+        background: url(../img/icon/avartar_btn_c.svg) no-repeat center / cover;
+      }
+      & + label.nothing1,
+      & + label.nothing2 {
+        background: url(../img/icon/avartar_lock.svg) no-repeat center / cover;
+      }
+    }
+    label {
+      &::after,
+      &::before {
+        display: none;
+      }
+      &:hover::after,
+      &:hover::before {
+        display: block;
+      }
+    }
+    .left_part {
+      display: flex;
+      gap: 15px;
+      flex-flow: column wrap;
+      width: 100px;
+      height: 100%;
+
+      .cell {
+        width: 100%;
+        height: calc(100% - 460px);
+      }
+      .weapon {
+        &::before {
+          @include btn($con: "무기", $left: -32px, $row: -100%);
+        }
+        &::after {
+          @include triangle($left: -33px, $l_c: nth($gray-color, 7));
+        }
+      }
+      .moving_efttect {
+        &::before {
+          @include btn($con: "이동이펙트", $left: -32px, $row: -100%);
+        }
+        &::after {
+          @include triangle($left: -33px, $l_c: nth($gray-color, 7));
+        }
+      }
+      .nothing1 {
+        &::before {
+          @include btn($con: "비활성화", $left: -32px, $row: -100%);
+        }
+        &::after {
+          @include triangle($left: -33px, $l_c: nth($gray-color, 7));
+        }
+      }
+      .nothing2 {
+        &::before {
+          @include btn($con: "비활성화", $left: -32px, $row: -100%);
+        }
+        &::after {
+          @include triangle($left: -33px, $l_c: nth($gray-color, 7));
+        }
+      }
+    }
+    .right_part {
+      display: flex;
+      gap: 15px;
+      flex-flow: column wrap;
+      width: 100px;
+      height: 100%;
+
+      .cell {
+        width: 100%;
+        height: calc(100% - 580px);
+      }
+      .head {
+        &::before {
+          @include btn($con: "머리", $right: -32px, $row: 100%);
+        }
+        &::after {
+          @include triangle($right: -32px, $r_c: nth($gray-color, 7));
+        }
+      }
+      .face {
+        &::before {
+          @include btn($con: "얼굴", $right: -32px, $row: 100%);
+        }
+        &::after {
+          @include triangle($right: -32px, $r_c: nth($gray-color, 7));
+        }
+      }
+      .deco {
+        &::before {
+          @include btn($con: "장식", $right: -32px, $row: 100%);
+        }
+        &::after {
+          @include triangle($right: -32px, $r_c: nth($gray-color, 7));
+        }
+      }
+      .top {
+        &::before {
+          @include btn($con: "상의", $right: -32px, $row: 100%);
+        }
+        &::after {
+          @include triangle($right: -32px, $r_c: nth($gray-color, 7));
+        }
+      }
+      .bottom {
+        &::before {
+          @include btn($con: "하의", $right: -32px, $row: 100%);
+        }
+        &::after {
+          @include triangle($right: -32px, $r_c: nth($gray-color, 7));
+        }
+      }
+    }
+    .middel_part {
+      position: relative;
+      padding-right: 168px;
+
+      img {
+        opacity: 0.5;
+      }
+      .character {
+        display: flex;
+        flex-flow: column wrap;
+        gap: 5px;
+        width: 168px;
+        height: fit-content;
+        @include position(absolute, $r: 0, $t: 0);
+        line-height: 48px;
+        text-align: center;
+        font-size: nth($font-size, 3);
+        color: nth($gray-color, 6);
+
+        input[type="radio"] {
+          display: none;
+          & + label {
+            width: 100%;
+            height: 48px;
+            background-color: nth($gray-color, 1);
+            border-radius: 3px;
+            border: 1px solid nth($gray-color, 3);
+          }
+          &:checked + label {
+            background-color: nth($gray-color, 7);
+            border: 1px solid nth($gray-color, 7);
+            color: nth($gray-color, 1);
+          }
+        }
+      }
+    }
+  }
+}
 // 3-6. 커뮤니티(community)
 main.community {
   .left_nav {

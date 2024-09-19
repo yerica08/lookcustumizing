@@ -1041,23 +1041,25 @@ function viewInfo() {
 
 /* 2-2-6. 서브페이지 - 커뮤니티(community) */
 function community() {
-  // left_nav 안의 카테고리 변경
   const communityList = document.querySelector(".left_nav .community");
   const noticeList = document.querySelector(".left_nav .notice");
   const selectForum = document.querySelector(".select #forum");
   const selectNotice = document.querySelector(".select #notice");
   const sortBy = document.querySelector(".sort_by");
   const mainBoard = document.querySelector(".main_board");
-  const postTable = document.getElementById("postTable");
   const pagination = document.getElementById("pagination");
-  const typeHeader = document.getElementById("typeHeader");
   const likesHeader = document.getElementById("likesHeader");
+  const freeBoard = document.querySelector(".free_board");
+  const tipBoard = document.querySelector(".tip_board");
+  const promotionBoard = document.querySelector(".promotion_board");
+  const noticeBoard = document.querySelector(".notice_board");
+  const serviceBoard = document.querySelector(".service_board");
+  const eventBoard = document.querySelector(".event_board");
 
   let currentMode = "forum"; // 초기 모드 설정
-  let currentPage = 1;
-  let posts = [];
-  const postsPerPage = 10;
+  let currentPage = 1; // 현재 페이지 번호 저장
 
+  // 포스트 제목 및 내용
   const forumTitles = [
     "패치전까지 그림 그려드립니다~",
     "웃기고 귀여운거 있길래 가져와봤습니다",
@@ -1129,8 +1131,10 @@ function community() {
 
   const noticeNicknames = Array(20).fill("LCM");
 
+  // 모드에 따라 게시글 데이터를 업데이트
   function updatePosts(mode) {
     if (mode === "forum") {
+      // 커뮤니티를 선택했을 경우
       posts = Array.from({ length: 20 }, (_, i) => ({
         number: 20 - i,
         title: forumTitles[i],
@@ -1138,9 +1142,10 @@ function community() {
         date: new Date(),
         views: Math.floor(Math.random() * 1000) + 1,
         likes: Math.floor(Math.random() * 1000) + 1,
-        type: "",
+        type: ["자유", "정보", "홍보"][Math.floor(Math.random() * 3)],
       }));
     } else if (mode === "notice") {
+      // 공지사항을 선택했을 경우
       posts = Array.from({ length: 20 }, (_, i) => ({
         number: 20 - i,
         title: noticeTitles[i],
@@ -1153,6 +1158,7 @@ function community() {
     }
   }
 
+  // 포스트 날짜(오늘인 경우 시간만 그렇지 않을 경우 월/일표시)
   function formatDate(date) {
     return date.toDateString() === new Date().toDateString()
       ? date.toLocaleTimeString([], {
@@ -1163,27 +1169,33 @@ function community() {
       : `${date.getMonth() + 1}월 ${date.getDate()}일`;
   }
 
+  // 포스트를 배열로 저장, 한번에 보여줄 포스트 개수 10개로 지정
+  let posts = [];
+  const postsPerPage = 10;
+  const postTable = document.getElementById("postTable");
+
   function renderPosts() {
     const start = (currentPage - 1) * postsPerPage;
     const end = start + postsPerPage;
 
     while (postTable.rows.length > 1) postTable.deleteRow(1);
+    // 현재 페이지에 해당하는 게시글을 잘라서 보여줌
     posts.slice(start, end).forEach((post) => {
       const row = postTable.insertRow();
       row.innerHTML =
         currentMode === "forum"
-          ? `<td class="number">${
-              post.number
-            }</td><td class="type" style="display: none;"></td><td class="title">${
-              post.title
-            }</td><td class="user">${
+          ? // 커뮤니티를 선택했을 경우 자식요소로 들어가는 내용
+            `<td class="number">${post.number}</td><td class="type">${
+              post.type
+            }</td><td class="title">${post.title}</td><td class="user">${
               post.user
             }</td><td class="view">${formatDate(
               post.date
             )}</td><td class="view">${post.views}</td><td class="recode">${
               post.likes
             }</td>`
-          : `<td class="number">${post.number}</td><td class="type">${
+          : // 공지사항을 선택했을 경우 자식요소로 들어가는 내용
+            `<td class="number">${post.number}</td><td class="type">${
               post.type
             }</td><td class="title">${post.title}</td><td class="user">${
               post.user
@@ -1195,8 +1207,25 @@ function community() {
     });
   }
 
+  let totalPages, filterBoard;
+
+  // 포스트 페이지 및 좌우 넘기는 버튼 생성
   function renderPagination() {
-    const totalPages = Math.ceil(posts.length / postsPerPage);
+    // 게시물 필터링
+    if (filterBoard == "free") {
+      posts = posts.filter((post) => post.type === "자유");
+    } else if (filterBoard == "tip") {
+      posts = posts.filter((post) => post.type === "정보");
+    } else if (filterBoard == "promotion") {
+      posts = posts.filter((post) => post.type === "홍보");
+    } else if (filterBoard == "notice") {
+      posts = posts.filter((post) => post.type === "공지");
+    } else if (filterBoard == "service") {
+      posts = posts.filter((post) => post.type === "서비스/기능");
+    } else if (filterBoard == "event") {
+      posts = posts.filter((post) => post.type === "이벤트");
+    }
+    totalPages = Math.ceil(posts.length / postsPerPage);
     pagination.innerHTML = "";
 
     const createArrow = (direction) => {
@@ -1230,25 +1259,28 @@ function community() {
     pagination.appendChild(createArrow("right"));
   }
 
+  // 클릭한 페이지 번호를 토글 ative를 활용하여 보여줌
   function updateActivePage() {
     document.querySelectorAll(".page_number li").forEach((item) => {
       item.classList.toggle("active", parseInt(item.innerText) === currentPage);
     });
   }
 
+  // th 추천수 공지사항으로 넘어가면 삭제
   function toggleColumnVisibility() {
-    typeHeader.style.display = currentMode === "forum" ? "none" : "table-cell";
     likesHeader.style.display = currentMode === "forum" ? "table-cell" : "none";
   }
 
+  // 현재 모드에 맞게 게시글을 업데이트하고, 페이지네이션 및 ui 요소를 다시 랜더링
   function updateUI() {
     updatePosts(currentMode); // 현재 모드에 맞는 포스트 업데이트
+    totalPages = Math.ceil(posts.length / postsPerPage); // 총 페이지 수 업데이트
     renderPosts();
     renderPagination();
-    toggleColumnVisibility();
     updateActivePage(); // 페이지 활성화 업데이트
   }
 
+  // 클릭 이벤트로 모드를 변경 및 UI 업데이트
   selectForum.addEventListener("click", function () {
     currentMode = "forum"; // 클릭 시 currentMode 업데이트
     selectForum.classList.add("click_first");
@@ -1258,7 +1290,59 @@ function community() {
     noticeList.style.display = "none";
     mainBoard.style.marginTop = "0px";
     updateUI();
+    toggleColumnVisibility();
   });
+  // 커뮤니티 left_nav 클릭이벤트
+  forumBoardEvent();
+  function forumBoardEvent() {
+    freeBoard.addEventListener("click", function () {
+      setTimeout(() => {
+        let textTypes = document.querySelectorAll(".type");
+        textTypes.forEach((element) => {
+          if (element.innerText === "자유" || element.innerText === "종류") {
+            element.parentElement.style.display = "";
+          } else {
+            element.parentElement.style.display = "none";
+          }
+        });
+      }, 100);
+      filterBoard = "free";
+      currentPage = 1; // 첫 페이지로 초기화
+      updateUI();
+    });
+
+    tipBoard.addEventListener("click", function () {
+      setTimeout(() => {
+        let textTypes = document.querySelectorAll(".type");
+        textTypes.forEach((element) => {
+          if (element.innerText === "정보" || element.innerText === "종류") {
+            element.parentElement.style.display = "";
+          } else {
+            element.parentElement.style.display = "none";
+          }
+        });
+      }, 100);
+      filterBoard = "tip";
+      currentPage = 1; // 첫 페이지로 초기화
+      updateUI();
+    });
+
+    promotionBoard.addEventListener("click", function () {
+      setTimeout(() => {
+        let textTypes = document.querySelectorAll(".type");
+        textTypes.forEach((element) => {
+          if (element.innerText === "홍보" || element.innerText === "종류") {
+            element.parentElement.style.display = "";
+          } else {
+            element.parentElement.style.display = "none";
+          }
+        });
+      }, 100);
+      filterBoard = "promotion";
+      currentPage = 1; // 첫 페이지로 초기화
+      updateUI();
+    });
+  }
 
   selectNotice.addEventListener("click", function () {
     currentMode = "notice"; // 클릭 시 currentMode 업데이트
@@ -1270,8 +1354,69 @@ function community() {
     mainBoard.style.marginTop = "33px";
     updateUI();
     noticeColor();
+    toggleColumnVisibility();
   });
 
+  noticeBoardEvent();
+  function noticeBoardEvent() {
+    noticeBoard.addEventListener("click", function () {
+      setTimeout(() => {
+        let textTypes = document.querySelectorAll(".type");
+        textTypes.forEach((element) => {
+          if (element.innerText === "공지" || element.innerText === "종류") {
+            element.parentElement.style.display = "";
+          } else {
+            element.parentElement.style.display = "none";
+          }
+        });
+      }, 100);
+      filterBoard = "notice";
+      currentPage = 1; // 첫 페이지로 초기화
+      updateUI();
+      noticeColor();
+    });
+
+    serviceBoard.addEventListener("click", function () {
+      setTimeout(() => {
+        let textTypes = document.querySelectorAll(".type");
+        textTypes.forEach((element) => {
+          if (
+            element.innerText === "서비스/기능" ||
+            element.innerText === "종류"
+          ) {
+            element.parentElement.style.display = "";
+          } else {
+            element.parentElement.style.display = "none";
+          }
+        });
+      }, 100);
+      filterBoard = "service";
+      currentPage = 1; // 첫 페이지로 초기화
+      updateUI();
+      toggleColumnVisibility();
+      noticeColor();
+    });
+
+    eventBoard.addEventListener("click", function () {
+      setTimeout(() => {
+        let textTypes = document.querySelectorAll(".type");
+        textTypes.forEach((element) => {
+          if (element.innerText === "이벤트" || element.innerText === "종류") {
+            element.parentElement.style.display = "";
+          } else {
+            element.parentElement.style.display = "none";
+          }
+        });
+      }, 100);
+      filterBoard = "event";
+      currentPage = 1; // 첫 페이지로 초기화
+      updateUI();
+      toggleColumnVisibility();
+      noticeColor();
+    });
+  }
+
+  // 종류(type) 색상 바꾸기
   function noticeColor() {
     setTimeout(() => {
       let textTypes = document.querySelectorAll(".type");
@@ -1280,8 +1425,13 @@ function community() {
           element.style.color = "#F13030";
         } else if (element.innerText === "종류") {
           element.style.color = "#111";
-        } else {
+        } else if (
+          element.innerText === "서비스/기능" ||
+          element.innerText === "이벤트"
+        ) {
           element.style.color = "#5CA3E4";
+        } else {
+          element.style.color = "#787878";
         }
       });
     }, 100);
@@ -1355,16 +1505,20 @@ document.addEventListener("DOMContentLoaded", function () {
     pathName.includes("view_forum.html") ||
     pathName.includes("customizing_forum.html") ||
     pathName.includes("view_info.html") ||
-    pathName.includes("community.html")
+    pathName.includes("community.html") ||
+    pathName.includes("customizing_info.html")
   ) {
     subScroll();
-    viewForum();
     showPost();
     if (pathName.includes("view_info.html")) {
       viewInfo();
-    }
-    if (pathName.includes("community.html")) {
+    } else if (pathName.includes("community.html")) {
       community();
+    } else if (
+      pathName.includes("view_forum.html") ||
+      pathName.includes("customizing_forum.html")
+    ) {
+      viewForum();
     }
   } else {
     mainPage();
