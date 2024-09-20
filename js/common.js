@@ -1457,6 +1457,7 @@ function customizingInfo() {
   const job = document.querySelector(".job");
   const dummy = document.querySelector(".middel_part img");
   const avartarFrame = document.querySelectorAll(".avartar_frame");
+  let totalPages = Math.ceil(articles.length / postsPerPage);
 
   // radio 버튼 관련 기능
   radioBtn();
@@ -1518,8 +1519,12 @@ function customizingInfo() {
           // 페이지 수 및 포스트 업데이트
           currentPage = 1; // 첫 페이지로 초기화
           totalPages = Math.ceil(filteredFrames.length / postsPerPage); // 총 페이지 수 업데이트
-          console.log(totalPages);
-          renderPosts(filteredFrames); // 필터링된 포스트 렌더링
+          // 필터링된 프레임에 따라 보여줄 포스트 설정
+          filteredFrames.forEach((frame, index) => {
+            if (Math.floor(index / postsPerPage) === currentPage - 1) {
+              frame.parentElement.style.display = "block"; // 현재 페이지에 해당하는 프레임만 보이기
+            }
+          });
           renderPagination(); // 페이지네이션 렌더링
           updateActivePage(); // active 페이지 업데이트
         }
@@ -1578,30 +1583,15 @@ function customizingInfo() {
   let currentPage = 1; // 현재 페이지 번호 저장
   const postsPerPage = 16; // 한 페이지에 보여줄 포스트 개수
 
-  // function renderPosts() {
-  //   // 모든 article 요소를 숨김
-  //   articles.forEach((article, index) => {
-  //     article.style.display =
-  //       Math.floor(index / postsPerPage) === currentPage - 1 ? "block" : "none";
-  //   });
-  // }
-
-  // renderPosts 함수 수정
-  function renderPosts(filteredFrames) {
+  function renderPosts() {
     // 모든 article 요소를 숨김
-    articles.forEach((article) => {
-      article.style.display = "none"; // 기본적으로 숨김
-    });
-
-    // 필터링된 프레임에 따라 보여줄 포스트 설정
-    filteredFrames.forEach((frame, index) => {
-      if (Math.floor(index / postsPerPage) === currentPage - 1) {
-        frame.parentElement.style.display = "block"; // 현재 페이지에 해당하는 프레임만 보이기
-      }
+    articles.forEach((article, index) => {
+      article.style.display =
+        Math.floor(index / postsPerPage) === currentPage - 1 ? "block" : "none";
     });
   }
+
   function renderPagination() {
-    const totalPages = Math.ceil(articles.length / postsPerPage);
     pagination.innerHTML = ""; // 기존 페이지 번호 초기화
 
     const createArrow = (direction) => {
