@@ -20,6 +20,7 @@
       2-2-4. 뷰 포럼(view_forum)
       2-2-5. 뷰 인포(view_info)
       2-2-6. 커뮤니티(community)
+      2-2-7. 커스텀마이징 정보(customizing info)
 
     2-3. 유저 페이지(user_page)
       2-3-1. 유저 페이지 초기화
@@ -1447,10 +1448,210 @@ function community() {
   // 초기 데이터 렌더링
   updateUI();
 }
+/* 2-2-7. 서브페이지 - 커스텀마이징 정보(customizing info) */
+function customizingInfo() {
+  // checkbox와 radio 버튼을 클릭시 checking 안 div 생성
+  const jobRadioBtn = document.querySelectorAll("input[name='character']");
+  const partsCheckBox = document.querySelectorAll('input[type="checkbox"]');
+  const checking = document.querySelector(".checking");
+  const job = document.querySelector(".job");
+  const dummy = document.querySelector(".middel_part img");
+  const avartarFrame = document.querySelectorAll(".avartar_frame");
 
+  // radio 버튼 관련 기능
+  radioBtn();
+  function radioBtn() {
+    let maleDummy = dummy.setAttribute(
+      "src",
+      "../../img/photo/customizing/customizing_info/avartar_m.png"
+    );
+    let femaleDummy = dummy.setAttribute(
+      "src",
+      "../../img/photo/customizing/customizing_info/avartar_f.png"
+    );
+    let specialistDummy = dummy.setAttribute(
+      "src",
+      "../../img/photo/customizing/customizing_info/avartar_sp.png"
+    );
+
+    // radio 버튼 클릭시 job 안의 텍스트 변경
+    jobRadioBtn.forEach((radio) => {
+      radio.addEventListener("change", () => {
+        if (radio.checked) {
+          job.textContent = "#" + radio.nextElementSibling.textContent;
+
+          if (radio.value.includes("fighter_male")) {
+            maleDummy;
+            avartarFrame.forEach((frame) => {
+              if (
+                frame.querySelector("img").getAttribute("data-job") !==
+                  "캐릭터(남)" ||
+                frame.querySelector("img").getAttribute("data-job-keyword") !==
+                  "fighter_male"
+              ) {
+                frame.parentElement.style.display = "none";
+              } else {
+                frame.parentElement.style.display = "block";
+              }
+            });
+          } else if (radio.value.includes("fighter_female")) {
+            maleDummy;
+            avartarFrame.forEach((frame) => {
+              if (
+                frame.querySelector("img").getAttribute("data-job") !==
+                  "캐릭터(여)" ||
+                frame.querySelector("img").getAttribute("data-job-keyword") !==
+                  "fighter_female"
+              ) {
+                frame.parentElement.style.display = "none";
+              } else {
+                frame.parentElement.style.display = "block";
+              }
+            });
+          }
+
+          if (radio.value.includes("female")) {
+            femaleDummy;
+            avartarFrame.forEach((frame) => {
+              if (
+                frame.querySelector("img").getAttribute("data-job") !==
+                "캐릭터(여)"
+              ) {
+                frame.parentElement.style.display = "none";
+              } else {
+                frame.parentElement.style.display = "block";
+              }
+            });
+          } else if (radio.value.includes("male")) {
+            maleDummy;
+            avartarFrame.forEach((frame) => {
+              if (
+                frame.querySelector("img").getAttribute("data-job") !==
+                "캐릭터(남)"
+              ) {
+                frame.parentElement.style.display = "none";
+              } else {
+                frame.parentElement.style.display = "block";
+              }
+            });
+          } else if (radio.value.includes("specialist")) {
+            specialistDummy;
+          }
+        }
+      });
+    });
+  }
+
+  // checkbox 버튼 관련 기능
+  checkBoxBtn();
+  function checkBoxBtn() {
+    // checkbox 버튼 클릭시 div 생성, 삭제 기능 추가
+    partsCheckBox.forEach((box) => {
+      box.addEventListener("change", () => {
+        if (box.checked) {
+          // 체크 상태로 변했을 경우
+          let partDiv = document.createElement("div");
+          partDiv.classList.add("part");
+          partDiv.innerText = "#" + box.value;
+          partDiv.addEventListener("click", function () {
+            this.parentNode.removeChild(this);
+            box.checked = false;
+          });
+          checking.appendChild(partDiv);
+        } else {
+          // 체크가 해제됐을 경우
+          const part = document.querySelectorAll(".part");
+          for (let i = 0; i < part.length; i++) {
+            if (part[i].textContent == "#" + box.value) {
+              part[i].parentNode.removeChild(part[i]);
+            }
+          }
+        }
+      });
+    });
+  }
+
+  // 이미지 제목 입력하기
+  imgTitle();
+  function imgTitle() {
+    const avartarImg = document.querySelectorAll(".avartar_frame img");
+    avartarImg.forEach((img) => {
+      let job = img.getAttribute("data-job");
+      let part = img.getAttribute("data-part");
+      let place = img.getAttribute("data-place");
+      let name = img.getAttribute("alt");
+      let chidrenText = img.parentElement.nextElementSibling.children;
+      chidrenText[0].textContent = job + " / " + part;
+      chidrenText[1].textContent = name;
+      chidrenText[2].textContent = Math.floor(Math.random() * 1000) + 1;
+    });
+  }
+
+  const pagination = document.getElementById("pagination");
+  const postTable = document.querySelector(".avartars_wrap");
+  const articles = postTable.querySelectorAll("article"); // 모든 article 요소 선택
+  let currentPage = 1; // 현재 페이지 번호 저장
+  const postsPerPage = 16; // 한 페이지에 보여줄 포스트 개수
+
+  function renderPosts() {
+    // 모든 article 요소를 숨김
+    articles.forEach((article, index) => {
+      article.style.display =
+        Math.floor(index / postsPerPage) === currentPage - 1 ? "block" : "none";
+    });
+  }
+
+  function renderPagination() {
+    const totalPages = Math.ceil(articles.length / postsPerPage);
+    pagination.innerHTML = ""; // 기존 페이지 번호 초기화
+
+    const createArrow = (direction) => {
+      const arrow = document.createElement("div");
+      arrow.className = "line_arrow";
+      arrow.innerText = direction === "left" ? "<" : ">";
+      arrow.onclick = () => {
+        if (
+          (direction === "left" && currentPage > 1) ||
+          (direction === "right" && currentPage < totalPages)
+        ) {
+          currentPage += direction === "left" ? -1 : 1;
+          renderPosts();
+          updateActivePage(totalPages);
+        }
+      };
+      return arrow;
+    };
+
+    pagination.appendChild(createArrow("left")); // 좌측 화살표 추가
+
+    for (let i = 1; i <= totalPages; i++) {
+      const li = document.createElement("li");
+      li.innerText = i;
+      li.onclick = () => {
+        currentPage = i;
+        renderPosts();
+        updateActivePage(totalPages);
+      };
+      pagination.appendChild(li);
+    }
+
+    pagination.appendChild(createArrow("right")); // 우측 화살표 추가
+  }
+
+  function updateActivePage(totalPages) {
+    const pageItems = document.querySelectorAll(".page_number li");
+    pageItems.forEach((item, index) => {
+      item.classList.toggle("active", index + 1 === currentPage);
+    });
+  }
+
+  // 초기화
+  renderPosts();
+  renderPagination();
+  updateActivePage();
+}
 // 2-3. 유저 페이지(user_page)
-
-// 2-3-1. 유저 페이지 초기화
+/* 2-3-1. 유저 페이지 초기화 */
 function userPage() {
   // 유저 페이지 관련 코드
   /* 2-3-1. 유저페이지 - 로그인(login) */
@@ -1519,6 +1720,8 @@ document.addEventListener("DOMContentLoaded", function () {
       pathName.includes("customizing_forum.html")
     ) {
       viewForum();
+    } else if (pathName.includes("customizing_info.html")) {
+      customizingInfo();
     }
   } else {
     mainPage();

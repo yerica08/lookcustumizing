@@ -363,6 +363,11 @@ strong {
   width: 10px;
   height: 20px;
 }
+.line_heart {
+  background: url(../img/icon/line_heart.svg) no-repeat center / cover;
+  width: 38px;
+  height: 34px;
+}
 
 /* 기본 배경 */
 .wrapper {
