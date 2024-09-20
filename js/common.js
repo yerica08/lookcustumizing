@@ -1480,63 +1480,48 @@ function customizingInfo() {
         if (radio.checked) {
           job.textContent = "#" + radio.nextElementSibling.textContent;
 
-          if (radio.value.includes("fighter_male")) {
-            maleDummy;
-            avartarFrame.forEach((frame) => {
-              if (
-                frame.querySelector("img").getAttribute("data-job") !==
-                  "캐릭터(남)" ||
-                frame.querySelector("img").getAttribute("data-job-keyword") !==
-                  "fighter_male"
-              ) {
-                frame.parentElement.style.display = "none";
-              } else {
-                frame.parentElement.style.display = "block";
-              }
-            });
-          } else if (radio.value.includes("fighter_female")) {
-            maleDummy;
-            avartarFrame.forEach((frame) => {
-              if (
-                frame.querySelector("img").getAttribute("data-job") !==
-                  "캐릭터(여)" ||
-                frame.querySelector("img").getAttribute("data-job-keyword") !==
-                  "fighter_female"
-              ) {
-                frame.parentElement.style.display = "none";
-              } else {
-                frame.parentElement.style.display = "block";
-              }
-            });
-          }
-
-          if (radio.value.includes("female")) {
-            femaleDummy;
-            avartarFrame.forEach((frame) => {
-              if (
-                frame.querySelector("img").getAttribute("data-job") !==
-                "캐릭터(여)"
-              ) {
-                frame.parentElement.style.display = "none";
-              } else {
-                frame.parentElement.style.display = "block";
-              }
-            });
-          } else if (radio.value.includes("male")) {
-            maleDummy;
-            avartarFrame.forEach((frame) => {
-              if (
-                frame.querySelector("img").getAttribute("data-job") !==
-                "캐릭터(남)"
-              ) {
-                frame.parentElement.style.display = "none";
-              } else {
-                frame.parentElement.style.display = "block";
-              }
-            });
-          } else if (radio.value.includes("specialist")) {
+          let characterType;
+          if (radio.value.includes("specialist")) {
+            console.log("sp");
             specialistDummy;
+            characterType = "캐릭터(여)";
+          } else if (radio.value.includes("female")) {
+            console.log("female");
+            femaleDummy;
+            characterType = "캐릭터(여)";
+          } else if (radio.value.includes("male")) {
+            console.log("male");
+            maleDummy;
+            characterType = "캐릭터(남)";
           }
+          // 필터링된 frame 목록
+          const filteredFrames = [];
+
+          avartarFrame.forEach((frame) => {
+            const jobData = frame.querySelector("img").getAttribute("data-job");
+            const jobKeyword = frame
+              .querySelector("img")
+              .getAttribute("data-job-keyword");
+
+            // 조건에 맞는 경우에만 display block, 나머지는 none
+            if (
+              jobData === characterType ||
+              jobKeyword === radio.getAttribute("id")
+            ) {
+              frame.parentElement.style.display = "block";
+              filteredFrames.push(frame); // 필터링된 frame 추가
+            } else {
+              frame.parentElement.style.display = "none";
+            }
+          });
+
+          // 페이지 수 및 포스트 업데이트
+          currentPage = 1; // 첫 페이지로 초기화
+          totalPages = Math.ceil(filteredFrames.length / postsPerPage); // 총 페이지 수 업데이트
+          console.log(totalPages);
+          renderPosts(filteredFrames); // 필터링된 포스트 렌더링
+          renderPagination(); // 페이지네이션 렌더링
+          updateActivePage(); // active 페이지 업데이트
         }
       });
     });
@@ -1593,14 +1578,28 @@ function customizingInfo() {
   let currentPage = 1; // 현재 페이지 번호 저장
   const postsPerPage = 16; // 한 페이지에 보여줄 포스트 개수
 
-  function renderPosts() {
+  // function renderPosts() {
+  //   // 모든 article 요소를 숨김
+  //   articles.forEach((article, index) => {
+  //     article.style.display =
+  //       Math.floor(index / postsPerPage) === currentPage - 1 ? "block" : "none";
+  //   });
+  // }
+
+  // renderPosts 함수 수정
+  function renderPosts(filteredFrames) {
     // 모든 article 요소를 숨김
-    articles.forEach((article, index) => {
-      article.style.display =
-        Math.floor(index / postsPerPage) === currentPage - 1 ? "block" : "none";
+    articles.forEach((article) => {
+      article.style.display = "none"; // 기본적으로 숨김
+    });
+
+    // 필터링된 프레임에 따라 보여줄 포스트 설정
+    filteredFrames.forEach((frame, index) => {
+      if (Math.floor(index / postsPerPage) === currentPage - 1) {
+        frame.parentElement.style.display = "block"; // 현재 페이지에 해당하는 프레임만 보이기
+      }
     });
   }
-
   function renderPagination() {
     const totalPages = Math.ceil(articles.length / postsPerPage);
     pagination.innerHTML = ""; // 기존 페이지 번호 초기화
