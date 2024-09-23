@@ -150,6 +150,7 @@ button {
 }
 i {
   display: block;
+  cursor: pointer;
 }
 textarea {
   background-color: transparent;
@@ -397,13 +398,14 @@ body {
   color: #fff;
   background-color: #111;
   /* 기본 커서 숨김 */
-  /* cursor: none;  */
+  cursor: none;
 }
 input,
 button {
   font-size: 16px;
   font-weight: 400;
   font-family: "Noto Sans KR", sans-serif;
+  cursor: pointer;
 }
 /* a,
 button,
@@ -494,10 +496,6 @@ nav {
 .gnb > li:first-child > a {
   width: 44px;
 }
-.gnb a:hover {
-  font-weight: 600;
-  color: #111;
-}
 .gnb > li {
   position: relative;
   height: 24px;
@@ -545,6 +543,7 @@ header:hover .lnb {
   float: left;
   transform: translateY(-10px);
   margin-left: 15px;
+  cursor: pointer;
 }
 /* 헤더 - 알림 - 2차메뉴 */
 .heart_content > ul {
@@ -675,6 +674,7 @@ header:hover .lnb {
   float: left;
   transform: translateY(-10px);
   margin-left: 15px;
+  cursor: pointer;
 }
 .menu_content {
   width: 100vw;
@@ -689,6 +689,7 @@ header:hover .lnb {
   opacity: 0;
   transition: opacity 0.5s;
   overflow: hidden;
+  cursor: none;
 }
 .menu_wrap {
   display: flex;
@@ -755,6 +756,7 @@ header:hover .lnb {
   background-position: 0px -1588px;
   filter: brightness(0.6);
   margin: 2px;
+  cursor: pointer;
 }
 /* 메뉴 - 사용자 로그인 */
 .user_login > a {
@@ -835,6 +837,7 @@ header:hover .lnb {
   display: inline-block;
   line-height: 24px;
   margin-left: 53px;
+  cursor: pointer;
 }
 /* 메뉴 - 이벤트 */
 .menu_wrap .event {
@@ -908,18 +911,11 @@ footer .policy {
   position: relative;
   margin-bottom: 20px;
 }
-footer .policy::after {
-  display: block;
-  content: "";
-  width: 110%;
-  height: 1px;
-  position: absolute;
-  right: 0;
-  bottom: -10px;
-  background-color: #d7d7d7;
-}
 footer .legal p {
   color: #d7d7d7;
+}
+footer .legal p span {
+  cursor: pointer;
 }
 /* 마우스 */
 .mouse {

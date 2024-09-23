@@ -59,7 +59,7 @@ h1 > a > img {
   height: 60px;
   line-height: 60px;
   text-align: center;
-  font-size: 14px;
+  font-size: 16px;
   border: 0px solid #d7d7d7;
 }
 .login_select li:nth-child(1) {

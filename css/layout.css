@@ -63,6 +63,7 @@ body::-webkit-scrollbar {
   bottom: 120px;
   opacity: 1;
   transition: 0.7s;
+  cursor: pointer;
 }
 .main_visual h3 {
   font-weight: 500;
@@ -244,6 +245,7 @@ body::-webkit-scrollbar {
   font-size: 128px;
   font-family: "Gilda Display", serif;
   transform: translate(-50%, -50%);
+  cursor: pointer;
 }
 .text_h2 h2 {
   width: fit-content;
@@ -252,6 +254,7 @@ body::-webkit-scrollbar {
   transition: 0.5s;
   opacity: 0;
   transition-delay: 0.5s;
+  cursor: pointer;
 }
 /* 배경 - 좌우로 열리는 검정 박스 */
 .view .open_box {
@@ -327,11 +330,13 @@ body::-webkit-scrollbar {
   position: absolute;
   top: 30%;
   left: -120%;
+  z-index: 1;
 }
 .customizing_img.box2 {
   position: absolute;
   top: 64%;
   right: -120%;
+  z-index: 1;
 }
 .customizing_img .img_box {
   width: 500px;
@@ -340,8 +345,8 @@ body::-webkit-scrollbar {
 .img_box img {
   width: 100%;
   filter: saturate(0) brightness(1.05);
-  /* opacity: 0.8; */
   transition: 0.8s;
+  cursor: pointer;
 }
 .img_box img:hover {
   filter: saturate(1);
@@ -356,9 +361,9 @@ body::-webkit-scrollbar {
   position: absolute;
   bottom: -23%;
   right: -12%;
-  z-index: -1;
   transform: translateY(50%);
   transition: 1s;
+  cursor: pointer;
 }
 .customizing .more {
   display: block;
@@ -366,6 +371,7 @@ body::-webkit-scrollbar {
   height: 355px;
   animation: spin 20s linear infinite forwards;
   margin: 66px 150px;
+  cursor: pointer;
 }
 @keyframes spin {
   0% {
@@ -381,6 +387,7 @@ body::-webkit-scrollbar {
   left: 50%;
   transform: translate(-50%, -50%);
   height: fit-content;
+  cursor: pointer;
 }
 .customizing .more {
   background: url(../img/icon/more.png) no-repeat center / cover;
@@ -408,6 +415,7 @@ body::-webkit-scrollbar {
   left: 150px;
   bottom: 150px;
   line-height: 1;
+  cursor: pointer;
 }
 .lcm_sns h3 {
   font-family: "Noto Sans KR", sans-serif;
@@ -434,6 +442,7 @@ body::-webkit-scrollbar {
   right: 150px;
   overflow: hidden;
   float: right;
+  cursor: pointer;
 }
 .lcm_sns .picture img {
   display: block;
@@ -453,12 +462,18 @@ body::-webkit-scrollbar {
   text-align: center;
 }
 .review_event h4 {
+  width: fit-content;
+  margin: 0 auto;
   font-size: 34px;
   font-weight: 600;
   padding-bottom: 30px;
+  cursor: pointer;
 }
 .review_event p {
+  width: fit-content;
+  margin: 0 auto;
   font-size: 18px;
+  cursor: pointer;
 }
 .review_event span {
   font-weight: 600;
@@ -475,10 +490,10 @@ section.show_view {
 header {
   animation: moveHeader 1s ease-in 0s forwards;
 }
-/* 배경(VIEW) 섹션*/
+/*베스트 뷰(best_view) 섹션*/
 .back_button {
   position: fixed;
-  bottom: 120px;
+  bottom: 60px;
   right: 160px;
   cursor: pointer;
   color: #fff;
@@ -515,7 +530,7 @@ header {
 /* show view - 텍스트 */
 .title_wrap {
   position: absolute;
-  bottom: 120px;
+  bottom: 60px;
   left: 160px;
   z-index: 30;
 }
@@ -600,45 +615,6 @@ header {
 }
 .bg * {
   will-change: background-image;
-}
-/* show view - 스크롤바 */
-.scroll.row {
-  display: flex;
-  width: 1600px;
-  height: fit-content;
-  justify-content: space-between;
-  position: absolute;
-  bottom: 60px;
-  left: 160px;
-  z-index: 2;
-  opacity: 1;
-}
-.circle {
-  width: 12px;
-  height: 12px;
-  background-color: #111;
-  border-radius: 100%;
-  transition: 0.5s;
-  border: 1px solid #fff;
-}
-.page1 {
-  background-color: #fff;
-}
-.state.row {
-  width: 100%;
-  height: 1px;
-  background-color: #6a6a6a;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  z-index: -1;
-}
-.state.row > div {
-  width: 100%;
-  height: 0;
-  border-radius: 2px;
-  background-color: #fff;
-  transition: 3s;
 }
 .first .bg {
   background: linear-gradient(

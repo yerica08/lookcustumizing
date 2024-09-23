@@ -416,6 +416,51 @@ header {
     }
   }
 }
+
+// 2-3. page number
+.pagination {
+  margin-top: 20px;
+}
+.page_number {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 30px;
+  margin-top: 60px;
+}
+.page_number li {
+  width: 30px;
+  height: 30px;
+  border-radius: 3px;
+  text-align: center;
+  line-height: 27px;
+  cursor: pointer;
+  list-style: none;
+}
+.page_number li.active {
+  background-color: #111;
+  color: #fff;
+}
+.line_arrow {
+  cursor: pointer;
+
+  @include darken-icon();
+  &:first-of-type {
+    background: url(../img/icon/Result.png);
+    background-position: 0px -1826px;
+    width: 12px;
+    height: 20px;
+  }
+  &:last-of-type {
+    background: url(../img/icon/Result.png);
+    background-position: 0px -1826px;
+    width: 12px;
+    height: 20px;
+    transform: rotate(180deg);
+  }
+}
 /* 3. 개별 부분 */
 // 3-1. 베스트 페이지(best_page)
 .bestLCM {
@@ -1184,6 +1229,9 @@ main.coustomizing_info {
       height: 600px;
       justify-content: space-between;
       margin: 60px auto;
+      transform: translateY(-5%);
+      opacity: 0;
+      transition: 1s;
 
       input[type="checkbox"] {
         display: none;
@@ -1330,7 +1378,7 @@ main.coustomizing_info {
           font-size: nth($font-size, 3);
           color: nth($gray-color, 6);
 
-          .explain {
+          .reset {
             margin-bottom: 15px;
           }
           .line_arrow {

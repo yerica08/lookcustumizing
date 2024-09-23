@@ -356,6 +356,53 @@ header .heart {
   transform: rotate(180deg);
 }
 
+.pagination {
+  margin-top: 20px;
+}
+
+.page_number {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 30px;
+  margin-top: 60px;
+}
+
+.page_number li {
+  width: 30px;
+  height: 30px;
+  border-radius: 3px;
+  text-align: center;
+  line-height: 27px;
+  cursor: pointer;
+  list-style: none;
+}
+
+.page_number li.active {
+  background-color: #111;
+  color: #fff;
+}
+
+.line_arrow {
+  cursor: pointer;
+  filter: brightness(0.2);
+}
+.line_arrow:first-of-type {
+  background: url(../img/icon/Result.png);
+  background-position: 0px -1826px;
+  width: 12px;
+  height: 20px;
+}
+.line_arrow:last-of-type {
+  background: url(../img/icon/Result.png);
+  background-position: 0px -1826px;
+  width: 12px;
+  height: 20px;
+  transform: rotate(180deg);
+}
+
 /* 3. 개별 부분 */
 .bestLCM .best_img {
   display: flex;
@@ -1097,6 +1144,9 @@ main.coustomizing_info section:nth-of-type(2) .parts {
   height: 600px;
   justify-content: space-between;
   margin: 60px auto;
+  transform: translateY(-5%);
+  opacity: 0;
+  transition: 1s;
 }
 main.coustomizing_info section:nth-of-type(2) .parts input[type=checkbox] {
   display: none;
@@ -1382,7 +1432,7 @@ main.coustomizing_info section:nth-of-type(2) .parts .middel_part .character {
   font-size: 20px;
   color: #787878;
 }
-main.coustomizing_info section:nth-of-type(2) .parts .middel_part .character .explain {
+main.coustomizing_info section:nth-of-type(2) .parts .middel_part .character .reset {
   margin-bottom: 15px;
 }
 main.coustomizing_info section:nth-of-type(2) .parts .middel_part .character .line_arrow {
