@@ -63,7 +63,6 @@ body::-webkit-scrollbar {
   bottom: 120px;
   opacity: 1;
   transition: 0.7s;
-  cursor: pointer;
 }
 .main_visual h3 {
   font-weight: 500;
@@ -245,7 +244,6 @@ body::-webkit-scrollbar {
   font-size: 128px;
   font-family: "Gilda Display", serif;
   transform: translate(-50%, -50%);
-  cursor: pointer;
 }
 .text_h2 h2 {
   width: fit-content;
@@ -254,7 +252,6 @@ body::-webkit-scrollbar {
   transition: 0.5s;
   opacity: 0;
   transition-delay: 0.5s;
-  cursor: pointer;
 }
 /* 배경 - 좌우로 열리는 검정 박스 */
 .view .open_box {
@@ -346,11 +343,9 @@ body::-webkit-scrollbar {
   width: 100%;
   filter: saturate(0) brightness(1.05);
   transition: 0.8s;
-  cursor: pointer;
 }
 .img_box img:hover {
   filter: saturate(1);
-  transform: scale(1.1);
 }
 .customizing .text_h2 {
   transition: 1s ease-out;
@@ -415,7 +410,6 @@ body::-webkit-scrollbar {
   left: 150px;
   bottom: 150px;
   line-height: 1;
-  cursor: pointer;
 }
 .lcm_sns h3 {
   font-family: "Noto Sans KR", sans-serif;

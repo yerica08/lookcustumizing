@@ -32,130 +32,6 @@
 
 // 1. 기본스타일 --------------------------------------------------------
 
-/* 1-1. 마우스 커서 스타일 */
-cursorStyle();
-function cursorStyle() {
-  const mouse = document.querySelector(".mouse");
-  const windowWidth = window.innerWidth;
-  let mouseX = 0;
-  let mouseY = 0;
-
-  // 커서 스타일 업데이트 함수
-  function updateCursorStyle() {
-    mouse.style.left = `${mouseX - mouse.offsetWidth / 2}px`; // 중앙 정렬
-    mouse.style.top = `${mouseY - mouse.offsetHeight / 2}px`; // 중앙 정렬
-    mouse.style.opacity = "1"; // 항상 보이게 설정
-
-    requestAnimationFrame(updateCursorStyle); // 다음 애니메이션 프레임 요청
-  }
-
-  // 전역 mousemove 이벤트
-  document.addEventListener("mousemove", function (event) {
-    mouseX = event.clientX;
-    mouseY = event.clientY;
-
-    const target = event.target; // 클릭된 요소
-    // computed style을 통해 cursor 속성 확인
-    const computedStyle = window.getComputedStyle(target);
-
-    if (
-      computedStyle.cursor === "pointer" ||
-      target.dataset.value == "pointer"
-    ) {
-      // cursor가 pointer인 경우 커서 모양 변경
-      mouse.style.transform = "scale(2)";
-      mouse.style.mixBlendMode = "difference";
-      target.style.cursor = "none";
-      target.dataset.value = "pointer";
-      // ------------
-    } else {
-      mouse.style.transform = "scale(1)";
-      mouse.style.mixBlendMode = "normal";
-    }
-
-    // 메뉴에 호버했을 때 색상 변경
-    const menuContent = document.querySelector(".menu_wrap");
-    menuContent.addEventListener("mouseover", function (event) {
-      const target = event.target; // 현재 마우스가 위치한 요소
-      const computedStyle = window.getComputedStyle(target); // 해당 요소의 computed style 가져오기
-
-      if (
-        computedStyle.cursor === "pointer" ||
-        target.dataset.value === "pointer"
-      ) {
-        mouse.style.backgroundColor = "#fff";
-      } else {
-        mouse.style.backgroundColor = "#111";
-      }
-    });
-
-    // customizing 이미지에 호버했을 때 색상 변경
-    const custoImg = document.querySelectorAll(".img_box img");
-    custoImg.forEach((img) => {
-      img.addEventListener("mouseover", () => {
-        mouse.style.backgroundColor = "#204ab7";
-      });
-      img.addEventListener("mouseleave", () => {
-        mouse.style.backgroundColor = "#fff";
-      });
-    });
-
-    menuContent.addEventListener("mouseleave", function () {
-      mouse.style.backgroundColor = "#fff";
-    });
-  });
-
-  // // 메뉴 마우스 커서
-
-  // const menuContent = document.querySelector(".menu_content");
-  // menuContent.addEventListener("mousemove", function (event) {
-  //   mouseX = event.clientX;
-  //   const target = event.target;
-
-  //   if (
-  //     target.matches("a") ||
-  //     target.matches("button") ||
-  //     target.classList.contains("touch")
-  //   ) {
-  //     mouse.style.mixBlendMode = "difference";
-  //     mouse.style.transform = "scale(2)";
-  //     mouse.style.backgroundColor = "#fff";
-  //   } else {
-  //     mouse.style.mixBlendMode = "normal";
-  //     mouse.style.transform = "scale(1)";
-  //     mouse.style.backgroundColor = "#111";
-  //   }
-  // });
-
-  // menuContent.addEventListener("mouseleave", function () {
-  //   mouse.style.mixBlendMode = "difference";
-  // });
-
-  // // 메인비주얼 마우스 커서
-  // const mainVisual = document.querySelector(".main_visual");
-  // mainVisual.addEventListener("mousemove", function (event) {
-  //   mouseX = event.clientX;
-
-  //   if (mouseX > windowWidth / 4 && mouseX < windowWidth / 1.5) {
-  //     mouse.style.mixBlendMode = "normal";
-  //     mouse.style.transform = "scale(1)";
-  //   } else {
-  //     mouse.style.mixBlendMode = "difference";
-  //     mouse.style.transform = "scale(2)";
-  //   }
-  // });
-
-  // mainVisual.addEventListener("mouseleave", function () {
-  //   mouse.style.mixBlendMode = "difference";
-  // });
-
-  // 초기화
-  document.addEventListener("DOMContentLoaded", function () {
-    mouse.style.opacity = "1"; // 페이지 로드 시 커서 보이게 설정
-    updateCursorStyle(); // 커서 스타일 업데이트 시작
-  });
-}
-
 // 1-2. header - 하트 버튼
 heartBtn();
 function heartBtn() {
@@ -177,7 +53,11 @@ function heartBtn() {
     heartContent.querySelector("ul").style.height = "500px";
     heartContent.querySelector("ul").style.opacity = "1";
     heartButton.style.backgroundPosition = "0px -1705px";
-    heartButton.style.filter = "brightness(2)";
+    if (pathName.includes("index.html")) {
+      heartButton.style.filter = "brightness(1)";
+    } else {
+      heartButton.style.filter = "brightness(0.2)";
+    }
   }
 
   function handleMouseLeave() {
@@ -194,7 +74,11 @@ function heartBtn() {
       heartContent.querySelector("ul").style.height = "500px";
       heartContent.querySelector("ul").style.opacity = "1";
       heartButton.style.backgroundPosition = "0px -1705px";
-      heartButton.style.filter = "brightness(0.2)";
+      if (pathName.includes("index.html")) {
+        heartButton.style.filter = "brightness(1)";
+      } else {
+        heartButton.style.filter = "brightness(0.2)";
+      }
       heart = true;
     } else {
       heartContent.querySelector("ul").style.height = "0px";
@@ -388,7 +272,7 @@ function mainPage() {
           setTimeout(() => {
             h2.style.opacity = 1;
             h2.style.transform = "translateY(0)";
-          }, index * 300); // 각 요소에 대해 300ms의 지연 시간
+          }, index * 100);
         });
         setTimeout(function () {
           // 첫 번째 박스 왼쪽으로 이동
@@ -417,7 +301,7 @@ function mainPage() {
               diamond.style.transition = "0.5s";
             });
           }, 1000);
-        }, 2000);
+        }, 1200);
       } else {
         // 스크롤 올릴 때
         window.scrollTo({ top: 0, behavior: "smooth" });
@@ -444,7 +328,7 @@ function mainPage() {
           setTimeout(() => {
             h2.style.opacity = 1;
             h2.style.transform = "translateY(0)";
-          }, index * 100); // 각 요소에 대해 200ms의 지연 시간
+          }, index * 70);
 
           // 모든 글자가 나타난 후 openBox를 사라지게 함
           setTimeout(() => {
@@ -918,15 +802,15 @@ function subScroll() {
 
   // 초기 스타일 설정을 위한 배열
   const bestPaeElements = [
-    { el: scrollTexts[0], delay: "2s" },
-    { el: select[0], delay: "2.5s" },
-    { el: bestImg[0], delay: "3s" },
+    { el: scrollTexts[0], delay: "1s" },
+    { el: select[0], delay: "1.5s" },
+    { el: bestImg[0], delay: "1.8s" },
   ];
   const normalPageElements = [
-    { el: scrollTexts[0], delay: "2s" },
-    { el: select[0], delay: "2.5s" },
-    { el: contentsWrap, delay: "3s" },
-    { el: event[1], delay: "3.5s" },
+    { el: scrollTexts[0], delay: "1s" },
+    { el: select[0], delay: "1.5s" },
+    { el: contentsWrap, delay: "1.8s" },
+    { el: event[1], delay: "2s" },
   ];
   let pathName = window.location.pathname;
 

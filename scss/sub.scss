@@ -86,7 +86,7 @@ h5 {
 // 2. 공통 부분
 // 2-1. header
 header {
-  animation: moveHeader 1s ease-in 3s forwards;
+  animation: moveHeader 1s ease-in 1.8s forwards;
 
   &::before {
     background: nth($gray-color, 1);
@@ -142,14 +142,13 @@ header {
       box-sizing: border-box;
       white-space: nowrap;
       transition: 0.3s;
+      cursor: pointer;
 
       &:hover {
         color: nth($gray-color, 7);
-        font-weight: 600;
       }
       a:hover {
         color: nth($gray-color, 7);
-        font-weight: 600;
       }
       &.click_first {
         background-color: nth($gray-color, 1);
@@ -689,6 +688,7 @@ main.forum {
             box-sizing: border-box;
             line-height: 15px;
             transition: 0.2s;
+            cursor: pointer;
 
             .line_arrow {
               @include darken-icon;
@@ -703,6 +703,7 @@ main.forum {
               background-color: nth($gray-color, 7);
               color: nth($gray-color, 1);
               line-height: 15px;
+              cursor: pointer;
 
               .line_arrow {
                 @include lighten-icon;
@@ -752,6 +753,8 @@ main.forum {
             li {
               font-size: nth($font-size, 3);
               color: nth($gray-color, 6);
+              cursor: pointer;
+
               &:hover {
                 color: nth($gray-color, 7);
                 font-weight: 600;
@@ -836,6 +839,7 @@ main.forum {
           font-size: nth($font-size, 2);
           color: nth($gray-color, 6);
           line-height: 30px;
+          cursor: pointer;
 
           &:hover,
           &.checked {

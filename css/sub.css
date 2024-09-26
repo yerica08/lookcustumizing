@@ -46,7 +46,7 @@ h5 {
 }
 
 header {
-  animation: moveHeader 1s ease-in 3s forwards;
+  animation: moveHeader 1s ease-in 1.8s forwards;
 }
 header::before {
   background: #ffffff;
@@ -98,14 +98,13 @@ header .heart {
   box-sizing: border-box;
   white-space: nowrap;
   transition: 0.3s;
+  cursor: pointer;
 }
 .wrapper.white ul.select li:hover {
   color: #111111;
-  font-weight: 600;
 }
 .wrapper.white ul.select li a:hover {
   color: #111111;
-  font-weight: 600;
 }
 .wrapper.white ul.select li.click_first {
   background-color: #ffffff;
@@ -630,6 +629,7 @@ main.forum .contents_wrap .left_nav .list_wrap > li .list_name {
   box-sizing: border-box;
   line-height: 15px;
   transition: 0.2s;
+  cursor: pointer;
 }
 main.forum .contents_wrap .left_nav .list_wrap > li .list_name .line_arrow {
   filter: brightness(0.2);
@@ -642,6 +642,7 @@ main.forum .contents_wrap .left_nav .list_wrap > li.active .list_name {
   background-color: #111111;
   color: #ffffff;
   line-height: 15px;
+  cursor: pointer;
 }
 main.forum .contents_wrap .left_nav .list_wrap > li.active .list_name .line_arrow {
   filter: brightness(1);
@@ -680,6 +681,7 @@ main.forum .contents_wrap .left_nav .list_wrap > li .list {
 main.forum .contents_wrap .left_nav .list_wrap > li .list li {
   font-size: 20px;
   color: #787878;
+  cursor: pointer;
 }
 main.forum .contents_wrap .left_nav .list_wrap > li .list li:hover {
   color: #111111;
@@ -760,6 +762,7 @@ main.forum .contents_wrap .main_board ul.sort_by li {
   font-size: 16px;
   color: #787878;
   line-height: 30px;
+  cursor: pointer;
 }
 main.forum .contents_wrap .main_board ul.sort_by li:hover, main.forum .contents_wrap .main_board ul.sort_by li.checked {
   color: #111111;
