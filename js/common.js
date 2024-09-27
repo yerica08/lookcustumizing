@@ -53,11 +53,6 @@ function heartBtn() {
     heartContent.querySelector("ul").style.height = "500px";
     heartContent.querySelector("ul").style.opacity = "1";
     heartButton.style.backgroundPosition = "0px -1705px";
-    if (pathName.includes("index.html")) {
-      heartButton.style.filter = "brightness(1)";
-    } else {
-      heartButton.style.filter = "brightness(0.2)";
-    }
   }
 
   function handleMouseLeave() {
@@ -65,7 +60,6 @@ function heartBtn() {
       heartContent.querySelector("ul").style.height = "0px";
       heartContent.querySelector("ul").style.opacity = "0";
       heartButton.style.backgroundPosition = "0px -1687px";
-      heartButton.style.filter = "brightness(1)";
     }
   }
 
@@ -96,7 +90,7 @@ function menuBtn() {
   const menuContent = document.querySelector(".menu_content");
   const menuButton = document.querySelector(".menu_button");
   const closeButton = document.querySelector(".close_button");
-  const menuWrap = document.querySelector(".menu_wrap");
+  const menuWrap = document.querySelector(".menu_content .wrap");
 
   menuButton.addEventListener("click", function () {
     menuContent.style.opacity = "1";
@@ -262,9 +256,6 @@ function mainPage() {
         window.scrollTo({ top: view.offsetTop, behavior: "smooth" });
 
         const viewTextH2 = document.querySelector(".view .text_h2");
-        const customizingTextH2 = document.querySelector(
-          ".customizing .text_h2"
-        );
         const h2Elements = Array.from(viewTextH2.children);
         // 각 h2 요소에 대해 스타일 적용
         h2Elements.forEach((h2, index) => {
@@ -332,7 +323,7 @@ function mainPage() {
 
           // 모든 글자가 나타난 후 openBox를 사라지게 함
           setTimeout(() => {
-            textH2.style.transform = "translate(-50%, -340%)";
+            textH2.style.paddingTop = "20vw";
           }, h2Elements.length * 100 + 600);
 
           setTimeout(() => {
@@ -412,7 +403,7 @@ function mainPage() {
           h2.style.opacity = 0;
           h2.style.transform = "translateY(-50%)";
         });
-        textH2.style.transform = "translate(-50%, -50%)";
+        textH2.style.paddingTop = "60%";
         box1.style.transform = "translateX(0%)";
         box2.style.transform = "translateX(0%)";
         moreBtn.style.transform = "translateY(50%)";

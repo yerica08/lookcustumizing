@@ -373,7 +373,7 @@ strong {
 
 /* 기본 배경 */
 .wrapper {
-  width: 100%;
+  width: 100vw;
   height: auto;
   position: relative;
   opacity: 0;
@@ -421,7 +421,7 @@ header {
 .header_wrap {
   display: flex;
   justify-content: space-between;
-  width: 1600px;
+  width: 83%;
   margin: 0 auto;
   position: relative;
   z-index: 500;
@@ -439,7 +439,7 @@ header {
 header::before {
   display: block;
   content: "";
-  width: 3000px;
+  width: 200%;
   height: 170px;
   position: absolute;
   top: 0;
@@ -681,21 +681,29 @@ header:hover .lnb {
   transition: opacity 0.5s;
   overflow: hidden;
 }
-.menu_wrap {
+.menu_content .wrap {
   display: flex;
   flex-flow: column wrap;
   justify-content: space-between;
-  width: 26%;
+  width: fit-content;
   height: 100%;
-  background-color: #fff;
   position: absolute;
   top: 0;
   right: 0;
-  padding: 3vw;
   box-sizing: border-box;
+  padding: 3vw;
   z-index: 500;
+  background-color: #fff;
   transform: translateX(26vw);
   transition: transform 0.5s;
+}
+.menu_wrap {
+  display: flex;
+  gap: 3vh;
+  width: fit-content;
+  height: fit-content;
+  flex-flow: column wrap;
+  justify-content: space-between;
 }
 .menu_wrap > li {
   display: block;
@@ -704,7 +712,7 @@ header:hover .lnb {
   position: relative;
 }
 .menu_wrap > li:first-child {
-  height: 24px;
+  height: fit-content;
   padding: 0;
 }
 .menu_wrap > li:first-child > div {
@@ -753,7 +761,7 @@ header:hover .lnb {
 .user_login > a {
   display: block;
   width: 100%;
-  height: 50px;
+  height: 100%;
   background-color: #fff;
   border: 1px solid #111;
   font-size: 18px;
@@ -771,7 +779,7 @@ header:hover .lnb {
   gap: 25px;
   width: 100%;
   height: fit-content;
-  padding: 0 30px;
+  padding: 1vh 30px;
   box-sizing: border-box;
 }
 .user_login + li > a {
@@ -787,7 +795,6 @@ header:hover .lnb {
 .user_service {
   width: 100%;
   height: fit-content;
-  padding-top: 3vh;
 }
 .user_service > li {
   padding-bottom: 2vh;
@@ -795,11 +802,11 @@ header:hover .lnb {
 .user_service > li > a {
   display: block;
   width: 100%;
-  height: 65px;
+  height: fit-content;
   background-color: #fbfbfb;
   border: 1px solid #e4e4e4;
   color: #6a6a6a;
-  padding: 20px 0;
+  padding: 2vh 0;
   box-sizing: border-box;
   overflow: hidden;
   position: relative;
@@ -831,27 +838,25 @@ header:hover .lnb {
   cursor: pointer;
 }
 /* 메뉴 - 이벤트 */
-.menu_wrap .event {
-  padding-top: 10vh;
-}
 .lostark_event {
   width: 100%;
 }
-.menu_wrap > li:last-child {
+.menu_content .link {
   display: flex;
+  flex-flow: row wrap;
   justify-content: space-between;
   align-items: center;
+  padding-top: 1vh;
 }
-.menu_wrap > li:last-child > div {
+.menu_content .link > div {
   display: flex;
   justify-content: space-between;
-  gap: 10px;
 }
-.menu_wrap > li:last-child img {
+.menu_content .link img {
   display: inline-block;
   filter: brightness(0.4);
 }
-.menu_wrap > li:last-child a {
+.menu_content .link a {
   filter: brightness(0.4);
 }
 /* 푸터 */

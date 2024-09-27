@@ -8,6 +8,7 @@
     <link rel="icon" href="./img/favicon/favicon-16x16.png" />
     <!-- css -->
     <link rel="stylesheet" href="./css/layout.css" />
+    <link rel="stylesheet" href="./css/responsvie/layout_responsive.css" />
     <!-- jquery -->
     <script src="./js/jquery.min.js"></script>
     <script src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
@@ -129,62 +130,66 @@
       <!-- 메뉴 -->
       <div class="menu_content">
         <!-- 우측 메뉴 창 -->
-        <ul class="menu_wrap">
-          <li class="close_button">
-            <div><button type="button" class="close"></button></div>
-          </li>
-          <!-- 검색창 -->
-          <li>
-            <input
-              type="text"
-              class="search"
-              placeholder="검색 내용을 입력하세요." />
-            <label for="search"></label>
-          </li>
-          <!-- 로그인 -->
-          <li class="user_login">
-            <a href="./sub_page/user_page/login.html">로그인</a>
-          </li>
-          <li>
-            <a href="#">아이디 찾기</a>
-            <a href="#">비밀번호 찾기</a>
-            <a href="#">회원가입</a>
-            <a href="#">고객센터</a>
-          </li>
-          <li>
-            <!-- 사용자 서비스 창 -->
-            <ul class="user_service">
-              <li>
-                <a href="#"><i class="human"></i><span>마이페이지</span></a>
-              </li>
-              <li>
-                <a href="#"><i class="heart"></i><span>찜 목록</span></a>
-              </li>
-              <li>
-                <a href="#"><i class="alert"></i><span>알림</span></a>
-              </li>
-              <li>
-                <a href="#"><i class="setting"></i> <span>환경설정</span></a>
-              </li>
-            </ul>
-          </li>
-          <li class="event">
-            <img
-              src="./img/photo/event/lostark_event.png"
-              alt="로스트아크"
-              class="lostark_event" />
-          </li>
-          <li>
-            <a href="/"
-              ><img src="./img/icon/logo.png" alt="LCM로고" height="18"
-            /></a>
-            <div>
-              <a href="#" class="facebook"></a>
-              <a href="#" class="instagram"></a>
-              <a href="#" class="tiktok"></a>
+        <div class="wrap">
+          <ul class="menu_wrap">
+            <li class="close_button">
+              <div><button type="button" class="close"></button></div>
+            </li>
+            <!-- 검색창 -->
+            <li>
+              <input
+                type="text"
+                class="search"
+                placeholder="검색 내용을 입력하세요." />
+              <label for="search"></label>
+            </li>
+            <!-- 로그인 -->
+            <li class="user_login">
+              <a href="./sub_page/user_page/login.html">로그인</a>
+            </li>
+            <li>
+              <a href="#">아이디 찾기</a>
+              <a href="#">비밀번호 찾기</a>
+              <a href="#">회원가입</a>
+              <a href="#">고객센터</a>
+            </li>
+            <li>
+              <!-- 사용자 서비스 창 -->
+              <ul class="user_service">
+                <li>
+                  <a href="#"><i class="human"></i><span>마이페이지</span></a>
+                </li>
+                <li>
+                  <a href="#"><i class="heart"></i><span>찜 목록</span></a>
+                </li>
+                <li>
+                  <a href="#"><i class="alert"></i><span>알림</span></a>
+                </li>
+                <li>
+                  <a href="#"><i class="setting"></i> <span>환경설정</span></a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <div>
+            <div class="event">
+              <img
+                src="./img/photo/event/lostark_event.png"
+                alt="로스트아크"
+                class="lostark_event" />
             </div>
-          </li>
-        </ul>
+            <div class="link">
+              <a href="/"
+                ><img src="./img/icon/logo.png" alt="LCM로고" height="18"
+              /></a>
+              <div>
+                <a href="#" class="facebook"></a>
+                <a href="#" class="instagram"></a>
+                <a href="#" class="tiktok"></a>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
       <section class="main_visual">
         <div class="full_photo">

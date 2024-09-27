@@ -1,5 +1,6 @@
 @charset "utf-8";
 @import url(./common.css);
+
 section {
   width: 100vw;
   height: 100vh;
@@ -50,8 +51,10 @@ body::-webkit-scrollbar {
   }
 }
 .full_photo > img {
-  width: 100%;
+  width: 1920px;
   position: relative;
+  left: 0;
+  transform-origin: top center;
   z-index: -10;
 }
 /* 메인비주얼 - 글자 */
@@ -59,24 +62,24 @@ body::-webkit-scrollbar {
   width: fit-content;
   height: fit-content;
   position: absolute;
-  left: 150px;
-  bottom: 120px;
+  left: 7.8%;
+  bottom: 11%;
   opacity: 1;
   transition: 0.7s;
 }
 .main_visual h3 {
   font-weight: 500;
-  padding-bottom: 20px;
+  padding-bottom: 5%;
   margin-left: 5px;
 }
 .main_visual h2 {
   font-size: 43px;
   font-weight: 500;
-  padding-bottom: 30px;
+  padding-bottom: 8%;
 }
 .main_p {
   position: relative;
-  margin-left: 20px;
+  margin-left: 5%;
   line-height: 24px;
 }
 .main_p::before {
@@ -85,47 +88,16 @@ body::-webkit-scrollbar {
   height: 90%;
   position: absolute;
   top: 5px;
-  left: -15px;
+  left: -4%;
   background-color: #fff;
 }
 .main_visual p:last-of-type {
-  padding-top: 20px;
+  padding-top: 5%;
   font-size: 14px;
   font-weight: 200;
   margin-left: 5px;
 }
-/* 메인비주얼 - 스크롤바 */
-.scroll.Vertical {
-  flex-direction: column;
-  width: fit-content;
-  height: 500px;
-  position: absolute;
-  right: 150px;
-  top: 50%;
-  transform: translateY(-50%);
-  opacity: 1;
-}
-.circle {
-  background-color: #d7d7d7;
-  border: 1px solid #fff;
-}
-.page1 {
-  background-color: #fff;
-}
-.state.Vertical {
-  width: 3px;
-  height: 100%;
-  background-color: rgb(255, 255, 255, 0.2);
-  position: absolute;
-  top: 0;
-  left: 45%;
-  z-index: -1;
-}
-.state.Vertical > div {
-  width: 100%;
-  height: 0%;
-  background-color: #fff;
-}
+
 /* 두번째 섹션 - 배경(VIEW) */
 /* 배경 - 이미지 박스 */
 .view_box {
@@ -239,8 +211,9 @@ body::-webkit-scrollbar {
 .text_h2 {
   display: flex;
   position: absolute;
-  top: 50%;
+  top: 0;
   left: 50%;
+  padding-top: 50%;
   font-size: 128px;
   font-family: "Gilda Display", serif;
   transform: translate(-50%, -50%);
@@ -300,21 +273,6 @@ body::-webkit-scrollbar {
   transition: transform 0.5s ease;
 }
 /* 세번째 섹션 - 패션 */
-/* .customizing {
-  display: flex;
-  justify-content: space-between;
-  flex-direction: column;
-  height: 100vh;
-  background-color: #111;
-  padding: 150px 0;
-  box-sizing: border-box;
-}
-.customizing h2 {
-  font-size: 128px;
-  font-family: "Gilda Display", serif;
-  margin-bottom: 60px;
-  padding-left: 150px;
-} */
 .customizing_img {
   display: flex;
   width: fit-content;
@@ -348,6 +306,7 @@ body::-webkit-scrollbar {
   filter: saturate(1);
 }
 .customizing .text_h2 {
+  padding-top: 60%;
   transition: 1s ease-out;
 }
 /* 패션 - 더보기 버튼 */

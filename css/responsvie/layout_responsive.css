@@ -1,0 +1,41 @@
+@charset "utf-8";
+@import url(./common_resopnsive.css);
+/* 반응형 */
+/* 
+    목차
+        1. 1600px ~ 1440px
+        2. 1439px ~ 1025px
+        3. 1024px ~ 769px
+        4. 768px ~ 481px
+        5. 480px ~
+*/
+/* 1. 1600px ~ 1440px */
+@media screen and (min-width: 1440px) and (max-width: 1600px) {
+  .full_photo > img {
+    transform: translateX(-10%);
+  }
+  .view_box .diamond {
+    transform: translate(-30%, -40%) scale(0.6);
+  }
+  .customizing_img.box1 {
+    left: -140%;
+  }
+  .customizing_img.box2 {
+    right: -140%;
+  }
+}
+/* 2. 1439px ~ 1025px */
+@media screen and (min-width: 1025px) and (max-width: 1439px) {
+  .full_photo > img {
+    transform: translateX(-20%);
+  }
+}
+/* 3. 1024px ~ 769px */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+}
+/* 4. 768px ~ 481px */
+@media screen and (min-width: 481px) and (max-width: 768px) {
+}
+/* 5. 480px ~*/
+@media screen and (max-width: 480px) {
+}
