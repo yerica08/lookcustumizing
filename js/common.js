@@ -576,6 +576,8 @@ function mainPage() {
       nav.style.opacity = "0";
       setTimeout(() => {
         nav.style.display = "none";
+        smallMenuBtn.classList.remove("close");
+        smallMenuBtn.classList.add("menu");
       }, 200);
       menuClick = false;
     } else {

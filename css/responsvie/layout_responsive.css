@@ -381,6 +381,7 @@
   }
   .gnb {
     width: 100%;
+    font-size: 14px;
   }
   .header_icon {
     position: absolute;
@@ -409,7 +410,7 @@
   }
   /* h2 */
   .text_h2 {
-    font-size: 43px;
+    font-size: 28px;
   }
   /* main visual */
   .full_photo > img {
@@ -417,12 +418,28 @@
     width: auto;
     height: 100%;
   }
+  .main_visual h3 {
+    margin-left: 0;
+  }
   .main_visual h2 {
-    font-size: 36px;
+    font-size: 28px;
+  }
+  .main_visual .bg {
+    width: 120vw;
+    height: 40vh;
+    position: absolute;
+    bottom: 0;
+    left: -10%;
+    background-color: rgb(17, 17, 17, 0.5);
+    z-index: -1;
+    transform: translateY(16%);
   }
   /* view */
   .view_box .diamond {
-    transform: translate(-30%, -40%) scale(0.6);
+    transform: translate(-20%, -23%) scale(0.4);
+  }
+  .view_box > div:hover .diamond {
+    transform: rotate(45deg) translate(-20%, -22%) scale(0.4);
   }
   .view_box {
     flex-wrap: wrap;
@@ -469,30 +486,38 @@
     text-align: center;
   }
   .lcm_sns h3 {
-    font-size: 23px;
+    font-size: 16px;
     font-weight: 300;
     padding-bottom: 20px;
   }
   .lcm_sns h2 {
-    font-size: 34px;
+    font-size: 24px;
   }
   .lcm_sns .picture {
     width: 80vw;
     height: 80%;
     position: absolute;
-    top: 215px;
+    top: 160px;
     right: 50%;
     transform: translateX(50%);
   }
+  /* event */
+  .review_event h4 {
+    font-size: 24px;
+  }
+  .review_event p {
+    font-size: 14px;
+  }
   /* footer */
   .footer_wrap {
-    height: 115px;
+    height: fit-content;
+    padding: 40px 0;
   }
   footer .policy {
     margin-bottom: 10px;
     flex-wrap: wrap;
-    width: 643px;
-    justify-content: end;
+    width: 100%;
+    justify-content: center;
     row-gap: 0;
   }
   .footer_wrap > ul {
@@ -500,5 +525,12 @@
   }
   footer .legal {
     text-align: center;
+    float: none;
+    height: fit-content;
+  }
+  footer .legal p {
+    display: flex;
+    width: 100;
+    flex-flow: column wrap;
   }
 }
