@@ -238,10 +238,12 @@ function mainPage() {
   const footer = document.querySelector("footer");
   const box1 = document.querySelector(".customizing_img.box1");
   const box2 = document.querySelector(".customizing_img.box2");
+  const box3 = document.querySelector(".customizing_img.box3");
   const moreBtn = document.querySelector(".customizing .more_button");
   const snsH3 = document.querySelector(".lcm_sns h3");
   const snsH2 = document.querySelector(".lcm_sns h2");
-  let verticalScroll = 20; // customizing 페이지 좌우 스크롤
+  let horizontalScroll = 20; // customizing 페이지 좌우 스크롤
+  let verticalScroll = 0;
 
   // 2-1-1. 메인페이지 스크롤
   // 메인비주얼 스크롤
@@ -309,8 +311,6 @@ function mainPage() {
       window.scrollTo({ top: customizing.offsetTop, behavior: "smooth" });
       const textH2 = document.querySelector(".customizing .text_h2");
       const h2Elements = Array.from(textH2.children);
-      const box1 = document.querySelector(".customizing_img.box1");
-      const box2 = document.querySelector(".customizing_img.box2");
 
       // 각 h2 요소에 대해 스타일 적용
       function textMoving() {
@@ -321,14 +321,20 @@ function mainPage() {
             h2.style.transform = "translateY(0)";
           }, index * 70);
 
-          // 모든 글자가 나타난 후 openBox를 사라지게 함
           setTimeout(() => {
-            textH2.style.paddingTop = "20vw";
+            // textH2.style.paddingTop = "20vw";
+            if (window.innerWidth < 1025) {
+              textH2.style.top = "10vh";
+            } else {
+              textH2.style.top = "15vh";
+            }
           }, h2Elements.length * 100 + 600);
 
+          // 모든 글자가 나타난 후 openBox를 사라지게 함
           setTimeout(() => {
             box1.style.transform = "translateX(50%)";
             box2.style.transform = "translateX(-50%)";
+            box3.style.opacity = "1";
           }, h2Elements.length * 100 + 700);
         });
       }
@@ -349,6 +355,7 @@ function mainPage() {
         // 두 번째 박스 원래 위치로
         boxes[1].style.transform = "translateX(0)";
         boxes[1].style.transition = "transform 0s";
+        const viewText = document.getElementById("viewText");
         viewText.style.opacity = 1;
         viewText.style.zIndex = "100";
         // 모든 diamond 요소의 opacity를 초기화
@@ -372,7 +379,8 @@ function mainPage() {
 
     if (scrollAmount > 0) {
       //스크롤 내릴 때
-      if (verticalScroll >= 120) {
+      if (horizontalScroll >= 120) {
+        // 스크롤 끝까지 내린 이후
         window.scrollTo({ top: lcm_sns.offsetTop, behavior: "smooth" });
         setTimeout(() => {
           snsH3.style.transform = "translate(0)";
@@ -383,37 +391,66 @@ function mainPage() {
           snsH2.style.opacity = 1;
         }, 1000);
       } else {
-        verticalScroll += 20;
-        if (verticalScroll <= 80) {
-          box1.style.transform = "translateX(" + (50 + verticalScroll) + "%)";
-          box2.style.transform = "translateX(-" + (50 + verticalScroll) + "%)";
-          if (verticalScroll == 80) {
-            setTimeout(() => {
-              moreBtn.style.transform = "translateY(0)";
-            }, 200);
+        // 스크롤 내리는 중간
+        horizontalScroll += 20;
+        verticalScroll += 300;
+        if (horizontalScroll <= 80) {
+          if (window.innerWidth < 1025) {
+            const box3 = document.querySelector(".customizing_img.box3");
+            box3.scrollTo({ top: verticalScroll, behavior: "smooth" });
+            if (horizontalScroll == 80) {
+              moreBtn.style.opacity = 1;
+              moreBtn.style.transform = "translate(-15%, 0)";
+            }
+          } else {
+            box1.style.transform =
+              "translateX(" + (50 + horizontalScroll) + "%)";
+            box2.style.transform =
+              "translateX(-" + (50 + horizontalScroll) + "%)";
+            if (horizontalScroll == 80) {
+              setTimeout(() => {
+                moreBtn.style.opacity = 1;
+                moreBtn.style.transform = "translateY(0)";
+              }, 200);
+            }
           }
         }
       }
     } else {
       // 스크롤 올릴 때
-      if (verticalScroll < 0) {
+      if (horizontalScroll < 0) {
         window.scrollTo({ top: view.offsetTop, behavior: "smooth" });
         const textH2 = document.querySelector(".customizing .text_h2");
         Array.from(textH2.children).forEach((h2) => {
           h2.style.opacity = 0;
           h2.style.transform = "translateY(-50%)";
         });
-        textH2.style.paddingTop = "60%";
+        textH2.style.top = "50vh";
+        // textH2.style.paddingTop = "60%"
         box1.style.transform = "translateX(0%)";
         box2.style.transform = "translateX(0%)";
-        moreBtn.style.transform = "translateY(50%)";
+        moreBtn.style.opacity = 0;
+        moreBtn.style.transform = "translate(-15%, 50%)";
+        box3.style.opacity = 0;
       } else {
-        verticalScroll -= 20;
-        if (verticalScroll >= 20) {
-          box1.style.transform = "translateX(" + (50 + verticalScroll) + "%)";
-          box2.style.transform = "translateX(-" + (50 + verticalScroll) + "%)";
-          if (verticalScroll == 0) {
-            moreBtn.style.transform = "translateY(50%)";
+        horizontalScroll -= 20;
+        verticalScroll -= 300;
+        if (horizontalScroll >= 20) {
+          if (window.innerWidth < 1025) {
+            box3.scrollTo({ top: verticalScroll, behavior: "smooth" });
+            if (horizontalScroll == 100) {
+              moreBtn.style.opacity = 0;
+              moreBtn.style.transform = "translate(-15%, 50%)";
+            }
+          } else {
+            box1.style.transform =
+              "translateX(" + (50 + horizontalScroll) + "%)";
+            box2.style.transform =
+              "translateX(-" + (50 + horizontalScroll) + "%)";
+            if (horizontalScroll == 0) {
+              moreBtn.style.opacity = 0;
+              moreBtn.style.transform = "translateY(50%)";
+            }
           }
         }
       }
@@ -527,9 +564,34 @@ function mainPage() {
 
       document.body.appendChild(newImage); // 이미지 로드
     });
+
+  // 2-1-3. 모바일사이즈 메뉴버튼
+  const smallMenu = document.querySelector("header .small_menu");
+  const smallMenuBtn = document.querySelector("header .small_menu button");
+  const nav = document.querySelector("nav");
+  let menuClick = false;
+
+  smallMenu.addEventListener("click", function () {
+    if (menuClick) {
+      nav.style.opacity = "0";
+      setTimeout(() => {
+        nav.style.display = "none";
+      }, 200);
+      menuClick = false;
+    } else {
+      nav.style.display = "flex";
+      setTimeout(() => {
+        nav.style.opacity = "1";
+      }, 200);
+      menuClick = true;
+      smallMenuBtn.classList.remove("menu");
+      smallMenuBtn.classList.add("close");
+      smallMenuBtn.style.filter = "brightness(1)";
+    }
+  });
 }
 
-// 2-1-3. 메인페이지 베스트 뷰(best_view)
+// 2-1-4. 메인페이지 베스트 뷰(best_view)
 function bestViewPage() {
   // 이미지 세트 정의
   const imageSets = {

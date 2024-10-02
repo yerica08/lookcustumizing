@@ -54,6 +54,8 @@ body::-webkit-scrollbar {
   width: 1920px;
   position: relative;
   left: 0;
+  top: 50vh;
+  transform: translateY(-50%);
   transform-origin: top center;
   z-index: -10;
 }
@@ -63,7 +65,7 @@ body::-webkit-scrollbar {
   height: fit-content;
   position: absolute;
   left: 7.8%;
-  bottom: 11%;
+  bottom: 10vh;
   opacity: 1;
   transition: 0.7s;
 }
@@ -211,9 +213,9 @@ body::-webkit-scrollbar {
 .text_h2 {
   display: flex;
   position: absolute;
-  top: 0;
+  top: 50vh;
   left: 50%;
-  padding-top: 50%;
+  /* padding-top: 50%; */
   font-size: 128px;
   font-family: "Gilda Display", serif;
   transform: translate(-50%, -50%);
@@ -225,6 +227,24 @@ body::-webkit-scrollbar {
   transition: 0.5s;
   opacity: 0;
   transition-delay: 0.5s;
+}
+.text_h2 h2:nth-child(2) {
+  padding-left: 5px;
+}
+.text_h2 h2:nth-child(3) {
+  padding-left: 7px;
+}
+.text_h2 h2:nth-child(4) {
+  padding-left: 6px;
+}
+.text_h2 h2:nth-child(5) {
+  padding-left: 5px;
+}
+.text_h2 h2:nth-child(6) {
+  padding-left: 3px;
+}
+.text_h2 h2:nth-child(11) {
+  padding-left: 2px;
 }
 /* 배경 - 좌우로 열리는 검정 박스 */
 .view .open_box {
@@ -276,26 +296,43 @@ body::-webkit-scrollbar {
 .customizing_img {
   display: flex;
   width: fit-content;
-  height: 330px;
+  /* height: 330px; */
+  height: fit-content;
   overflow: hidden;
   transition: 1.5s;
   /* display: none; */
+  position: absolute;
+  z-index: 1;
 }
 .customizing_img.box1 {
-  position: absolute;
   top: 30%;
   left: -120%;
-  z-index: 1;
 }
 .customizing_img.box2 {
-  position: absolute;
   top: 64%;
   right: -120%;
-  z-index: 1;
+}
+.customizing_img.box3 {
+  display: none;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 88vw;
+  height: 80vh;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -40%);
+  overflow-x: hidden;
+  overflow-y: scroll;
+  opacity: 0;
+}
+.customizing_img.box3::-webkit-scrollbar {
+  display: none;
 }
 .customizing_img .img_box {
-  width: 500px;
-  height: 330px;
+  width: 26vw;
+  height: 30vh;
+  overflow: hidden;
 }
 .img_box img {
   width: 100%;
@@ -306,7 +343,7 @@ body::-webkit-scrollbar {
   filter: saturate(1);
 }
 .customizing .text_h2 {
-  padding-top: 60%;
+  /* padding-top: 60%; */
   transition: 1s ease-out;
 }
 /* 패션 - 더보기 버튼 */
@@ -318,6 +355,7 @@ body::-webkit-scrollbar {
   transform: translateY(50%);
   transition: 1s;
   cursor: pointer;
+  opacity: 0;
 }
 .customizing .more {
   display: block;
@@ -398,6 +436,7 @@ body::-webkit-scrollbar {
   cursor: pointer;
 }
 .lcm_sns .picture img {
+  width: 100%;
   display: block;
   margin: 30px 0;
 }

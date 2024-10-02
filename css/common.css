@@ -490,6 +490,9 @@ nav {
   position: relative;
   height: 24px;
 }
+.gnb li:hover {
+  font-weight: 600;
+}
 /* 헤더 - 2차 메뉴 */
 .lnb {
   width: 100px;
@@ -530,9 +533,9 @@ header:hover .lnb {
   width: 24px;
   height: 24px;
   padding: 10px;
+  padding-top: 0;
   border-radius: 100%;
   float: left;
-  transform: translateY(-10px);
   margin-left: 15px;
   cursor: pointer;
 }
@@ -661,9 +664,9 @@ header:hover .lnb {
   width: 24px;
   height: 24px;
   padding: 10px;
+  padding-top: 0;
   border-radius: 100%;
   float: left;
-  transform: translateY(-10px);
   margin-left: 15px;
   cursor: pointer;
 }
@@ -859,6 +862,14 @@ header:hover .lnb {
 .menu_content .link a {
   filter: brightness(0.4);
 }
+/* 메뉴 - 모바일 사이즈 */
+.small_menu {
+  display: none;
+  width: 24px;
+  height: 24px;
+  float: right;
+  padding-left: 10px;
+}
 /* 푸터 */
 footer {
   width: 100%;
@@ -871,14 +882,15 @@ footer a {
   color: #fff;
 }
 .footer_wrap {
-  width: 1600px;
+  /* width: 1600px; */
+  width: 83.3vw;
   height: 96px;
   margin: 0 auto;
   padding: 60px 0;
 }
 .footer_wrap > ul {
   display: flex;
-  width: 540px;
+  width: 28vw;
   height: fit-content;
   justify-content: space-between;
   float: left;

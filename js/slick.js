@@ -14,6 +14,7 @@ $(function () {
   // lcm_sns 슬라이더
   $("#lcm_instagram").slick({
     dots: false,
+    arrows: false,
     autoplay: true,
     autoplaySpeed: 0.2,
     infinite: true,
