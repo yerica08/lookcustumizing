@@ -11,7 +11,8 @@
     2-1. 메인 페이지(index)
       2-1-1. 메인페이지 스크롤
       2-1-2. 페이지 전환
-      2-1-3. 메인페이지 베스트 뷰(best_view)
+      2-1-3. 모바일사이즈 메뉴버튼
+      2-1-4. 메인페이지 베스트 뷰(best_view)
 
     2-2. 서브 페이지(sub_page)
       2-2-1. 스크롤 이벤트
@@ -50,9 +51,14 @@ function heartBtn() {
   });
 
   function handleMouseOver() {
-    heartContent.querySelector("ul").style.height = "500px";
+    if (window.innerHeight > 600) {
+      heartContent.querySelector("ul").style.height = "500px";
+    } else if (window.innerHeight <= 600) {
+      heartContent.querySelector("ul").style.height = "80vh";
+    }
     heartContent.querySelector("ul").style.opacity = "1";
     heartButton.style.backgroundPosition = "0px -1705px";
+    heartButton.style.filter = "brightness(10)";
   }
 
   function handleMouseLeave() {
@@ -65,11 +71,17 @@ function heartBtn() {
 
   heartButton.addEventListener("click", function () {
     if (!heart) {
-      heartContent.querySelector("ul").style.height = "500px";
+      if (window.innerHeight > 600) {
+        heartContent.querySelector("ul").style.height = "500px";
+      } else if (window.innerHeight <= 600) {
+        heartContent.querySelector("ul").style.height = "80vh";
+      }
+
       heartContent.querySelector("ul").style.opacity = "1";
       heartButton.style.backgroundPosition = "0px -1705px";
-      if (pathName.includes("index.html")) {
-        heartButton.style.filter = "brightness(1)";
+
+      if (window.location.pathname.includes("index.html")) {
+        heartButton.style.filter = "brightness(10)";
       } else {
         heartButton.style.filter = "brightness(0.2)";
       }
@@ -111,21 +123,6 @@ window.onload = function () {
     scrollTo(0, 0);
   }, 100);
 };
-
-// window.onload = function () {
-//   setTimeout(() => {
-//     // 해시가 존재하면 해당 위치로 스크롤
-//     if (window.location.hash) {
-//       const target = document.querySelector(window.location.hash);
-//       if (target) {
-//         target.scrollIntoView(); // 해당 요소로 스크롤
-//       }
-//     } else {
-//       // 해시가 없으면 스크롤을 최상단으로 초기화
-//       scrollTo(0, 0);
-//     }
-//   }, 100);
-// };
 
 // 1-5. sort by
 function sortByFnc() {
@@ -246,7 +243,24 @@ function mainPage() {
   let verticalScroll = 0;
 
   // 2-1-1. 메인페이지 스크롤
-  // 메인비주얼 스크롤
+  // 메인페이지 스크롤
+  let scrollEvent = false;
+
+  window.addEventListener("scroll", function () {
+    let scroll = window.scrollY;
+    // 메인비주얼에서 배경으로 이동
+    if (!scrollEvent && scroll > 0 && scroll < view.offsetTop) {
+      goViewPage();
+      return (scrollEvent = true);
+    }
+    // 배경에 메인비주얼로 이동
+    else if (scrollEvent && scroll < view.offsetTop) {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    } else if (scrollEvent && scroll > 0 && scroll < view.offsetTop) {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  });
+  // 메인비주얼 휠 이벤트
   document
     .querySelector(".main_visual")
     .addEventListener("wheel", function (event) {
@@ -254,52 +268,55 @@ function mainPage() {
       const scrollAmount = event.deltaY;
 
       if (scrollAmount > 0) {
-        // 스크롤을 내릴 때
-        window.scrollTo({ top: view.offsetTop, behavior: "smooth" });
-
-        const viewTextH2 = document.querySelector(".view .text_h2");
-        const h2Elements = Array.from(viewTextH2.children);
-        // 각 h2 요소에 대해 스타일 적용
-        h2Elements.forEach((h2, index) => {
-          // 각 h2 요소에 대해 지연 시간을 두고 스타일 적용
-          setTimeout(() => {
-            h2.style.opacity = 1;
-            h2.style.transform = "translateY(0)";
-          }, index * 100);
-        });
-        setTimeout(function () {
-          // 첫 번째 박스 왼쪽으로 이동
-          boxes[0].style.transform = "translateX(-100%)";
-          boxes[0].style.transition = "1s linear";
-
-          // 두 번째 박스 오른쪽으로 이동
-          boxes[1].style.transform = "translateX(100%)";
-          boxes[1].style.transition = "1s linear";
-
-          // 텍스트 사라짐
-          const viewText = document.getElementById("viewText");
-          viewText.style.opacity = "0";
-          viewText.style.zIndex = "-1";
-          viewText.style.transition = "0.8s";
-
-          // 1초 후 애니메이션 종료
-          setTimeout(function () {
-            openBox.style.opacity = "0";
-            openBox.style.zIndex = "-1";
-
-            // 모든 diamond 요소의 opacity를 1로 설정
-            const diamonds = document.querySelectorAll(".view_box .diamond");
-            diamonds.forEach((diamond) => {
-              diamond.style.opacity = "1"; // 모든 diamond의 opacity를 1로 설정
-              diamond.style.transition = "0.5s";
-            });
-          }, 1000);
-        }, 1200);
+        goViewPage();
       } else {
         // 스크롤 올릴 때
         window.scrollTo({ top: 0, behavior: "smooth" });
       }
     });
+
+  function goViewPage() {
+    // 스크롤을 내릴 때
+    window.scrollTo({ top: view.offsetTop, behavior: "smooth" });
+    const viewTextH2 = document.querySelector(".view .text_h2");
+    const h2Elements = Array.from(viewTextH2.children);
+    // 각 h2 요소에 대해 스타일 적용
+    h2Elements.forEach((h2, index) => {
+      // 각 h2 요소에 대해 지연 시간을 두고 스타일 적용
+      setTimeout(() => {
+        h2.style.opacity = 1;
+        h2.style.transform = "translateY(0)";
+      }, index * 100);
+    });
+    setTimeout(function () {
+      // 첫 번째 박스 왼쪽으로 이동
+      boxes[0].style.transform = "translateX(-100%)";
+      boxes[0].style.transition = "1s linear";
+
+      // 두 번째 박스 오른쪽으로 이동
+      boxes[1].style.transform = "translateX(100%)";
+      boxes[1].style.transition = "1s linear";
+
+      // 텍스트 사라짐
+      const viewText = document.getElementById("viewText");
+      viewText.style.opacity = "0";
+      viewText.style.zIndex = "-1";
+      viewText.style.transition = "0.8s";
+
+      // 1초 후 애니메이션 종료
+      setTimeout(function () {
+        openBox.style.opacity = "0";
+        openBox.style.zIndex = "-1";
+
+        // 모든 diamond 요소의 opacity를 1로 설정
+        const diamonds = document.querySelectorAll(".view_box .diamond");
+        diamonds.forEach((diamond) => {
+          diamond.style.opacity = "1"; // 모든 diamond의 opacity를 1로 설정
+          diamond.style.transition = "0.5s";
+        });
+      }, 1000);
+    }, 1200);
+  }
 
   // 배경섹션 스크롤
   view.addEventListener("wheel", function (event) {
@@ -372,6 +389,7 @@ function mainPage() {
       }, 500);
     }
   });
+
   // 커스텀마이징섹션 스크롤
   customizing.addEventListener("wheel", function (event) {
     event.preventDefault();

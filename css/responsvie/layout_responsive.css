@@ -40,6 +40,9 @@
   .heart_content {
     padding-left: 16px;
   }
+  .heart_content > ul {
+    right: -134%;
+  }
   /* h2 */
   .text_h2 {
     font-size: 90px;
@@ -131,6 +134,9 @@
   }
   .heart_content {
     padding-left: 16px;
+  }
+  .heart_content > ul {
+    right: -134%;
   }
   .menu_button {
     padding-right: 0;
@@ -255,6 +261,9 @@
   .heart_content {
     padding-left: 16px;
   }
+  .heart_content > ul {
+    right: -134%;
+  }
   .menu_button {
     margin-left: 0;
   }
@@ -363,7 +372,7 @@
 @media screen and (max-width: 480px) {
   /* header */
   header::before {
-    height: 234px;
+    height: 198px;
   }
   .header_wrap {
     justify-content: start;
@@ -383,6 +392,12 @@
     width: 100%;
     font-size: 14px;
   }
+  .lnb {
+    top: 36px;
+  }
+  .lnb li {
+    margin-bottom: 0;
+  }
   .header_icon {
     position: absolute;
     top: 4px;
@@ -391,12 +406,29 @@
   .heart_content {
     padding-left: 16px;
   }
+  .heart_content > ul {
+    width: 90vw;
+    right: -92%;
+  }
   .menu_button {
     margin-left: 0;
     padding: 0;
   }
+  .user_login + li {
+    gap: 1%;
+    padding: 1vh 2px;
+    justify-content: space-between;
+  }
+  .lostark_event {
+    width: auto;
+    margin: 0 auto;
+  }
   .small_menu {
     display: block;
+  }
+  .menu_content .link a {
+    transform: scale(0.8);
+    transform-origin: center left;
   }
   h1 {
     width: fit-content;
@@ -420,19 +452,31 @@
   }
   .main_visual h3 {
     margin-left: 0;
+    font-weight: 400;
   }
   .main_visual h2 {
-    font-size: 28px;
+    font-size: 24px;
+  }
+  .main_p {
+    font-size: 14px;
+    margin-left: 8%;
+  }
+  .main_p::before {
+    width: 3px;
+    left: -8%;
+  }
+  .main_visual p:last-of-type {
+    font-size: 12px;
   }
   .main_visual .bg {
-    width: 120vw;
+    width: 200vw;
     height: 40vh;
     position: absolute;
-    bottom: 0;
-    left: -10%;
+    top: 50%;
+    left: -100%;
     background-color: rgb(17, 17, 17, 0.5);
     z-index: -1;
-    transform: translateY(16%);
+    transform: translateY(-50%);
   }
   /* view */
   .view_box .diamond {
