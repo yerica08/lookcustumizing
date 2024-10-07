@@ -245,6 +245,7 @@ function mainPage() {
   // 2-1-1. 메인페이지 스크롤
   // 메인페이지 스크롤
   let animating = false;
+  let lastScrollY = window.scrollY;
   console.log(mainVisual.offsetHeight);
   console.log(animating);
   if (scroll == view.offsetTop) console.log(scroll);
@@ -254,10 +255,8 @@ function mainPage() {
     // 메인비주얼에서 배경으로 이동
     if (!animating && scroll > 0 && scroll < mainVisual.offsetHeight / 2) {
       animating = true;
-      console.log(animating);
+      document.body.style.overflow = "hidden"; // 스크롤 막기
       goViewPage();
-
-      console.log(animating);
     }
     // 배경에 메인비주얼로 이동
     else if (
@@ -266,6 +265,7 @@ function mainPage() {
       scroll < view.offsetTop
     ) {
       animating = true;
+      document.body.style.overflow = "hidden"; // 스크롤 막기
       viewToMain();
     }
     // 배경에서 커스텀마이징으로 이동
@@ -275,6 +275,7 @@ function mainPage() {
       scroll < view.offsetTop + view.offsetHeight / 2
     ) {
       animating = true;
+      document.body.style.overflow = "hidden"; // 스크롤 막기
       viewToCustomizing();
     }
     // 커스텀마이징에서 배경으로 이동
@@ -284,6 +285,7 @@ function mainPage() {
       scroll < customizing.offsetTop
     ) {
       animating = true;
+      document.body.style.overflow = "hidden"; // 스크롤 막기
     }
   });
   // 메인비주얼 휠 이벤트
@@ -341,6 +343,7 @@ function mainPage() {
           diamond.style.transition = "0.5s";
         });
         animating = false;
+        document.body.style.overflow = "auto";
       }, 1000);
     }, 1200);
   }
@@ -390,6 +393,7 @@ function mainPage() {
       });
       setTimeout(() => {
         animating = false;
+        document.body.style.overflow = "auto"; // 스크롤 막기
       }, 500);
     }, 500);
   }
@@ -426,6 +430,7 @@ function mainPage() {
       });
       setTimeout(() => {
         animating = false;
+        document.body.style.overflow = "auto"; // 스크롤 막기
       }, 500);
     }
     textMoving();
