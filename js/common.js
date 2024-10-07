@@ -126,7 +126,6 @@ window.onload = function () {
 
 // 1-5. sort by
 function sortByFnc() {
-  const sortBy = document.querySelector(".sort_by");
   const sortByLi = document.querySelectorAll(".sort_by li");
 
   sortByLi.forEach((li) => {
@@ -249,27 +248,42 @@ function mainPage() {
   console.log(mainVisual.offsetHeight);
   console.log(animating);
   if (scroll == view.offsetTop) console.log(scroll);
-
   window.addEventListener("scroll", function () {
     let scroll = window.scrollY;
+
     // 메인비주얼에서 배경으로 이동
     if (!animating && scroll > 0 && scroll < mainVisual.offsetHeight / 2) {
       animating = true;
+      console.log(animating);
       goViewPage();
+
+      console.log(animating);
     }
     // 배경에 메인비주얼로 이동
     else if (
       !animating &&
-      scroll < mainVisual.offsetHeight &&
-      scroll > mainVisual.offsetHeight / 2
-    ) {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    } else if (
-      !animating &&
-      scroll > mainVisual.style.height / 2 &&
+      scroll > mainVisual.offsetHeight / 2 &&
       scroll < view.offsetTop
     ) {
-      window.scrollTo({ top: 0, behavior: "smooth" });
+      animating = true;
+      viewToMain();
+    }
+    // 배경에서 커스텀마이징으로 이동
+    else if (
+      !animating &&
+      scroll > view.offsetTop &&
+      scroll < view.offsetTop + view.offsetHeight / 2
+    ) {
+      animating = true;
+      viewToCustomizing();
+    }
+    // 커스텀마이징에서 배경으로 이동
+    else if (
+      !animating &&
+      scroll > view.offsetTop + view.offsetHeight / 2 &&
+      scroll < customizing.offsetTop
+    ) {
+      animating = true;
     }
   });
   // 메인비주얼 휠 이벤트
@@ -337,72 +351,85 @@ function mainPage() {
     const scrollAmount = event.deltaY;
 
     if (scrollAmount > 0) {
-      // 스크롤을 내릴 때
-      window.scrollTo({ top: customizing.offsetTop, behavior: "smooth" });
-      const textH2 = document.querySelector(".customizing .text_h2");
-      const h2Elements = Array.from(textH2.children);
-
-      // 각 h2 요소에 대해 스타일 적용
-      function textMoving() {
-        h2Elements.forEach((h2, index) => {
-          // 각 h2 요소에 대해 지연 시간을 두고 스타일 적용
-          setTimeout(() => {
-            h2.style.opacity = 1;
-            h2.style.transform = "translateY(0)";
-          }, index * 70);
-
-          setTimeout(() => {
-            // textH2.style.paddingTop = "20vw";
-            if (window.innerWidth < 1025) {
-              textH2.style.top = "10vh";
-            } else {
-              textH2.style.top = "15vh";
-            }
-          }, h2Elements.length * 100 + 600);
-
-          // 모든 글자가 나타난 후 openBox를 사라지게 함
-          setTimeout(() => {
-            box1.style.transform = "translateX(50%)";
-            box2.style.transform = "translateX(-50%)";
-            box3.style.opacity = "1";
-          }, h2Elements.length * 100 + 700);
-        });
-      }
-      textMoving();
+      viewToCustomizing();
     } else {
-      // 스크롤을 올릴 때
-      window.scrollTo({ top: 0, behavior: "smooth" });
-
-      setTimeout(function () {
-        // 상태 초기화
-        openBox.style.opacity = "1";
-        openBox.style.zIndex = "50";
-
-        // 첫 번째 박스 원래 위치로
-        boxes[0].style.transform = "translateX(0)";
-        boxes[0].style.transition = "transform 0s";
-
-        // 두 번째 박스 원래 위치로
-        boxes[1].style.transform = "translateX(0)";
-        boxes[1].style.transition = "transform 0s";
-        const viewText = document.getElementById("viewText");
-        viewText.style.opacity = 1;
-        viewText.style.zIndex = "100";
-        // 모든 diamond 요소의 opacity를 초기화
-        const diamonds = document.querySelectorAll(".view_box .diamond");
-        const viewTextH2 = document.querySelector(".view .text_h2");
-        Array.from(viewTextH2.children).forEach((h2) => {
-          h2.style.opacity = 0;
-          h2.style.transform = "translateY(-50%)";
-        });
-        diamonds.forEach((diamond) => {
-          diamond.style.opacity = "0"; // 모든 diamond의 opacity를 0으로 설정
-          diamond.style.transition = "0s";
-        });
-      }, 500);
+      // 배경섹션에서 스크롤 올릴 때
+      viewToMain();
     }
   });
 
+  function viewToMain() {
+    // 배경섹션에서 스크롤 올릴 때
+    window.scrollTo({ top: 0, behavior: "smooth" });
+
+    setTimeout(function () {
+      // 상태 초기화
+      openBox.style.opacity = "1";
+      openBox.style.zIndex = "50";
+
+      // 첫 번째 박스 원래 위치로
+      boxes[0].style.transform = "translateX(0)";
+      boxes[0].style.transition = "transform 0s";
+
+      // 두 번째 박스 원래 위치로
+      boxes[1].style.transform = "translateX(0)";
+      boxes[1].style.transition = "transform 0s";
+      const viewText = document.getElementById("viewText");
+      viewText.style.opacity = 1;
+      viewText.style.zIndex = "100";
+      // 모든 diamond 요소의 opacity를 초기화
+      const diamonds = document.querySelectorAll(".view_box .diamond");
+      const viewTextH2 = document.querySelector(".view .text_h2");
+      Array.from(viewTextH2.children).forEach((h2) => {
+        h2.style.opacity = 0;
+        h2.style.transform = "translateY(-50%)";
+      });
+      diamonds.forEach((diamond) => {
+        diamond.style.opacity = "0"; // 모든 diamond의 opacity를 0으로 설정
+        diamond.style.transition = "0s";
+      });
+      setTimeout(() => {
+        animating = false;
+      }, 500);
+    }, 500);
+  }
+  function viewToCustomizing() {
+    // 스크롤을 내릴 때
+    window.scrollTo({ top: customizing.offsetTop, behavior: "smooth" });
+    const textH2 = document.querySelector(".customizing .text_h2");
+    const h2Elements = Array.from(textH2.children);
+
+    // 각 h2 요소에 대해 스타일 적용
+    function textMoving() {
+      h2Elements.forEach((h2, index) => {
+        // 각 h2 요소에 대해 지연 시간을 두고 스타일 적용
+        setTimeout(() => {
+          h2.style.opacity = 1;
+          h2.style.transform = "translateY(0)";
+        }, index * 70);
+
+        setTimeout(() => {
+          // textH2.style.paddingTop = "20vw";
+          if (window.innerWidth < 1025) {
+            textH2.style.top = "10vh";
+          } else {
+            textH2.style.top = "15vh";
+          }
+        }, h2Elements.length * 100 + 600);
+
+        // 모든 글자가 나타난 후 openBox를 사라지게 함
+        setTimeout(() => {
+          box1.style.transform = "translateX(50%)";
+          box2.style.transform = "translateX(-50%)";
+          box3.style.opacity = "1";
+        }, h2Elements.length * 100 + 700);
+      });
+      setTimeout(() => {
+        animating = false;
+      }, 500);
+    }
+    textMoving();
+  }
   // 커스텀마이징섹션 스크롤
   customizing.addEventListener("wheel", function (event) {
     event.preventDefault();
@@ -672,6 +699,9 @@ function bestViewPage() {
                 rgba(0, 0, 0, 0.6) 0%,
                 rgba(0, 0, 0, 0.3) 100%
             ), url(${imageSrc})`;
+        imageBoxes[index].style.backgroundSize = "100%";
+        imageBoxes[index].style.backgroundRepeat = "no-repeat";
+        imageBoxes[index].style.backgroundPosition = "center";
       }
     });
   }
@@ -746,10 +776,11 @@ function bestViewPage() {
         { yPercent: 0 },
         0
       )
-      .from(
+      .fromTo(
         // 배경 이미지를 아래에서 위로 슬라이드 인
         images[next],
-        { yPercent: 15 },
+        { yPercent: 15, opacity: 0 },
+        { yPercent: 0, opacity: 1 },
         0
       );
 
@@ -758,6 +789,7 @@ function bestViewPage() {
       tl.add(
         gsap.to(images[current], {
           yPercent: -15,
+          opacity: 0,
           ...tlDefaults,
         }),
         0
@@ -786,7 +818,6 @@ function bestViewPage() {
     gsap
       // 애니메이션 타임라인을 생성
       .timeline({
-        // 타임라인 애니메이션에서 기본 설정을 지정하는 부분. 이 설정은 타임라인에 추가되는 모든 애니메이션에 적용됨.
         defaults: tlDefaults,
         onComplete: () => {
           listening = true;
@@ -794,12 +825,16 @@ function bestViewPage() {
         },
       })
       // 현재 섹션을 위로 슬라이드 아웃 시키고, 다음 섹션의 배경 이미지를 아래에서 위로 슬라이드 인
+      .to(images[current], { yPercent: 15, opacity: 0 }, 0) // opacity를 0으로 설정
       .to(outerWrappers[current], { yPercent: 100 }, 0)
       .to(innerWrappers[current], { yPercent: -100 }, 0)
-      .to(images[current], { yPercent: 15 }, 0)
       .from(images[next], { yPercent: -15 }, 0)
       // 현재 섹션의 배경 이미지를 원래 위치로 설정
-      .set(images[current], { yPercent: 0 });
+      .set(images[current], { yPercent: 0 })
+      .add(() => {
+        // opacity가 0이 된 후 z-index를 0으로 설정
+        gsap.set(sections[current], { autoAlpha: 0, zIndex: 0 });
+      }, "<"); // "<"를 사용하여 이전 애니메이션과 동기화
   }
 
   // 사용자가 스크롤 방향에 따라 어떤 섹션이 다음에 보여질지 결정
@@ -863,16 +898,6 @@ function bestViewPage() {
 
   // 페이지가 처음 로드될 때 첫 번째 섹션을 보여주는 함수
   slideIn();
-  scroll();
-  function scroll() {
-    const state = document.querySelector(".state div");
-    if (next == 0) {
-      state.style.width = "0%";
-    } else if (next == 1) {
-      document.querySelector(".page2").style.backgroundColor = "#fff";
-      state.style.width = "25%";
-    }
-  }
 }
 
 // 2-2. 서브 페이지
