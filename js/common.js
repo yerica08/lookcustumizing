@@ -228,6 +228,7 @@ function mainPage() {
 
   const openBox = document.querySelector(".view .open_box");
   const boxes = openBox.children;
+  const mainVisual = document.querySelector(".main_visual");
   const view = document.querySelector(".view");
   const customizing = document.querySelector(".customizing");
   const lcm_sns = document.querySelector(".lcm_sns");
@@ -244,19 +245,30 @@ function mainPage() {
 
   // 2-1-1. 메인페이지 스크롤
   // 메인페이지 스크롤
-  let scrollEvent = false;
+  let animating = false;
+  console.log(mainVisual.offsetHeight);
+  console.log(animating);
+  if (scroll == view.offsetTop) console.log(scroll);
 
   window.addEventListener("scroll", function () {
     let scroll = window.scrollY;
     // 메인비주얼에서 배경으로 이동
-    if (!scrollEvent && scroll > 0 && scroll < view.offsetTop) {
+    if (!animating && scroll > 0 && scroll < mainVisual.offsetHeight / 2) {
+      animating = true;
       goViewPage();
-      return (scrollEvent = true);
     }
     // 배경에 메인비주얼로 이동
-    else if (scrollEvent && scroll < view.offsetTop) {
+    else if (
+      !animating &&
+      scroll < mainVisual.offsetHeight &&
+      scroll > mainVisual.offsetHeight / 2
+    ) {
       window.scrollTo({ top: 0, behavior: "smooth" });
-    } else if (scrollEvent && scroll > 0 && scroll < view.offsetTop) {
+    } else if (
+      !animating &&
+      scroll > mainVisual.style.height / 2 &&
+      scroll < view.offsetTop
+    ) {
       window.scrollTo({ top: 0, behavior: "smooth" });
     }
   });
@@ -314,6 +326,7 @@ function mainPage() {
           diamond.style.opacity = "1"; // 모든 diamond의 opacity를 1로 설정
           diamond.style.transition = "0.5s";
         });
+        animating = false;
       }, 1000);
     }, 1200);
   }
