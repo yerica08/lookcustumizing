@@ -854,6 +854,7 @@ header:hover .lnb {
 .menu_content .link > div {
   display: flex;
   justify-content: space-between;
+  gap: 5px;
 }
 .menu_content .link img {
   display: inline-block;
@@ -921,6 +922,9 @@ footer .policy {
 }
 footer .legal p {
   color: #d7d7d7;
+}
+footer .legal p span {
+  padding: 0 1vw;
 }
 /* 마우스 */
 .mouse {

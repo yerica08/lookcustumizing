@@ -2,10 +2,9 @@
   ---- 목차 ----
 
   1. 기본 스타일
-    1-1. 마우스 커서 스타일
-    1-2. header - 알림
-    1-3. header - 메뉴
-    1-4. 새로고침시 스크롤 초기화
+    1-1. header - 알림
+    1-2. header - 메뉴
+    1-3. 새로고침시 스크롤 초기화
 
   2. 페이지별 스타일
     2-1. 메인 페이지(index)
@@ -33,7 +32,7 @@
 
 // 1. 기본스타일 --------------------------------------------------------
 
-// 1-2. header - 하트 버튼
+// 1-1. header - 하트 버튼
 heartBtn();
 function heartBtn() {
   const heartButtons = document.querySelectorAll(
@@ -96,7 +95,7 @@ function heartBtn() {
   });
 }
 
-// 1-3. header - 메뉴 버튼
+// 1-2. header - 메뉴 버튼
 menuBtn();
 function menuBtn() {
   const menuContent = document.querySelector(".menu_content");
@@ -117,7 +116,7 @@ function menuBtn() {
   });
 }
 
-// 1-4. 새로고침시 스크롤 초기화
+// 1-3. 새로고침시 스크롤 초기화
 window.onload = function () {
   setTimeout(() => {
     scrollTo(0, 0);
@@ -242,52 +241,17 @@ function mainPage() {
   let horizontalScroll = 20; // customizing 페이지 좌우 스크롤
   let verticalScroll = 0;
 
-  // 2-1-1. 메인페이지 스크롤
-  // 메인페이지 스크롤
-  let animating = false;
-  let lastScrollY = window.scrollY;
-  console.log(mainVisual.offsetHeight);
-  console.log(animating);
-  if (scroll == view.offsetTop) console.log(scroll);
-  window.addEventListener("scroll", function () {
-    let scroll = window.scrollY;
+  // 메인비주얼 이미지 위치
+  const mainText = document.querySelector(".main_visual .text");
+  const mainImg = document.querySelector(".main_visual .full_photo img");
+  if (window.innerWidth < 480) {
+    if (window.innerHeight > mainImg.offsetHeight) {
+    }
+  }
+  mainText.style;
 
-    // 메인비주얼에서 배경으로 이동
-    if (!animating && scroll > 0 && scroll < mainVisual.offsetHeight / 2) {
-      animating = true;
-      document.body.style.overflow = "hidden"; // 스크롤 막기
-      goViewPage();
-    }
-    // 배경에 메인비주얼로 이동
-    else if (
-      !animating &&
-      scroll > mainVisual.offsetHeight / 2 &&
-      scroll < view.offsetTop
-    ) {
-      animating = true;
-      document.body.style.overflow = "hidden"; // 스크롤 막기
-      viewToMain();
-    }
-    // 배경에서 커스텀마이징으로 이동
-    else if (
-      !animating &&
-      scroll > view.offsetTop &&
-      scroll < view.offsetTop + view.offsetHeight / 2
-    ) {
-      animating = true;
-      document.body.style.overflow = "hidden"; // 스크롤 막기
-      viewToCustomizing();
-    }
-    // 커스텀마이징에서 배경으로 이동
-    else if (
-      !animating &&
-      scroll > view.offsetTop + view.offsetHeight / 2 &&
-      scroll < customizing.offsetTop
-    ) {
-      animating = true;
-      document.body.style.overflow = "hidden"; // 스크롤 막기
-    }
-  });
+  // 메인페이지 스크롤
+  // 2-1-1. 메인페이지 스크롤
   // 메인비주얼 휠 이벤트
   document
     .querySelector(".main_visual")
@@ -296,16 +260,17 @@ function mainPage() {
       const scrollAmount = event.deltaY;
 
       if (scrollAmount > 0) {
-        goViewPage();
+        // 스크롤 내릴 때
+        window.scrollTo({ top: view.offsetTop, behavior: "smooth" });
+        mainToView();
       } else {
         // 스크롤 올릴 때
         window.scrollTo({ top: 0, behavior: "smooth" });
       }
     });
 
-  function goViewPage() {
+  function mainToView() {
     // 스크롤을 내릴 때
-    window.scrollTo({ top: view.offsetTop, behavior: "smooth" });
     const viewTextH2 = document.querySelector(".view .text_h2");
     const h2Elements = Array.from(viewTextH2.children);
     // 각 h2 요소에 대해 스타일 적용
@@ -342,29 +307,28 @@ function mainPage() {
           diamond.style.opacity = "1"; // 모든 diamond의 opacity를 1로 설정
           diamond.style.transition = "0.5s";
         });
-        animating = false;
-        document.body.style.overflow = "auto";
       }, 1000);
     }, 1200);
   }
 
-  // 배경섹션 스크롤
+  // 배경 휠 이벤트
   view.addEventListener("wheel", function (event) {
     event.preventDefault();
     const scrollAmount = event.deltaY;
 
     if (scrollAmount > 0) {
+      // 스크롤 내릴 때
+      window.scrollTo({ top: customizing.offsetTop, behavior: "smooth" });
       viewToCustomizing();
     } else {
-      // 배경섹션에서 스크롤 올릴 때
+      // 스크롤 올릴 때
+      window.scrollTo({ top: 0, behavior: "smooth" });
       viewToMain();
     }
   });
 
+  // 배경에서 메인으로 이동했을 때
   function viewToMain() {
-    // 배경섹션에서 스크롤 올릴 때
-    window.scrollTo({ top: 0, behavior: "smooth" });
-
     setTimeout(function () {
       // 상태 초기화
       openBox.style.opacity = "1";
@@ -380,26 +344,25 @@ function mainPage() {
       const viewText = document.getElementById("viewText");
       viewText.style.opacity = 1;
       viewText.style.zIndex = "100";
+
       // 모든 diamond 요소의 opacity를 초기화
       const diamonds = document.querySelectorAll(".view_box .diamond");
       const viewTextH2 = document.querySelector(".view .text_h2");
+
       Array.from(viewTextH2.children).forEach((h2) => {
         h2.style.opacity = 0;
         h2.style.transform = "translateY(-50%)";
       });
+
       diamonds.forEach((diamond) => {
-        diamond.style.opacity = "0"; // 모든 diamond의 opacity를 0으로 설정
+        diamond.style.opacity = "0";
         diamond.style.transition = "0s";
       });
-      setTimeout(() => {
-        animating = false;
-        document.body.style.overflow = "auto"; // 스크롤 막기
-      }, 500);
     }, 500);
   }
+
+  // 배경에서 커스텀마이징으로 이동했을 때
   function viewToCustomizing() {
-    // 스크롤을 내릴 때
-    window.scrollTo({ top: customizing.offsetTop, behavior: "smooth" });
     const textH2 = document.querySelector(".customizing .text_h2");
     const h2Elements = Array.from(textH2.children);
 
@@ -412,8 +375,8 @@ function mainPage() {
           h2.style.transform = "translateY(0)";
         }, index * 70);
 
+        // 디바이스의 넓이에 따라 위치 조정
         setTimeout(() => {
-          // textH2.style.paddingTop = "20vw";
           if (window.innerWidth < 1025) {
             textH2.style.top = "10vh";
           } else {
@@ -428,10 +391,6 @@ function mainPage() {
           box3.style.opacity = "1";
         }, h2Elements.length * 100 + 700);
       });
-      setTimeout(() => {
-        animating = false;
-        document.body.style.overflow = "auto"; // 스크롤 막기
-      }, 500);
     }
     textMoving();
   }
@@ -587,6 +546,9 @@ function mainPage() {
 
       // 메인비주얼 텍스트 변수 선언
       const mainH3 = document.querySelector(".main_visual h3");
+      const mainH2 = document.querySelector(".main_visual h2");
+      const mainP = document.querySelector(".main_visual .main_p");
+      const mainCopy = document.querySelector(".main_visual .main_copy");
       const fullPhoto = document.querySelector(".full_photo > img");
       let newImageSrc;
       const mainText = document.querySelector(".text_wrap");
@@ -594,15 +556,24 @@ function mainPage() {
       // 페이지 내용 업데이트
       switch (page) {
         case 1:
-          newImageSrc = "./img/photo/main_visual/main_people01.jpg";
-          mainH3.textContent = "플레체 : PLETZE";
+          newImageSrc = "./img/photo/index/main_visual/main_people01.jpg";
+          mainH3.innerHTML = "플레체 : PLETZE";
+          mainH2.innerHTML = "플레체 예배당 포토스팟";
+          mainP.innerHTML = "카제로스 레이드<br/>붉어진 백야의 나선 2관문";
+          mainCopy.innerHTML = "프로틴초보콜";
           break;
         case 2:
-          newImageSrc = "./img/photo/main_visual/main_people02.jpg";
-          mainH3.textContent = "dffsd";
+          newImageSrc = "./img/photo/index/main_visual/main_people02.jpg";
+          mainH3.innerHTML = "낙원의 문 : 태만의 바다";
+          mainH2.innerHTML = "심해에서 빛을 받아";
+          mainP.innerHTML = "어비스 던전 3티어<br/>태만자의 눈";
+          mainCopy.innerHTML = "&copy; 화챌";
           break;
         case 3:
-          newImageSrc = "./img/photo/main_visual/main_people03.jpg";
+          newImageSrc = "./img/photo/index/main_visual/main_people03.jpg";
+          mainH3.innerHTML = "우거진 갈대의 섬";
+          mainP.innerHTML = "노을진 하늘 청순가련 느낌";
+          mainCopy.innerHTML = "&copy; 도아가";
           break;
       }
 
@@ -710,11 +681,9 @@ function bestViewPage() {
       }
     });
   }
-  //웹페이지에 있는 모든 섹션(부분)을 찾아서 저장
+  //웹페이지에 있는 모든 섹션 저장
   const sections = document.querySelectorAll(".view_content");
-  // 배경 이미지들을 찾아서 저장
   const images = document.querySelectorAll(".bg");
-  // outerWrappers와 innerWrappers: 섹션을 감싸고 있는 요소들을 찾아서 저장
   const outerWrappers = gsap.utils.toArray(".outer");
   const innerWrappers = gsap.utils.toArray(".inner");
 
@@ -725,15 +694,11 @@ function bestViewPage() {
   document.addEventListener("touchend", handleTouchEnd);
 
   let listening = false, // 현재 스크롤이나 터치를 감지하고 있는지
-    direction = "down", // 스크롤 방향을 저장해. 처음에는 아래로 스크롤한다고 가정
+    direction = "down", // 스크롤 방향을 저장. 아래로 스크롤한다고 가정
     current, // 현재 보고 있는 섹션의 인덱스
     next = 0; // 다음에 보여줄 섹션의 인덱스
 
-  // 터치 시작 위치와 이동한 거리를 저장
-  /* 
-    터치의 의미: 
-    사용자가 화면을 손가락으로 터치하는 행동을 의미한다. 
-    이 객체는 사용자가 터치한 위치와 이동한 거리를 기록하여 스크롤 방향을 결정하는 데 사용된다.*/
+  // 터치 시작 위치와 이동한 거리 저장
   const touch = {
     startX: 0, // 터치가 시작된 X축 위치 (가로 위치).
     startY: 0, // 터치가 시작된 Y축 위치 (세로 위치).
@@ -768,13 +733,13 @@ function bestViewPage() {
         paused: true, // 처음에는 애니메이션이 정지된 상태로 시작
         defaults: tlDefaults, // 위에 천천히 부드럽게 이동하도록 변수 설정되어있음
 
-        // 애니메이션이 끝나면 listening을 true로 바꾸고 현재 섹션을 업데이트
+        // 애니메이션이 끝나면 listening을 true로 바꾸고 현재 섹션 업데이트
         onComplete: () => {
           listening = true;
           current = next;
         },
       })
-      // tl.to 는 애니메이션을 추가한다는 의미
+      // 애니메이션 추가
       .to(
         // outerWrappers[next], innerWrappers[next]을 다음섹션 위로 슬라이드 인
         [outerWrappers[next], innerWrappers[next]],
