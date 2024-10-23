@@ -1,206 +1,206 @@
 @import url(./common.css);
 body {
-  background-color: #fff;
-  color: #111;
+    background-color: #fff;
+    color: #111;
 }
 /* 헤더 */
 header {
-  animation: moveHeader 1s ease-in 0s forwards;
+    animation: moveHeader 1s ease-in 0s forwards;
 }
 header::before {
-  background: #fff;
-  border-bottom: 1px solid #6a6a6a;
-  box-shadow: 0 4px 6px #eee;
+    background: #fff;
+    border-bottom: 1px solid #6a6a6a;
+    box-shadow: 0 4px 6px #eee;
 }
 header:hover::before {
-  opacity: 1;
-  transform: scale(1, 1);
+    opacity: 1;
+    transform: scale(1, 1);
 }
 h1 > a > img {
-  filter: brightness(0.2);
+    filter: brightness(0.2);
 }
 .gnb a {
-  color: #6a6a6a;
+    color: #6a6a6a;
 }
 
 /* 메뉴 아이콘 */
 .menu_button > button,
 .heart_button > button {
-  filter: brightness(0.2);
+    filter: brightness(0.2);
 }
 /* 로그인 페이지 */
 .login_container {
-  width: 100vw;
-  height: 100vh;
-  padding: 200px 0 100px 0;
-  margin: 0 auto;
-  display: flex;
-  flex-flow: column wrap;
-  box-sizing: border-box;
-  justify-content: space-between;
+    width: 100vw;
+    height: 100vh;
+    padding: 200px 0 100px 0;
+    margin: 0 auto;
+    display: flex;
+    flex-flow: column wrap;
+    box-sizing: border-box;
+    justify-content: space-between;
 }
 .login_container .content {
-  display: flex;
-  flex-flow: column wrap;
-  gap: 30px;
-  width: 477px;
-  height: fit-content;
-  margin: 0 auto;
-  border: 1px solid #d7d7d7;
+    display: flex;
+    flex-flow: column wrap;
+    gap: 30px;
+    width: 477px;
+    height: fit-content;
+    margin: 0 auto;
+    border: 1px solid #d7d7d7;
 }
 /* 로그인 방법 선택 */
 .login_select {
-  display: flex;
-  width: 100%;
-  height: 60px;
+    display: flex;
+    width: 100%;
+    height: 60px;
 }
 .login_select li {
-  flex: 1;
-  height: 60px;
-  line-height: 60px;
-  text-align: center;
-  font-size: 16px;
-  border: 0px solid #d7d7d7;
+    flex: 1;
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+    font-size: 16px;
+    border: 0px solid #d7d7d7;
 }
 .login_select li:nth-child(1) {
-  border-right-width: 1px;
+    border-right-width: 1px;
 }
 .login_select li:nth-child(2) {
-  border-right-width: 1px;
-  border-bottom-width: 1px;
-  background-color: #fbfbfb;
-  color: #787878;
+    border-right-width: 1px;
+    border-bottom-width: 1px;
+    background-color: #fbfbfb;
+    color: #787878;
 }
 .login_select li:nth-child(3) {
-  border-bottom-width: 1px;
-  background-color: #fbfbfb;
-  color: #787878;
+    border-bottom-width: 1px;
+    background-color: #fbfbfb;
+    color: #787878;
 }
 /* 로그인 - 폼태그 */
 .login_form {
-  display: flex;
-  flex-flow: column wrap;
-  gap: 30px;
-  width: 100%;
-  height: fit-content;
-  padding: 0 30px;
-  box-sizing: border-box;
+    display: flex;
+    flex-flow: column wrap;
+    gap: 30px;
+    width: 100%;
+    height: fit-content;
+    padding: 0 30px;
+    box-sizing: border-box;
 }
 #uesr_id,
 #uesr_pw {
-  width: 100%;
-  height: 60px;
-  background-color: #fbfbfb;
-  border: 1px solid #d7d7d7;
-  color: #787878;
-  font-size: 16px;
-  padding: 10px 30px;
-  box-sizing: border-box;
+    width: 100%;
+    height: 60px;
+    background-color: #fbfbfb;
+    border: 1px solid #d7d7d7;
+    color: #787878;
+    font-size: 16px;
+    padding: 10px 30px;
+    box-sizing: border-box;
 }
 #uesr_id {
-  margin-top: 30px;
-  border-radius: 3px 3px 0 0;
+    margin-top: 30px;
+    border-radius: 3px 3px 0 0;
 }
 #user_pw {
-  border-top: 0px;
-  border-radius: 0 0 3px 3px;
+    border-top: 0px;
+    border-radius: 0 0 3px 3px;
 }
-input[type="checkbox"] {
-  width: 14px;
-  height: 14px;
-  background-color: #eee;
-  border: 1px solid #d7d7d7;
+input[type='checkbox'] {
+    width: 14px;
+    height: 14px;
+    background-color: #eee;
+    border: 1px solid #d7d7d7;
 }
 #login_stable + label,
 #id_save + label {
-  font-size: 14px;
-  color: #787878;
-  padding-right: 20px;
+    font-size: 14px;
+    color: #787878;
+    padding-right: 20px;
 }
 .loginBtn {
-  width: 100%;
-  height: 60px;
-  line-height: 60px;
-  text-align: center;
-  font-size: 18px;
-  font-weight: 400;
-  border: 1px solid #111;
-  border-radius: 3px;
-  background-color: #fff;
+    width: 100%;
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 400;
+    border: 1px solid #111;
+    border-radius: 3px;
+    background-color: #fff;
 }
 .loginBtn:hover {
-  background-color: #111;
-  color: #fff;
+    background-color: #111;
+    color: #fff;
 }
 /* 로그인 - 아이디, 비밀번호 찾기 / 회원가입 / 고객센터 */
 .user_find {
-  display: flex;
-  gap: 15px;
-  margin: 0 auto;
+    display: flex;
+    gap: 15px;
+    margin: 0 auto;
 }
 .user_find a {
-  font-size: 14px;
-  color: #9e9e9e;
+    font-size: 14px;
+    color: #9e9e9e;
 }
 /* 로그인 - SNS 로그인 */
 .sns_login {
-  display: flex;
-  gap: 30px;
-  margin: 0 auto;
-  margin-bottom: 30px;
+    display: flex;
+    gap: 30px;
+    margin: 0 auto;
+    margin-bottom: 30px;
 }
 /* 이용약관 */
 footer {
-  width: fit-content;
-  height: fit-content;
-  margin: 0 auto;
-  font-weight: 400;
+    width: fit-content;
+    height: fit-content;
+    margin: 0 auto;
+    font-weight: 400;
 }
 .footer_link {
-  display: flex;
-  gap: 30px;
-  font-size: 14px;
-  color: #787878;
-  text-align: center;
-  margin-bottom: 15px;
+    display: flex;
+    gap: 30px;
+    font-size: 14px;
+    color: #787878;
+    text-align: center;
+    margin-bottom: 15px;
 }
 .footer_link > li {
-  position: relative;
-  line-height: 30px;
+    position: relative;
+    line-height: 30px;
 }
 .footer_link a {
-  color: #787878;
+    color: #787878;
 }
 .footer_link > li::after {
-  content: "";
-  width: 1px;
-  height: 50%;
-  position: absolute;
-  top: 50%;
-  right: -15px;
-  transform: translateY(-50%);
-  background-color: #d7d7d7;
+    content: '';
+    width: 1px;
+    height: 50%;
+    position: absolute;
+    top: 50%;
+    right: -15px;
+    transform: translateY(-50%);
+    background-color: #d7d7d7;
 }
 .footer_link > li:last-child::after {
-  width: 0;
+    width: 0;
 }
 footer > p {
-  font-size: 12px;
-  font-weight: 200;
-  color: #787878;
-  text-align: center;
+    font-size: 12px;
+    font-weight: 200;
+    color: #787878;
+    text-align: center;
 }
 /* 마우스 */
 .mouse {
-  width: 20px;
-  height: 20px;
-  background-color: #111;
-  border-radius: 100%;
-  position: fixed;
-  transition: background-color 0.3s ease, transform 0.3s ease;
-  transform: scale(1);
-  opacity: 1;
-  z-index: 999;
-  mix-blend-mode: difference;
-  pointer-events: none;
+    width: 20px;
+    height: 20px;
+    background-color: #111;
+    border-radius: 100%;
+    position: fixed;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    transform: scale(1);
+    opacity: 1;
+    z-index: 999;
+    mix-blend-mode: difference;
+    pointer-events: none;
 }

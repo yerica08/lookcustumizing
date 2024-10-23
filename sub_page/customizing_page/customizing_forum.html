@@ -1,505 +1,423 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>lookcustomizing</title>
-    <!-- favicon -->
-    <link rel="icon" href="../../img/favicon/favicon-16x16.png" />
-    <!-- css -->
-    <link rel="stylesheet" href="../../css/sub.css" />
-  </head>
-  <body>
-    <div class="wrapper white">
-      <!-- 헤더 -->
-      <header>
-        <div class="header_wrap">
-          <!-- 로고 -->
-          <h1>
-            <a href="/"
-              ><img
-                src="../../img/icon/logo.png"
-                alt="LCM 로고"
-                height="24"
-                class="touch"
-            /></a>
-          </h1>
-          <!-- 헤더 우측 컨텐츠 -->
-          <div class="nav_wrap">
-            <nav>
-              <!-- 1차 메뉴 -->
-              <ul class="gnb">
-                <li>
-                  <a href="../best_page/best_page.html">BEST</a>
-                  <!-- 2차메뉴 -->
-                  <ul class="lnb">
-                    <li>
-                      <a href="../best_page/best_page.html">Best LCM</a>
-                    </li>
-                    <li>
-                      <a href="../best_page/best_page.html#reporter_pick"
-                        >리포터 Pick</a
-                      >
-                    </li>
-                  </ul>
-                </li>
-                <li>
-                  <a href="../view_page/view_forum.html">배경</a>
-                  <!-- 2차메뉴 -->
-                  <ul class="lnb">
-                    <li>
-                      <a href="../view_page/view_forum.html">배경</a>
-                    </li>
-                    <li><a href="../view_page/view_info.html">정보</a></li>
-                  </ul>
-                </li>
-                <li>
-                  <a href="../customizing_page/customizing_forum.html"
-                    >커스텀마이징</a
-                  >
-                  <!-- 2차메뉴 -->
-                  <ul class="lnb">
-                    <li>
-                      <a href="../customizing_page/customizing_forum.html"
-                        >커스텀마이징</a
-                      >
-                    </li>
-                    <li>
-                      <a href="../customizing_page/customizing_info.html"
-                        >정보</a
-                      >
-                    </li>
-                  </ul>
-                </li>
-                <li><a href="../community_page/community.html">커뮤니티</a></li>
-              </ul>
-            </nav>
-            <!-- 알림, 메뉴 -->
-            <div class="header_icon">
-              <!-- 알림 -->
-              <div class="heart_content">
-                <div class="heart_button touch">
-                  <button type="button" class="heart"></button>
-                </div>
-                <ul>
-                  <li>
-                    <button type="button" class="sub_alert">알림</button>
-                    <button type="button" class="sub_subscribe">구독</button>
-                    <div class="line_box"></div>
-                    <div class="icon">
-                      <a href="#" class="plus_circle"></a>
-                      <a href="#" class="setting"></a>
-                    </div>
-                  </li>
-                  <li class="contents">
-                    <div>
-                      <div class="profile"></div>
-                      <div class="sub_chat">
-                        <h3><span>LCM</span> 님의 메세지</h3>
-                        <textarea name="chat" id="chat" readonly>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>lookcustomizing</title>
+        <!-- favicon -->
+        <link rel="icon" href="../../img/favicon/favicon-16x16.png" />
+        <!-- css -->
+        <link rel="stylesheet" href="../../css/sub.css" />
+    </head>
+    <body>
+        <div class="wrapper white">
+            <!-- 헤더 -->
+            <header>
+                <div class="header_wrap">
+                    <!-- 로고 -->
+                    <h1>
+                        <a href="/"><img src="../../img/icon/logo.png" alt="LCM 로고" height="24" class="touch" /></a>
+                    </h1>
+                    <!-- 헤더 우측 컨텐츠 -->
+                    <div class="nav_wrap">
+                        <nav>
+                            <!-- 1차 메뉴 -->
+                            <ul class="gnb">
+                                <li>
+                                    <a href="../best_page/best_page.html">BEST</a>
+                                    <!-- 2차메뉴 -->
+                                    <ul class="lnb">
+                                        <li>
+                                            <a href="../best_page/best_page.html">Best LCM</a>
+                                        </li>
+                                        <li>
+                                            <a href="../best_page/best_page.html#reporter_pick">리포터 Pick</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="../view_page/view_forum.html">배경</a>
+                                    <!-- 2차메뉴 -->
+                                    <ul class="lnb">
+                                        <li>
+                                            <a href="../view_page/view_forum.html">배경</a>
+                                        </li>
+                                        <li><a href="../view_page/view_info.html">정보</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="../customizing_page/customizing_forum.html">커스텀마이징</a>
+                                    <!-- 2차메뉴 -->
+                                    <ul class="lnb">
+                                        <li>
+                                            <a href="../customizing_page/customizing_forum.html">커스텀마이징</a>
+                                        </li>
+                                        <li>
+                                            <a href="../customizing_page/customizing_info.html">정보</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li><a href="../community_page/community.html">커뮤니티</a></li>
+                            </ul>
+                        </nav>
+                        <!-- 알림, 메뉴 -->
+                        <div class="header_icon">
+                            <!-- 알림 -->
+                            <div class="heart_content">
+                                <div class="heart_button touch">
+                                    <button type="button" class="heart"></button>
+                                </div>
+                                <ul>
+                                    <li>
+                                        <button type="button" class="sub_alert">알림</button>
+                                        <button type="button" class="sub_subscribe">구독</button>
+                                        <div class="line_box"></div>
+                                        <div class="icon">
+                                            <a href="#" class="plus_circle"></a>
+                                            <a href="#" class="setting"></a>
+                                        </div>
+                                    </li>
+                                    <li class="contents">
+                                        <div>
+                                            <div class="profile"></div>
+                                            <div class="sub_chat">
+                                                <h3><span>LCM</span> 님의 메세지</h3>
+                                                <textarea name="chat" id="chat" readonly>
   지금 로그인하고 더 많은 컨텐츠를 즐겨보세요!</textarea
-                        >
-                      </div>
+                                                >
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <!-- 메뉴 아이콘 -->
+                            <div class="menu_button touch">
+                                <button type="button" class="menu"></button>
+                            </div>
+                        </div>
                     </div>
-                  </li>
-                </ul>
-              </div>
-              <!-- 메뉴 아이콘 -->
-              <div class="menu_button touch">
-                <button type="button" class="menu"></button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </header>
-      <!-- 메뉴 -->
-      <div class="menu_content">
-        <!-- 우측 메뉴 창 -->
-        <ul class="menu_wrap">
-          <li class="close_button">
-            <div><button type="button" class="close"></button></div>
-          </li>
-          <!-- 검색창 -->
-          <li>
-            <input
-              type="text"
-              class="search"
-              placeholder="검색 내용을 입력하세요." />
-            <label for="search"></label>
-          </li>
-          <!-- 로그인 -->
-          <li class="user_login">
-            <a href="./sub_page/user_page/login.html">로그인</a>
-          </li>
-          <li>
-            <a href="#">아이디 찾기</a>
-            <a href="#">비밀번호 찾기</a>
-            <a href="#">회원가입</a>
-            <a href="#">고객센터</a>
-          </li>
-          <li>
-            <!-- 사용자 서비스 창 -->
-            <ul class="user_service">
-              <li>
-                <a href="#"
-                  ><i class="human touch"></i
-                  ><span class="touch">마이페이지</span></a
-                >
-              </li>
-              <li>
-                <a href="#"
-                  ><i class="heart touch"></i
-                  ><span class="touch">찜 목록</span></a
-                >
-              </li>
-              <li>
-                <a href="#"
-                  ><i class="alert touch"></i><span class="touch">알림</span></a
-                >
-              </li>
-              <li>
-                <a href="#"
-                  ><i class="setting touch"></i>
-                  <span class="touch">환경설정</span></a
-                >
-              </li>
-            </ul>
-          </li>
-          <li class="event">
-            <img
-              src="../../img/photo/event/lostark_event.png"
-              alt="로스트아크"
-              class="lostark_event" />
-          </li>
-          <li>
-            <a href="/"
-              ><img src="../../img/icon/logo.png" alt="LCM로고" height="18"
-            /></a>
-            <div>
-              <a href="#" class="facebook"></a>
-              <a href="#" class="instagram"></a>
-              <a href="#" class="tiktok"></a>
-            </div>
-          </li>
-        </ul>
-      </div>
-      <!-- 메인 섹션 -->
-      <main class="forum">
-        <section>
-          <div class="main_title">
-            <h2>CUSTOMIZING</h2>
-            <h3>이번주 가장 인기있는 커마를 구경해보세요</h3>
-          </div>
-          <ul class="select">
-            <li class="click_first" id="forum">게시판</li>
-            <li><a href="../user_page/login.html">MY POST</a></li>
-            <li>
-              <input
-                type="text"
-                class="search"
-                placeholder="검색 내용을 입력하세요." />
-              <label for="search"></label>
-            </li>
-          </ul>
-          <!-- contents_wrap best_page와 겹치니 수정해야함 -->
-          <div class="contents_wrap">
-            <div class="left_nav">
-              <ul class="list_wrap">
-                <li class="job active">
-                  <div class="list_name">
-                    <p>직업</p>
-                    <div class="line_arrow"></div>
-                  </div>
-                  <!-- 2차 메뉴 -->
-                  <ul class="list">
-                    <li>전사(남)</li>
-                    <li>전사(여)</li>
-                    <li>헌터(남)</li>
-                    <li>헌터(여)</li>
-                    <li>무도가(남)</li>
-                    <li>무도가(여)</li>
-                    <li>마법사</li>
-                    <li>암살자</li>
-                    <li>스페셜리스트</li>
-                  </ul>
-                </li>
-                <li>
-                  <div class="list_name">
-                    <p>분위기</p>
-                    <div class="line_arrow"></div>
-                  </div>
-                  <!-- 2차 메뉴 -->
-                  <ul class="list">
-                    <li>로맨틱, 큐티</li>
-                    <li>페미닌</li>
-                    <li>캐주얼, 힙</li>
-                    <li>모던, 클래식</li>
-                    <li>오리엔탈</li>
-                    <li>유니크</li>
-                  </ul>
-                </li>
-                <li>
-                  <div class="list_name">
-                    <p>색상</p>
-                    <div class="line_arrow"></div>
-                  </div>
-                  <!-- 2차 메뉴 -->
-                  <ul class="list">
-                    <li>블랙 & 화이트</li>
-                    <li>강렬한 원색</li>
-                    <li>파스텔톤</li>
-                    <li>형광색</li>
-                  </ul>
-                </li>
-                <li>
-                  <div class="list_name">
-                    <p>공유</p>
-                    <div class="line_arrow"></div>
-                  </div>
-                  <!-- 2차 메뉴 -->
-                  <ul class="list">
-                    <li>상시 공유</li>
-                    <li>기간 공유</li>
-                    <li>마감</li>
-                  </ul>
-                </li>
-              </ul>
-              <ul class="filter_list_wrap">
-                <li>
-                  <div class="list_name">
-                    <p>필터</p>
-                    <div class="line_arrow"></div>
-                  </div>
-                  <!-- 2차 메뉴 -->
-                  <ul class="filter_list"></ul>
-                </li>
-              </ul>
-            </div>
-            <div class="main_board">
-              <ul class="sort_by">
-                <li class="latest checked">인기순</li>
-                <li class="earliest">최신순</li>
-                <li class="view">조회순</li>
-                <li class="plus_button"><div class="plus"></div></li>
-              </ul>
-              <article>
-                <ul class="pages">
-                  <li class="post">
-                    <img
-                      src="../../img/photo/customizing/customizing_forum/cutomizing1/thumbnail.jpg"
-                      alt="볼다이크 장소 추천"
-                      data-nick-name="와사비완두콩" />
-                    <div class="title">
-                      <div>
-                        <span class="nick_name"></span>
-                        <h3></h3>
-                      </div>
-                      <div class="reation">
-                        <p>
-                          <i class="chat"></i
-                          ><span class="reaction_number">150</span>
-                        </p>
-                        <p>
-                          <i class="heart"></i
-                          ><span class="reaction_number">30</span>
-                        </p>
-                      </div>
-                    </div>
-                    <div class="heart_svg"></div>
-                  </li>
-                  <li class="post">
-                    <img
-                      src="../../img/photo/customizing/customizing_forum/cutomizing2/thumbnail.jpg"
-                      alt="몽환적인 분위기에 조명도 예뻐용"
-                      data-nick-name="흰색상자" />
-                    <div class="title">
-                      <div>
-                        <span class="nick_name"></span>
-                        <h3></h3>
-                      </div>
-                      <div class="reation">
-                        <p>
-                          <i class="chat"></i
-                          ><span class="reaction_number">150</span>
-                        </p>
-                        <p>
-                          <i class="heart"></i
-                          ><span class="reaction_number">30</span>
-                        </p>
-                      </div>
-                    </div>
-                    <div class="heart_svg"></div>
-                  </li>
-                  <li class="post">
-                    <img
-                      src="../../img/photo/customizing/customizing_forum/cutomizing3/thumbnail.jpg"
-                      alt="흑발군단장 실린을 소개합니다"
-                      data-nick-name="진하" />
-                    <div class="title">
-                      <div>
-                        <span class="nick_name"></span>
-                        <h3></h3>
-                      </div>
-                      <div class="reation">
-                        <p>
-                          <i class="chat"></i
-                          ><span class="reaction_number">150</span>
-                        </p>
-                        <p>
-                          <i class="heart"></i
-                          ><span class="reaction_number">30</span>
-                        </p>
-                      </div>
-                    </div>
-                    <div class="heart_svg"></div>
-                  </li>
-                  <li class="post">
-                    <img
-                      src="../../img/photo/customizing/customizing_forum/cutomizing4/thumbnail.jpg"
-                      alt="흑발군단장 실린을 소개합니다"
-                      data-nick-name="진하" />
-                    <div class="title">
-                      <div>
-                        <span class="nick_name"></span>
-                        <h3></h3>
-                      </div>
-                      <div class="reation">
-                        <p>
-                          <i class="chat"></i
-                          ><span class="reaction_number">150</span>
-                        </p>
-                        <p>
-                          <i class="heart"></i
-                          ><span class="reaction_number">30</span>
-                        </p>
-                      </div>
-                    </div>
-                    <div class="heart_svg"></div>
-                  </li>
-                  <li class="post">
-                    <img
-                      src="../../img/photo/customizing/customizing_forum/cutomizing5/thumbnail.jpg"
-                      alt="흑발군단장 실린을 소개합니다"
-                      data-nick-name="진하" />
-                    <div class="title">
-                      <div>
-                        <span class="nick_name"></span>
-                        <h3></h3>
-                      </div>
-                      <div class="reation">
-                        <p>
-                          <i class="chat"></i
-                          ><span class="reaction_number">150</span>
-                        </p>
-                        <p>
-                          <i class="heart"></i
-                          ><span class="reaction_number">30</span>
-                        </p>
-                      </div>
-                    </div>
-                    <div class="heart_svg"></div>
-                  </li>
-                  <li class="post">
-                    <img
-                      src="../../img/photo/customizing/customizing_forum/cutomizing6/thumbnail.jpg"
-                      alt="흑발군단장 실린을 소개합니다"
-                      data-nick-name="진하" />
-                    <div class="title">
-                      <div>
-                        <span class="nick_name"></span>
-                        <h3></h3>
-                      </div>
-                      <div class="reation">
-                        <p>
-                          <i class="chat"></i
-                          ><span class="reaction_number">150</span>
-                        </p>
-                        <p>
-                          <i class="heart"></i
-                          ><span class="reaction_number">30</span>
-                        </p>
-                      </div>
-                    </div>
-                    <div class="heart_svg"></div>
-                  </li>
-                </ul>
-                <div class="pagination">
-                  <ul class="page_number" id="pagination"></ul>
                 </div>
-              </article>
+            </header>
+            <!-- 메뉴 -->
+            <div class="menu_content">
+                <!-- 우측 메뉴 창 -->
+                <ul class="wrap">
+                    <li class="close_button">
+                        <div><button type="button" class="close"></button></div>
+                    </li>
+                    <!-- 검색창 -->
+                    <li>
+                        <input type="text" class="search" placeholder="검색 내용을 입력하세요." />
+                        <label for="search"></label>
+                    </li>
+                    <!-- 로그인 -->
+                    <li class="user_login">
+                        <a href="#">로그인</a>
+                    </li>
+                    <li>
+                        <a href="#">아이디 찾기</a>
+                        <a href="#">비밀번호 찾기</a>
+                        <a href="#">회원가입</a>
+                        <a href="#">고객센터</a>
+                    </li>
+                    <li>
+                        <!-- 사용자 서비스 창 -->
+                        <ul class="user_service">
+                            <li>
+                                <a href="#"><i class="human touch"></i><span class="touch">마이페이지</span></a>
+                            </li>
+                            <li>
+                                <a href="#"><i class="heart touch"></i><span class="touch">찜 목록</span></a>
+                            </li>
+                            <li>
+                                <a href="#"><i class="alert touch"></i><span class="touch">알림</span></a>
+                            </li>
+                            <li>
+                                <a href="#"><i class="setting touch"></i> <span class="touch">환경설정</span></a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="event">
+                        <img src="./img/photo/event/lostark_event.png" alt="로스트아크" class="lostark_event" />
+                    </li>
+                </ul>
             </div>
-          </div>
-        </section>
-        <a href="../view_page/view_forum.html" class="event">
-          <div>
-            <h4>더 많은 배경을 둘러보고 싶다면?</h4>
-            <p>
-              클릭하면 LCM 유저들이 추천하는 아름다운 배경들을 구경할 수 있어요!
-            </p>
-          </div>
-          <div class="line_arrow right"></div>
-        </a>
-      </main>
-      <!-- 푸터 -->
-      <footer>
-        <div class="footer_wrap">
-          <ul>
-            <li>
-              <a href="../best_page/best_page.html">BEST</a>
-              <ul class="sub_menu">
-                <li><a href="../best_page/best_page.html">BEST LCM</a></li>
-                <li>
-                  <a href="../best_page/best_page.html#reporter_pick"
-                    >리포터 PICK</a
-                  >
-                </li>
-              </ul>
-            </li>
-            <li>
-              <a href="../view_page/view_forum.html">배경</a>
-              <ul class="sub_menu">
-                <li><a href="../view_page/view_forum.html">배경</a></li>
-                <li><a href="../view_page/view_info.html">정보</a></li>
-              </ul>
-            </li>
-            <li>
-              <a href="../customizing_page/customizing_forum.html"
-                >커스텀마이징</a
-              >
-              <ul class="sub_menu">
-                <li>
-                  <a href="../customizing_page/customizing_forum.html"
-                    >커스텀마이징</a
-                  >
-                </li>
-                <li>
-                  <a href="../customizing_page/customizing_info.html">정보</a>
-                </li>
-              </ul>
-            </li>
-            <li><a href="../community_page/community.html">커뮤니티</a></li>
-          </ul>
-          <div class="legal">
-            <ul class="policy">
-              <li><a href="#">회사소개</a></li>
-              <li><a href="#">비즈니스</a></li>
-              <li><a href="#">이용약관</a></li>
-              <li><a href="#">운영정책</a></li>
-              <li><a href="#">개인정보처리방침</a></li>
-              <li><a href="#">청소년보호정책</a></li>
-              <li><a href="#">공지사항</a></li>
-              <li><a href="#">고객센터</a></li>
-            </ul>
-            <p>
-              <span>회사명. LookCustoMizing</span>
-              <span>대표이사. 윤땡땡</span>
-              <span>E. lookCM@naver.com</span>
-            </p>
-            <p>Copyright&copy; LookCustoMizing. All rights reserved.</p>
-          </div>
+            <!-- 메인 섹션 -->
+            <main class="forum">
+                <section>
+                    <div class="main_title">
+                        <h2>CUSTOMIZING</h2>
+                        <h3>이번주 가장 인기있는 커마를 구경해보세요</h3>
+                    </div>
+                    <ul class="select">
+                        <li class="click_first" id="forum">게시판</li>
+                        <li><a href="../user_page/login.html">MY POST</a></li>
+                        <li>
+                            <input type="text" class="search" placeholder="검색 내용을 입력하세요." />
+                            <label for="search"></label>
+                        </li>
+                    </ul>
+                    <!-- contents_wrap best_page와 겹치니 수정해야함 -->
+                    <div class="contents_wrap">
+                        <div class="left_nav">
+                            <ul class="list_wrap">
+                                <li class="job active">
+                                    <div class="list_name">
+                                        <p>직업</p>
+                                        <div class="line_arrow"></div>
+                                    </div>
+                                    <!-- 2차 메뉴 -->
+                                    <ul class="list">
+                                        <li>전사(남)</li>
+                                        <li>전사(여)</li>
+                                        <li>헌터(남)</li>
+                                        <li>헌터(여)</li>
+                                        <li>무도가(남)</li>
+                                        <li>무도가(여)</li>
+                                        <li>마법사</li>
+                                        <li>암살자</li>
+                                        <li>스페셜리스트</li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <div class="list_name">
+                                        <p>분위기</p>
+                                        <div class="line_arrow"></div>
+                                    </div>
+                                    <!-- 2차 메뉴 -->
+                                    <ul class="list">
+                                        <li>로맨틱, 큐티</li>
+                                        <li>페미닌</li>
+                                        <li>캐주얼, 힙</li>
+                                        <li>모던, 클래식</li>
+                                        <li>오리엔탈</li>
+                                        <li>유니크</li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <div class="list_name">
+                                        <p>색상</p>
+                                        <div class="line_arrow"></div>
+                                    </div>
+                                    <!-- 2차 메뉴 -->
+                                    <ul class="list">
+                                        <li>블랙 & 화이트</li>
+                                        <li>강렬한 원색</li>
+                                        <li>파스텔톤</li>
+                                        <li>형광색</li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <div class="list_name">
+                                        <p>공유</p>
+                                        <div class="line_arrow"></div>
+                                    </div>
+                                    <!-- 2차 메뉴 -->
+                                    <ul class="list">
+                                        <li>상시 공유</li>
+                                        <li>기간 공유</li>
+                                        <li>마감</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            <ul class="filter_list_wrap">
+                                <li>
+                                    <div class="list_name">
+                                        <p>필터</p>
+                                        <div class="line_arrow"></div>
+                                    </div>
+                                    <!-- 2차 메뉴 -->
+                                    <ul class="filter_list"></ul>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="main_board">
+                            <ul class="sort_by">
+                                <li class="latest checked">인기순</li>
+                                <li class="earliest">최신순</li>
+                                <li class="view">조회순</li>
+                                <li class="plus_button"><div class="plus"></div></li>
+                            </ul>
+                            <article>
+                                <ul class="pages">
+                                    <li class="post">
+                                        <img
+                                            src="../../img/photo/customizing/customizing_forum/cutomizing1/thumbnail.jpg"
+                                            alt="볼다이크 장소 추천"
+                                            data-nick-name="와사비완두콩"
+                                        />
+                                        <div class="title">
+                                            <div>
+                                                <span class="nick_name"></span>
+                                                <h3></h3>
+                                            </div>
+                                            <div class="reation">
+                                                <p><i class="chat"></i><span class="reaction_number">150</span></p>
+                                                <p><i class="heart"></i><span class="reaction_number">30</span></p>
+                                            </div>
+                                        </div>
+                                        <div class="heart_svg"></div>
+                                    </li>
+                                    <li class="post">
+                                        <img
+                                            src="../../img/photo/customizing/customizing_forum/cutomizing2/thumbnail.jpg"
+                                            alt="몽환적인 분위기에 조명도 예뻐용"
+                                            data-nick-name="흰색상자"
+                                        />
+                                        <div class="title">
+                                            <div>
+                                                <span class="nick_name"></span>
+                                                <h3></h3>
+                                            </div>
+                                            <div class="reation">
+                                                <p><i class="chat"></i><span class="reaction_number">150</span></p>
+                                                <p><i class="heart"></i><span class="reaction_number">30</span></p>
+                                            </div>
+                                        </div>
+                                        <div class="heart_svg"></div>
+                                    </li>
+                                    <li class="post">
+                                        <img
+                                            src="../../img/photo/customizing/customizing_forum/cutomizing3/thumbnail.jpg"
+                                            alt="흑발군단장 실린을 소개합니다"
+                                            data-nick-name="진하"
+                                        />
+                                        <div class="title">
+                                            <div>
+                                                <span class="nick_name"></span>
+                                                <h3></h3>
+                                            </div>
+                                            <div class="reation">
+                                                <p><i class="chat"></i><span class="reaction_number">150</span></p>
+                                                <p><i class="heart"></i><span class="reaction_number">30</span></p>
+                                            </div>
+                                        </div>
+                                        <div class="heart_svg"></div>
+                                    </li>
+                                    <li class="post">
+                                        <img
+                                            src="../../img/photo/customizing/customizing_forum/cutomizing4/thumbnail.jpg"
+                                            alt="흑발군단장 실린을 소개합니다"
+                                            data-nick-name="진하"
+                                        />
+                                        <div class="title">
+                                            <div>
+                                                <span class="nick_name"></span>
+                                                <h3></h3>
+                                            </div>
+                                            <div class="reation">
+                                                <p><i class="chat"></i><span class="reaction_number">150</span></p>
+                                                <p><i class="heart"></i><span class="reaction_number">30</span></p>
+                                            </div>
+                                        </div>
+                                        <div class="heart_svg"></div>
+                                    </li>
+                                    <li class="post">
+                                        <img
+                                            src="../../img/photo/customizing/customizing_forum/cutomizing5/thumbnail.jpg"
+                                            alt="흑발군단장 실린을 소개합니다"
+                                            data-nick-name="진하"
+                                        />
+                                        <div class="title">
+                                            <div>
+                                                <span class="nick_name"></span>
+                                                <h3></h3>
+                                            </div>
+                                            <div class="reation">
+                                                <p><i class="chat"></i><span class="reaction_number">150</span></p>
+                                                <p><i class="heart"></i><span class="reaction_number">30</span></p>
+                                            </div>
+                                        </div>
+                                        <div class="heart_svg"></div>
+                                    </li>
+                                    <li class="post">
+                                        <img
+                                            src="../../img/photo/customizing/customizing_forum/cutomizing6/thumbnail.jpg"
+                                            alt="흑발군단장 실린을 소개합니다"
+                                            data-nick-name="진하"
+                                        />
+                                        <div class="title">
+                                            <div>
+                                                <span class="nick_name"></span>
+                                                <h3></h3>
+                                            </div>
+                                            <div class="reation">
+                                                <p><i class="chat"></i><span class="reaction_number">150</span></p>
+                                                <p><i class="heart"></i><span class="reaction_number">30</span></p>
+                                            </div>
+                                        </div>
+                                        <div class="heart_svg"></div>
+                                    </li>
+                                </ul>
+                                <div class="pagination">
+                                    <ul class="page_number" id="pagination"></ul>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                </section>
+                <a href="../view_page/view_forum.html" class="event">
+                    <div>
+                        <h4>더 많은 배경을 둘러보고 싶다면?</h4>
+                        <p>클릭하면 LCM 유저들이 추천하는 아름다운 배경들을 구경할 수 있어요!</p>
+                    </div>
+                    <div class="line_arrow right"></div>
+                </a>
+            </main>
+            <!-- 푸터 -->
+            <footer>
+                <div class="footer_wrap">
+                    <ul>
+                        <li>
+                            <a href="../best_page/best_page.html">BEST</a>
+                            <ul class="sub_menu">
+                                <li><a href="../best_page/best_page.html">BEST LCM</a></li>
+                                <li>
+                                    <a href="../best_page/best_page.html#reporter_pick">리포터 PICK</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="../view_page/view_forum.html">배경</a>
+                            <ul class="sub_menu">
+                                <li><a href="../view_page/view_forum.html">배경</a></li>
+                                <li><a href="../view_page/view_info.html">정보</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="../customizing_page/customizing_forum.html">커스텀마이징</a>
+                            <ul class="sub_menu">
+                                <li>
+                                    <a href="../customizing_page/customizing_forum.html">커스텀마이징</a>
+                                </li>
+                                <li>
+                                    <a href="../customizing_page/customizing_info.html">정보</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li><a href="../community_page/community.html">커뮤니티</a></li>
+                    </ul>
+                    <div class="legal">
+                        <ul class="policy">
+                            <li><a href="#">회사소개</a></li>
+                            <li><a href="#">비즈니스</a></li>
+                            <li><a href="#">이용약관</a></li>
+                            <li><a href="#">운영정책</a></li>
+                            <li><a href="#">개인정보처리방침</a></li>
+                            <li><a href="#">청소년보호정책</a></li>
+                            <li><a href="#">공지사항</a></li>
+                            <li><a href="#">고객센터</a></li>
+                        </ul>
+                        <p>
+                            <span>회사명. LookCustoMizing</span>
+                            <span>대표이사. 윤땡땡</span>
+                            <span>E. lookCM@naver.com</span>
+                        </p>
+                        <p>Copyright&copy; LookCustoMizing. All rights reserved.</p>
+                    </div>
+                </div>
+            </footer>
         </div>
-      </footer>
-    </div>
-    <script src="../../js/common.js"></script>
-  </body>
+        <script src="../../js/common.js"></script>
+    </body>
 </html>

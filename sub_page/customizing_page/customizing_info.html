@@ -1,1380 +1,1336 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>lookcustomizing</title>
-    <!-- favicon -->
-    <link rel="icon" href="../../img/favicon/favicon-16x16.png" />
-    <!-- css -->
-    <link rel="stylesheet" href="../../css/sub.css" />
-  </head>
-  <body>
-    <div class="wrapper white">
-      <!-- 헤더 -->
-      <header>
-        <div class="header_wrap">
-          <!-- 로고 -->
-          <h1>
-            <a href="/"
-              ><img
-                src="../../img/icon/logo.png"
-                alt="LCM 로고"
-                height="24"
-                class="touch"
-            /></a>
-          </h1>
-          <!-- 헤더 우측 컨텐츠 -->
-          <div class="nav_wrap">
-            <nav>
-              <!-- 1차 메뉴 -->
-              <ul class="gnb">
-                <li>
-                  <a href="../best_page/best_page.html">BEST</a>
-                  <!-- 2차메뉴 -->
-                  <ul class="lnb">
-                    <li>
-                      <a href="../best_page/best_page.html">Best LCM</a>
-                    </li>
-                    <li>
-                      <a href="../best_page/best_page.html#reporter_pick"
-                        >리포터 Pick</a
-                      >
-                    </li>
-                  </ul>
-                </li>
-                <li>
-                  <a href="../view_page/view_forum.html">배경</a>
-                  <!-- 2차메뉴 -->
-                  <ul class="lnb">
-                    <li>
-                      <a href="../view_page/view_forum.html">배경</a>
-                    </li>
-                    <li><a href="../view_page/view_info.html">정보</a></li>
-                  </ul>
-                </li>
-                <li>
-                  <a href="../customizing_page/customizing_forum.html"
-                    >커스텀마이징</a
-                  >
-                  <!-- 2차메뉴 -->
-                  <ul class="lnb">
-                    <li>
-                      <a href="../customizing_page/customizing_forum.html"
-                        >커스텀마이징</a
-                      >
-                    </li>
-                    <li>
-                      <a href="../customizing_page/customizing_info.html"
-                        >정보</a
-                      >
-                    </li>
-                  </ul>
-                </li>
-                <li><a href="../community_page/community.html">커뮤니티</a></li>
-              </ul>
-            </nav>
-            <!-- 알림, 메뉴 -->
-            <div class="header_icon">
-              <!-- 알림 -->
-              <div class="heart_content">
-                <div class="heart_button touch">
-                  <button type="button" class="heart"></button>
-                </div>
-                <ul>
-                  <li>
-                    <button type="button" class="sub_alert">알림</button>
-                    <button type="button" class="sub_subscribe">구독</button>
-                    <div class="line_box"></div>
-                    <div class="icon">
-                      <a href="#" class="plus_circle"></a>
-                      <a href="#" class="setting"></a>
-                    </div>
-                  </li>
-                  <li class="contents">
-                    <div>
-                      <div class="profile"></div>
-                      <div class="sub_chat">
-                        <h3><span>LCM</span> 님의 메세지</h3>
-                        <textarea name="chat" id="chat" readonly>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>lookcustomizing</title>
+        <!-- favicon -->
+        <link rel="icon" href="../../img/favicon/favicon-16x16.png" />
+        <!-- css -->
+        <link rel="stylesheet" href="../../css/sub.css" />
+    </head>
+    <body>
+        <div class="wrapper white">
+            <!-- 헤더 -->
+            <header>
+                <div class="header_wrap">
+                    <!-- 로고 -->
+                    <h1>
+                        <a href="/"><img src="../../img/icon/logo.png" alt="LCM 로고" height="24" class="touch" /></a>
+                    </h1>
+                    <!-- 헤더 우측 컨텐츠 -->
+                    <div class="nav_wrap">
+                        <nav>
+                            <!-- 1차 메뉴 -->
+                            <ul class="gnb">
+                                <li>
+                                    <a href="../best_page/best_page.html">BEST</a>
+                                    <!-- 2차메뉴 -->
+                                    <ul class="lnb">
+                                        <li>
+                                            <a href="../best_page/best_page.html">Best LCM</a>
+                                        </li>
+                                        <li>
+                                            <a href="../best_page/best_page.html#reporter_pick">리포터 Pick</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="../view_page/view_forum.html">배경</a>
+                                    <!-- 2차메뉴 -->
+                                    <ul class="lnb">
+                                        <li>
+                                            <a href="../view_page/view_forum.html">배경</a>
+                                        </li>
+                                        <li><a href="../view_page/view_info.html">정보</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="../customizing_page/customizing_forum.html">커스텀마이징</a>
+                                    <!-- 2차메뉴 -->
+                                    <ul class="lnb">
+                                        <li>
+                                            <a href="../customizing_page/customizing_forum.html">커스텀마이징</a>
+                                        </li>
+                                        <li>
+                                            <a href="../customizing_page/customizing_info.html">정보</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li><a href="../community_page/community.html">커뮤니티</a></li>
+                            </ul>
+                        </nav>
+                        <!-- 알림, 메뉴 -->
+                        <div class="header_icon">
+                            <!-- 알림 -->
+                            <div class="heart_content">
+                                <div class="heart_button touch">
+                                    <button type="button" class="heart"></button>
+                                </div>
+                                <ul>
+                                    <li>
+                                        <button type="button" class="sub_alert">알림</button>
+                                        <button type="button" class="sub_subscribe">구독</button>
+                                        <div class="line_box"></div>
+                                        <div class="icon">
+                                            <a href="#" class="plus_circle"></a>
+                                            <a href="#" class="setting"></a>
+                                        </div>
+                                    </li>
+                                    <li class="contents">
+                                        <div>
+                                            <div class="profile"></div>
+                                            <div class="sub_chat">
+                                                <h3><span>LCM</span> 님의 메세지</h3>
+                                                <textarea name="chat" id="chat" readonly>
   지금 로그인하고 더 많은 컨텐츠를 즐겨보세요!</textarea
-                        >
-                      </div>
+                                                >
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <!-- 메뉴 아이콘 -->
+                            <div class="menu_button touch">
+                                <button type="button" class="menu"></button>
+                            </div>
+                        </div>
                     </div>
-                  </li>
+                </div>
+            </header>
+            <!-- 메뉴 -->
+            <div class="menu_content">
+                <!-- 우측 메뉴 창 -->
+                <ul class="wrap">
+                    <li class="close_button">
+                        <div><button type="button" class="close"></button></div>
+                    </li>
+                    <!-- 검색창 -->
+                    <li>
+                        <input type="text" class="search" placeholder="검색 내용을 입력하세요." />
+                        <label for="search"></label>
+                    </li>
+                    <!-- 로그인 -->
+                    <li class="user_login">
+                        <a href="#">로그인</a>
+                    </li>
+                    <li>
+                        <a href="#">아이디 찾기</a>
+                        <a href="#">비밀번호 찾기</a>
+                        <a href="#">회원가입</a>
+                        <a href="#">고객센터</a>
+                    </li>
+                    <li>
+                        <!-- 사용자 서비스 창 -->
+                        <ul class="user_service">
+                            <li>
+                                <a href="#"><i class="human touch"></i><span class="touch">마이페이지</span></a>
+                            </li>
+                            <li>
+                                <a href="#"><i class="heart touch"></i><span class="touch">찜 목록</span></a>
+                            </li>
+                            <li>
+                                <a href="#"><i class="alert touch"></i><span class="touch">알림</span></a>
+                            </li>
+                            <li>
+                                <a href="#"><i class="setting touch"></i> <span class="touch">환경설정</span></a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="event">
+                        <img src="./img/photo/event/lostark_event.png" alt="로스트아크" class="lostark_event" />
+                    </li>
                 </ul>
-              </div>
-              <!-- 메뉴 아이콘 -->
-              <div class="menu_button touch">
-                <button type="button" class="menu"></button>
-              </div>
             </div>
-          </div>
+            <!-- 메인 섹션 -->
+            <main class="coustomizing_info">
+                <section>
+                    <div class="main_title">
+                        <h2>INFORMATION</h2>
+                        <h3>로스트아크 커스텀마이징 정보</h3>
+                    </div>
+                </section>
+                <!-- 커스텀마이징 선택 섹션 -->
+                <section>
+                    <ul class="select">
+                        <li class="avatar click_first" id="avatar">아바타</li>
+                        <li class="auction" id="auction">
+                            <a href="https://lostark.game.onstove.com/Market" target="_blank">경매장</a>
+                        </li>
+                        <li>
+                            <input type="text" class="search" placeholder="검색 내용을 입력하세요." />
+                            <label for="search"></label>
+                        </li>
+                    </ul>
+                    <div class="parts contents_wrap">
+                        <div class="left_part">
+                            <input type="checkbox" id="weapon" value="무기" />
+                            <label for="weapon" class="weapon"></label>
+                            <div class="cell"></div>
+                            <input type="checkbox" id="moving_efttect" value="이동효과" />
+                            <label for="moving_efttect" class="moving_efttect"></label>
+                            <input type="checkbox" id="nothing1" disabled />
+                            <label for="nothing1" class="nothing1"></label>
+                            <input type="checkbox" id="nothing2" disabled />
+                            <label for="nothing2" class="nothing2"></label>
+                        </div>
+                        <div class="middel_part">
+                            <img
+                                src="../../img/photo/customizing/customizing_info/avartar_m.png"
+                                alt="캐릭터 그림자 형태"
+                            />
+                            <div class="plus"></div>
+                            <div class="character">
+                                <div class="reset">- reset -</div>
+                                <input type="radio" id="fighter_male" name="character" value="male" checked />
+                                <label for="fighter_male" class="fighter_male">전사(남)</label>
+                                <input type="radio" id="fighter_female" name="character" value="female" />
+                                <label for="fighter_female" class="fighter_female">전사(여)</label>
+                                <input type="radio" id="martial_male" name="character" value="male" />
+                                <label for="martial_male" class="martial_male">무도가(남)</label>
+                                <input type="radio" id="martial_female" name="character" value="female" />
+                                <label for="martial_female" class="martial_female">무도가(여)</label>
+                                <input type="radio" id="hunter_male" name="character" value="male" />
+                                <label for="hunter_male" class="hunter_male">헌터(남)</label>
+                                <input type="radio" id="hunter_female" name="character" value="female" />
+                                <label for="hunter_female" class="hunter_female">헌터(여)</label>
+                                <input type="radio" id="magition_female" name="character" value="female" />
+                                <label for="magition_female" class="magition_female">마법사</label>
+                                <input type="radio" id="assassin_female" name="character" value="female" />
+                                <label for="assassin_female" class="assassin_female">암살자</label>
+                                <input type="radio" id="specialist" name="character" value="specialist" />
+                                <label for="specialist" class="specialist">스페셜리스트</label>
+                            </div>
+                        </div>
+                        <div class="right_part">
+                            <input type="checkbox" id="head" value="머리" />
+                            <label for="head" class="head"></label>
+                            <input type="checkbox" id="face" value="얼굴" />
+                            <label for="face" class="face"></label>
+                            <input type="checkbox" id="deco" value="장식" />
+                            <label for="deco" class="deco"></label>
+                            <div class="cell"></div>
+                            <input type="checkbox" id="top" value="상의" />
+                            <label for="top" class="top"></label>
+                            <input type="checkbox" id="bottom" value="하의" />
+                            <label for="bottom" class="bottom"></label>
+                        </div>
+                    </div>
+                </section>
+                <!-- 정보 출력 -->
+                <section class="information">
+                    <div class="title">
+                        <h4>아바타 정보</h4>
+                        <h5>원하는 직업과 부위를 클릭하시면 해당하는 아바타 정보가 제공됩니다</h5>
+                        <div class="checking">
+                            <div class="job">#전사(남)</div>
+                        </div>
+                    </div>
+                    <div class="avartars_wrap">
+                        <article>
+                            <div class="avartar_frame">
+                                <img
+                                    src="../../img/photo/customizing/customizing_info/lunar_eclipse/avatar1_1.png"
+                                    alt="환영의 월식"
+                                    data-job="캐릭터(남)"
+                                    data-part="모든 부위"
+                                    data-place="월식 아바타"
+                                />
+                                <div class="line_heart"></div>
+                            </div>
+                            <div class="avartar_info">
+                                <p></p>
+                                <h5></h5>
+                                <p></p>
+                            </div>
+                        </article>
+                        <article>
+                            <div class="avartar_frame">
+                                <img
+                                    src="../../img/photo/customizing/customizing_info/lunar_eclipse/avatar1_2.png"
+                                    alt="환영의 월식"
+                                    data-job="캐릭터(여)"
+                                    data-part="모든 부위"
+                                    data-place="월식 아바타"
+                                />
+                                <div class="line_heart"></div>
+                            </div>
+                            <div class="avartar_info">
+                                <p></p>
+                                <h5></h5>
+                                <p></p>
+                            </div>
+                        </article>
+                        <article>
+                            <div class="avartar_frame">
+                                <img
+                                    src="../../img/photo/customizing/customizing_info/lunar_eclipse/avatar2_1.png"
+                                    alt="영예의 월식"
+                                    data-job="캐릭터(남)"
+                                    data-part="모든 부위"
+                                    data-place="월식 아바타"
+                                />
+                                <div class="line_heart"></div>
+                            </div>
+                            <div class="avartar_info">
+                                <p></p>
+                                <h5></h5>
+                                <p></p>
+                            </div>
+                        </article>
+                        <article>
+                            <div class="avartar_frame">
+                                <img
+                                    src="../../img/photo/customizing/customizing_info/lunar_eclipse/avatar2_2.png"
+                                    alt="영예의 월식"
+                                    data-job="캐릭터(여)"
+                                    data-part="모든 부위"
+                                    data-place="월식 아바타"
+                                />
+                                <div class="line_heart"></div>
+                            </div>
+                            <div class="avartar_info">
+                                <p></p>
+                                <h5></h5>
+                                <p></p>
+                            </div>
+                        </article>
+                        <article>
+                            <div class="avartar_frame">
+                                <img
+                                    src="../../img/photo/customizing/customizing_info/new_years/avatar1_1.png"
+                                    alt="용의 극야"
+                                    data-job="캐릭터(남)"
+                                    data-part="모든 부위"
+                                    data-place="용의 밤 아바타"
+                                />
+                                <div class="line_heart"></div>
+                            </div>
+                            <div class="avartar_info">
+                                <p></p>
+                                <h5></h5>
+                                <p></p>
+                            </div>
+                        </article>
+                        <article>
+                            <div class="avartar_frame">
+                                <img
+                                    src="../../img/photo/customizing/customizing_info/new_years/avatar1_2.png"
+                                    alt="용의 극야"
+                                    data-job="캐릭터(여)"
+                                    data-part="모든 부위"
+                                    data-place="용의 밤 아바타"
+                                />
+                                <div class="line_heart"></div>
+                            </div>
+                            <div class="avartar_info">
+                                <p></p>
+                                <h5></h5>
+                                <p></p>
+                            </div>
+                        </article>
+                        <article>
+                            <div class="avartar_frame">
+                                <img
+                                    src="../../img/photo/customizing/customizing_info/new_years/avatar2_1.png"
+                                    alt="용의 흑야"
+                                    data-job="캐릭터(남)"
+                                    data-part="모든 부위"
+                                    data-place="용의 밤 아바타"
+                                />
+                                <div class="line_heart"></div>
+                            </div>
+                            <div class="avartar_info">
+                                <p></p>
+                                <h5></h5>
+                                <p></p>
+                            </div>
+                        </article>
+                        <article>
+                            <div class="avartar_frame">
+                                <img
+                                    src="../../img/photo/customizing/customizing_info/new_years/avatar2_2.png"
+                                    alt="용의 흑야"
+                                    data-job="캐릭터(여)"
+                                    data-part="모든 부위"
+                                    data-place="용의 밤 아바타"
+                                />
+                                <div class="line_heart"></div>
+                            </div>
+                            <div class="avartar_info">
+                                <p></p>
+                                <h5></h5>
+                                <p></p>
+                            </div>
+                        </article>
+                        <article>
+                            <div class="avartar_frame">
+                                <img
+                                    src="../../img/photo/customizing/customizing_info/eternity/avatar01.png"
+                                    alt="정열적인 영원"
+                                    data-job="워로드 전용"
+                                    data-job-keyword="fighter_male"
+                                    data-part="모든 부위"
+                                    data-place="요즈의 항아리 : 영원"
+                                />
+                                <div class="line_heart"></div>
+                            </div>
+                            <div class="avartar_info">
+                                <p></p>
+                                <h5></h5>
+                                <p></p>
+                            </div>
+                        </article>
+                        <article>
+                            <div class="avartar_frame">
+                                <img
+                                    src="../../img/photo/customizing/customizing_info/eternity/avatar02.png"
+                                    alt="냉철한 영원"
+                                    data-job="워로드 전용"
+                                    data-job-keyword="fighter_male"
+                                    data-part="모든 부위"
+                                    data-place="요즈의 항아리 : 영원"
+                                />
+                                <div class="line_heart"></div>
+                            </div>
+                            <div class="avartar_info">
+                                <p></p>
+                                <h5></h5>
+                                <p></p>
+                            </div>
+                        </article>
+                        <article>
+                            <div class="avartar_frame">
+                                <img
+                                    src="../../img/photo/customizing/customizing_info/eternity/avatar03.png"
+                                    alt="변질된 영원"
+                                    data-job="버서커 전용"
+                                    data-job-keyword="fighter_male"
+                                    data-part="모든 부위"
+                                    data-place="요즈의 항아리 : 영원"
+                                />
+                                <div class="line_heart"></div>
+                            </div>
+                            <div class="avartar_info">
+                                <p></p>
+                                <h5></h5>
+                                <p></p>
+                            </div>
+                        </article>
+                        <article>
+                            <div class="avartar_frame">
+                                <img
+                                    src="../../img/photo/customizing/customizing_info/eternity/avatar04.png"
+                                    alt="온전한 영원"
+                                    data-job="버서커 전용"
+                                    data-job-keyword="fighter_male"
+                                    data-part="모든 부위"
+                                    data-place="요즈의 항아리 : 영원"
+                                />
+                                <div class="line_heart"></div>
+                            </div>
+                            <div class="avartar_info">
+                                <p></p>
+                                <h5></h5>
+                                <p></p>
+                            </div>
+                        </article>
+                        <article>
+                            <div class="avartar_frame">
+                                <img
+                                    src="../../img/photo/customizing/customizing_info/eternity/avatar05.png"
+                                    alt="천상의 영원"
+                                    data-job="디스트로이어 전용"
+                                    data-job-keyword="fighter_male"
+                                    data-part="모든 부위"
+                                    data-place="요즈의 항아리 : 영원"
+                                />
+                                <div class="line_heart"></div>
+                            </div>
+                            <div class="avartar_info">
+                                <p></p>
+                                <h5></h5>
+                                <p></p>
+                            </div>
+                        </article>
+                        <article>
+                            <div class="avartar_frame">
+                                <img
+                                    src="../../img/photo/customizing/customizing_info/eternity/avatar06.png"
+                                    alt="심연의 영원"
+                                    data-job="디스트로이어 전용"
+                                    data-job-keyword="fighter_male"
+                                    data-part="모든 부위"
+                                    data-place="요즈의 항아리 : 영원"
+                                />
+                                <div class="line_heart"></div>
+                            </div>
+                            <div class="avartar_info">
+                                <p></p>
+                                <h5></h5>
+                                <p></p>
+                            </div>
+                        </article>
+                        <article>
+                            <div class="avartar_frame">
+                                <img
+                                    src="../../img/photo/customizing/customizing_info/eternity/avatar07.png"
+                                    alt="미지의 영원"
+                                    data-job="홀리나이트 전용"
+                                    data-job-keyword="fighter_male"
+                                    data-part="모든 부위"
+                                    data-place="요즈의 항아리 : 영원"
+                                />
+                                <div class="line_heart"></div>
+                            </div>
+                            <div class="avartar_info">
+                                <p></p>
+                                <h5></h5>
+                                <p></p>
+                            </div>
+                        </article>
+                        <article>
+                            <div class="avartar_frame">
+                                <img
+                                    src="../../img/photo/customizing/customizing_info/eternity/avatar08.png"
+                                    alt="예견된 영원"
+                                    data-job="홀리나이트 전용"
+                                    data-job-keyword="fighter_male"
+                                    data-part="모든 부위"
+                                    data-place="요즈의 항아리 : 영원"
+                                />
+                                <div class="line_heart"></div>
+                            </div>
+                            <div class="avartar_info">
+                                <p></p>
+                                <h5></h5>
+                                <p></p>
+                            </div>
+                        </article>
+                        <article>
+                            <div class="avartar_frame">
+                                <img
+                                    src="../../img/photo/customizing/customizing_info/eternity/avatar09.png"
+                                    alt="연민의 영원"
+                                    data-job="슬레이어 전용"
+                                    data-job-keyword="fighter_female"
+                                    data-part="모든 부위"
+                                    data-place="요즈의 항아리 : 영원"
+                                />
+                                <div class="line_heart"></div>
+                            </div>
+                            <div class="avartar_info">
+                                <p></p>
+                                <h5></h5>
+                                <p></p>
+                            </div>
+                        </article>
+                        <article>
+                            <div class="avartar_frame">
+                                <img
+                                    src="../../img/photo/customizing/customizing_info/eternity/avatar10.png"
+                                    alt="지배의 영원"
+                                    data-job="슬레이어 전용"
+                                    data-job-keyword="fighter_female"
+                                    data-part="모든 부위"
+                                    data-place="요즈의 항아리 : 영원"
+                                />
+                                <div class="line_heart"></div>
+                            </div>
+                            <div class="avartar_info">
+                                <p></p>
+                                <h5></h5>
+                                <p></p>
+                            </div>
+                        </article>
+                        <article>
+                            <div class="avartar_frame">
+                                <img
+                                    src="../../img/photo/customizing/customizing_info/eternity/avatar11.png"
+                                    alt="맹세의 영원"
+                                    data-job="스트라이커 전용"
+                                    data-job-keyword="martial_male"
+                                    data-part="모든 부위"
+                                    data-place="요즈의 항아리 : 영원"
+                                />
+                                <div class="line_heart"></div>
+                            </div>
+                            <div class="avartar_info">
+                                <p></p>
+                                <h5></h5>
+                                <p></p>
+                            </div>
+                        </article>
+                        <article>
+                            <div class="avartar_frame">
+                                <img
+                                    src="../../img/photo/customizing/customizing_info/eternity/avatar12.png"
+                                    alt="저주의 영원"
+                                    data-job="스트라이커 전용"
+                                    data-job-keyword="martial_male"
+                                    data-part="모든 부위"
+                                    data-place="요즈의 항아리 : 영원"
+                                />
+                                <div class="line_heart"></div>
+                            </div>
+                            <div class="avartar_info">
+                                <p></p>
+                                <h5></h5>
+                                <p></p>
+                            </div>
+                        </article>
+                        <article>
+                            <div class="avartar_frame">
+                                <img
+                                    src="../../img/photo/customizing/customizing_info/eternity/avatar13.png"
+                                    alt="전진하는 영원"
+                                    data-job="배틀마스터 전용"
+                                    data-job-keyword="martial_female"
+                                    data-part="모든 부위"
+                                    data-place="요즈의 항아리 : 영원"
+                                />
+                                <div class="line_heart"></div>
+                            </div>
+                            <div class="avartar_info">
+                                <p></p>
+                                <h5></h5>
+                                <p></p>
+                            </div>
+                        </article>
+                        <article>
+                            <div class="avartar_frame">
+                                <img
+                                    src="../../img/photo/customizing/customizing_info/eternity/avatar14.png"
+                                    alt="회귀하는 영원"
+                                    data-job="배틀마스터 전용"
+                                    data-job-keyword="martial_female"
+                                    data-part="모든 부위"
+                                    data-place="요즈의 항아리 : 영원"
+                                />
+                                <div class="line_heart"></div>
+                            </div>
+                            <div class="avartar_info">
+                                <p></p>
+                                <h5></h5>
+                                <p></p>
+                            </div>
+                        </article>
+                        <article>
+                            <div class="avartar_frame">
+                                <img
+                                    src="../../img/photo/customizing/customizing_info/eternity/avatar15.png"
+                                    alt="이성의 영원"
+                                    data-job="인파이터 전용"
+                                    data-job-keyword="martial_female"
+                                    data-part="모든 부위"
+                                    data-place="요즈의 항아리 : 영원"
+                                />
+                                <div class="line_heart"></div>
+                            </div>
+                            <div class="avartar_info">
+                                <p></p>
+                                <h5></h5>
+                                <p></p>
+                            </div>
+                        </article>
+                        <article>
+                            <div class="avartar_frame">
+                                <img
+                                    src="../../img/photo/customizing/customizing_info/eternity/avatar16.png"
+                                    alt="야성의 영원"
+                                    data-job="인파이터 전용"
+                                    data-job-keyword="martial_female"
+                                    data-part="모든 부위"
+                                    data-place="요즈의 항아리 : 영원"
+                                />
+                                <div class="line_heart"></div>
+                            </div>
+                            <div class="avartar_info">
+                                <p></p>
+                                <h5></h5>
+                                <p></p>
+                            </div>
+                        </article>
+                        <article>
+                            <div class="avartar_frame">
+                                <img
+                                    src="../../img/photo/customizing/customizing_info/eternity/avatar17.png"
+                                    alt="경외의 영원"
+                                    data-job="기공사 전용"
+                                    data-job-keyword="martial_female"
+                                    data-part="모든 부위"
+                                    data-place="요즈의 항아리 : 영원"
+                                />
+                                <div class="line_heart"></div>
+                            </div>
+                            <div class="avartar_info">
+                                <p></p>
+                                <h5></h5>
+                                <p></p>
+                            </div>
+                        </article>
+                        <article>
+                            <div class="avartar_frame">
+                                <img
+                                    src="../../img/photo/customizing/customizing_info/eternity/avatar18.png"
+                                    alt="공포의 영원"
+                                    data-job="기공사 전용"
+                                    data-job-keyword="martial_female"
+                                    data-part="모든 부위"
+                                    data-place="요즈의 항아리 : 영원"
+                                />
+                                <div class="line_heart"></div>
+                            </div>
+                            <div class="avartar_info">
+                                <p></p>
+                                <h5></h5>
+                                <p></p>
+                            </div>
+                        </article>
+                        <article>
+                            <div class="avartar_frame">
+                                <img
+                                    src="../../img/photo/customizing/customizing_info/eternity/avatar19.png"
+                                    alt="신중한 영원"
+                                    data-job="창술사 전용"
+                                    data-job-keyword="martial_female"
+                                    data-part="모든 부위"
+                                    data-place="요즈의 항아리 : 영원"
+                                />
+                                <div class="line_heart"></div>
+                            </div>
+                            <div class="avartar_info">
+                                <p></p>
+                                <h5></h5>
+                                <p></p>
+                            </div>
+                        </article>
+                        <article>
+                            <div class="avartar_frame">
+                                <img
+                                    src="../../img/photo/customizing/customizing_info/eternity/avatar20.png"
+                                    alt="난폭한 영원"
+                                    data-job="창술사 전용"
+                                    data-job-keyword="martial_female"
+                                    data-part="모든 부위"
+                                    data-place="요즈의 항아리 : 영원"
+                                />
+                                <div class="line_heart"></div>
+                            </div>
+                            <div class="avartar_info">
+                                <p></p>
+                                <h5></h5>
+                                <p></p>
+                            </div>
+                        </article>
+                        <article>
+                            <div class="avartar_frame">
+                                <img
+                                    src="../../img/photo/customizing/customizing_info/eternity/avatar21.png"
+                                    alt="충실의 영원"
+                                    data-job="데빌헌터 전용"
+                                    data-job-keyword="hunter_male"
+                                    data-part="모든 부위"
+                                    data-place="요즈의 항아리 : 영원"
+                                />
+                                <div class="line_heart"></div>
+                            </div>
+                            <div class="avartar_info">
+                                <p></p>
+                                <h5></h5>
+                                <p></p>
+                            </div>
+                        </article>
+                        <article>
+                            <div class="avartar_frame">
+                                <img
+                                    src="../../img/photo/customizing/customizing_info/eternity/avatar22.png"
+                                    alt="배신의 영원"
+                                    data-job="데빌헌터 전용"
+                                    data-job-keyword="hunter_male"
+                                    data-part="모든 부위"
+                                    data-place="요즈의 항아리 : 영원"
+                                />
+                                <div class="line_heart"></div>
+                            </div>
+                            <div class="avartar_info">
+                                <p></p>
+                                <h5></h5>
+                                <p></p>
+                            </div>
+                        </article>
+                        <article>
+                            <div class="avartar_frame">
+                                <img
+                                    src="../../img/photo/customizing/customizing_info/eternity/avatar23.png"
+                                    alt="숭배의 영원"
+                                    data-job="블래스터 전용"
+                                    data-job-keyword="hunter_male"
+                                    data-part="모든 부위"
+                                    data-place="요즈의 항아리 : 영원"
+                                />
+                                <div class="line_heart"></div>
+                            </div>
+                            <div class="avartar_info">
+                                <p></p>
+                                <h5></h5>
+                                <p></p>
+                            </div>
+                        </article>
+                        <article>
+                            <div class="avartar_frame">
+                                <img
+                                    src="../../img/photo/customizing/customizing_info/eternity/avatar24.png"
+                                    alt="지탄의 영원"
+                                    data-job="블래스터 전용"
+                                    data-job-keyword="hunter_male"
+                                    data-part="모든 부위"
+                                    data-place="요즈의 항아리 : 영원"
+                                />
+                                <div class="line_heart"></div>
+                            </div>
+                            <div class="avartar_info">
+                                <p></p>
+                                <h5></h5>
+                                <p></p>
+                            </div>
+                        </article>
+                        <article>
+                            <div class="avartar_frame">
+                                <img
+                                    src="../../img/photo/customizing/customizing_info/eternity/avatar25.png"
+                                    alt="운명의 영원"
+                                    data-job="호크아이 전용"
+                                    data-job-keyword="hunter_male"
+                                    data-part="모든 부위"
+                                    data-place="요즈의 항아리 : 영원"
+                                />
+                                <div class="line_heart"></div>
+                            </div>
+                            <div class="avartar_info">
+                                <p></p>
+                                <h5></h5>
+                                <p></p>
+                            </div>
+                        </article>
+                        <article>
+                            <div class="avartar_frame">
+                                <img
+                                    src="../../img/photo/customizing/customizing_info/eternity/avatar26.png"
+                                    alt="숙명의 영원"
+                                    data-job="호크아이 전용"
+                                    data-job-keyword="hunter_male"
+                                    data-part="모든 부위"
+                                    data-place="요즈의 항아리 : 영원"
+                                />
+                                <div class="line_heart"></div>
+                            </div>
+                            <div class="avartar_info">
+                                <p></p>
+                                <h5></h5>
+                                <p></p>
+                            </div>
+                        </article>
+                        <article>
+                            <div class="avartar_frame">
+                                <img
+                                    src="../../img/photo/customizing/customizing_info/eternity/avatar27.png"
+                                    alt="화합의 영원"
+                                    data-job="스카우터 전용"
+                                    data-job-keyword="hunter_male"
+                                    data-part="모든 부위"
+                                    data-place="요즈의 항아리 : 영원"
+                                />
+                                <div class="line_heart"></div>
+                            </div>
+                            <div class="avartar_info">
+                                <p></p>
+                                <h5></h5>
+                                <p></p>
+                            </div>
+                        </article>
+                        <article>
+                            <div class="avartar_frame">
+                                <img
+                                    src="../../img/photo/customizing/customizing_info/eternity/avatar28.png"
+                                    alt="충돌의 영원"
+                                    data-job="스카우터 전용"
+                                    data-job-keyword="hunter_male"
+                                    data-part="모든 부위"
+                                    data-place="요즈의 항아리 : 영원"
+                                />
+                                <div class="line_heart"></div>
+                            </div>
+                            <div class="avartar_info">
+                                <p></p>
+                                <h5></h5>
+                                <p></p>
+                            </div>
+                        </article>
+                        <article>
+                            <div class="avartar_frame">
+                                <img
+                                    src="../../img/photo/customizing/customizing_info/eternity/avatar29.png"
+                                    alt="타오르는 영원"
+                                    data-job="건슬링어 전용"
+                                    data-job-keyword="hunter_female"
+                                    data-part="모든 부위"
+                                    data-place="요즈의 항아리 : 영원"
+                                />
+                                <div class="line_heart"></div>
+                            </div>
+                            <div class="avartar_info">
+                                <p></p>
+                                <h5></h5>
+                                <p></p>
+                            </div>
+                        </article>
+                        <article>
+                            <div class="avartar_frame">
+                                <img
+                                    src="../../img/photo/customizing/customizing_info/eternity/avatar30.png"
+                                    alt="얼어붙는 영원"
+                                    data-job="건슬링어 전용"
+                                    data-job-keyword="hunter_female"
+                                    data-part="모든 부위"
+                                    data-place="요즈의 항아리 : 영원"
+                                />
+                                <div class="line_heart"></div>
+                            </div>
+                            <div class="avartar_info">
+                                <p></p>
+                                <h5></h5>
+                                <p></p>
+                            </div>
+                        </article>
+                        <article>
+                            <div class="avartar_frame">
+                                <img
+                                    src="../../img/photo/customizing/customizing_info/eternity/avatar31.png"
+                                    alt="질서의 영원"
+                                    data-job="바드 전용"
+                                    data-job-keyword="magition_female"
+                                    data-part="모든 부위"
+                                    data-place="요즈의 항아리 : 영원"
+                                />
+                                <div class="line_heart"></div>
+                            </div>
+                            <div class="avartar_info">
+                                <p></p>
+                                <h5></h5>
+                                <p></p>
+                            </div>
+                        </article>
+                        <article>
+                            <div class="avartar_frame">
+                                <img
+                                    src="../../img/photo/customizing/customizing_info/eternity/avatar32.png"
+                                    alt="혼돈의 영원"
+                                    data-job="바드 전용"
+                                    data-job-keyword="magition_female"
+                                    data-part="모든 부위"
+                                    data-place="요즈의 항아리 : 영원"
+                                />
+                                <div class="line_heart"></div>
+                            </div>
+                            <div class="avartar_info">
+                                <p></p>
+                                <h5></h5>
+                                <p></p>
+                            </div>
+                        </article>
+                        <article>
+                            <div class="avartar_frame">
+                                <img
+                                    src="../../img/photo/customizing/customizing_info/eternity/avatar33.png"
+                                    alt="움트는 영원"
+                                    data-job="서머너 전용"
+                                    data-job-keyword="magition_female"
+                                    data-part="모든 부위"
+                                    data-place="요즈의 항아리 : 영원"
+                                />
+                                <div class="line_heart"></div>
+                            </div>
+                            <div class="avartar_info">
+                                <p></p>
+                                <h5></h5>
+                                <p></p>
+                            </div>
+                        </article>
+                        <article>
+                            <div class="avartar_frame">
+                                <img
+                                    src="../../img/photo/customizing/customizing_info/eternity/avatar34.png"
+                                    alt="몰락하는 영원"
+                                    data-job="서머너 전용"
+                                    data-job-keyword="magition_female"
+                                    data-part="모든 부위"
+                                    data-place="요즈의 항아리 : 영원"
+                                />
+                                <div class="line_heart"></div>
+                            </div>
+                            <div class="avartar_info">
+                                <p></p>
+                                <h5></h5>
+                                <p></p>
+                            </div>
+                        </article>
+                        <article>
+                            <div class="avartar_frame">
+                                <img
+                                    src="../../img/photo/customizing/customizing_info/eternity/avatar35.png"
+                                    alt="파괴의 영원"
+                                    data-job="아르카나 전용"
+                                    data-job-keyword="magition_female"
+                                    data-part="모든 부위"
+                                    data-place="요즈의 항아리 : 영원"
+                                />
+                                <div class="line_heart"></div>
+                            </div>
+                            <div class="avartar_info">
+                                <p></p>
+                                <h5></h5>
+                                <p></p>
+                            </div>
+                        </article>
+                        <article>
+                            <div class="avartar_frame">
+                                <img
+                                    src="../../img/photo/customizing/customizing_info/eternity/avatar36.png"
+                                    alt="창조의 영원"
+                                    data-job="아르카나 전용"
+                                    data-job-keyword="magition_female"
+                                    data-part="모든 부위"
+                                    data-place="요즈의 항아리 : 영원"
+                                />
+                                <div class="line_heart"></div>
+                            </div>
+                            <div class="avartar_info">
+                                <p></p>
+                                <h5></h5>
+                                <p></p>
+                            </div>
+                        </article>
+                        <article>
+                            <div class="avartar_frame">
+                                <img
+                                    src="../../img/photo/customizing/customizing_info/eternity/avatar37.png"
+                                    alt="자애로운 영원"
+                                    data-job="소서리스 전용"
+                                    data-job-keyword="magition_female"
+                                    data-part="모든 부위"
+                                    data-place="요즈의 항아리 : 영원"
+                                />
+                                <div class="line_heart"></div>
+                            </div>
+                            <div class="avartar_info">
+                                <p></p>
+                                <h5></h5>
+                                <p></p>
+                            </div>
+                        </article>
+                        <article>
+                            <div class="avartar_frame">
+                                <img
+                                    src="../../img/photo/customizing/customizing_info/eternity/avatar38.png"
+                                    alt="무자비한 영원"
+                                    data-job="소서리스 전용"
+                                    data-job-keyword="magition_female"
+                                    data-part="모든 부위"
+                                    data-place="요즈의 항아리 : 영원"
+                                />
+                                <div class="line_heart"></div>
+                            </div>
+                            <div class="avartar_info">
+                                <p></p>
+                                <h5></h5>
+                                <p></p>
+                            </div>
+                        </article>
+                        <article>
+                            <div class="avartar_frame">
+                                <img
+                                    src="../../img/photo/customizing/customizing_info/eternity/avatar39.png"
+                                    alt="포효하는 영원"
+                                    data-job="블레이드 전용"
+                                    data-job-keyword="assassin_female"
+                                    data-part="모든 부위"
+                                    data-place="요즈의 항아리 : 영원"
+                                />
+                                <div class="line_heart"></div>
+                            </div>
+                            <div class="avartar_info">
+                                <p></p>
+                                <h5></h5>
+                                <p></p>
+                            </div>
+                        </article>
+                        <article>
+                            <div class="avartar_frame">
+                                <img
+                                    src="../../img/photo/customizing/customizing_info/eternity/avatar40.png"
+                                    alt="속삭이는 영원"
+                                    data-job="블레이드 전용"
+                                    data-job-keyword="assassin_female"
+                                    data-part="모든 부위"
+                                    data-place="요즈의 항아리 : 영원"
+                                />
+                                <div class="line_heart"></div>
+                            </div>
+                            <div class="avartar_info">
+                                <p></p>
+                                <h5></h5>
+                                <p></p>
+                            </div>
+                        </article>
+                        <article>
+                            <div class="avartar_frame">
+                                <img
+                                    src="../../img/photo/customizing/customizing_info/eternity/avatar41.png"
+                                    alt="고뇌하는 영원"
+                                    data-job="데모닉 전용"
+                                    data-job-keyword="assassin_female"
+                                    data-part="모든 부위"
+                                    data-place="요즈의 항아리 : 영원"
+                                />
+                                <div class="line_heart"></div>
+                            </div>
+                            <div class="avartar_info">
+                                <p></p>
+                                <h5></h5>
+                                <p></p>
+                            </div>
+                        </article>
+                        <article>
+                            <div class="avartar_frame">
+                                <img
+                                    src="../../img/photo/customizing/customizing_info/eternity/avatar42.png"
+                                    alt="방황하는 영원"
+                                    data-job="데모닉 전용"
+                                    data-job-keyword="assassin_female"
+                                    data-part="모든 부위"
+                                    data-place="요즈의 항아리 : 영원"
+                                />
+                                <div class="line_heart"></div>
+                            </div>
+                            <div class="avartar_info">
+                                <p></p>
+                                <h5></h5>
+                                <p></p>
+                            </div>
+                        </article>
+                        <article>
+                            <div class="avartar_frame">
+                                <img
+                                    src="../../img/photo/customizing/customizing_info/eternity/avatar43.png"
+                                    alt="생명의 영원"
+                                    data-job="리퍼 전용"
+                                    data-job-keyword="assassin_female"
+                                    data-part="모든 부위"
+                                    data-place="요즈의 항아리 : 영원"
+                                />
+                                <div class="line_heart"></div>
+                            </div>
+                            <div class="avartar_info">
+                                <p></p>
+                                <h5></h5>
+                                <p></p>
+                            </div>
+                        </article>
+                        <article>
+                            <div class="avartar_frame">
+                                <img
+                                    src="../../img/photo/customizing/customizing_info/eternity/avatar44.png"
+                                    alt="종말의 영원"
+                                    data-job="리퍼 전용"
+                                    data-job-keyword="assassin_female"
+                                    data-part="모든 부위"
+                                    data-place="요즈의 항아리 : 영원"
+                                />
+                                <div class="line_heart"></div>
+                            </div>
+                            <div class="avartar_info">
+                                <p></p>
+                                <h5></h5>
+                                <p></p>
+                            </div>
+                        </article>
+                        <article>
+                            <div class="avartar_frame">
+                                <img
+                                    src="../../img/photo/customizing/customizing_info/eternity/avatar45.png"
+                                    alt="맹목적인 영원"
+                                    data-job="소울이터 전용"
+                                    data-job-keyword="assassin_female"
+                                    data-part="모든 부위"
+                                    data-place="요즈의 항아리 : 영원"
+                                />
+                                <div class="line_heart"></div>
+                            </div>
+                            <div class="avartar_info">
+                                <p></p>
+                                <h5></h5>
+                                <p></p>
+                            </div>
+                        </article>
+                        <article>
+                            <div class="avartar_frame">
+                                <img
+                                    src="../../img/photo/customizing/customizing_info/eternity/avatar46.png"
+                                    alt="원칙적인 영원"
+                                    data-job="소울이터 전용"
+                                    data-job-keyword="assassin_female"
+                                    data-part="모든 부위"
+                                    data-place="요즈의 항아리 : 영원"
+                                />
+                                <div class="line_heart"></div>
+                            </div>
+                            <div class="avartar_info">
+                                <p></p>
+                                <h5></h5>
+                                <p></p>
+                            </div>
+                        </article>
+                        <article>
+                            <div class="avartar_frame">
+                                <img
+                                    src="../../img/photo/customizing/customizing_info/eternity/avatar47.png"
+                                    alt="용감한 영원"
+                                    data-job="도화가 전용"
+                                    data-job-keyword="specialist"
+                                    data-part="모든 부위"
+                                    data-place="요즈의 항아리 : 영원"
+                                />
+                                <div class="line_heart"></div>
+                            </div>
+                            <div class="avartar_info">
+                                <p></p>
+                                <h5></h5>
+                                <p></p>
+                            </div>
+                        </article>
+                        <article>
+                            <div class="avartar_frame">
+                                <img
+                                    src="../../img/photo/customizing/customizing_info/eternity/avatar48.png"
+                                    alt="순진한 영원"
+                                    data-job="도화가 전용"
+                                    data-job-keyword="specialist"
+                                    data-part="모든 부위"
+                                    data-place="요즈의 항아리 : 영원"
+                                />
+                                <div class="line_heart"></div>
+                            </div>
+                            <div class="avartar_info">
+                                <p></p>
+                                <h5></h5>
+                                <p></p>
+                            </div>
+                        </article>
+                        <article>
+                            <div class="avartar_frame">
+                                <img
+                                    src="../../img/photo/customizing/customizing_info/eternity/avatar49.png"
+                                    alt="다정한 영원"
+                                    data-job="기상술사 전용"
+                                    data-job-keyword="specialist"
+                                    data-part="모든 부위"
+                                    data-place="요즈의 항아리 : 영원"
+                                />
+                                <div class="line_heart"></div>
+                            </div>
+                            <div class="avartar_info">
+                                <p></p>
+                                <h5></h5>
+                                <p></p>
+                            </div>
+                        </article>
+                        <article>
+                            <div class="avartar_frame">
+                                <img
+                                    src="../../img/photo/customizing/customizing_info/eternity/avatar50.png"
+                                    alt="수줍은 영원"
+                                    data-job="기상술사 전용"
+                                    data-job-keyword="specialist"
+                                    data-part="모든 부위"
+                                    data-place="요즈의 항아리 : 영원"
+                                />
+                                <div class="line_heart"></div>
+                            </div>
+                            <div class="avartar_info">
+                                <p></p>
+                                <h5></h5>
+                                <p></p>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="pagination">
+                        <ul class="page_number" id="pagination"></ul>
+                    </div>
+                </section>
+                <!-- 이벤트 내용 -->
+                <a href="../customizing_page/customizing_forum.html" class="event">
+                    <div>
+                        <h4>이번주 베스트 커마와 배경을 보고 싶다면?</h4>
+                        <p>클릭하여 이번주 가장 인기있는 포스터들을 구경해보세요!</p>
+                    </div>
+                    <div class="line_arrow right"></div>
+                </a>
+            </main>
+            <!-- 푸터 -->
+            <footer>
+                <div class="footer_wrap">
+                    <ul>
+                        <li>
+                            <a href="../best_page/best_page.html">BEST</a>
+                            <ul class="sub_menu">
+                                <li><a href="../best_page/best_page.html">BEST LCM</a></li>
+                                <li>
+                                    <a href="../best_page/best_page.html#reporter_pick">리포터 PICK</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="../view_page/view_forum.html">배경</a>
+                            <ul class="sub_menu">
+                                <li><a href="../view_page/view_forum.html">배경</a></li>
+                                <li><a href="../view_page/view_info.html">정보</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="../customizing_page/customizing_forum.html">커스텀마이징</a>
+                            <ul class="sub_menu">
+                                <li>
+                                    <a href="../customizing_page/customizing_forum.html">커스텀마이징</a>
+                                </li>
+                                <li>
+                                    <a href="../customizing_page/customizing_info.html">정보</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li><a href="../community_page/community.html">커뮤니티</a></li>
+                    </ul>
+                    <div class="legal">
+                        <ul class="policy">
+                            <li><a href="#">회사소개</a></li>
+                            <li><a href="#">비즈니스</a></li>
+                            <li><a href="#">이용약관</a></li>
+                            <li><a href="#">운영정책</a></li>
+                            <li><a href="#">개인정보처리방침</a></li>
+                            <li><a href="#">청소년보호정책</a></li>
+                            <li><a href="#">공지사항</a></li>
+                            <li><a href="#">고객센터</a></li>
+                        </ul>
+                        <p>
+                            <span>회사명. LookCustoMizing</span>
+                            <span>대표이사. 윤땡땡</span>
+                            <span>E. lookCM@naver.com</span>
+                        </p>
+                        <p>Copyright&copy; LookCustoMizing. All rights reserved.</p>
+                    </div>
+                </div>
+            </footer>
         </div>
-      </header>
-      <!-- 메뉴 -->
-      <div class="menu_content">
-        <!-- 우측 메뉴 창 -->
-        <ul class="menu_wrap">
-          <li class="close_button">
-            <div><button type="button" class="close"></button></div>
-          </li>
-          <!-- 검색창 -->
-          <li>
-            <input
-              type="text"
-              class="search"
-              placeholder="검색 내용을 입력하세요." />
-            <label for="search"></label>
-          </li>
-          <!-- 로그인 -->
-          <li class="user_login">
-            <a href="../sub_page/user_page/login.html">로그인</a>
-          </li>
-          <li>
-            <a href="#">아이디 찾기</a>
-            <a href="#">비밀번호 찾기</a>
-            <a href="#">회원가입</a>
-            <a href="#">고객센터</a>
-          </li>
-          <li>
-            <!-- 사용자 서비스 창 -->
-            <ul class="user_service">
-              <li>
-                <a href="#"
-                  ><i class="human touch"></i
-                  ><span class="touch">마이페이지</span></a
-                >
-              </li>
-              <li>
-                <a href="#"
-                  ><i class="heart touch"></i
-                  ><span class="touch">찜 목록</span></a
-                >
-              </li>
-              <li>
-                <a href="#"
-                  ><i class="alert touch"></i><span class="touch">알림</span></a
-                >
-              </li>
-              <li>
-                <a href="#"
-                  ><i class="setting touch"></i>
-                  <span class="touch">환경설정</span></a
-                >
-              </li>
-            </ul>
-          </li>
-          <li class="event">
-            <img
-              src="../../img/photo/event/lostark_event.png"
-              alt="로스트아크"
-              class="lostark_event" />
-          </li>
-          <li>
-            <a href="/"
-              ><img src="../../img/icon/logo.png" alt="LCM로고" height="18"
-            /></a>
-            <div>
-              <a href="#" class="facebook"></a>
-              <a href="#" class="instagram"></a>
-              <a href="#" class="tiktok"></a>
-            </div>
-          </li>
-        </ul>
-      </div>
-      <!-- 메인 섹션 -->
-      <main class="coustomizing_info">
-        <section>
-          <div class="main_title">
-            <h2>INFORMATION</h2>
-            <h3>로스트아크 커스텀마이징 정보</h3>
-          </div>
-        </section>
-        <!-- 커스텀마이징 선택 섹션 -->
-        <section>
-          <ul class="select">
-            <li class="avatar click_first" id="avatar">아바타</li>
-            <li class="auction" id="auction">
-              <a href="https://lostark.game.onstove.com/Market" target="_blank"
-                >경매장</a
-              >
-            </li>
-            <li>
-              <input
-                type="text"
-                class="search"
-                placeholder="검색 내용을 입력하세요." />
-              <label for="search"></label>
-            </li>
-          </ul>
-          <div class="parts contents_wrap">
-            <div class="left_part">
-              <input type="checkbox" id="weapon" value="무기" />
-              <label for="weapon" class="weapon"></label>
-              <div class="cell"></div>
-              <input type="checkbox" id="moving_efttect" value="이동효과" />
-              <label for="moving_efttect" class="moving_efttect"></label>
-              <input type="checkbox" id="nothing1" disabled />
-              <label for="nothing1" class="nothing1"></label>
-              <input type="checkbox" id="nothing2" disabled />
-              <label for="nothing2" class="nothing2"></label>
-            </div>
-            <div class="middel_part">
-              <img
-                src="../../img/photo/customizing/customizing_info/avartar_m.png"
-                alt="캐릭터 그림자 형태" />
-              <div class="plus"></div>
-              <div class="character">
-                <div class="reset">- reset -</div>
-                <input
-                  type="radio"
-                  id="fighter_male"
-                  name="character"
-                  value="male"
-                  checked />
-                <label for="fighter_male" class="fighter_male">전사(남)</label>
-                <input
-                  type="radio"
-                  id="fighter_female"
-                  name="character"
-                  value="female" />
-                <label for="fighter_female" class="fighter_female"
-                  >전사(여)</label
-                >
-                <input
-                  type="radio"
-                  id="martial_male"
-                  name="character"
-                  value="male" />
-                <label for="martial_male" class="martial_male"
-                  >무도가(남)</label
-                >
-                <input
-                  type="radio"
-                  id="martial_female"
-                  name="character"
-                  value="female" />
-                <label for="martial_female" class="martial_female"
-                  >무도가(여)</label
-                >
-                <input
-                  type="radio"
-                  id="hunter_male"
-                  name="character"
-                  value="male" />
-                <label for="hunter_male" class="hunter_male">헌터(남)</label>
-                <input
-                  type="radio"
-                  id="hunter_female"
-                  name="character"
-                  value="female" />
-                <label for="hunter_female" class="hunter_female"
-                  >헌터(여)</label
-                >
-                <input
-                  type="radio"
-                  id="magition_female"
-                  name="character"
-                  value="female" />
-                <label for="magition_female" class="magition_female"
-                  >마법사</label
-                >
-                <input
-                  type="radio"
-                  id="assassin_female"
-                  name="character"
-                  value="female" />
-                <label for="assassin_female" class="assassin_female"
-                  >암살자</label
-                >
-                <input
-                  type="radio"
-                  id="specialist"
-                  name="character"
-                  value="specialist" />
-                <label for="specialist" class="specialist">스페셜리스트</label>
-              </div>
-            </div>
-            <div class="right_part">
-              <input type="checkbox" id="head" value="머리" />
-              <label for="head" class="head"></label>
-              <input type="checkbox" id="face" value="얼굴" />
-              <label for="face" class="face"></label>
-              <input type="checkbox" id="deco" value="장식" />
-              <label for="deco" class="deco"></label>
-              <div class="cell"></div>
-              <input type="checkbox" id="top" value="상의" />
-              <label for="top" class="top"></label>
-              <input type="checkbox" id="bottom" value="하의" />
-              <label for="bottom" class="bottom"></label>
-            </div>
-          </div>
-        </section>
-        <!-- 정보 출력 -->
-        <section class="information">
-          <div class="title">
-            <h4>아바타 정보</h4>
-            <h5>
-              원하는 직업과 부위를 클릭하시면 해당하는 아바타 정보가 제공됩니다
-            </h5>
-            <div class="checking">
-              <div class="job">#전사(남)</div>
-            </div>
-          </div>
-          <div class="avartars_wrap">
-            <article>
-              <div class="avartar_frame">
-                <img
-                  src="../../img/photo/customizing/customizing_info/lunar_eclipse/avatar1_1.png"
-                  alt="환영의 월식"
-                  data-job="캐릭터(남)"
-                  data-part="모든 부위"
-                  data-place="월식 아바타" />
-                <div class="line_heart"></div>
-              </div>
-              <div class="avartar_info">
-                <p></p>
-                <h5></h5>
-                <p></p>
-              </div>
-            </article>
-            <article>
-              <div class="avartar_frame">
-                <img
-                  src="../../img/photo/customizing/customizing_info/lunar_eclipse/avatar1_2.png"
-                  alt="환영의 월식"
-                  data-job="캐릭터(여)"
-                  data-part="모든 부위"
-                  data-place="월식 아바타" />
-                <div class="line_heart"></div>
-              </div>
-              <div class="avartar_info">
-                <p></p>
-                <h5></h5>
-                <p></p>
-              </div>
-            </article>
-            <article>
-              <div class="avartar_frame">
-                <img
-                  src="../../img/photo/customizing/customizing_info/lunar_eclipse/avatar2_1.png"
-                  alt="영예의 월식"
-                  data-job="캐릭터(남)"
-                  data-part="모든 부위"
-                  data-place="월식 아바타" />
-                <div class="line_heart"></div>
-              </div>
-              <div class="avartar_info">
-                <p></p>
-                <h5></h5>
-                <p></p>
-              </div>
-            </article>
-            <article>
-              <div class="avartar_frame">
-                <img
-                  src="../../img/photo/customizing/customizing_info/lunar_eclipse/avatar2_2.png"
-                  alt="영예의 월식"
-                  data-job="캐릭터(여)"
-                  data-part="모든 부위"
-                  data-place="월식 아바타" />
-                <div class="line_heart"></div>
-              </div>
-              <div class="avartar_info">
-                <p></p>
-                <h5></h5>
-                <p></p>
-              </div>
-            </article>
-            <article>
-              <div class="avartar_frame">
-                <img
-                  src="../../img/photo/customizing/customizing_info/new_years/avatar1_1.png"
-                  alt="용의 극야"
-                  data-job="캐릭터(남)"
-                  data-part="모든 부위"
-                  data-place="용의 밤 아바타" />
-                <div class="line_heart"></div>
-              </div>
-              <div class="avartar_info">
-                <p></p>
-                <h5></h5>
-                <p></p>
-              </div>
-            </article>
-            <article>
-              <div class="avartar_frame">
-                <img
-                  src="../../img/photo/customizing/customizing_info/new_years/avatar1_2.png"
-                  alt="용의 극야"
-                  data-job="캐릭터(여)"
-                  data-part="모든 부위"
-                  data-place="용의 밤 아바타" />
-                <div class="line_heart"></div>
-              </div>
-              <div class="avartar_info">
-                <p></p>
-                <h5></h5>
-                <p></p>
-              </div>
-            </article>
-            <article>
-              <div class="avartar_frame">
-                <img
-                  src="../../img/photo/customizing/customizing_info/new_years/avatar2_1.png"
-                  alt="용의 흑야"
-                  data-job="캐릭터(남)"
-                  data-part="모든 부위"
-                  data-place="용의 밤 아바타" />
-                <div class="line_heart"></div>
-              </div>
-              <div class="avartar_info">
-                <p></p>
-                <h5></h5>
-                <p></p>
-              </div>
-            </article>
-            <article>
-              <div class="avartar_frame">
-                <img
-                  src="../../img/photo/customizing/customizing_info/new_years/avatar2_2.png"
-                  alt="용의 흑야"
-                  data-job="캐릭터(여)"
-                  data-part="모든 부위"
-                  data-place="용의 밤 아바타" />
-                <div class="line_heart"></div>
-              </div>
-              <div class="avartar_info">
-                <p></p>
-                <h5></h5>
-                <p></p>
-              </div>
-            </article>
-            <article>
-              <div class="avartar_frame">
-                <img
-                  src="../../img/photo/customizing/customizing_info/eternity/avatar01.png"
-                  alt="정열적인 영원"
-                  data-job="워로드 전용"
-                  data-job-keyword="fighter_male"
-                  data-part="모든 부위"
-                  data-place="요즈의 항아리 : 영원" />
-                <div class="line_heart"></div>
-              </div>
-              <div class="avartar_info">
-                <p></p>
-                <h5></h5>
-                <p></p>
-              </div>
-            </article>
-            <article>
-              <div class="avartar_frame">
-                <img
-                  src="../../img/photo/customizing/customizing_info/eternity/avatar02.png"
-                  alt="냉철한 영원"
-                  data-job="워로드 전용"
-                  data-job-keyword="fighter_male"
-                  data-part="모든 부위"
-                  data-place="요즈의 항아리 : 영원" />
-                <div class="line_heart"></div>
-              </div>
-              <div class="avartar_info">
-                <p></p>
-                <h5></h5>
-                <p></p>
-              </div>
-            </article>
-            <article>
-              <div class="avartar_frame">
-                <img
-                  src="../../img/photo/customizing/customizing_info/eternity/avatar03.png"
-                  alt="변질된 영원"
-                  data-job="버서커 전용"
-                  data-job-keyword="fighter_male"
-                  data-part="모든 부위"
-                  data-place="요즈의 항아리 : 영원" />
-                <div class="line_heart"></div>
-              </div>
-              <div class="avartar_info">
-                <p></p>
-                <h5></h5>
-                <p></p>
-              </div>
-            </article>
-            <article>
-              <div class="avartar_frame">
-                <img
-                  src="../../img/photo/customizing/customizing_info/eternity/avatar04.png"
-                  alt="온전한 영원"
-                  data-job="버서커 전용"
-                  data-job-keyword="fighter_male"
-                  data-part="모든 부위"
-                  data-place="요즈의 항아리 : 영원" />
-                <div class="line_heart"></div>
-              </div>
-              <div class="avartar_info">
-                <p></p>
-                <h5></h5>
-                <p></p>
-              </div>
-            </article>
-            <article>
-              <div class="avartar_frame">
-                <img
-                  src="../../img/photo/customizing/customizing_info/eternity/avatar05.png"
-                  alt="천상의 영원"
-                  data-job="디스트로이어 전용"
-                  data-job-keyword="fighter_male"
-                  data-part="모든 부위"
-                  data-place="요즈의 항아리 : 영원" />
-                <div class="line_heart"></div>
-              </div>
-              <div class="avartar_info">
-                <p></p>
-                <h5></h5>
-                <p></p>
-              </div>
-            </article>
-            <article>
-              <div class="avartar_frame">
-                <img
-                  src="../../img/photo/customizing/customizing_info/eternity/avatar06.png"
-                  alt="심연의 영원"
-                  data-job="디스트로이어 전용"
-                  data-job-keyword="fighter_male"
-                  data-part="모든 부위"
-                  data-place="요즈의 항아리 : 영원" />
-                <div class="line_heart"></div>
-              </div>
-              <div class="avartar_info">
-                <p></p>
-                <h5></h5>
-                <p></p>
-              </div>
-            </article>
-            <article>
-              <div class="avartar_frame">
-                <img
-                  src="../../img/photo/customizing/customizing_info/eternity/avatar07.png"
-                  alt="미지의 영원"
-                  data-job="홀리나이트 전용"
-                  data-job-keyword="fighter_male"
-                  data-part="모든 부위"
-                  data-place="요즈의 항아리 : 영원" />
-                <div class="line_heart"></div>
-              </div>
-              <div class="avartar_info">
-                <p></p>
-                <h5></h5>
-                <p></p>
-              </div>
-            </article>
-            <article>
-              <div class="avartar_frame">
-                <img
-                  src="../../img/photo/customizing/customizing_info/eternity/avatar08.png"
-                  alt="예견된 영원"
-                  data-job="홀리나이트 전용"
-                  data-job-keyword="fighter_male"
-                  data-part="모든 부위"
-                  data-place="요즈의 항아리 : 영원" />
-                <div class="line_heart"></div>
-              </div>
-              <div class="avartar_info">
-                <p></p>
-                <h5></h5>
-                <p></p>
-              </div>
-            </article>
-            <article>
-              <div class="avartar_frame">
-                <img
-                  src="../../img/photo/customizing/customizing_info/eternity/avatar09.png"
-                  alt="연민의 영원"
-                  data-job="슬레이어 전용"
-                  data-job-keyword="fighter_female"
-                  data-part="모든 부위"
-                  data-place="요즈의 항아리 : 영원" />
-                <div class="line_heart"></div>
-              </div>
-              <div class="avartar_info">
-                <p></p>
-                <h5></h5>
-                <p></p>
-              </div>
-            </article>
-            <article>
-              <div class="avartar_frame">
-                <img
-                  src="../../img/photo/customizing/customizing_info/eternity/avatar10.png"
-                  alt="지배의 영원"
-                  data-job="슬레이어 전용"
-                  data-job-keyword="fighter_female"
-                  data-part="모든 부위"
-                  data-place="요즈의 항아리 : 영원" />
-                <div class="line_heart"></div>
-              </div>
-              <div class="avartar_info">
-                <p></p>
-                <h5></h5>
-                <p></p>
-              </div>
-            </article>
-            <article>
-              <div class="avartar_frame">
-                <img
-                  src="../../img/photo/customizing/customizing_info/eternity/avatar11.png"
-                  alt="맹세의 영원"
-                  data-job="스트라이커 전용"
-                  data-job-keyword="martial_male"
-                  data-part="모든 부위"
-                  data-place="요즈의 항아리 : 영원" />
-                <div class="line_heart"></div>
-              </div>
-              <div class="avartar_info">
-                <p></p>
-                <h5></h5>
-                <p></p>
-              </div>
-            </article>
-            <article>
-              <div class="avartar_frame">
-                <img
-                  src="../../img/photo/customizing/customizing_info/eternity/avatar12.png"
-                  alt="저주의 영원"
-                  data-job="스트라이커 전용"
-                  data-job-keyword="martial_male"
-                  data-part="모든 부위"
-                  data-place="요즈의 항아리 : 영원" />
-                <div class="line_heart"></div>
-              </div>
-              <div class="avartar_info">
-                <p></p>
-                <h5></h5>
-                <p></p>
-              </div>
-            </article>
-            <article>
-              <div class="avartar_frame">
-                <img
-                  src="../../img/photo/customizing/customizing_info/eternity/avatar13.png"
-                  alt="전진하는 영원"
-                  data-job="배틀마스터 전용"
-                  data-job-keyword="martial_female"
-                  data-part="모든 부위"
-                  data-place="요즈의 항아리 : 영원" />
-                <div class="line_heart"></div>
-              </div>
-              <div class="avartar_info">
-                <p></p>
-                <h5></h5>
-                <p></p>
-              </div>
-            </article>
-            <article>
-              <div class="avartar_frame">
-                <img
-                  src="../../img/photo/customizing/customizing_info/eternity/avatar14.png"
-                  alt="회귀하는 영원"
-                  data-job="배틀마스터 전용"
-                  data-job-keyword="martial_female"
-                  data-part="모든 부위"
-                  data-place="요즈의 항아리 : 영원" />
-                <div class="line_heart"></div>
-              </div>
-              <div class="avartar_info">
-                <p></p>
-                <h5></h5>
-                <p></p>
-              </div>
-            </article>
-            <article>
-              <div class="avartar_frame">
-                <img
-                  src="../../img/photo/customizing/customizing_info/eternity/avatar15.png"
-                  alt="이성의 영원"
-                  data-job="인파이터 전용"
-                  data-job-keyword="martial_female"
-                  data-part="모든 부위"
-                  data-place="요즈의 항아리 : 영원" />
-                <div class="line_heart"></div>
-              </div>
-              <div class="avartar_info">
-                <p></p>
-                <h5></h5>
-                <p></p>
-              </div>
-            </article>
-            <article>
-              <div class="avartar_frame">
-                <img
-                  src="../../img/photo/customizing/customizing_info/eternity/avatar16.png"
-                  alt="야성의 영원"
-                  data-job="인파이터 전용"
-                  data-job-keyword="martial_female"
-                  data-part="모든 부위"
-                  data-place="요즈의 항아리 : 영원" />
-                <div class="line_heart"></div>
-              </div>
-              <div class="avartar_info">
-                <p></p>
-                <h5></h5>
-                <p></p>
-              </div>
-            </article>
-            <article>
-              <div class="avartar_frame">
-                <img
-                  src="../../img/photo/customizing/customizing_info/eternity/avatar17.png"
-                  alt="경외의 영원"
-                  data-job="기공사 전용"
-                  data-job-keyword="martial_female"
-                  data-part="모든 부위"
-                  data-place="요즈의 항아리 : 영원" />
-                <div class="line_heart"></div>
-              </div>
-              <div class="avartar_info">
-                <p></p>
-                <h5></h5>
-                <p></p>
-              </div>
-            </article>
-            <article>
-              <div class="avartar_frame">
-                <img
-                  src="../../img/photo/customizing/customizing_info/eternity/avatar18.png"
-                  alt="공포의 영원"
-                  data-job="기공사 전용"
-                  data-job-keyword="martial_female"
-                  data-part="모든 부위"
-                  data-place="요즈의 항아리 : 영원" />
-                <div class="line_heart"></div>
-              </div>
-              <div class="avartar_info">
-                <p></p>
-                <h5></h5>
-                <p></p>
-              </div>
-            </article>
-            <article>
-              <div class="avartar_frame">
-                <img
-                  src="../../img/photo/customizing/customizing_info/eternity/avatar19.png"
-                  alt="신중한 영원"
-                  data-job="창술사 전용"
-                  data-job-keyword="martial_female"
-                  data-part="모든 부위"
-                  data-place="요즈의 항아리 : 영원" />
-                <div class="line_heart"></div>
-              </div>
-              <div class="avartar_info">
-                <p></p>
-                <h5></h5>
-                <p></p>
-              </div>
-            </article>
-            <article>
-              <div class="avartar_frame">
-                <img
-                  src="../../img/photo/customizing/customizing_info/eternity/avatar20.png"
-                  alt="난폭한 영원"
-                  data-job="창술사 전용"
-                  data-job-keyword="martial_female"
-                  data-part="모든 부위"
-                  data-place="요즈의 항아리 : 영원" />
-                <div class="line_heart"></div>
-              </div>
-              <div class="avartar_info">
-                <p></p>
-                <h5></h5>
-                <p></p>
-              </div>
-            </article>
-            <article>
-              <div class="avartar_frame">
-                <img
-                  src="../../img/photo/customizing/customizing_info/eternity/avatar21.png"
-                  alt="충실의 영원"
-                  data-job="데빌헌터 전용"
-                  data-job-keyword="hunter_male"
-                  data-part="모든 부위"
-                  data-place="요즈의 항아리 : 영원" />
-                <div class="line_heart"></div>
-              </div>
-              <div class="avartar_info">
-                <p></p>
-                <h5></h5>
-                <p></p>
-              </div>
-            </article>
-            <article>
-              <div class="avartar_frame">
-                <img
-                  src="../../img/photo/customizing/customizing_info/eternity/avatar22.png"
-                  alt="배신의 영원"
-                  data-job="데빌헌터 전용"
-                  data-job-keyword="hunter_male"
-                  data-part="모든 부위"
-                  data-place="요즈의 항아리 : 영원" />
-                <div class="line_heart"></div>
-              </div>
-              <div class="avartar_info">
-                <p></p>
-                <h5></h5>
-                <p></p>
-              </div>
-            </article>
-            <article>
-              <div class="avartar_frame">
-                <img
-                  src="../../img/photo/customizing/customizing_info/eternity/avatar23.png"
-                  alt="숭배의 영원"
-                  data-job="블래스터 전용"
-                  data-job-keyword="hunter_male"
-                  data-part="모든 부위"
-                  data-place="요즈의 항아리 : 영원" />
-                <div class="line_heart"></div>
-              </div>
-              <div class="avartar_info">
-                <p></p>
-                <h5></h5>
-                <p></p>
-              </div>
-            </article>
-            <article>
-              <div class="avartar_frame">
-                <img
-                  src="../../img/photo/customizing/customizing_info/eternity/avatar24.png"
-                  alt="지탄의 영원"
-                  data-job="블래스터 전용"
-                  data-job-keyword="hunter_male"
-                  data-part="모든 부위"
-                  data-place="요즈의 항아리 : 영원" />
-                <div class="line_heart"></div>
-              </div>
-              <div class="avartar_info">
-                <p></p>
-                <h5></h5>
-                <p></p>
-              </div>
-            </article>
-            <article>
-              <div class="avartar_frame">
-                <img
-                  src="../../img/photo/customizing/customizing_info/eternity/avatar25.png"
-                  alt="운명의 영원"
-                  data-job="호크아이 전용"
-                  data-job-keyword="hunter_male"
-                  data-part="모든 부위"
-                  data-place="요즈의 항아리 : 영원" />
-                <div class="line_heart"></div>
-              </div>
-              <div class="avartar_info">
-                <p></p>
-                <h5></h5>
-                <p></p>
-              </div>
-            </article>
-            <article>
-              <div class="avartar_frame">
-                <img
-                  src="../../img/photo/customizing/customizing_info/eternity/avatar26.png"
-                  alt="숙명의 영원"
-                  data-job="호크아이 전용"
-                  data-job-keyword="hunter_male"
-                  data-part="모든 부위"
-                  data-place="요즈의 항아리 : 영원" />
-                <div class="line_heart"></div>
-              </div>
-              <div class="avartar_info">
-                <p></p>
-                <h5></h5>
-                <p></p>
-              </div>
-            </article>
-            <article>
-              <div class="avartar_frame">
-                <img
-                  src="../../img/photo/customizing/customizing_info/eternity/avatar27.png"
-                  alt="화합의 영원"
-                  data-job="스카우터 전용"
-                  data-job-keyword="hunter_male"
-                  data-part="모든 부위"
-                  data-place="요즈의 항아리 : 영원" />
-                <div class="line_heart"></div>
-              </div>
-              <div class="avartar_info">
-                <p></p>
-                <h5></h5>
-                <p></p>
-              </div>
-            </article>
-            <article>
-              <div class="avartar_frame">
-                <img
-                  src="../../img/photo/customizing/customizing_info/eternity/avatar28.png"
-                  alt="충돌의 영원"
-                  data-job="스카우터 전용"
-                  data-job-keyword="hunter_male"
-                  data-part="모든 부위"
-                  data-place="요즈의 항아리 : 영원" />
-                <div class="line_heart"></div>
-              </div>
-              <div class="avartar_info">
-                <p></p>
-                <h5></h5>
-                <p></p>
-              </div>
-            </article>
-            <article>
-              <div class="avartar_frame">
-                <img
-                  src="../../img/photo/customizing/customizing_info/eternity/avatar29.png"
-                  alt="타오르는 영원"
-                  data-job="건슬링어 전용"
-                  data-job-keyword="hunter_female"
-                  data-part="모든 부위"
-                  data-place="요즈의 항아리 : 영원" />
-                <div class="line_heart"></div>
-              </div>
-              <div class="avartar_info">
-                <p></p>
-                <h5></h5>
-                <p></p>
-              </div>
-            </article>
-            <article>
-              <div class="avartar_frame">
-                <img
-                  src="../../img/photo/customizing/customizing_info/eternity/avatar30.png"
-                  alt="얼어붙는 영원"
-                  data-job="건슬링어 전용"
-                  data-job-keyword="hunter_female"
-                  data-part="모든 부위"
-                  data-place="요즈의 항아리 : 영원" />
-                <div class="line_heart"></div>
-              </div>
-              <div class="avartar_info">
-                <p></p>
-                <h5></h5>
-                <p></p>
-              </div>
-            </article>
-            <article>
-              <div class="avartar_frame">
-                <img
-                  src="../../img/photo/customizing/customizing_info/eternity/avatar31.png"
-                  alt="질서의 영원"
-                  data-job="바드 전용"
-                  data-job-keyword="magition_female"
-                  data-part="모든 부위"
-                  data-place="요즈의 항아리 : 영원" />
-                <div class="line_heart"></div>
-              </div>
-              <div class="avartar_info">
-                <p></p>
-                <h5></h5>
-                <p></p>
-              </div>
-            </article>
-            <article>
-              <div class="avartar_frame">
-                <img
-                  src="../../img/photo/customizing/customizing_info/eternity/avatar32.png"
-                  alt="혼돈의 영원"
-                  data-job="바드 전용"
-                  data-job-keyword="magition_female"
-                  data-part="모든 부위"
-                  data-place="요즈의 항아리 : 영원" />
-                <div class="line_heart"></div>
-              </div>
-              <div class="avartar_info">
-                <p></p>
-                <h5></h5>
-                <p></p>
-              </div>
-            </article>
-            <article>
-              <div class="avartar_frame">
-                <img
-                  src="../../img/photo/customizing/customizing_info/eternity/avatar33.png"
-                  alt="움트는 영원"
-                  data-job="서머너 전용"
-                  data-job-keyword="magition_female"
-                  data-part="모든 부위"
-                  data-place="요즈의 항아리 : 영원" />
-                <div class="line_heart"></div>
-              </div>
-              <div class="avartar_info">
-                <p></p>
-                <h5></h5>
-                <p></p>
-              </div>
-            </article>
-            <article>
-              <div class="avartar_frame">
-                <img
-                  src="../../img/photo/customizing/customizing_info/eternity/avatar34.png"
-                  alt="몰락하는 영원"
-                  data-job="서머너 전용"
-                  data-job-keyword="magition_female"
-                  data-part="모든 부위"
-                  data-place="요즈의 항아리 : 영원" />
-                <div class="line_heart"></div>
-              </div>
-              <div class="avartar_info">
-                <p></p>
-                <h5></h5>
-                <p></p>
-              </div>
-            </article>
-            <article>
-              <div class="avartar_frame">
-                <img
-                  src="../../img/photo/customizing/customizing_info/eternity/avatar35.png"
-                  alt="파괴의 영원"
-                  data-job="아르카나 전용"
-                  data-job-keyword="magition_female"
-                  data-part="모든 부위"
-                  data-place="요즈의 항아리 : 영원" />
-                <div class="line_heart"></div>
-              </div>
-              <div class="avartar_info">
-                <p></p>
-                <h5></h5>
-                <p></p>
-              </div>
-            </article>
-            <article>
-              <div class="avartar_frame">
-                <img
-                  src="../../img/photo/customizing/customizing_info/eternity/avatar36.png"
-                  alt="창조의 영원"
-                  data-job="아르카나 전용"
-                  data-job-keyword="magition_female"
-                  data-part="모든 부위"
-                  data-place="요즈의 항아리 : 영원" />
-                <div class="line_heart"></div>
-              </div>
-              <div class="avartar_info">
-                <p></p>
-                <h5></h5>
-                <p></p>
-              </div>
-            </article>
-            <article>
-              <div class="avartar_frame">
-                <img
-                  src="../../img/photo/customizing/customizing_info/eternity/avatar37.png"
-                  alt="자애로운 영원"
-                  data-job="소서리스 전용"
-                  data-job-keyword="magition_female"
-                  data-part="모든 부위"
-                  data-place="요즈의 항아리 : 영원" />
-                <div class="line_heart"></div>
-              </div>
-              <div class="avartar_info">
-                <p></p>
-                <h5></h5>
-                <p></p>
-              </div>
-            </article>
-            <article>
-              <div class="avartar_frame">
-                <img
-                  src="../../img/photo/customizing/customizing_info/eternity/avatar38.png"
-                  alt="무자비한 영원"
-                  data-job="소서리스 전용"
-                  data-job-keyword="magition_female"
-                  data-part="모든 부위"
-                  data-place="요즈의 항아리 : 영원" />
-                <div class="line_heart"></div>
-              </div>
-              <div class="avartar_info">
-                <p></p>
-                <h5></h5>
-                <p></p>
-              </div>
-            </article>
-            <article>
-              <div class="avartar_frame">
-                <img
-                  src="../../img/photo/customizing/customizing_info/eternity/avatar39.png"
-                  alt="포효하는 영원"
-                  data-job="블레이드 전용"
-                  data-job-keyword="assassin_female"
-                  data-part="모든 부위"
-                  data-place="요즈의 항아리 : 영원" />
-                <div class="line_heart"></div>
-              </div>
-              <div class="avartar_info">
-                <p></p>
-                <h5></h5>
-                <p></p>
-              </div>
-            </article>
-            <article>
-              <div class="avartar_frame">
-                <img
-                  src="../../img/photo/customizing/customizing_info/eternity/avatar40.png"
-                  alt="속삭이는 영원"
-                  data-job="블레이드 전용"
-                  data-job-keyword="assassin_female"
-                  data-part="모든 부위"
-                  data-place="요즈의 항아리 : 영원" />
-                <div class="line_heart"></div>
-              </div>
-              <div class="avartar_info">
-                <p></p>
-                <h5></h5>
-                <p></p>
-              </div>
-            </article>
-            <article>
-              <div class="avartar_frame">
-                <img
-                  src="../../img/photo/customizing/customizing_info/eternity/avatar41.png"
-                  alt="고뇌하는 영원"
-                  data-job="데모닉 전용"
-                  data-job-keyword="assassin_female"
-                  data-part="모든 부위"
-                  data-place="요즈의 항아리 : 영원" />
-                <div class="line_heart"></div>
-              </div>
-              <div class="avartar_info">
-                <p></p>
-                <h5></h5>
-                <p></p>
-              </div>
-            </article>
-            <article>
-              <div class="avartar_frame">
-                <img
-                  src="../../img/photo/customizing/customizing_info/eternity/avatar42.png"
-                  alt="방황하는 영원"
-                  data-job="데모닉 전용"
-                  data-job-keyword="assassin_female"
-                  data-part="모든 부위"
-                  data-place="요즈의 항아리 : 영원" />
-                <div class="line_heart"></div>
-              </div>
-              <div class="avartar_info">
-                <p></p>
-                <h5></h5>
-                <p></p>
-              </div>
-            </article>
-            <article>
-              <div class="avartar_frame">
-                <img
-                  src="../../img/photo/customizing/customizing_info/eternity/avatar43.png"
-                  alt="생명의 영원"
-                  data-job="리퍼 전용"
-                  data-job-keyword="assassin_female"
-                  data-part="모든 부위"
-                  data-place="요즈의 항아리 : 영원" />
-                <div class="line_heart"></div>
-              </div>
-              <div class="avartar_info">
-                <p></p>
-                <h5></h5>
-                <p></p>
-              </div>
-            </article>
-            <article>
-              <div class="avartar_frame">
-                <img
-                  src="../../img/photo/customizing/customizing_info/eternity/avatar44.png"
-                  alt="종말의 영원"
-                  data-job="리퍼 전용"
-                  data-job-keyword="assassin_female"
-                  data-part="모든 부위"
-                  data-place="요즈의 항아리 : 영원" />
-                <div class="line_heart"></div>
-              </div>
-              <div class="avartar_info">
-                <p></p>
-                <h5></h5>
-                <p></p>
-              </div>
-            </article>
-            <article>
-              <div class="avartar_frame">
-                <img
-                  src="../../img/photo/customizing/customizing_info/eternity/avatar45.png"
-                  alt="맹목적인 영원"
-                  data-job="소울이터 전용"
-                  data-job-keyword="assassin_female"
-                  data-part="모든 부위"
-                  data-place="요즈의 항아리 : 영원" />
-                <div class="line_heart"></div>
-              </div>
-              <div class="avartar_info">
-                <p></p>
-                <h5></h5>
-                <p></p>
-              </div>
-            </article>
-            <article>
-              <div class="avartar_frame">
-                <img
-                  src="../../img/photo/customizing/customizing_info/eternity/avatar46.png"
-                  alt="원칙적인 영원"
-                  data-job="소울이터 전용"
-                  data-job-keyword="assassin_female"
-                  data-part="모든 부위"
-                  data-place="요즈의 항아리 : 영원" />
-                <div class="line_heart"></div>
-              </div>
-              <div class="avartar_info">
-                <p></p>
-                <h5></h5>
-                <p></p>
-              </div>
-            </article>
-            <article>
-              <div class="avartar_frame">
-                <img
-                  src="../../img/photo/customizing/customizing_info/eternity/avatar47.png"
-                  alt="용감한 영원"
-                  data-job="도화가 전용"
-                  data-job-keyword="specialist"
-                  data-part="모든 부위"
-                  data-place="요즈의 항아리 : 영원" />
-                <div class="line_heart"></div>
-              </div>
-              <div class="avartar_info">
-                <p></p>
-                <h5></h5>
-                <p></p>
-              </div>
-            </article>
-            <article>
-              <div class="avartar_frame">
-                <img
-                  src="../../img/photo/customizing/customizing_info/eternity/avatar48.png"
-                  alt="순진한 영원"
-                  data-job="도화가 전용"
-                  data-job-keyword="specialist"
-                  data-part="모든 부위"
-                  data-place="요즈의 항아리 : 영원" />
-                <div class="line_heart"></div>
-              </div>
-              <div class="avartar_info">
-                <p></p>
-                <h5></h5>
-                <p></p>
-              </div>
-            </article>
-            <article>
-              <div class="avartar_frame">
-                <img
-                  src="../../img/photo/customizing/customizing_info/eternity/avatar49.png"
-                  alt="다정한 영원"
-                  data-job="기상술사 전용"
-                  data-job-keyword="specialist"
-                  data-part="모든 부위"
-                  data-place="요즈의 항아리 : 영원" />
-                <div class="line_heart"></div>
-              </div>
-              <div class="avartar_info">
-                <p></p>
-                <h5></h5>
-                <p></p>
-              </div>
-            </article>
-            <article>
-              <div class="avartar_frame">
-                <img
-                  src="../../img/photo/customizing/customizing_info/eternity/avatar50.png"
-                  alt="수줍은 영원"
-                  data-job="기상술사 전용"
-                  data-job-keyword="specialist"
-                  data-part="모든 부위"
-                  data-place="요즈의 항아리 : 영원" />
-                <div class="line_heart"></div>
-              </div>
-              <div class="avartar_info">
-                <p></p>
-                <h5></h5>
-                <p></p>
-              </div>
-            </article>
-          </div>
-          <div class="pagination">
-            <ul class="page_number" id="pagination"></ul>
-          </div>
-        </section>
-        <!-- 이벤트 내용 -->
-        <a href="../customizing_page/customizing_forum.html" class="event">
-          <div>
-            <h4>이번주 베스트 커마와 배경을 보고 싶다면?</h4>
-            <p>클릭하여 이번주 가장 인기있는 포스터들을 구경해보세요!</p>
-          </div>
-          <div class="line_arrow right"></div>
-        </a>
-      </main>
-      <!-- 푸터 -->
-      <footer>
-        <div class="footer_wrap">
-          <ul>
-            <li>
-              <a href="../best_page/best_page.html">BEST</a>
-              <ul class="sub_menu">
-                <li><a href="../best_page/best_page.html">BEST LCM</a></li>
-                <li>
-                  <a href="../best_page/best_page.html#reporter_pick"
-                    >리포터 PICK</a
-                  >
-                </li>
-              </ul>
-            </li>
-            <li>
-              <a href="../view_page/view_forum.html">배경</a>
-              <ul class="sub_menu">
-                <li><a href="../view_page/view_forum.html">배경</a></li>
-                <li><a href="../view_page/view_info.html">정보</a></li>
-              </ul>
-            </li>
-            <li>
-              <a href="../customizing_page/customizing_forum.html"
-                >커스텀마이징</a
-              >
-              <ul class="sub_menu">
-                <li>
-                  <a href="../customizing_page/customizing_forum.html"
-                    >커스텀마이징</a
-                  >
-                </li>
-                <li>
-                  <a href="../customizing_page/customizing_info.html">정보</a>
-                </li>
-              </ul>
-            </li>
-            <li><a href="../community_page/community.html">커뮤니티</a></li>
-          </ul>
-          <div class="legal">
-            <ul class="policy">
-              <li><a href="#">회사소개</a></li>
-              <li><a href="#">비즈니스</a></li>
-              <li><a href="#">이용약관</a></li>
-              <li><a href="#">운영정책</a></li>
-              <li><a href="#">개인정보처리방침</a></li>
-              <li><a href="#">청소년보호정책</a></li>
-              <li><a href="#">공지사항</a></li>
-              <li><a href="#">고객센터</a></li>
-            </ul>
-            <p>
-              <span>회사명. LookCustoMizing</span>
-              <span>대표이사. 윤땡땡</span>
-              <span>E. lookCM@naver.com</span>
-            </p>
-            <p>Copyright&copy; LookCustoMizing. All rights reserved.</p>
-          </div>
-        </div>
-      </footer>
-    </div>
-    <script src="../../js/common.js"></script>
-  </body>
+        <script src="../../js/common.js"></script>
+    </body>
 </html>
