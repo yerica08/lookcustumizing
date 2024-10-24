@@ -34,8 +34,8 @@ $font-size: (14px, 16px, 20px, 24px, 36px, 68px);
 }
 
 @mixin basic-section {
-    width: 1600px;
-    margin: 180px auto 150px;
+    width: 83%;
+    margin: 16% auto 14%;
 }
 
 // 아이콘
@@ -55,6 +55,10 @@ h2 {
 }
 h3 {
     font-size: 24px;
+    color: nth($gray-color, 5);
+}
+h3.explan {
+    font-size: 12px;
     color: nth($gray-color, 5);
 }
 h4 {
@@ -115,7 +119,7 @@ header {
     ul.select {
         display: flex;
         width: 100%;
-        margin-top: 100px;
+        margin-top: 9.3%; // 100px
         border-left: 1px solid nth($gray-color, 4);
         transform: translateY(-50%);
         opacity: 0;
@@ -263,20 +267,24 @@ header {
     // 2-7. page
     .pages {
         display: flex;
-        justify-content: right;
+        justify-content: space-between;
         flex-wrap: wrap;
-        gap: 30px;
+        row-gap: 30px;
         width: 100%;
         margin-top: 30px;
 
         .post {
             @include position(relative);
-            width: 785px;
-            height: 500px;
+            width: 49%; // 785px
+            height: fit-content; //500px
             background-color: nth($gray-color, 6);
             position: relative;
             border-radius: 3px;
+            overflow: hidden;
 
+            img {
+                width: 100%;
+            }
             .title {
                 display: flex;
                 justify-content: space-between;
@@ -319,7 +327,7 @@ header {
                             transform: scale(0.8);
                             &.chat,
                             &.heart {
-                                background-image: url('../../img/icon/Result.png');
+                                background-image: url('../../img/icon/sprite.png');
                             }
                         }
                         .reaction_number {
@@ -376,7 +384,7 @@ header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            width: 1600px;
+            width: 100%; // 1600px
             margin: 0 auto;
             margin-top: 30px;
             padding: 30px 50px;
@@ -398,7 +406,7 @@ header {
                 line-height: 12px;
             }
             .line_arrow {
-                background-image: url('../../img/icon/Result.png');
+                background-image: url('../../img/icon/sprite.png');
                 @include darken-icon;
                 transform: rotate(180deg);
             }
@@ -437,13 +445,13 @@ header {
 
     @include darken-icon();
     &:first-of-type {
-        background: url(../img/icon/Result.png);
+        background: url(../img/icon/sprite.png);
         background-position: 0px -1826px;
         width: 12px;
         height: 20px;
     }
     &:last-of-type {
-        background: url(../img/icon/Result.png);
+        background: url(../img/icon/sprite.png);
         background-position: 0px -1826px;
         width: 12px;
         height: 20px;
@@ -475,7 +483,7 @@ header {
 
             .img_box {
                 width: 100%;
-                height: 230px;
+                height: fit-content; //230px
                 border-radius: 3px;
                 overflow: hidden;
                 margin-bottom: 20px;
@@ -860,8 +868,8 @@ main.forum {
             article {
                 .pages {
                     .post {
-                        width: 610px;
-                        height: 400px;
+                        width: 31.7vw; // 610px
+                        height: 400px; // 400px
                         overflow: hidden;
 
                         img {
@@ -1609,13 +1617,13 @@ main.community {
 
             @include darken-icon();
             &:first-of-type {
-                background: url(../img/icon/Result.png);
+                background: url(../img/icon/sprite.png);
                 background-position: 0px -1826px;
                 width: 12px;
                 height: 20px;
             }
             &:last-of-type {
-                background: url(../img/icon/Result.png);
+                background: url(../img/icon/sprite.png);
                 background-position: 0px -1826px;
                 width: 12px;
                 height: 20px;

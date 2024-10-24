@@ -1,0 +1,60 @@
+@charset "utf-8";
+@import url(./common_responsive.css);
+/* 
+    목차
+        1. 1600px ~ 1440px
+        2. 1439px ~ 1025px
+        3. 1024px ~ 769px
+        4. 768px ~ 481px
+        5. 480px ~
+*/
+/* 1. 1600px ~ 1440px */
+@media screen and (min-width: 1440px) and (max-width: 1600px) {
+    .bestLCM .best_img {
+        height: 40vh;
+    }
+}
+/* 2. 1439px ~ 1025px */
+@media screen and (min-width: 1025px) and (max-width: 1439px) {
+    .bestLCM .best_img {
+        height: 28vh;
+    }
+}
+/* 3. 1024px ~ 769px */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+    h2 {
+        font-size: 52px;
+        line-height: 38px;
+    }
+    .wrapper.white section.bestLCM {
+        margin-top: 250px;
+    }
+    .wrapper.white ul.select li {
+        width: 50%;
+        padding: 0;
+    }
+    .wrapper.white ul.select li:last-child {
+        display: none;
+    }
+    .wrapper.white .reporter_pick ul.select li:last-child {
+        display: block;
+    }
+    .bestLCM .best_img {
+        height: 20vh;
+    }
+}
+/* 4. 768px ~ 481px */
+@media screen and (min-width: 481px) and (max-width: 768px) {
+}
+.bestLCM .best_img {
+    height: 20vh;
+}
+.reporter_pick {
+    padding-top: 0px;
+}
+/* 5. 480px ~*/
+@media screen and (max-width: 480px) {
+    .bestLCM .best_img {
+        height: 20vh;
+    }
+}
