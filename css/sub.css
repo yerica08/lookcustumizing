@@ -267,11 +267,17 @@ header .heart {
   font-size: 14px;
   font-weight: 400;
 }
-.wrapper.white .pages .post .title h3 {
+.wrapper.white .pages .post .title div {
+  overflow: hidden;
+}
+.wrapper.white .pages .post .title div h3 {
   margin-top: 15px;
   font-weight: 500;
   color: #fff;
   position: relative;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
 }
 .wrapper.white .pages .post .title .reation {
   display: flex;
@@ -554,6 +560,7 @@ section.show_view .title_wrap .content_title h3 {
   font-size: 16px;
   font-weight: 500;
   padding-bottom: 20px;
+  text-overflow: clip;
 }
 section.show_view .title_wrap .content_title h2 {
   font-size: 43px;
@@ -802,6 +809,9 @@ main.forum .contents_wrap .main_board article .pages .post {
 }
 main.forum .contents_wrap .main_board article .pages .post img {
   width: 110%;
+}
+main.forum #event {
+  width: 80%;
 }
 
 .maps {

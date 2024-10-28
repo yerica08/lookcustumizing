@@ -125,13 +125,14 @@
     }
     /* footer */
     .footer_wrap {
-        height: 115px;
+        height: fit-content;
+        padding: 40px 0;
     }
     footer .policy {
         margin-bottom: 10px;
         flex-wrap: wrap;
-        width: 643px;
-        justify-content: end;
+        width: 100%;
+        justify-content: center;
         row-gap: 0;
     }
     .footer_wrap > ul {
@@ -139,6 +140,13 @@
     }
     footer .legal {
         text-align: center;
+        float: none;
+        height: fit-content;
+    }
+    footer .legal p {
+        display: flex;
+        width: 100;
+        flex-flow: column wrap;
     }
 }
 /* 5. 480px ~*/
@@ -187,10 +195,22 @@
         margin-left: 0;
         padding: 0;
     }
+    .menu_content .wrap {
+        width: 100%;
+        padding: 15vw;
+        overflow: hidden;
+        justify-content: start;
+    }
     .user_login + li {
         gap: 1%;
         padding: 1vh 2px;
         justify-content: space-between;
+    }
+    .user_login + li > a {
+        font-size: 3vw;
+    }
+    .wrap > li.event {
+        display: none;
     }
     .lostark_event {
         width: auto;

@@ -305,12 +305,19 @@ header {
                     font-size: 14px;
                     font-weight: 400;
                 }
-                h3 {
-                    margin-top: 15px;
-                    font-weight: 500;
-                    color: #fff;
-                    @include position(relative);
+                div {
+                    overflow: hidden;
+                    h3 {
+                        margin-top: 15px;
+                        font-weight: 500;
+                        color: #fff;
+                        @include position(relative);
+                        text-overflow: ellipsis;
+                        overflow: hidden;
+                        white-space: nowrap;
+                    }
                 }
+
                 .reation {
                     display: flex;
                     justify-content: center;
@@ -603,6 +610,7 @@ section.show_view {
                 font-size: 16px;
                 font-weight: 500;
                 padding-bottom: 20px;
+                text-overflow: clip;
             }
             h2 {
                 font-size: 43px;
@@ -879,6 +887,9 @@ main.forum {
                 }
             }
         }
+    }
+    #event {
+        width: 80%;
     }
 }
 // 3-4. 배경 정보(view_info)
