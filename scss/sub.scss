@@ -34,7 +34,7 @@ $font-size: (14px, 16px, 20px, 24px, 36px, 68px);
 }
 
 @mixin basic-section {
-    width: 83%;
+    width: 84%;
     margin: 16% auto 14%;
 }
 
@@ -386,6 +386,12 @@ header {
     main {
         margin-bottom: 150px;
 
+        &.forum,
+        &.customizing_info {
+            .event {
+                width: 83%;
+            }
+        }
         // 2-5. 페이지 유도 버튼(event)
         .event {
             display: flex;
@@ -893,6 +899,15 @@ main.forum {
     }
 }
 // 3-4. 배경 정보(view_info)
+main.forum {
+    .contents_wrap {
+        .text {
+            display: none;
+            margin: 0 auto;
+            padding: 80px;
+        }
+    }
+}
 .maps {
     width: 100%;
     height: 854px;
@@ -1217,7 +1232,7 @@ main.forum {
     right: $right;
     transform: translateY(-50%);
 }
-main.coustomizing_info {
+main.customizing_info {
     // 첫번째 섹션
     section:first-of-type {
         margin-bottom: 0;
@@ -1233,7 +1248,7 @@ main.coustomizing_info {
         }
         .parts {
             display: flex;
-            width: 1200px;
+            width: 75%;
             height: 600px;
             justify-content: space-between;
             margin: 60px auto;
@@ -1272,7 +1287,7 @@ main.coustomizing_info {
                 display: flex;
                 gap: 15px;
                 flex-flow: column wrap;
-                width: 100px;
+                width: fit-content;
                 height: 100%;
 
                 .cell {
@@ -1282,6 +1297,7 @@ main.coustomizing_info {
                 .weapon {
                     &::before {
                         @include btn($con: '무기', $left: -32px, $row: -100%);
+                        white-space: nowrap;
                     }
                     &::after {
                         @include triangle($left: -33px, $l_c: nth($gray-color, 7));
@@ -1290,6 +1306,7 @@ main.coustomizing_info {
                 .moving_efttect {
                     &::before {
                         @include btn($con: '이동효과', $left: -32px, $row: -100%);
+                        white-space: nowrap;
                     }
                     &::after {
                         @include triangle($left: -33px, $l_c: nth($gray-color, 7));
@@ -1299,6 +1316,7 @@ main.coustomizing_info {
                     &::before {
                         @include btn($con: '비활성화', $left: -32px, $row: -100%);
                         background-color: nth($gray-color, 5);
+                        white-space: nowrap;
                     }
                     &::after {
                         @include triangle($left: -33px, $l_c: nth($gray-color, 5));
@@ -1308,6 +1326,7 @@ main.coustomizing_info {
                     &::before {
                         @include btn($con: '비활성화', $left: -32px, $row: -100%);
                         background-color: nth($gray-color, 5);
+                        white-space: nowrap;
                     }
                     &::after {
                         @include triangle($left: -33px, $l_c: nth($gray-color, 5));
@@ -1318,16 +1337,17 @@ main.coustomizing_info {
                 display: flex;
                 gap: 15px;
                 flex-flow: column wrap;
-                width: 100px;
+                width: fit-content;
                 height: 100%;
 
                 .cell {
                     width: 100%;
-                    height: calc(100% - 580px);
+                    height: calc(100% - 555px);
                 }
                 .head {
                     &::before {
                         @include btn($con: '머리', $right: -32px, $row: 100%);
+                        white-space: nowrap;
                     }
                     &::after {
                         @include triangle($right: -32px, $r_c: nth($gray-color, 7));
@@ -1336,6 +1356,7 @@ main.coustomizing_info {
                 .face {
                     &::before {
                         @include btn($con: '얼굴', $right: -32px, $row: 100%);
+                        white-space: nowrap;
                     }
                     &::after {
                         @include triangle($right: -32px, $r_c: nth($gray-color, 7));
@@ -1344,6 +1365,7 @@ main.coustomizing_info {
                 .deco {
                     &::before {
                         @include btn($con: '장식', $right: -32px, $row: 100%);
+                        white-space: nowrap;
                     }
                     &::after {
                         @include triangle($right: -32px, $r_c: nth($gray-color, 7));
@@ -1352,6 +1374,7 @@ main.coustomizing_info {
                 .top {
                     &::before {
                         @include btn($con: '상의', $right: -32px, $row: 100%);
+                        white-space: nowrap;
                     }
                     &::after {
                         @include triangle($right: -32px, $r_c: nth($gray-color, 7));
@@ -1360,6 +1383,7 @@ main.coustomizing_info {
                 .bottom {
                     &::before {
                         @include btn($con: '하의', $right: -32px, $row: 100%);
+                        white-space: nowrap;
                     }
                     &::after {
                         @include triangle($right: -32px, $r_c: nth($gray-color, 7));
@@ -1457,19 +1481,19 @@ main.coustomizing_info {
             display: flex;
             flex-flow: row wrap;
             row-gap: 20px;
-            column-gap: 58px;
+            column-gap: 2%;
             width: 100%;
             height: fit-content;
             margin-top: 60px;
 
             article {
-                width: fit-content;
+                width: 23.5%;
                 height: fit-content;
 
                 .avartar_frame {
                     display: grid;
                     place-items: center;
-                    width: 356px;
+                    width: 100%; // 356px
                     height: 480px;
                     @include position(relative);
                     border: 1px solid nth($gray-color, 3);

@@ -148,7 +148,7 @@ header .heart {
   top: 30%;
 }
 .wrapper.white section {
-  width: 83%;
+  width: 84%;
   margin: 16% auto 14%;
 }
 .wrapper.white .main_title {
@@ -339,6 +339,9 @@ header .heart {
 }
 .wrapper.white main {
   margin-bottom: 150px;
+}
+.wrapper.white main.forum .event, .wrapper.white main.customizing_info .event {
+  width: 83%;
 }
 .wrapper.white main .event {
   display: flex;
@@ -814,6 +817,12 @@ main.forum #event {
   width: 80%;
 }
 
+main.forum .contents_wrap .text {
+  display: none;
+  margin: 0 auto;
+  padding: 80px;
+}
+
 .maps {
   width: 100%;
   height: 854px;
@@ -1153,18 +1162,18 @@ main.forum #event {
   background: url(../img/photo/view/continent/continent_4.jpg) no-repeat center/cover;
 }
 
-main.coustomizing_info section:first-of-type {
+main.customizing_info section:first-of-type {
   margin-bottom: 0;
 }
-main.coustomizing_info section:nth-of-type(2) {
+main.customizing_info section:nth-of-type(2) {
   margin-top: 0;
 }
-main.coustomizing_info section:nth-of-type(2) .select a {
+main.customizing_info section:nth-of-type(2) .select a {
   color: #787878;
 }
-main.coustomizing_info section:nth-of-type(2) .parts {
+main.customizing_info section:nth-of-type(2) .parts {
   display: flex;
-  width: 1200px;
+  width: 75%;
   height: 600px;
   justify-content: space-between;
   margin: 60px auto;
@@ -1172,40 +1181,41 @@ main.coustomizing_info section:nth-of-type(2) .parts {
   opacity: 0;
   transition: 1s;
 }
-main.coustomizing_info section:nth-of-type(2) .parts input[type=checkbox] {
+main.customizing_info section:nth-of-type(2) .parts input[type=checkbox] {
   display: none;
 }
-main.coustomizing_info section:nth-of-type(2) .parts input[type=checkbox] + label {
+main.customizing_info section:nth-of-type(2) .parts input[type=checkbox] + label {
   display: block;
   width: 100px;
   height: 100px;
   position: relative;
   background: url(../img/icon/avartar_btn.svg) no-repeat center/cover;
 }
-main.coustomizing_info section:nth-of-type(2) .parts input[type=checkbox]:checked + label {
+main.customizing_info section:nth-of-type(2) .parts input[type=checkbox]:checked + label {
   background: url(../img/icon/avartar_btn_c.svg) no-repeat center/cover;
 }
-main.coustomizing_info section:nth-of-type(2) .parts input[type=checkbox] + label.nothing1, main.coustomizing_info section:nth-of-type(2) .parts input[type=checkbox] + label.nothing2 {
+main.customizing_info section:nth-of-type(2) .parts input[type=checkbox] + label.nothing1, main.customizing_info section:nth-of-type(2) .parts input[type=checkbox] + label.nothing2 {
   background: url(../img/icon/avartar_lock.svg) no-repeat center/cover;
 }
-main.coustomizing_info section:nth-of-type(2) .parts label::after, main.coustomizing_info section:nth-of-type(2) .parts label::before {
+main.customizing_info section:nth-of-type(2) .parts label::after, main.customizing_info section:nth-of-type(2) .parts label::before {
   display: none;
 }
-main.coustomizing_info section:nth-of-type(2) .parts label:hover::after, main.coustomizing_info section:nth-of-type(2) .parts label:hover::before {
+main.customizing_info section:nth-of-type(2) .parts label:hover::after, main.customizing_info section:nth-of-type(2) .parts label:hover::before {
   display: block;
 }
-main.coustomizing_info section:nth-of-type(2) .parts .left_part {
+main.customizing_info section:nth-of-type(2) .parts .left_part {
   display: flex;
   gap: 15px;
   flex-flow: column wrap;
-  width: 100px;
+  width: -moz-fit-content;
+  width: fit-content;
   height: 100%;
 }
-main.coustomizing_info section:nth-of-type(2) .parts .left_part .cell {
+main.customizing_info section:nth-of-type(2) .parts .left_part .cell {
   width: 100%;
   height: calc(100% - 460px);
 }
-main.coustomizing_info section:nth-of-type(2) .parts .left_part .weapon::before {
+main.customizing_info section:nth-of-type(2) .parts .left_part .weapon::before {
   content: "무기";
   padding: 15px 20px;
   background-color: #111111;
@@ -1217,8 +1227,9 @@ main.coustomizing_info section:nth-of-type(2) .parts .left_part .weapon::before 
   left: -32px;
   transform: translate(-100%, -50%);
   border-radius: 3px;
+  white-space: nowrap;
 }
-main.coustomizing_info section:nth-of-type(2) .parts .left_part .weapon::after {
+main.customizing_info section:nth-of-type(2) .parts .left_part .weapon::after {
   content: "";
   width: 0;
   height: 0;
@@ -1229,7 +1240,7 @@ main.coustomizing_info section:nth-of-type(2) .parts .left_part .weapon::after {
   left: -33px;
   transform: translateY(-50%);
 }
-main.coustomizing_info section:nth-of-type(2) .parts .left_part .moving_efttect::before {
+main.customizing_info section:nth-of-type(2) .parts .left_part .moving_efttect::before {
   content: "이동효과";
   padding: 15px 20px;
   background-color: #111111;
@@ -1241,8 +1252,9 @@ main.coustomizing_info section:nth-of-type(2) .parts .left_part .moving_efttect:
   left: -32px;
   transform: translate(-100%, -50%);
   border-radius: 3px;
+  white-space: nowrap;
 }
-main.coustomizing_info section:nth-of-type(2) .parts .left_part .moving_efttect::after {
+main.customizing_info section:nth-of-type(2) .parts .left_part .moving_efttect::after {
   content: "";
   width: 0;
   height: 0;
@@ -1253,7 +1265,7 @@ main.coustomizing_info section:nth-of-type(2) .parts .left_part .moving_efttect:
   left: -33px;
   transform: translateY(-50%);
 }
-main.coustomizing_info section:nth-of-type(2) .parts .left_part .nothing1::before {
+main.customizing_info section:nth-of-type(2) .parts .left_part .nothing1::before {
   content: "비활성화";
   padding: 15px 20px;
   background-color: #111111;
@@ -1266,8 +1278,9 @@ main.coustomizing_info section:nth-of-type(2) .parts .left_part .nothing1::befor
   transform: translate(-100%, -50%);
   border-radius: 3px;
   background-color: #9e9e9e;
+  white-space: nowrap;
 }
-main.coustomizing_info section:nth-of-type(2) .parts .left_part .nothing1::after {
+main.customizing_info section:nth-of-type(2) .parts .left_part .nothing1::after {
   content: "";
   width: 0;
   height: 0;
@@ -1278,7 +1291,7 @@ main.coustomizing_info section:nth-of-type(2) .parts .left_part .nothing1::after
   left: -33px;
   transform: translateY(-50%);
 }
-main.coustomizing_info section:nth-of-type(2) .parts .left_part .nothing2::before {
+main.customizing_info section:nth-of-type(2) .parts .left_part .nothing2::before {
   content: "비활성화";
   padding: 15px 20px;
   background-color: #111111;
@@ -1291,8 +1304,9 @@ main.coustomizing_info section:nth-of-type(2) .parts .left_part .nothing2::befor
   transform: translate(-100%, -50%);
   border-radius: 3px;
   background-color: #9e9e9e;
+  white-space: nowrap;
 }
-main.coustomizing_info section:nth-of-type(2) .parts .left_part .nothing2::after {
+main.customizing_info section:nth-of-type(2) .parts .left_part .nothing2::after {
   content: "";
   width: 0;
   height: 0;
@@ -1303,18 +1317,19 @@ main.coustomizing_info section:nth-of-type(2) .parts .left_part .nothing2::after
   left: -33px;
   transform: translateY(-50%);
 }
-main.coustomizing_info section:nth-of-type(2) .parts .right_part {
+main.customizing_info section:nth-of-type(2) .parts .right_part {
   display: flex;
   gap: 15px;
   flex-flow: column wrap;
-  width: 100px;
+  width: -moz-fit-content;
+  width: fit-content;
   height: 100%;
 }
-main.coustomizing_info section:nth-of-type(2) .parts .right_part .cell {
+main.customizing_info section:nth-of-type(2) .parts .right_part .cell {
   width: 100%;
-  height: calc(100% - 580px);
+  height: calc(100% - 555px);
 }
-main.coustomizing_info section:nth-of-type(2) .parts .right_part .head::before {
+main.customizing_info section:nth-of-type(2) .parts .right_part .head::before {
   content: "머리";
   padding: 15px 20px;
   background-color: #111111;
@@ -1326,8 +1341,9 @@ main.coustomizing_info section:nth-of-type(2) .parts .right_part .head::before {
   right: -32px;
   transform: translate(100%, -50%);
   border-radius: 3px;
+  white-space: nowrap;
 }
-main.coustomizing_info section:nth-of-type(2) .parts .right_part .head::after {
+main.customizing_info section:nth-of-type(2) .parts .right_part .head::after {
   content: "";
   width: 0;
   height: 0;
@@ -1338,7 +1354,7 @@ main.coustomizing_info section:nth-of-type(2) .parts .right_part .head::after {
   right: -32px;
   transform: translateY(-50%);
 }
-main.coustomizing_info section:nth-of-type(2) .parts .right_part .face::before {
+main.customizing_info section:nth-of-type(2) .parts .right_part .face::before {
   content: "얼굴";
   padding: 15px 20px;
   background-color: #111111;
@@ -1350,8 +1366,9 @@ main.coustomizing_info section:nth-of-type(2) .parts .right_part .face::before {
   right: -32px;
   transform: translate(100%, -50%);
   border-radius: 3px;
+  white-space: nowrap;
 }
-main.coustomizing_info section:nth-of-type(2) .parts .right_part .face::after {
+main.customizing_info section:nth-of-type(2) .parts .right_part .face::after {
   content: "";
   width: 0;
   height: 0;
@@ -1362,7 +1379,7 @@ main.coustomizing_info section:nth-of-type(2) .parts .right_part .face::after {
   right: -32px;
   transform: translateY(-50%);
 }
-main.coustomizing_info section:nth-of-type(2) .parts .right_part .deco::before {
+main.customizing_info section:nth-of-type(2) .parts .right_part .deco::before {
   content: "장식";
   padding: 15px 20px;
   background-color: #111111;
@@ -1374,8 +1391,9 @@ main.coustomizing_info section:nth-of-type(2) .parts .right_part .deco::before {
   right: -32px;
   transform: translate(100%, -50%);
   border-radius: 3px;
+  white-space: nowrap;
 }
-main.coustomizing_info section:nth-of-type(2) .parts .right_part .deco::after {
+main.customizing_info section:nth-of-type(2) .parts .right_part .deco::after {
   content: "";
   width: 0;
   height: 0;
@@ -1386,7 +1404,7 @@ main.coustomizing_info section:nth-of-type(2) .parts .right_part .deco::after {
   right: -32px;
   transform: translateY(-50%);
 }
-main.coustomizing_info section:nth-of-type(2) .parts .right_part .top::before {
+main.customizing_info section:nth-of-type(2) .parts .right_part .top::before {
   content: "상의";
   padding: 15px 20px;
   background-color: #111111;
@@ -1398,8 +1416,9 @@ main.coustomizing_info section:nth-of-type(2) .parts .right_part .top::before {
   right: -32px;
   transform: translate(100%, -50%);
   border-radius: 3px;
+  white-space: nowrap;
 }
-main.coustomizing_info section:nth-of-type(2) .parts .right_part .top::after {
+main.customizing_info section:nth-of-type(2) .parts .right_part .top::after {
   content: "";
   width: 0;
   height: 0;
@@ -1410,7 +1429,7 @@ main.coustomizing_info section:nth-of-type(2) .parts .right_part .top::after {
   right: -32px;
   transform: translateY(-50%);
 }
-main.coustomizing_info section:nth-of-type(2) .parts .right_part .bottom::before {
+main.customizing_info section:nth-of-type(2) .parts .right_part .bottom::before {
   content: "하의";
   padding: 15px 20px;
   background-color: #111111;
@@ -1422,8 +1441,9 @@ main.coustomizing_info section:nth-of-type(2) .parts .right_part .bottom::before
   right: -32px;
   transform: translate(100%, -50%);
   border-radius: 3px;
+  white-space: nowrap;
 }
-main.coustomizing_info section:nth-of-type(2) .parts .right_part .bottom::after {
+main.customizing_info section:nth-of-type(2) .parts .right_part .bottom::after {
   content: "";
   width: 0;
   height: 0;
@@ -1434,14 +1454,14 @@ main.coustomizing_info section:nth-of-type(2) .parts .right_part .bottom::after 
   right: -32px;
   transform: translateY(-50%);
 }
-main.coustomizing_info section:nth-of-type(2) .parts .middel_part {
+main.customizing_info section:nth-of-type(2) .parts .middel_part {
   position: relative;
   padding-right: 168px;
 }
-main.coustomizing_info section:nth-of-type(2) .parts .middel_part img {
+main.customizing_info section:nth-of-type(2) .parts .middel_part img {
   opacity: 0.5;
 }
-main.coustomizing_info section:nth-of-type(2) .parts .middel_part .character {
+main.customizing_info section:nth-of-type(2) .parts .middel_part .character {
   display: flex;
   flex-flow: column wrap;
   gap: 5px;
@@ -1456,42 +1476,42 @@ main.coustomizing_info section:nth-of-type(2) .parts .middel_part .character {
   font-size: 20px;
   color: #787878;
 }
-main.coustomizing_info section:nth-of-type(2) .parts .middel_part .character .reset {
+main.customizing_info section:nth-of-type(2) .parts .middel_part .character .reset {
   margin-bottom: 15px;
 }
-main.coustomizing_info section:nth-of-type(2) .parts .middel_part .character .line_arrow {
+main.customizing_info section:nth-of-type(2) .parts .middel_part .character .line_arrow {
   display: inline-block;
   filter: brightness(0.6);
   transform: rotate(-90deg);
   margin-left: 15px;
   margin-bottom: -3px;
 }
-main.coustomizing_info section:nth-of-type(2) .parts .middel_part .character input[type=radio] {
+main.customizing_info section:nth-of-type(2) .parts .middel_part .character input[type=radio] {
   display: none;
 }
-main.coustomizing_info section:nth-of-type(2) .parts .middel_part .character input[type=radio] + label {
+main.customizing_info section:nth-of-type(2) .parts .middel_part .character input[type=radio] + label {
   width: 100%;
   height: 48px;
   background-color: #ffffff;
   border-radius: 3px;
   border: 1px solid #eeeeee;
 }
-main.coustomizing_info section:nth-of-type(2) .parts .middel_part .character input[type=radio]:checked + label {
+main.customizing_info section:nth-of-type(2) .parts .middel_part .character input[type=radio]:checked + label {
   background-color: #111111;
   border: 1px solid #111111;
   color: #ffffff;
 }
-main.coustomizing_info .information {
+main.customizing_info .information {
   position: relative;
 }
-main.coustomizing_info .information .title {
+main.customizing_info .information .title {
   position: relative;
 }
-main.coustomizing_info .information .title h5 {
+main.customizing_info .information .title h5 {
   margin-top: 30px;
   font-weight: 500;
 }
-main.coustomizing_info .information .title .checking {
+main.customizing_info .information .title .checking {
   display: flex;
   flex-flow: row wrap;
   justify-content: end;
@@ -1503,44 +1523,43 @@ main.coustomizing_info .information .title .checking {
   bottom: 0;
   right: 0;
 }
-main.coustomizing_info .information .title .checking div {
+main.customizing_info .information .title .checking div {
   width: -moz-fit-content;
   width: fit-content;
   height: 100%;
   padding: 0 20px;
   font-size: 16px;
 }
-main.coustomizing_info .information .title .checking .job {
+main.customizing_info .information .title .checking .job {
   border: 1px solid #111111;
   background-color: #111111;
   color: #ffffff;
   font-weight: 400;
 }
-main.coustomizing_info .information .title .checking .part {
+main.customizing_info .information .title .checking .part {
   border: 1px solid #787878;
   color: #787878;
 }
-main.coustomizing_info .information .avartars_wrap {
+main.customizing_info .information .avartars_wrap {
   display: flex;
   flex-flow: row wrap;
   row-gap: 20px;
-  -moz-column-gap: 58px;
-       column-gap: 58px;
+  -moz-column-gap: 2%;
+       column-gap: 2%;
   width: 100%;
   height: -moz-fit-content;
   height: fit-content;
   margin-top: 60px;
 }
-main.coustomizing_info .information .avartars_wrap article {
-  width: -moz-fit-content;
-  width: fit-content;
+main.customizing_info .information .avartars_wrap article {
+  width: 23.5%;
   height: -moz-fit-content;
   height: fit-content;
 }
-main.coustomizing_info .information .avartars_wrap article .avartar_frame {
+main.customizing_info .information .avartars_wrap article .avartar_frame {
   display: grid;
   place-items: center;
-  width: 356px;
+  width: 100%;
   height: 480px;
   position: relative;
   border: 1px solid #eeeeee;
@@ -1548,48 +1567,48 @@ main.coustomizing_info .information .avartars_wrap article .avartar_frame {
   box-sizing: border-box;
   transition: 0.5s;
 }
-main.coustomizing_info .information .avartars_wrap article .avartar_frame img {
+main.customizing_info .information .avartars_wrap article .avartar_frame img {
   height: 400px;
   transition: 0.5s;
 }
-main.coustomizing_info .information .avartars_wrap article .avartar_frame:hover {
+main.customizing_info .information .avartars_wrap article .avartar_frame:hover {
   background-color: #eeeeee;
 }
-main.coustomizing_info .information .avartars_wrap article .avartar_frame:hover img {
+main.customizing_info .information .avartars_wrap article .avartar_frame:hover img {
   height: 430px;
 }
-main.coustomizing_info .information .avartars_wrap article .avartar_frame:hover .line_heart {
+main.customizing_info .information .avartars_wrap article .avartar_frame:hover .line_heart {
   filter: brightness(0.8);
 }
-main.coustomizing_info .information .avartars_wrap article .avartar_frame .line_heart {
+main.customizing_info .information .avartars_wrap article .avartar_frame .line_heart {
   filter: brightness(0.9);
   position: absolute;
   top: 30px;
   right: 30px;
   transition: 0.5s;
 }
-main.coustomizing_info .information .avartars_wrap article .avartar_frame .line_heart:hover {
+main.customizing_info .information .avartars_wrap article .avartar_frame .line_heart:hover {
   background: url(../img/icon/line_fill_heart.svg) no-repeat center/cover;
 }
-main.coustomizing_info .information .avartars_wrap article .avartar_info {
+main.customizing_info .information .avartars_wrap article .avartar_info {
   width: 100%;
   height: 100px;
   padding: 30px;
   position: relative;
   box-sizing: border-box;
 }
-main.coustomizing_info .information .avartars_wrap article .avartar_info p {
+main.customizing_info .information .avartars_wrap article .avartar_info p {
   font-size: 14px;
   color: #787878;
   font-weight: 400;
 }
-main.coustomizing_info .information .avartars_wrap article .avartar_info p:last-of-type {
+main.customizing_info .information .avartars_wrap article .avartar_info p:last-of-type {
   position: absolute;
   top: 29px;
   right: 30px;
   color: #9e9e9e;
 }
-main.coustomizing_info .information .avartars_wrap article .avartar_info p:last-of-type::before {
+main.customizing_info .information .avartars_wrap article .avartar_info p:last-of-type::before {
   display: inline-block;
   content: "";
   background: url(../img/icon/memo.svg) no-repeat center/cover;
@@ -1601,7 +1620,7 @@ main.coustomizing_info .information .avartars_wrap article .avartar_info p:last-
   left: -15px;
   transform: translateY(-39%);
 }
-main.coustomizing_info .information .avartars_wrap article .avartar_info h5 {
+main.customizing_info .information .avartars_wrap article .avartar_info h5 {
   font-weight: 600;
   color: #111111;
   margin-top: 10px;

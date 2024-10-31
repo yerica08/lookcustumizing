@@ -105,6 +105,28 @@
     .wrapper.white .pages .post .title .reation {
         display: none;
     }
+    /* customizing_info */
+    main.customizing_info .information .avartars_wrap article .avartar_frame {
+        height: 380px;
+    }
+    main.customizing_info .information .avartars_wrap article .avartar_frame img {
+        height: 300px;
+    }
+    main.customizing_info .information .avartars_wrap article .avartar_info {
+        padding: 15px 10px;
+    }
+    main.customizing_info .information .avartars_wrap article .avartar_info p:last-of-type {
+        top: 15px;
+        right: 10px;
+    }
+    main.customizing_info .information .avartars_wrap article .avartar_info {
+        height: 80px;
+    }
+    main.customizing_info .information .avartars_wrap article .avartar_frame .line_heart {
+        top: 15px;
+        right: 10px;
+        transform: scale(0.8);
+    }
 }
 /* 3. 1024px ~ 769px */
 @media screen and (min-width: 769px) and (max-width: 1024px) {
@@ -241,6 +263,73 @@
     .list_name .line_arrow:last-of-type {
         transform: rotate(180deg) scale(0.7);
     }
+    /* view info */
+    main.forum .contents_wrap .text {
+        display: block;
+    }
+    .maps {
+        display: none;
+    }
+    /* customizing_info */
+    main.customizing_info .information .avartars_wrap article .avartar_frame {
+        height: 280px;
+    }
+    main.customizing_info .information .avartars_wrap article .avartar_frame img {
+        height: 200px;
+    }
+    main.customizing_info .information .avartars_wrap article .avartar_info {
+        padding: 15px 10px;
+    }
+    main.customizing_info .information .avartars_wrap article .avartar_info p:last-of-type {
+        top: 70px;
+        right: auto;
+        left: 27px;
+    }
+    main.customizing_info .information .avartars_wrap article .avartar_info {
+        height: 100px;
+        overflow: hidden;
+    }
+    main.customizing_info .information .avartars_wrap article .avartar_info h5 {
+        font-size: 18px;
+        margin-top: 10px;
+    }
+    main.customizing_info .information .avartars_wrap article .avartar_info p:first-of-type {
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+    }
+    main.customizing_info .information .avartars_wrap article .avartar_frame .line_heart {
+        top: 15px;
+        right: 10px;
+        transform: scale(0.7);
+    }
+    main.customizing_info section:nth-of-type(2) .parts input[type='checkbox'] + label {
+        width: 80px;
+        height: 80px;
+    }
+    main.customizing_info section:nth-of-type(2) .parts {
+        width: 70%;
+    }
+    main.customizing_info section:nth-of-type(2) .parts .middel_part {
+        width: 0%;
+        padding-right: 130px;
+    }
+    main.customizing_info section:nth-of-type(2) .parts .middel_part .character {
+        width: 130px;
+        font-size: 16px;
+        line-height: 40px;
+    }
+    main.customizing_info section:nth-of-type(2) .parts .middel_part .character input[type='radio'] + label {
+        height: 40px;
+    }
+    main.customizing_info section:nth-of-type(2) .parts .middel_part img {
+        display: none;
+    }
+    main.customizing_info .information .title .checking {
+        width: auto;
+        position: unset;
+        margin-top: 30px;
+    }
 }
 /* 4. 768px ~ 481px */
 @media screen and (min-width: 481px) and (max-width: 768px) {
@@ -273,8 +362,8 @@
         margin-top: 30px;
     }
     .wrapper.white main .event {
-        padding: 20px 25px;
-        gap: 30px;
+        padding: 20px 15px;
+        gap: 20px;
     }
     .wrapper.white main .event h4 {
         font-size: 18px;
@@ -405,6 +494,92 @@
     .list_name .line_arrow:last-of-type {
         transform: rotate(180deg) scale(0.7);
     }
+    /* view info */
+    main.forum .contents_wrap .text {
+        display: block;
+    }
+    .maps {
+        display: none;
+    }
+    /* customizing_info */
+    main.customizing_info .information .avartars_wrap article .avartar_frame {
+        height: 280px;
+    }
+    main.customizing_info .information .avartars_wrap article .avartar_frame img {
+        height: 200px;
+    }
+    main.customizing_info .information .avartars_wrap article .avartar_info {
+        padding: 15px 10px;
+    }
+    main.customizing_info .information .avartars_wrap article .avartar_info p:last-of-type {
+        top: 70px;
+        right: auto;
+        left: 27px;
+    }
+    main.customizing_info .information .avartars_wrap article .avartar_info {
+        height: 100px;
+        overflow: hidden;
+    }
+    main.customizing_info .information .avartars_wrap article .avartar_info h5 {
+        font-size: 18px;
+        margin-top: 10px;
+    }
+    main.customizing_info .information .avartars_wrap article .avartar_info p:first-of-type {
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+    }
+    main.customizing_info .information .avartars_wrap article .avartar_frame .line_heart {
+        top: 15px;
+        right: 10px;
+        transform: scale(0.7);
+    }
+    main.customizing_info section:nth-of-type(2) .parts input[type='checkbox'] + label {
+        width: 80px;
+        height: 80px;
+    }
+    main.customizing_info section:nth-of-type(2) .parts {
+        width: 100%;
+        margin: 10px auto;
+        height: fit-content;
+    }
+    main.customizing_info section:nth-of-type(2) .parts .middel_part {
+        width: 0%;
+        padding-right: 130px;
+    }
+    main.customizing_info section:nth-of-type(2) .parts .middel_part .character {
+        width: 130px;
+        font-size: 16px;
+        line-height: 40px;
+    }
+    main.customizing_info section:nth-of-type(2) .parts .middel_part .character input[type='radio'] + label {
+        height: 40px;
+    }
+    main.customizing_info section:nth-of-type(2) .parts .middel_part img {
+        display: none;
+    }
+    main.customizing_info .information .title .checking {
+        width: auto;
+        position: unset;
+        margin-top: 30px;
+    }
+    .wrapper.white section {
+        margin: 25% auto 14%;
+    }
+    main.customizing_info .information .title h5 {
+        font-size: 14px;
+    }
+    main.customizing_info .information .avartars_wrap article {
+        width: 49%;
+    }
+    main.customizing_info .information .title .checking div {
+        padding: 0 16px;
+        font-size: 14px;
+    }
+
+    main.customizing_info section:nth-of-type(2) .parts .left_part .cell {
+        height: 100px;
+    }
 }
 
 /* 5. 480px ~*/
@@ -414,7 +589,7 @@
         padding-top: 0px;
     }
     h2 {
-        font-size: 52px;
+        font-size: 36px;
         line-height: 38px;
     }
     .wrapper.white section.bestLCM {
@@ -574,5 +749,93 @@
     }
     .wrapper.white ul.page_number {
         margin-top: 30px;
+    }
+    /* view info */
+    main.forum .contents_wrap .text {
+        display: block;
+    }
+    .maps {
+        display: none;
+    }
+    /* customizing_info */
+    main.customizing_info .information .avartars_wrap article .avartar_frame {
+        height: 280px;
+    }
+    main.customizing_info .information .avartars_wrap article .avartar_frame img {
+        height: 200px;
+    }
+    main.customizing_info .information .avartars_wrap article .avartar_info {
+        padding: 15px 10px;
+    }
+    main.customizing_info .information .avartars_wrap article .avartar_info p:last-of-type {
+        top: 70px;
+        right: auto;
+        left: 27px;
+    }
+    main.customizing_info .information .avartars_wrap article .avartar_info {
+        height: 100px;
+        overflow: hidden;
+    }
+    main.customizing_info .information .avartars_wrap article .avartar_info h5 {
+        font-size: 18px;
+        margin-top: 10px;
+    }
+    main.customizing_info .information .avartars_wrap article .avartar_info p:first-of-type {
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+    }
+    main.customizing_info .information .avartars_wrap article .avartar_frame .line_heart {
+        top: 15px;
+        right: 10px;
+        transform: scale(0.7);
+    }
+    main.customizing_info section:nth-of-type(2) .parts input[type='checkbox'] + label {
+        width: 80px;
+        height: 80px;
+    }
+    main.customizing_info section:nth-of-type(2) .parts {
+        width: 100%;
+        margin: 10px auto;
+        height: fit-content;
+    }
+    main.customizing_info section:nth-of-type(2) .parts .middel_part {
+        width: 0%;
+        padding-right: 130px;
+    }
+    main.customizing_info section:nth-of-type(2) .parts .middel_part .character {
+        width: 120px;
+        font-size: 16px;
+        line-height: 40px;
+    }
+    main.customizing_info section:nth-of-type(2) .parts .middel_part .character input[type='radio'] + label {
+        height: 40px;
+        width: 90%;
+    }
+    main.customizing_info section:nth-of-type(2) .parts .middel_part img {
+        display: none;
+    }
+    main.customizing_info .information .title .checking {
+        width: auto;
+        position: unset;
+        margin-top: 20px;
+    }
+    .wrapper.white section {
+        margin: 25% auto 14%;
+    }
+    main.customizing_info .information .title h5 {
+        font-size: 14px;
+        margin-top: 20px;
+    }
+    main.customizing_info .information .avartars_wrap article {
+        width: 49%;
+    }
+    main.customizing_info .information .title .checking div {
+        padding: 0 16px;
+        font-size: 14px;
+    }
+
+    main.customizing_info section:nth-of-type(2) .parts .left_part .cell {
+        height: 100px;
     }
 }
