@@ -773,6 +773,9 @@ main.forum {
                             }
                         }
                     }
+                    img {
+                        width: 100%;
+                    }
                 }
             }
             .filter_list_wrap {
@@ -1342,7 +1345,7 @@ main.customizing_info {
 
                 .cell {
                     width: 100%;
-                    height: calc(100% - 555px);
+                    height: calc(100% - 575px);
                 }
                 .head {
                     &::before {

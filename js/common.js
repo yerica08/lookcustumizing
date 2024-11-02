@@ -1311,13 +1311,13 @@ function community() {
                     ? // 커뮤니티를 선택했을 경우 자식요소로 들어가는 내용
                       `<td class="number">${post.number}</td><td class="type">${post.type}</td><td class="title">${
                           post.title
-                      }</td><td class="user">${post.user}</td><td class="view">${formatDate(
+                      }</td><td class="user">${post.user}</td><td class="date">${formatDate(
                           post.date
                       )}</td><td class="view">${post.views}</td><td class="recode">${post.likes}</td>`
                     : // 공지사항을 선택했을 경우 자식요소로 들어가는 내용
                       `<td class="number">${post.number}</td><td class="type">${post.type}</td><td class="title">${
                           post.title
-                      }</td><td class="user">${post.user}</td><td class="view">${formatDate(
+                      }</td><td class="user">${post.user}</td><td class="date">${formatDate(
                           post.date
                       )}</td><td class="view">${post.views}</td><td class="recode" style="display: none;">${
                           post.likes

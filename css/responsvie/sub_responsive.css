@@ -37,6 +37,16 @@
         transform: scale(0.8);
         right: 28px;
     }
+    /* community */
+    main.community .contents_wrap {
+        gap: 40px;
+    }
+    main.community .main_board table .title {
+        width: 40%;
+    }
+    .wrapper.white main.community h3 {
+        font-size: 12px;
+    }
 }
 /* 2. 1439px ~ 1025px */
 @media screen and (min-width: 1025px) and (max-width: 1439px) {
@@ -126,6 +136,32 @@
         top: 15px;
         right: 10px;
         transform: scale(0.8);
+    }
+    /* community */
+    main.community .contents_wrap {
+        gap: 20px;
+    }
+    main.community .main_board table .title {
+        width: 40%;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+    }
+    main.community .main_board table tr {
+        overflow: hidden;
+    }
+    main.community .main_board table .type {
+        width: 5%;
+    }
+    main.community .main_board table .user {
+        width: 12%;
+    }
+    main.community .main_board table .view,
+    main.community .main_board table .recode {
+        width: 7%;
+    }
+    .wrapper.white main.community h3 {
+        font-size: 12px;
     }
 }
 /* 3. 1024px ~ 769px */
@@ -329,6 +365,66 @@
         width: auto;
         position: unset;
         margin-top: 30px;
+    }
+    /* community */
+    main.community .contents_wrap {
+        gap: 10px;
+        flex-direction: column;
+    }
+    main.community .main_board table .title {
+        width: 40%;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+    }
+    main.community .main_board table tr {
+        overflow: hidden;
+    }
+    main.community .main_board table .type {
+        width: 5%;
+    }
+    main.community .main_board table .user {
+        width: 12%;
+    }
+    main.community .main_board table .view,
+    main.community .main_board table .recode {
+        width: 7%;
+    }
+    main.community .contents_wrap .left_nav {
+        width: 100%;
+        margin: 0;
+    }
+    main.community .contents_wrap .left_nav .list_wrap {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        gap: 20px;
+    }
+    main.community .contents_wrap .left_nav .list_wrap > li:last-child {
+        display: none;
+    }
+    main.community .contents_wrap .left_nav .list_wrap > li.active .list_name p,
+    main.community .contents_wrap .left_nav .list_wrap > li .list_name p {
+        width: 100%;
+        text-align: center;
+    }
+    main.community .contents_wrap .left_nav .list_wrap > li .list li {
+        display: inline-block;
+        line-height: 35px;
+        padding: 0 20px;
+        height: fit-content;
+    }
+    main.community .contents_wrap .left_nav .list_wrap > li.active .list.community,
+    main.community .contents_wrap .left_nav .list_wrap > li.active .list.notice {
+        height: fit-content;
+        padding: 10px 35px;
+        text-align: center;
+    }
+    main.community .contents_wrap .main_board {
+        width: 100%;
+    }
+    .wrapper.white main.community h3 {
+        font-size: 12px;
     }
 }
 /* 4. 768px ~ 481px */
@@ -579,6 +675,82 @@
 
     main.customizing_info section:nth-of-type(2) .parts .left_part .cell {
         height: 100px;
+    }
+    /* community */
+    main.community .contents_wrap {
+        gap: 10px;
+        flex-direction: column;
+    }
+    main.community .main_board table .title {
+        width: 50%;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+    }
+    main.community .main_board table tr {
+        overflow: hidden;
+    }
+    main.community .main_board table .type {
+        width: 7%;
+    }
+    main.community .main_board table .user {
+        display: none;
+    }
+    main.community .main_board table .date {
+        display: none;
+    }
+    main.community .main_board table .view,
+    main.community .main_board table .recode {
+        width: 7%;
+    }
+    main.community .contents_wrap .left_nav {
+        width: 100%;
+        margin: 0;
+    }
+    main.community .contents_wrap .left_nav .list_wrap {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        gap: 20px;
+    }
+    main.community .contents_wrap .left_nav .list_wrap > li:last-child {
+        display: none;
+    }
+    main.community .contents_wrap .left_nav .list_wrap > li.active .list_name p,
+    main.community .contents_wrap .left_nav .list_wrap > li .list_name p {
+        width: 100%;
+        text-align: center;
+    }
+    main.community .contents_wrap .left_nav .list_wrap > li .list li {
+        display: inline-block;
+        line-height: 35px;
+        padding: 0 10px;
+        height: fit-content;
+    }
+    main.community .contents_wrap .left_nav .list_wrap > li.active .list.community,
+    main.community .contents_wrap .left_nav .list_wrap > li.active .list.notice {
+        height: fit-content;
+        padding: 10px 15px;
+        text-align: center;
+    }
+    main.community .main_board table .number {
+        width: 7%;
+    }
+    main.community .contents_wrap .main_board {
+        width: 100%;
+    }
+    main.community .left_nav .list_wrap li.active {
+        margin-bottom: 0;
+    }
+    main.community .main_board table {
+        margin-top: 10px;
+    }
+    main.community .main_board table th,
+    main.community .main_board table td {
+        font-size: 14px;
+    }
+    .wrapper.white main.community h3 {
+        font-size: 12px;
     }
 }
 
@@ -837,5 +1009,86 @@
 
     main.customizing_info section:nth-of-type(2) .parts .left_part .cell {
         height: 100px;
+    }
+    /* community */
+    main.community .contents_wrap {
+        gap: 10px;
+        flex-direction: column;
+    }
+    main.community .main_board table .title {
+        width: 50%;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+    }
+    main.community .main_board table tr {
+        overflow: hidden;
+    }
+    main.community .main_board table .type,
+    main.community .main_board table .number,
+    main.community .main_board table .view,
+    main.community .main_board table .recode {
+        width: 10%;
+    }
+    main.community .main_board table .user {
+        display: none;
+    }
+    main.community .main_board table .date {
+        display: none;
+    }
+    main.community .contents_wrap .left_nav {
+        width: 100%;
+        margin: 0;
+    }
+    main.community .contents_wrap .left_nav .list_wrap {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        gap: 20px;
+    }
+    main.community .contents_wrap .left_nav .list_wrap > li:last-child {
+        display: none;
+    }
+    main.community .contents_wrap .left_nav .list_wrap > li.active .list_name p,
+    main.community .contents_wrap .left_nav .list_wrap > li .list_name p {
+        width: 100%;
+        text-align: center;
+    }
+    main.community .contents_wrap .left_nav .list_wrap > li .list li {
+        display: inline-block;
+        line-height: 35px;
+        padding: 0 8px;
+        height: fit-content;
+        font-size: 14px;
+    }
+    main.community .contents_wrap .left_nav .list_wrap > li.active .list.community,
+    main.community .contents_wrap .left_nav .list_wrap > li.active .list.notice {
+        height: fit-content;
+        padding: 10px 15px;
+        text-align: center;
+    }
+    main.community .contents_wrap .main_board {
+        width: 100%;
+    }
+    main.community .left_nav .list_wrap li.active {
+        margin-bottom: 0;
+    }
+    main.community .main_board table {
+        margin-top: 10px;
+    }
+    main.community .main_board table th,
+    main.community .main_board table td {
+        font-size: 14px;
+    }
+    .wrapper.white main.community h3 {
+        font-size: 12px;
+    }
+    .wrapper.white main.community ul.select {
+        margin-top: 10%;
+    }
+    main.community .contents_wrap .left_nav .list_wrap > li.active .list_name,
+    main.community .contents_wrap .left_nav .list_wrap > li .list_name {
+        height: 40px;
+        line-height: 8px;
     }
 }

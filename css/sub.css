@@ -708,6 +708,9 @@ main.forum .contents_wrap .left_nav .list_wrap > li .list li:hover {
   color: #111111;
   font-weight: 600;
 }
+main.forum .contents_wrap .left_nav .list_wrap > li img {
+  width: 100%;
+}
 main.forum .contents_wrap .left_nav .filter_list_wrap {
   width: 240px;
   margin-top: 60px;
@@ -1327,7 +1330,7 @@ main.customizing_info section:nth-of-type(2) .parts .right_part {
 }
 main.customizing_info section:nth-of-type(2) .parts .right_part .cell {
   width: 100%;
-  height: calc(100% - 555px);
+  height: calc(100% - 575px);
 }
 main.customizing_info section:nth-of-type(2) .parts .right_part .head::before {
   content: "머리";
