@@ -325,7 +325,7 @@ function mainPage() {
                 // 각 h2 요소에 대해 스타일 적용
                 textMoving();
                 function textMoving() {
-                    h2Elements.forEach((h2, index) => {
+                    h2Elements.forEach((h2) => {
                         h2.style.opacity = 1;
                         h2.style.transform = 'translateY(0)';
 
@@ -341,6 +341,13 @@ function mainPage() {
                 }
                 moreBtn.style.opacity = 1;
                 moreBtn.style.transform = 'translate(-15%, 0)';
+            }
+        });
+        // 메인비주얼 영상 클릭시 출력
+        const playBtn = document.querySelector('.full_photo > .mobile_playBtn');
+        playBtn.addEventListener('click', () => {
+            if (video.paused) {
+                video.play();
             }
         });
     } else {

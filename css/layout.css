@@ -24,7 +24,7 @@ body::-webkit-scrollbar {
     width: 100%;
     height: 100%;
 }
-.full_photo > div {
+.full_photo > .gradient_box {
     width: 100%;
     height: 100%;
     position: absolute;
@@ -46,14 +46,15 @@ body::-webkit-scrollbar {
         transform: translateX(0);
     }
 }
-.full_photo > img {
-    width: 1920px;
-    position: relative;
-    left: 0;
-    top: 50vh;
-    transform: translateY(-50%);
-    transform-origin: top center;
-    z-index: -10;
+.full_photo > .mobile_playBtn {
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border-radius: 3px;
+    background-color: rgb(17, 17, 17, 0.2);
+    opacity: 0;
 }
 /* 메인비주얼 - 글자 */
 .main_visual .text {
