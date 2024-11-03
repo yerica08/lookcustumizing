@@ -321,6 +321,7 @@ function mainPage() {
                 const textH2 = document.querySelector('.customizing .text_h2');
                 const h2Elements = Array.from(textH2.children);
                 box3.style.display = 'flex';
+                box3.style.opacity = '1';
                 // 각 h2 요소에 대해 스타일 적용
                 textMoving();
                 function textMoving() {
