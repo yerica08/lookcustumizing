@@ -252,8 +252,8 @@ const header = document.querySelector('header');
 let menuClick = false;
 
 smallMenu.addEventListener('click', function () {
+    header.classList.toggle('mobile');
     if (menuClick) {
-        header.classList.add('mobile');
         nav.style.opacity = '0';
         setTimeout(() => {
             nav.style.display = 'none';
@@ -262,7 +262,6 @@ smallMenu.addEventListener('click', function () {
         }, 200);
         menuClick = false;
     } else {
-        header.classList.remove('mobile');
         nav.style.display = 'flex';
         setTimeout(() => {
             nav.style.opacity = '1';
