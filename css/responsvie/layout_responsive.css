@@ -38,8 +38,8 @@
         font-size: 90px;
     }
     /* main visual */
-    .full_photo > img {
-        transform: translate(-20%, -50%);
+    .full_photo > video {
+        transform: translateX(-20%);
     }
     /* view */
     .view_box .diamond {
@@ -101,9 +101,8 @@
         font-size: 72px;
     }
     /* main visual */
-    .full_photo > img {
-        width: 1630px;
-        transform: translate(-30%, -50%);
+    .full_photo > video {
+        transform: translateX(-30%);
     }
     /* view */
     .view_box .diamond {
@@ -176,9 +175,9 @@
         font-size: 43px;
     }
     /* main visual */
-    .full_photo > img {
-        width: 1540px;
-        transform: translate(-31%, -50%);
+    .full_photo > video {
+        width: 1600px;
+        transform: translateX(-30%);
     }
     .main_visual h2 {
         font-size: 36px;
@@ -279,10 +278,9 @@
         font-size: 28px;
     }
     /* main visual */
-    .full_photo > img {
-        width: 100%;
-        top: 80px;
-        transform: none;
+    .full_photo > video {
+        height: 100vh;
+        transform: translateX(-30%);
     }
     .main_visual .text {
         bottom: 20vh;
