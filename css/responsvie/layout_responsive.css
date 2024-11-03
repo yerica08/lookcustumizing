@@ -176,7 +176,7 @@
     }
     /* main visual */
     .full_photo > video {
-        width: 1600px;
+        height: 100vh;
         transform: translateX(-30%);
     }
     .main_visual h2 {
