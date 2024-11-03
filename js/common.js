@@ -573,6 +573,16 @@ function mainPage() {
             window.scrollTo({ top: lcm_sns.offsetTop, behavior: 'smooth' });
         }
     });
+
+    // 메인페이지 영상
+    const video = document.getElementById('mainVideo');
+
+    // 사용자 상호작용 시 비디오 재생
+    window.addEventListener('click', () => {
+        if (video.paused) {
+            video.play();
+        }
+    });
 }
 
 // 2-1-4. 메인페이지 베스트 뷰(best_view)
