@@ -318,19 +318,15 @@ function mainPage() {
         window.addEventListener('scroll', () => {
             if (window.scrollY >= view.offsetTop) {
                 mainToView();
-            } else if (window.scrollY >= customizing.offsetTop) {
                 const textH2 = document.querySelector('.customizing .text_h2');
                 const h2Elements = Array.from(textH2.children);
-
+                box3.style.display = 'flex';
                 // 각 h2 요소에 대해 스타일 적용
                 textMoving();
                 function textMoving() {
                     h2Elements.forEach((h2, index) => {
-                        // 각 h2 요소에 대해 지연 시간을 두고 스타일 적용
-                        setTimeout(() => {
-                            h2.style.opacity = 1;
-                            h2.style.transform = 'translateY(0)';
-                        }, index * 70);
+                        h2.style.opacity = 1;
+                        h2.style.transform = 'translateY(0)';
 
                         // 디바이스의 넓이에 따라 위치 조정
                         setTimeout(() => {
@@ -342,9 +338,6 @@ function mainPage() {
                         }, h2Elements.length * 100 + 600);
                     });
                 }
-                setTimeout(() => {
-                    box3.style.display = 'flex';
-                }, 600);
             }
         });
     } else {
