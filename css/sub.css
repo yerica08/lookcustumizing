@@ -68,11 +68,14 @@ header h1 img {
 header .gnb a {
   color: #787878;
 }
-header .menu {
+header .menu,
+header .heart,
+header .close,
+header .human {
   filter: brightness(0.2);
 }
-header .heart {
-  filter: brightness(0.2);
+header .small_menu .close {
+  filter: brightness(0);
 }
 
 .wrapper.white {

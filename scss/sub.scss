@@ -104,11 +104,14 @@ header {
             color: nth($gray-color, 6);
         }
     }
-    .menu {
+    .menu,
+    .heart,
+    .close,
+    .human {
         @include darken-icon;
     }
-    .heart {
-        @include darken-icon;
+    .small_menu .close {
+        filter: brightness(0);
     }
 }
 // 2-2. section

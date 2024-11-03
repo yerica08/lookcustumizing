@@ -244,6 +244,34 @@ function updateBtn() {
 }
 // 화면 크기 변경시 버튼 다시 설정
 window.addEventListener('resize', updateBtn);
+// 2-1-3. 모바일사이즈 메뉴버튼
+const smallMenu = document.querySelector('header .small_menu');
+const smallMenuBtn = document.querySelector('header .small_menu button');
+const nav = document.querySelector('nav');
+const header = document.querySelector('header');
+let menuClick = false;
+
+smallMenu.addEventListener('click', function () {
+    if (menuClick) {
+        header.classList.add('mobile');
+        nav.style.opacity = '0';
+        setTimeout(() => {
+            nav.style.display = 'none';
+            smallMenuBtn.classList.remove('close');
+            smallMenuBtn.classList.add('menu');
+        }, 200);
+        menuClick = false;
+    } else {
+        header.classList.remove('mobile');
+        nav.style.display = 'flex';
+        setTimeout(() => {
+            nav.style.opacity = '1';
+        }, 200);
+        menuClick = true;
+        smallMenuBtn.classList.remove('menu');
+        smallMenuBtn.classList.add('close');
+    }
+});
 
 // 2. 페이지 스타일 --------------------------------------------------------
 
@@ -617,33 +645,6 @@ function mainPage() {
         };
 
         document.body.appendChild(newImage); // 이미지 로드
-    });
-
-    // 2-1-3. 모바일사이즈 메뉴버튼
-    const smallMenu = document.querySelector('header .small_menu');
-    const smallMenuBtn = document.querySelector('header .small_menu button');
-    const nav = document.querySelector('nav');
-    let menuClick = false;
-
-    smallMenu.addEventListener('click', function () {
-        if (menuClick) {
-            nav.style.opacity = '0';
-            setTimeout(() => {
-                nav.style.display = 'none';
-                smallMenuBtn.classList.remove('close');
-                smallMenuBtn.classList.add('menu');
-            }, 200);
-            menuClick = false;
-        } else {
-            nav.style.display = 'flex';
-            setTimeout(() => {
-                nav.style.opacity = '1';
-            }, 200);
-            menuClick = true;
-            smallMenuBtn.classList.remove('menu');
-            smallMenuBtn.classList.add('close');
-            smallMenuBtn.style.filter = 'brightness(1)';
-        }
     });
 }
 

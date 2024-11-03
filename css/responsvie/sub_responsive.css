@@ -1104,3 +1104,9 @@
         line-height: 8px;
     }
 }
+@media (hover: hover) {
+    header:hover {
+        opacity: 1;
+        transform: scale(1, 1);
+    }
+}

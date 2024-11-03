@@ -452,7 +452,7 @@ header::before {
     opacity: 0;
     transition: opacity 0.7s, transform 0.7s;
 }
-header:hover::before {
+header.mobile {
     opacity: 1;
     transform: scale(1, 1);
 }
@@ -729,6 +729,9 @@ header:hover .lnb {
 }
 .close {
     filter: brightness(0);
+}
+.small_menu .close {
+    filter: brightness(1);
 }
 /* 메뉴 - 검색 */
 .search {
