@@ -346,6 +346,7 @@ function mainPage() {
         // 메인비주얼 영상 클릭시 출력
         const playBtn = document.querySelector('.full_photo > .mobile_playBtn');
         const gradientBox = document.querySelector('.full_photo > .gradient_box');
+        gradientBox.style.opacity = '1';
         gradientBox.style.backgroundColor = 'rgb(17, 17, 17, 0.8)';
         playBtn.style.opacity = '1';
         playBtn.addEventListener('click', () => {
