@@ -347,6 +347,7 @@ function mainPage() {
         const playBtn = document.querySelector('.full_photo > .mobile_playBtn');
         playBtn.style.opacity = '1';
         playBtn.addEventListener('click', () => {
+            playBtn.style.opacity = '0';
             if (video.paused) {
                 video.play();
             }
