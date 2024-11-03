@@ -316,85 +316,35 @@ function mainPage() {
     ) {
         // 메인비주얼 스크롤 이벤트
         window.addEventListener('scroll', () => {
-            if (window.scrollY > view.offsetTop) {
+            if (window.scrollY >= view.offsetTop) {
                 mainToView();
-            } else if (window.scrollY > customizing.offsetTop) {
-                viewToCustomizing();
-                //스크롤 내릴 때
-                if (horizontalScroll >= 120) {
-                    // 스크롤 끝까지 내린 이후
-                    window.scrollTo({ top: lcm_sns.offsetTop, behavior: 'smooth' });
-                    setTimeout(() => {
-                        snsH3.style.transform = 'translate(0)';
-                        snsH3.style.opacity = 1;
-                    }, 500);
-                    setTimeout(() => {
-                        snsH2.style.transform = 'translate(0)';
-                        snsH2.style.opacity = 1;
-                    }, 1000);
-                } else {
-                    // 스크롤 내리는 중간
-                    horizontalScroll += 20;
-                    verticalScroll += 300;
-                    if (horizontalScroll <= 80) {
-                        if (window.innerWidth < 1025) {
-                            const box3 = document.querySelector('.customizing_img.box3');
-                            box3.scrollTo({ top: verticalScroll, behavior: 'smooth' });
-                            if (horizontalScroll == 80) {
-                                moreBtn.style.opacity = 1;
-                                moreBtn.style.transform = 'translate(-15%, 0)';
+            } else if (window.scrollY >= customizing.offsetTop) {
+                const textH2 = document.querySelector('.customizing .text_h2');
+                const h2Elements = Array.from(textH2.children);
+
+                // 각 h2 요소에 대해 스타일 적용
+                textMoving();
+                function textMoving() {
+                    h2Elements.forEach((h2, index) => {
+                        // 각 h2 요소에 대해 지연 시간을 두고 스타일 적용
+                        setTimeout(() => {
+                            h2.style.opacity = 1;
+                            h2.style.transform = 'translateY(0)';
+                        }, index * 70);
+
+                        // 디바이스의 넓이에 따라 위치 조정
+                        setTimeout(() => {
+                            if (window.innerWidth < 1025) {
+                                textH2.style.top = '10vh';
+                            } else {
+                                textH2.style.top = '15vh';
                             }
-                        } else {
-                            box1.style.transform = 'translateX(' + (50 + horizontalScroll) + '%)';
-                            box2.style.transform = 'translateX(-' + (50 + horizontalScroll) + '%)';
-                            if (horizontalScroll == 80) {
-                                setTimeout(() => {
-                                    moreBtn.style.opacity = 1;
-                                    moreBtn.style.transform = 'translateY(0)';
-                                }, 200);
-                            }
-                        }
-                    }
+                        }, h2Elements.length * 100 + 600);
+                    });
                 }
-            } else if (window.scrollY > lcm_sns.offsetTop) {
-                //스크롤 내릴 때
-                if (horizontalScroll >= 120) {
-                    // 스크롤 끝까지 내린 이후
-                    window.scrollTo({ top: lcm_sns.offsetTop, behavior: 'smooth' });
-                    setTimeout(() => {
-                        snsH3.style.transform = 'translate(0)';
-                        snsH3.style.opacity = 1;
-                    }, 500);
-                    setTimeout(() => {
-                        snsH2.style.transform = 'translate(0)';
-                        snsH2.style.opacity = 1;
-                    }, 1000);
-                } else {
-                    // 스크롤 내리는 중간
-                    horizontalScroll += 20;
-                    verticalScroll += 300;
-                    if (horizontalScroll <= 80) {
-                        if (window.innerWidth < 1025) {
-                            const box3 = document.querySelector('.customizing_img.box3');
-                            box3.scrollTo({ top: verticalScroll, behavior: 'smooth' });
-                            if (horizontalScroll == 80) {
-                                moreBtn.style.opacity = 1;
-                                moreBtn.style.transform = 'translate(-15%, 0)';
-                            }
-                        } else {
-                            box1.style.transform = 'translateX(' + (50 + horizontalScroll) + '%)';
-                            box2.style.transform = 'translateX(-' + (50 + horizontalScroll) + '%)';
-                            if (horizontalScroll == 80) {
-                                setTimeout(() => {
-                                    moreBtn.style.opacity = 1;
-                                    moreBtn.style.transform = 'translateY(0)';
-                                }, 200);
-                            }
-                        }
-                    }
-                }
-            } else if (window.scrollY > banner.offsetTop) {
-                sns = true;
+                setTimeout(() => {
+                    box3.style.display = 'flex';
+                }, 600);
             }
         });
     } else {
