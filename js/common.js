@@ -5,6 +5,10 @@
     1-1. header - 알림
     1-2. header - 메뉴
     1-3. 새로고침시 스크롤 초기화
+    1-4. sort by
+	1-5. sort_by - plus 버튼
+	1-6. page number
+	1-7. 화면 크기 변경시 버튼 설정
 
   2. 페이지별 스타일
     2-1. 메인 페이지(index)
@@ -135,7 +139,7 @@ window.onload = function () {
     }, 100);
 };
 
-// 1-5. sort by
+// 1-4. sort by
 function sortByFnc() {
     const sortByLi = document.querySelectorAll('.sort_by li');
 
@@ -147,7 +151,7 @@ function sortByFnc() {
     });
 }
 
-// 1-6. sort_by - plus 버튼
+// 1-5. sort_by - plus 버튼
 document.addEventListener('DOMContentLoaded', function () {
     const plusBtn = document.querySelector('.sort_by .plus_button'); // 단일 요소 선택
 
@@ -159,7 +163,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 });
 
-// 1-7. page number
+// 1-6. page number
 function pageNumber() {
     const pagination = document.getElementById('pagination');
     const postTable = document.querySelector('.pages');
@@ -224,6 +228,22 @@ function pageNumber() {
     renderPagination();
     updateActivePage();
 }
+
+// 1-7. 화면 크기 변경시 버튼 설정
+// 초기상태 설정
+updateBtn();
+function updateBtn() {
+    const menuBtn = document.querySelector('.menu_button button');
+    if (window.innerWidth <= 768) {
+        menuBtn.classList.remove('menu');
+        menuBtn.classList.add('human');
+    } else {
+        menuBtn.classList.remove('human');
+        menuBtn.classList.add('menu');
+    }
+}
+// 화면 크기 변경시 버튼 다시 설정
+window.addEventListener('resize', updateBtn);
 
 // 2. 페이지 스타일 --------------------------------------------------------
 
@@ -893,8 +913,8 @@ function subScroll() {
         { el: contentsWrap, delay: '1.8s' },
         { el: event[1], delay: '2s' },
     ];
-    let pathName = window.location.pathname;
 
+    let pathName = window.location.pathname;
     if (pathName.includes('best_page.html')) {
         // 초기 스타일 적용
         bestPaeElements.forEach(({ el, delay }) => {
@@ -913,10 +933,17 @@ function subScroll() {
             };
 
             // 각 요소의 스타일 설정
-            setStyles(event[1], 100, 'translateY(0)', 'translateY(-10%)');
-            setStyles(scrollTexts[1], 500, 'translateY(0)', 'translateY(-50%)');
-            setStyles(select[1], 650, 'translateY(0)', 'translateY(-50%)');
-            setStyles(article[0], 1050, 'translateY(0)', 'translateY(-3%)');
+            if (window.innerWidth >= 769) {
+                setStyles(event[1], 100, 'translateY(0)', 'translateY(-10%)');
+                setStyles(scrollTexts[1], 500, 'translateY(0)', 'translateY(-50%)');
+                setStyles(select[1], 650, 'translateY(0)', 'translateY(-50%)');
+                setStyles(article[0], 1050, 'translateY(0)', 'translateY(-3%)');
+            } else {
+                setStyles(event[1], -1, 'translateY(0)', 'translateY(-10%)');
+                setStyles(scrollTexts[1], 150, 'translateY(0)', 'translateY(-50%)');
+                setStyles(select[1], 200, 'translateY(0)', 'translateY(-50%)');
+                setStyles(article[0], 550, 'translateY(0)', 'translateY(-3%)');
+            }
         });
     } else {
         // 초기 스타일 적용

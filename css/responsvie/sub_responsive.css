@@ -122,6 +122,9 @@
     main.customizing_info .information .avartars_wrap article .avartar_frame img {
         height: 300px;
     }
+    main.customizing_info .information .avartars_wrap article .avartar_frame:hover img {
+        height: 340px;
+    }
     main.customizing_info .information .avartars_wrap article .avartar_info {
         padding: 15px 10px;
     }
@@ -313,6 +316,9 @@
     main.customizing_info .information .avartars_wrap article .avartar_frame img {
         height: 200px;
     }
+    main.customizing_info .information .avartars_wrap article .avartar_frame:hover img {
+        height: 240px;
+    }
     main.customizing_info .information .avartars_wrap article .avartar_info {
         padding: 15px 10px;
     }
@@ -492,7 +498,7 @@
         margin-top: 60px;
     }
     .wrapper.white .pages .post {
-        width: 90%;
+        width: 100%;
     }
     /* view_forum */
     .wrapper.white main.forum section {
@@ -603,6 +609,9 @@
     }
     main.customizing_info .information .avartars_wrap article .avartar_frame img {
         height: 200px;
+    }
+    main.customizing_info .information .avartars_wrap article .avartar_frame:hover img {
+        height: 240px;
     }
     main.customizing_info .information .avartars_wrap article .avartar_info {
         padding: 15px 10px;
@@ -817,7 +826,7 @@
         margin-top: 60px;
     }
     .wrapper.white .pages .post {
-        width: 90%;
+        width: 100%;
     }
     /* view_forum */
     .wrapper.white main.forum section {
@@ -935,6 +944,9 @@
     }
     main.customizing_info .information .avartars_wrap article .avartar_frame img {
         height: 200px;
+    }
+    main.customizing_info .information .avartars_wrap article .avartar_frame:hover img {
+        height: 240px;
     }
     main.customizing_info .information .avartars_wrap article .avartar_info {
         padding: 15px 10px;
