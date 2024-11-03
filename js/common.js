@@ -320,6 +320,42 @@ function mainPage() {
                 mainToView();
             } else if (window.scrollY > customizing.offsetTop) {
                 viewToCustomizing();
+                //스크롤 내릴 때
+                if (horizontalScroll >= 120) {
+                    // 스크롤 끝까지 내린 이후
+                    window.scrollTo({ top: lcm_sns.offsetTop, behavior: 'smooth' });
+                    setTimeout(() => {
+                        snsH3.style.transform = 'translate(0)';
+                        snsH3.style.opacity = 1;
+                    }, 500);
+                    setTimeout(() => {
+                        snsH2.style.transform = 'translate(0)';
+                        snsH2.style.opacity = 1;
+                    }, 1000);
+                } else {
+                    // 스크롤 내리는 중간
+                    horizontalScroll += 20;
+                    verticalScroll += 300;
+                    if (horizontalScroll <= 80) {
+                        if (window.innerWidth < 1025) {
+                            const box3 = document.querySelector('.customizing_img.box3');
+                            box3.scrollTo({ top: verticalScroll, behavior: 'smooth' });
+                            if (horizontalScroll == 80) {
+                                moreBtn.style.opacity = 1;
+                                moreBtn.style.transform = 'translate(-15%, 0)';
+                            }
+                        } else {
+                            box1.style.transform = 'translateX(' + (50 + horizontalScroll) + '%)';
+                            box2.style.transform = 'translateX(-' + (50 + horizontalScroll) + '%)';
+                            if (horizontalScroll == 80) {
+                                setTimeout(() => {
+                                    moreBtn.style.opacity = 1;
+                                    moreBtn.style.transform = 'translateY(0)';
+                                }, 200);
+                            }
+                        }
+                    }
+                }
             } else if (window.scrollY > lcm_sns.offsetTop) {
                 //스크롤 내릴 때
                 if (horizontalScroll >= 120) {
@@ -521,6 +557,7 @@ function mainPage() {
         });
     }
 
+    // 메인에서 배경으로 이동했을 때
     function mainToView() {
         // 스크롤을 내릴 때
         const viewTextH2 = document.querySelector('.view .text_h2');
