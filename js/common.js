@@ -345,6 +345,7 @@ function mainPage() {
         });
         // 메인비주얼 영상 클릭시 출력
         const playBtn = document.querySelector('.full_photo > .mobile_playBtn');
+        playBtn.style.opacity = '1';
         playBtn.addEventListener('click', () => {
             if (video.paused) {
                 video.play();

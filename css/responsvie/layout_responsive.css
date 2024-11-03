@@ -122,7 +122,7 @@
     /* customizing */
     .customizing_img .img_box {
         width: 48%;
-        height: auto;
+        height: fit-content;
     }
     .customizing_img.box1 {
         display: none;
@@ -132,6 +132,8 @@
     }
     .customizing_img.box3 {
         display: flex;
+        gap: 2%;
+        width: 70vw;
     }
     .more_button {
         bottom: -18vh;
@@ -210,6 +212,7 @@
     }
     .customizing_img.box3 {
         display: flex;
+        width: 70%;
     }
     .more_button {
         display: none;
