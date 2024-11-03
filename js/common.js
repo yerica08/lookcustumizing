@@ -296,15 +296,6 @@ function mainPage() {
     let horizontalScroll = 20; // customizing 페이지 좌우 스크롤
     let verticalScroll = 0;
 
-    // 메인비주얼 이미지 위치
-    const mainText = document.querySelector('.main_visual .text');
-    const mainImg = document.querySelector('.main_visual .full_photo img');
-    if (window.innerWidth < 480) {
-        if (window.innerHeight > mainImg.offsetHeight) {
-        }
-    }
-    mainText.style;
-
     // 메인페이지 스크롤
     // 2-1-1. 메인페이지 스크롤
     // 메인비주얼 휠 이벤트
