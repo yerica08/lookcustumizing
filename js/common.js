@@ -339,6 +339,8 @@ function mainPage() {
                         }, h2Elements.length * 100 + 600);
                     });
                 }
+                moreBtn.style.opacity = 1;
+                moreBtn.style.transform = 'translate(-15%, 0)';
             }
         });
     } else {
