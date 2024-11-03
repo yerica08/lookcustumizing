@@ -30,7 +30,6 @@ body::-webkit-scrollbar {
     position: absolute;
     top: 0;
     left: 0;
-    z-index: -5;
     background: linear-gradient(90deg, rgb(17, 17, 17, 0.5) 0%, rgb(17, 17, 17, 0) 100%);
     opacity: 0;
     transform: translateX(-50%);
